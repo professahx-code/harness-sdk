@@ -1,0 +1,135 @@
+Defined in: [src/conversation-manager/sliding-window-conversation-manager.ts:121](https://github.com/strands-agents/sdk-typescript/blob/0f99011408c45dcc6ca403794f60c05a1ac61eb8/strands-ts/src/conversation-manager/sliding-window-conversation-manager.ts#L121)
+
+Implements a sliding window strategy for managing conversation history.
+
+This class handles the logic of maintaining a conversation window that preserves tool usage pairs and avoids invalid window states. When the message count exceeds the window size, it will either truncate large tool results or remove the oldest messages while ensuring tool use/result pairs remain valid.
+
+Registers hooks for:
+
+-   AfterInvocationEvent: Applies sliding window management after each invocation
+-   AfterModelCallEvent: Reduces context on overflow errors and requests retry (via super)
+-   BeforeModelCallEvent: Proactive compression when threshold is exceeded (via super)
+
+## Extends
+
+-   [`ConversationManager`](/docs/api/typescript/ConversationManager/index.md)
+
+## Constructors
+
+### Constructor
+
+```ts
+new SlidingWindowConversationManager(config?): SlidingWindowConversationManager;
+```
+
+Defined in: [src/conversation-manager/sliding-window-conversation-manager.ts:135](https://github.com/strands-agents/sdk-typescript/blob/0f99011408c45dcc6ca403794f60c05a1ac61eb8/strands-ts/src/conversation-manager/sliding-window-conversation-manager.ts#L135)
+
+Initialize the sliding window conversation manager.
+
+#### Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `config?` | [`SlidingWindowConversationManagerConfig`](/docs/api/typescript/SlidingWindowConversationManagerConfig/index.md) | Configuration options for the sliding window manager. |
+
+#### Returns
+
+`SlidingWindowConversationManager`
+
+#### Overrides
+
+[`ConversationManager`](/docs/api/typescript/ConversationManager/index.md).[`constructor`](/docs/api/typescript/ConversationManager/index.md#constructor)
+
+## Properties
+
+### \_compressionThreshold
+
+```ts
+protected readonly _compressionThreshold: number;
+```
+
+Defined in: [src/conversation-manager/conversation-manager.ts:116](https://github.com/strands-agents/sdk-typescript/blob/0f99011408c45dcc6ca403794f60c05a1ac61eb8/strands-ts/src/conversation-manager/conversation-manager.ts#L116)
+
+#### Inherited from
+
+[`ConversationManager`](/docs/api/typescript/ConversationManager/index.md).[`_compressionThreshold`](/docs/api/typescript/ConversationManager/index.md#_compressionthreshold)
+
+---
+
+### name
+
+```ts
+readonly name: "strands:sliding-window-conversation-manager" = 'strands:sliding-window-conversation-manager';
+```
+
+Defined in: [src/conversation-manager/sliding-window-conversation-manager.ts:128](https://github.com/strands-agents/sdk-typescript/blob/0f99011408c45dcc6ca403794f60c05a1ac61eb8/strands-ts/src/conversation-manager/sliding-window-conversation-manager.ts#L128)
+
+Unique identifier for this conversation manager.
+
+#### Overrides
+
+[`ConversationManager`](/docs/api/typescript/ConversationManager/index.md).[`name`](/docs/api/typescript/ConversationManager/index.md#name)
+
+## Methods
+
+### initAgent()
+
+```ts
+initAgent(agent): void;
+```
+
+Defined in: [src/conversation-manager/sliding-window-conversation-manager.ts:151](https://github.com/strands-agents/sdk-typescript/blob/0f99011408c45dcc6ca403794f60c05a1ac61eb8/strands-ts/src/conversation-manager/sliding-window-conversation-manager.ts#L151)
+
+Initialize the plugin by registering hooks with the agent.
+
+Registers:
+
+-   AfterInvocationEvent callback to apply sliding window management
+-   AfterModelCallEvent callback to handle context overflow and request retry (via super)
+-   BeforeModelCallEvent callback for proactive compression (via super)
+
+#### Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `agent` | `LocalAgent` | The agent to register hooks with |
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+[`ConversationManager`](/docs/api/typescript/ConversationManager/index.md).[`initAgent`](/docs/api/typescript/ConversationManager/index.md#initagent)
+
+---
+
+### reduce()
+
+```ts
+reduce(options): boolean;
+```
+
+Defined in: [src/conversation-manager/sliding-window-conversation-manager.ts:171](https://github.com/strands-agents/sdk-typescript/blob/0f99011408c45dcc6ca403794f60c05a1ac61eb8/strands-ts/src/conversation-manager/sliding-window-conversation-manager.ts#L171)
+
+Reduce the conversation history.
+
+When `error` is set (reactive overflow recovery), attempts to truncate large tool results first before falling back to message trimming.
+
+When `error` is undefined (proactive compression), only trims messages without attempting tool result truncation.
+
+#### Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `options` | [`ConversationManagerReduceOptions`](/docs/api/typescript/ConversationManagerReduceOptions/index.md) | The reduction options |
+
+#### Returns
+
+`boolean`
+
+`true` if the history was reduced, `false` otherwise
+
+#### Overrides
+
+[`ConversationManager`](/docs/api/typescript/ConversationManager/index.md).[`reduce`](/docs/api/typescript/ConversationManager/index.md#reduce)

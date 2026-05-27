@@ -1,0 +1,151 @@
+## Overview
+
+The `@eval_task` decorator simplifies writing task functions for evaluation. Instead of manually wiring up telemetry, session mapping, and result normalization, you decorate a function and let the framework handle the boilerplate.
+
+## Basic Usage
+
+The simplest form — return an `Agent` and the decorator invokes it with `case.input` automatically:
+
+```python
+from strands import Agent
+from strands_evals import eval_task, Case, Experiment
+from strands_evals.evaluators import OutputEvaluator
+
+@eval_task()
+def my_task():
+    return Agent(model="us.anthropic.claude-sonnet-4-20250514-v1:0", callback_handler=None)
+
+cases = [Case(name="greeting", input="Hello!")]
+evaluator = OutputEvaluator(rubric="Score 1.0 if friendly. Score 0.0 otherwise.")
+experiment = Experiment(cases=cases, evaluators=[evaluator])
+reports = experiment.run_evaluations(my_task)
+```
+
+## How It Works
+
+The decorator wraps your function so that `Experiment.run_evaluations` receives a properly formatted task callable. Your function can:
+
+1.  **Take no arguments** — the decorator calls it once per case and invokes the returned Agent with `case.input`
+2.  **Take a `Case` argument** — for per-case customization (different tools, system prompts, etc.)
+3.  **Return an `Agent`** — auto-invoked with `case.input`
+4.  **Return a `str`** — used directly as the output
+5.  **Return a `dict`** — passed through as-is (must have at least an `"output"` key)
+
+## Per-Case Customization
+
+Accept a `Case` parameter to customize agent behavior per test case:
+
+```python
+from strands_tools import calculator
+
+@eval_task()
+def my_task(case):
+    tools = [calculator] if case.metadata.get("use_calc") else []
+    return Agent(tools=tools, callback_handler=None)
+
+cases = [
+    Case(name="math", input="What is 15 * 23?", metadata={"use_calc": True}),
+    Case(name="chat", input="Tell me a joke", metadata={"use_calc": False}),
+]
+```
+
+## Collecting Traces with TracedHandler
+
+For evaluators that need trajectory data (HelpfulnessEvaluator, CorrectnessEvaluator, etc.), use `TracedHandler`. It automatically collects OpenTelemetry spans and maps them to a `Session`:
+
+```python
+from strands_evals import eval_task, TracedHandler
+from strands_evals.evaluators import HelpfulnessEvaluator, CorrectnessEvaluator
+
+@eval_task(TracedHandler())
+def my_task():
+    return Agent(callback_handler=None)
+
+experiment = Experiment(
+    cases=cases,
+    evaluators=[HelpfulnessEvaluator(), CorrectnessEvaluator()]
+)
+reports = experiment.run_evaluations(my_task)
+```
+
+`TracedHandler` handles:
+
+-   Clearing the span exporter before each case
+-   Collecting finished spans after the task runs
+-   Mapping spans to a `Session` via `StrandsInMemorySessionMapper`
+-   Adding the session as `trajectory` in the result dict
+
+Caution
+
+`TracedHandler` shares a single span exporter across calls. Use it with sequential execution (`run_evaluations`) or `run_evaluations_async(max_workers=1)`. For concurrent execution, each worker needs its own `TracedHandler` instance.
+
+## Custom Handlers
+
+Create custom handlers by subclassing `EvalTaskHandler`:
+
+```python
+from strands_evals import EvalTaskHandler
+
+class MyHandler(EvalTaskHandler):
+    def before(self, case):
+        print(f"Running case: {case.name}")
+
+    def after(self, case, result):
+        processed = super().after(case, result)
+        processed["metadata"] = {"custom": True}
+        return processed
+
+@eval_task(MyHandler())
+def my_task():
+    return Agent(callback_handler=None)
+```
+
+## Before and After: Comparison
+
+Without the decorator:
+
+```python
+from strands_evals.telemetry import StrandsEvalsTelemetry
+from strands_evals.mappers import StrandsInMemorySessionMapper
+
+telemetry = StrandsEvalsTelemetry().setup_in_memory_exporter()
+
+def task_function(case):
+    telemetry.in_memory_exporter.clear()
+    agent = Agent(
+        trace_attributes={"session.id": case.session_id},
+        callback_handler=None
+    )
+    response = agent(case.input)
+    spans = telemetry.in_memory_exporter.get_finished_spans()
+    mapper = StrandsInMemorySessionMapper()
+    session = mapper.map_to_session(spans, session_id=case.session_id)
+    return {"output": str(response), "trajectory": session}
+```
+
+With the decorator:
+
+```python
+@eval_task(TracedHandler())
+def task_function():
+    return Agent(callback_handler=None)
+```
+
+## Related Documentation
+
+-   [Getting Started](/docs/user-guide/evals-sdk/quickstart/index.md): Quickstart guide
+-   [Evaluators Overview](/docs/user-guide/evals-sdk/evaluators/index.md): Available evaluators
+-   [Remote Trace Providers](/docs/user-guide/evals-sdk/how-to/trace_providers/index.md): Evaluate traces from production backends
+
+## Related pages
+
+- [Evaluating Remote Traces](/docs/user-guide/evals-sdk/how-to/trace_providers/index.md) (1 shared tag)
+- [Evaluation](/docs/user-guide/observability-evaluation/evaluation/index.md) (1 shared tag)
+- [Metrics](/docs/user-guide/observability-evaluation/metrics/index.md) (1 shared tag)
+- [Observability](/docs/user-guide/observability-evaluation/observability/index.md) (1 shared tag)
+- [Traces](/docs/user-guide/observability-evaluation/traces/index.md) (1 shared tag)
+- [Logging](/docs/user-guide/observability-evaluation/logs/index.md) (1 shared tag)
+- [Operating Agents in Production](/docs/user-guide/deploy/operating-agents-in-production/index.md) (1 shared tag)
+- [Root Cause Analysis](/docs/user-guide/evals-sdk/detectors/root_cause_analysis/index.md) (1 shared tag)
+- [Session Diagnosis](/docs/user-guide/evals-sdk/detectors/diagnosis/index.md) (1 shared tag)
+- [AgentCore Evaluation Dashboard Configuration](/docs/user-guide/evals-sdk/how-to/agentcore_evaluation_dashboard/index.md) (1 shared tag)
