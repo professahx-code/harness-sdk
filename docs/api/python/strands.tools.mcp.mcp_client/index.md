@@ -361,3 +361,25 @@ This method automatically uses task-augmented execution when appropriate, based 
 **Returns**:
 
 -   `MCPToolResult` - The result of the tool call
+
+#### map\_mcp\_content\_to\_tool\_result\_content
+
+```python
+def map_mcp_content_to_tool_result_content(
+    content: MCPTextContent | MCPImageContent | MCPEmbeddedResource | Any
+) -> ToolResultContent | None
+```
+
+Defined in: [src/strands/tools/mcp/mcp\_client.py:867](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L867)
+
+Maps MCP content types to tool result content types.
+
+This method converts MCP-specific content types to the generic ToolResultContent format used by the agent framework. Subclasses can override this to intercept or transform specific content blocks before they reach the model.
+
+**Arguments**:
+
+-   `content` - The MCP content to convert
+
+**Returns**:
+
+ToolResultContent or None: The converted content, or None if the content type is not supported

@@ -57,7 +57,7 @@ Initialize an A2A-compatible server from a Strands agent.
 def public_agent_card() -> AgentCard
 ```
 
-Defined in: [src/strands/multiagent/a2a/server.py:130](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L130)
+Defined in: [src/strands/multiagent/a2a/server.py:131](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L131)
 
 Get the public AgentCard for this agent.
 
@@ -71,6 +71,34 @@ The AgentCard contains metadata about the agent, including its name, description
 
 -   `ValueError` - If name or description is None or empty.
 
+#### agent\_card\_url
+
+```python
+@property
+def agent_card_url() -> str
+```
+
+Defined in: [src/strands/multiagent/a2a/server.py:175](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L175)
+
+Get the URL advertised in the AgentCard.
+
+Defaults to http\_url. Can be overridden to advertise a custom URL (e.g., without trailing slash or with a different base).
+
+#### agent\_card\_url
+
+```python
+@agent_card_url.setter
+def agent_card_url(url: str) -> None
+```
+
+Defined in: [src/strands/multiagent/a2a/server.py:184](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L184)
+
+Override the URL advertised in the AgentCard.
+
+**Arguments**:
+
+-   `url` - The URL to advertise in the AgentCard.
+
 #### agent\_skills
 
 ```python
@@ -78,7 +106,7 @@ The AgentCard contains metadata about the agent, including its name, description
 def agent_skills() -> list[AgentSkill]
 ```
 
-Defined in: [src/strands/multiagent/a2a/server.py:174](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L174)
+Defined in: [src/strands/multiagent/a2a/server.py:193](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L193)
 
 Get the list of skills this agent provides.
 
@@ -89,7 +117,7 @@ Get the list of skills this agent provides.
 def agent_skills(skills: list[AgentSkill]) -> None
 ```
 
-Defined in: [src/strands/multiagent/a2a/server.py:179](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L179)
+Defined in: [src/strands/multiagent/a2a/server.py:198](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L198)
 
 Set the list of skills this agent provides.
 
@@ -103,7 +131,7 @@ Set the list of skills this agent provides.
 def to_starlette_app(*, app_kwargs: dict[str, Any] | None = None) -> Starlette
 ```
 
-Defined in: [src/strands/multiagent/a2a/server.py:187](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L187)
+Defined in: [src/strands/multiagent/a2a/server.py:206](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L206)
 
 Create a Starlette application for serving this agent via HTTP.
 
@@ -123,7 +151,7 @@ Automatically handles path-based mounting if a mount path was derived from the h
 def to_fastapi_app(*, app_kwargs: dict[str, Any] | None = None) -> FastAPI
 ```
 
-Defined in: [src/strands/multiagent/a2a/server.py:212](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L212)
+Defined in: [src/strands/multiagent/a2a/server.py:231](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L231)
 
 Create a FastAPI application for serving this agent via HTTP.
 
@@ -147,7 +175,7 @@ def serve(app_type: Literal["fastapi", "starlette"] = "starlette",
           **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/multiagent/a2a/server.py:237](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L237)
+Defined in: [src/strands/multiagent/a2a/server.py:256](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L256)
 
 Start the A2A server with the specified application type.
 

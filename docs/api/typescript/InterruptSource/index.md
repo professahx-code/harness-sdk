@@ -2,7 +2,7 @@
 type InterruptSource = "tool" | "hook" | "multiagent-hook";
 ```
 
-Defined in: [src/interrupt.ts:23](https://github.com/strands-agents/sdk-typescript/blob/0f99011408c45dcc6ca403794f60c05a1ac61eb8/strands-ts/src/interrupt.ts#L23)
+Defined in: [src/interrupt.ts:23](https://github.com/strands-agents/sdk-typescript/blob/e0658993e83c0a615dc91695915f48eda36ba169/strands-ts/src/interrupt.ts#L23)
 
 Origin of an interrupt:
 

@@ -259,6 +259,7 @@ def __call__(prompt: AgentInput = None,
              invocation_state: dict[str, Any] | None = None,
              structured_output_model: type[BaseModel] | None = None,
              structured_output_prompt: str | None = None,
+             limits: Limits | None = None,
              **kwargs: Any) -> AgentResult
 ```
 
@@ -283,6 +284,7 @@ This method implements the conversational interface with multiple input patterns
 -   `invocation_state` - Additional parameters to pass through the event loop.
 -   `structured_output_model` - Pydantic model type(s) for structured output (overrides agent default).
 -   `structured_output_prompt` - Custom prompt for forcing structured output (overrides agent default).
+-   `limits` - Per-invocation budget caps (turns / output\_tokens / total\_tokens). See :class:`~strands.types.agent.Limits`. When a cap is reached, the loop terminates gracefully at the next turn boundary with a corresponding `stop_reason` (e.g. `"limit_turns"`); no exception is raised. Token caps are soft — a single oversized model response can overshoot the budget by one turn, since checks run at turn boundaries, not within a model call.
 -   `**kwargs` - Additional parameters to pass through the event loop.\[Deprecating\]
 
 **Returns**:
@@ -303,10 +305,11 @@ async def invoke_async(prompt: AgentInput = None,
                        invocation_state: dict[str, Any] | None = None,
                        structured_output_model: type[BaseModel] | None = None,
                        structured_output_prompt: str | None = None,
+                       limits: Limits | None = None,
                        **kwargs: Any) -> AgentResult
 ```
 
-Defined in: [src/strands/agent/agent.py:515](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/agent.py#L515)
+Defined in: [src/strands/agent/agent.py:523](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/agent.py#L523)
 
 Process a natural language prompt through the agent’s event loop.
 
@@ -327,6 +330,7 @@ This method implements the conversational interface with multiple input patterns
 -   `invocation_state` - Additional parameters to pass through the event loop.
 -   `structured_output_model` - Pydantic model type(s) for structured output (overrides agent default).
 -   `structured_output_prompt` - Custom prompt for forcing structured output (overrides agent default).
+-   `limits` - Per-invocation budget caps (turns / output\_tokens / total\_tokens). See :class:`~strands.types.agent.Limits`. When a cap is reached, the loop terminates gracefully at the next turn boundary with a corresponding `stop_reason` (e.g. `"limit_turns"`); no exception is raised. Token caps are soft — a single oversized model response can overshoot the budget by one turn, since checks run at turn boundaries, not within a model call.
 -   `**kwargs` - Additional parameters to pass through the event loop.\[Deprecating\]
 
 **Returns**:
@@ -344,7 +348,7 @@ This method implements the conversational interface with multiple input patterns
 def structured_output(output_model: type[T], prompt: AgentInput = None) -> T
 ```
 
-Defined in: [src/strands/agent/agent.py:563](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/agent.py#L563)
+Defined in: [src/strands/agent/agent.py:579](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/agent.py#L579)
 
 This method allows you to get structured output from the agent.
 
@@ -372,7 +376,7 @@ async def structured_output_async(output_model: type[T],
                                   prompt: AgentInput = None) -> T
 ```
 
-Defined in: [src/strands/agent/agent.py:594](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/agent.py#L594)
+Defined in: [src/strands/agent/agent.py:610](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/agent.py#L610)
 
 This method allows you to get structured output from the agent.
 
@@ -399,7 +403,7 @@ def as_tool(*,
             preserve_context: bool = False) -> AgentTool
 ```
 
-Defined in: [src/strands/agent/agent.py:665](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/agent.py#L665)
+Defined in: [src/strands/agent/agent.py:681](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/agent.py#L681)
 
 Convert this agent into a tool for use by another agent.
 
@@ -427,7 +431,7 @@ writer("Write about AI agents")
 def cleanup() -> None
 ```
 
-Defined in: [src/strands/agent/agent.py:699](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/agent.py#L699)
+Defined in: [src/strands/agent/agent.py:715](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/agent.py#L715)
 
 Clean up resources used by the agent.
 
@@ -443,7 +447,7 @@ def add_hook(
         event_type: type[TEvent] | list[type[TEvent]] | None = None) -> None
 ```
 
-Defined in: [src/strands/agent/agent.py:711](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/agent.py#L711)
+Defined in: [src/strands/agent/agent.py:727](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/agent.py#L727)
 
 Register a callback function for a specific event type.
 
@@ -499,7 +503,7 @@ Docs: [https://strandsagents.com/latest/documentation/docs/user-guide/concepts/a
 def __del__() -> None
 ```
 
-Defined in: [src/strands/agent/agent.py:765](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/agent.py#L765)
+Defined in: [src/strands/agent/agent.py:781](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/agent.py#L781)
 
 Clean up resources when agent is garbage collected.
 
@@ -511,10 +515,11 @@ async def stream_async(prompt: AgentInput = None,
                        invocation_state: dict[str, Any] | None = None,
                        structured_output_model: type[BaseModel] | None = None,
                        structured_output_prompt: str | None = None,
+                       limits: Limits | None = None,
                        **kwargs: Any) -> AsyncIterator[Any]
 ```
 
-Defined in: [src/strands/agent/agent.py:772](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/agent.py#L772)
+Defined in: [src/strands/agent/agent.py:788](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/agent.py#L788)
 
 Process a natural language prompt and yield events as an async iterator.
 
@@ -535,6 +540,7 @@ This method provides an asynchronous interface for streaming agent events with m
 -   `invocation_state` - Additional parameters to pass through the event loop.
 -   `structured_output_model` - Pydantic model type(s) for structured output (overrides agent default).
 -   `structured_output_prompt` - Custom prompt for forcing structured output (overrides agent default).
+-   `limits` - Per-invocation budget caps (turns / output\_tokens / total\_tokens). See :class:`~strands.types.agent.Limits`. When a cap is reached, the loop terminates gracefully at the next turn boundary with a corresponding `stop_reason` (e.g. `"limit_turns"`); no exception is raised. Token caps are soft — a single oversized model response can overshoot the budget by one turn, since checks run at turn boundaries, not within a model call.
 -   `**kwargs` - Additional parameters to pass to the event loop.\[Deprecating\]
 
 **Yields**:
@@ -549,6 +555,7 @@ An async iterator that yields events. Each event is a dictionary containing info
 **Raises**:
 
 -   `ConcurrencyException` - If another invocation is already in progress on this agent instance.
+-   `TypeError` - If a value in `limits` is not a positive integer.
 -   `Exception` - Any exceptions from the agent invocation will be propagated to the caller.
 
 **Example**:
@@ -569,7 +576,7 @@ def take_snapshot(*,
                   app_data: dict[str, Any] | None = None) -> Snapshot
 ```
 
-Defined in: [src/strands/agent/agent.py:1126](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/agent.py#L1126)
+Defined in: [src/strands/agent/agent.py:1184](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/agent.py#L1184)
 
 Capture current agent state as an in-memory snapshot.
 
@@ -594,7 +601,7 @@ A Snapshot containing the captured agent state.
 def load_snapshot(snapshot: Snapshot) -> None
 ```
 
-Defined in: [src/strands/agent/agent.py:1172](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/agent.py#L1172)
+Defined in: [src/strands/agent/agent.py:1230](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/agent.py#L1230)
 
 Restore agent state from a previously captured snapshot.
 

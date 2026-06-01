@@ -6,7 +6,7 @@ Utilities for collecting and reporting performance metrics in the SDK.
 class Trace()
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:21](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L21)
+Defined in: [src/strands/telemetry/metrics.py:22](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L22)
 
 A trace representing a single operation or step in the execution flow.
 
@@ -21,7 +21,7 @@ def __init__(name: str,
              message: Message | None = None) -> None
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:24](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L24)
+Defined in: [src/strands/telemetry/metrics.py:25](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L25)
 
 Initialize a new trace.
 
@@ -40,7 +40,7 @@ Initialize a new trace.
 def end(end_time: float | None = None) -> None
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:54](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L54)
+Defined in: [src/strands/telemetry/metrics.py:55](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L55)
 
 Mark the trace as complete with the given or current timestamp.
 
@@ -54,7 +54,7 @@ Mark the trace as complete with the given or current timestamp.
 def add_child(child: "Trace") -> None
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:63](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L63)
+Defined in: [src/strands/telemetry/metrics.py:64](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L64)
 
 Add a child trace to this trace.
 
@@ -68,7 +68,7 @@ Add a child trace to this trace.
 def duration() -> float | None
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:71](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L71)
+Defined in: [src/strands/telemetry/metrics.py:72](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L72)
 
 Calculate the duration of this trace.
 
@@ -82,7 +82,7 @@ The duration in seconds, or None if the trace hasn’t ended yet.
 def add_message(message: Message) -> None
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:79](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L79)
+Defined in: [src/strands/telemetry/metrics.py:80](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L80)
 
 Add a message to the trace.
 
@@ -96,7 +96,7 @@ Add a message to the trace.
 def to_dict() -> dict[str, Any]
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:87](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L87)
+Defined in: [src/strands/telemetry/metrics.py:88](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L88)
 
 Convert the trace to a dictionary representation.
 
@@ -111,7 +111,7 @@ A dictionary containing all trace information, suitable for serialization.
 class ToolMetrics()
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:108](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L108)
+Defined in: [src/strands/telemetry/metrics.py:109](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L109)
 
 Metrics for a specific tool’s usage.
 
@@ -133,7 +133,7 @@ def add_call(tool: ToolUse,
              attributes: dict[str, Any] | None = None) -> None
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:125](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L125)
+Defined in: [src/strands/telemetry/metrics.py:126](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L126)
 
 Record a new tool call with its outcome.
 
@@ -152,7 +152,7 @@ Record a new tool call with its outcome.
 class EventLoopCycleMetric()
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:156](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L156)
+Defined in: [src/strands/telemetry/metrics.py:157](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L157)
 
 Aggregated metrics for a single event loop cycle.
 
@@ -168,7 +168,7 @@ Aggregated metrics for a single event loop cycle.
 class AgentInvocation()
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:169](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L169)
+Defined in: [src/strands/telemetry/metrics.py:170](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L170)
 
 Metrics for a single agent invocation.
 
@@ -186,7 +186,7 @@ AgentInvocation contains all the event loop cycles and accumulated token usage f
 class EventLoopMetrics()
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:184](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L184)
+Defined in: [src/strands/telemetry/metrics.py:185](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L185)
 
 Aggregated metrics for an event loop’s execution.
 
@@ -207,7 +207,7 @@ Aggregated metrics for an event loop’s execution.
 def latest_context_size() -> int | None
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:206](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L206)
+Defined in: [src/strands/telemetry/metrics.py:207](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L207)
 
 Most recent context size from the last LLM call.
 
@@ -224,7 +224,7 @@ The input token count from the most recent cycle, or None if no data is availabl
 def projected_context_size() -> int | None
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:219](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L219)
+Defined in: [src/strands/telemetry/metrics.py:220](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L220)
 
 Projected context size for the next model call.
 
@@ -241,7 +241,7 @@ The projected token count, or None if no data is available.
 def latest_agent_invocation() -> AgentInvocation | None
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:243](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L243)
+Defined in: [src/strands/telemetry/metrics.py:244](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L244)
 
 Get the most recent agent invocation.
 
@@ -255,7 +255,7 @@ The most recent AgentInvocation, or None if no invocations exist.
 def start_cycle(attributes: dict[str, Any]) -> tuple[float, Trace]
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:251](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L251)
+Defined in: [src/strands/telemetry/metrics.py:252](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L252)
 
 Start a new event loop cycle and create a trace for it.
 
@@ -275,7 +275,7 @@ def end_cycle(start_time: float,
               attributes: dict[str, Any] | None = None) -> None
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:279](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L279)
+Defined in: [src/strands/telemetry/metrics.py:280](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L280)
 
 End the current event loop cycle and record its duration.
 
@@ -292,7 +292,7 @@ def add_tool_usage(tool: ToolUse, duration: float, tool_trace: Trace,
                    success: bool, message: Message) -> None
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:294](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L294)
+Defined in: [src/strands/telemetry/metrics.py:295](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L295)
 
 Record metrics for a tool invocation.
 
@@ -310,7 +310,7 @@ Record metrics for a tool invocation.
 def update_usage(usage: Usage) -> None
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:352](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L352)
+Defined in: [src/strands/telemetry/metrics.py:353](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L353)
 
 Update the accumulated token usage with new usage data.
 
@@ -324,7 +324,7 @@ Update the accumulated token usage with new usage data.
 def reset_usage_metrics() -> None
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:375](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L375)
+Defined in: [src/strands/telemetry/metrics.py:376](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L376)
 
 Start a new agent invocation by creating a new AgentInvocation.
 
@@ -336,7 +336,7 @@ This should be called at the start of a new request to begin tracking a new agen
 def update_metrics(metrics: Metrics) -> None
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:383](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L383)
+Defined in: [src/strands/telemetry/metrics.py:384](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L384)
 
 Update the accumulated performance metrics with new metrics data.
 
@@ -350,7 +350,7 @@ Update the accumulated performance metrics with new metrics data.
 def get_summary() -> dict[str, Any]
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:394](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L394)
+Defined in: [src/strands/telemetry/metrics.py:395](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L395)
 
 Generate a comprehensive summary of all collected metrics.
 
@@ -365,7 +365,7 @@ def metrics_to_string(event_loop_metrics: EventLoopMetrics,
                       allowed_names: set[str] | None = None) -> str
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:533](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L533)
+Defined in: [src/strands/telemetry/metrics.py:534](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L534)
 
 Convert event loop metrics to a human-readable string representation.
 
@@ -384,11 +384,13 @@ A formatted string representation of the metrics.
 class MetricsClient()
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:546](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L546)
+Defined in: [src/strands/telemetry/metrics.py:547](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L547)
 
 Singleton client for managing OpenTelemetry metrics instruments.
 
 The actual metrics export destination (console, OTLP endpoint, etc.) is configured through OpenTelemetry SDK configuration by users, not by this client.
+
+This class uses a thread-safe double-checked locking pattern to ensure safe concurrent initialization across multiple threads.
 
 #### \_\_new\_\_
 
@@ -396,9 +398,11 @@ The actual metrics export destination (console, OTLP endpoint, etc.) is configur
 def __new__(cls) -> "MetricsClient"
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:570](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L570)
+Defined in: [src/strands/telemetry/metrics.py:575](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L575)
 
 Create or return the singleton instance of MetricsClient.
+
+Uses double-checked locking to ensure thread safety without acquiring the lock on every access after initialization.
 
 **Returns**:
 
@@ -410,11 +414,11 @@ The single MetricsClient instance.
 def __init__() -> None
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:580](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L580)
+Defined in: [src/strands/telemetry/metrics.py:590](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L590)
 
 Initialize the MetricsClient.
 
-This method only runs once due to the singleton pattern. Sets up the OpenTelemetry meter and creates metric instruments.
+This method only runs once due to the singleton pattern. Sets up the OpenTelemetry meter and creates metric instruments. Uses a lock to prevent concurrent initialization races.
 
 #### create\_instruments
 
@@ -422,6 +426,6 @@ This method only runs once due to the singleton pattern. Sets up the OpenTelemet
 def create_instruments() -> None
 ```
 
-Defined in: [src/strands/telemetry/metrics.py:594](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L594)
+Defined in: [src/strands/telemetry/metrics.py:610](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/metrics.py#L610)
 
 Create and initialize all OpenTelemetry metric instruments.

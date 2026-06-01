@@ -35,7 +35,7 @@ Gives your agent the ability to read and modify files on disk — useful for cod
 
 Security Warning
 
-This tool reads and writes files with the full permissions of the Node.js process. Only use with trusted input and consider running in a sandboxed environment for production.
+This tool reads and writes files at arbitrary absolute paths with the full permissions of the Node.js process. Only use with trusted input and consider running in a sandboxed environment (containers, VMs) for production.
 
 **Example:**
 
@@ -62,6 +62,10 @@ await agent.invoke('View lines 1-10 of /tmp/config.json')
 Lets your agent call external APIs and fetch web content. Supports all HTTP methods, custom headers, and request bodies. Default timeout is 30 seconds.
 
 *Supported in: Node.js 20+, modern browsers.*
+
+Security Warning
+
+This tool makes HTTP requests to arbitrary URLs without restrictions on destination. Only use with trusted input and consider running in a sandboxed environment (containers, VMs) for production.
 
 **Example:**
 

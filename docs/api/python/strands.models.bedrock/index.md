@@ -153,7 +153,7 @@ async def stream(messages: Messages,
                  **kwargs: Any) -> AsyncGenerator[StreamEvent, None]
 ```
 
-Defined in: [src/strands/models/bedrock.py:886](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/models/bedrock.py#L886)
+Defined in: [src/strands/models/bedrock.py:882](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/models/bedrock.py#L882)
 
 Stream conversation with the Bedrock model.
 
@@ -188,7 +188,7 @@ async def structured_output(
         **kwargs: Any) -> AsyncGenerator[dict[str, T | Any], None]
 ```
 
-Defined in: [src/strands/models/bedrock.py:1172](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/models/bedrock.py#L1172)
+Defined in: [src/strands/models/bedrock.py:1168](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/models/bedrock.py#L1168)
 
 Get structured output from the model.
 

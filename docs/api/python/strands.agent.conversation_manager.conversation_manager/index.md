@@ -81,7 +81,7 @@ Initialize the ConversationManager.
 def register_hooks(registry: HookRegistry, **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:100](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L100)
+Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:98](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L98)
 
 Register hooks for agent lifecycle events.
 
@@ -100,7 +100,7 @@ Derived classes that override this method must call the base implementation to e
 def restore_from_session(state: dict[str, Any]) -> list[Message] | None
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:161](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L161)
+Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:159](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L159)
 
 Restore the Conversation Manager’s state from a session.
 
@@ -118,7 +118,7 @@ Optional list of messages to prepend to the agents messages. By default returns 
 def get_state() -> dict[str, Any]
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:174](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L174)
+Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:172](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L172)
 
 Get the current state of a Conversation Manager as a Json serializable dictionary.
 
@@ -129,7 +129,7 @@ Get the current state of a Conversation Manager as a Json serializable dictionar
 def apply_management(agent: "Agent", **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:182](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L182)
+Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:180](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L180)
 
 Applies management strategy to the provided agent.
 
@@ -149,7 +149,7 @@ def reduce_context(agent: "Agent",
                    **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:197](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L197)
+Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:195](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L195)
 
 Reduce the conversation history.
 

@@ -15,13 +15,13 @@ The event loop allows agents to:
 
 ```python
 async def event_loop_cycle(
-    agent: "Agent",
-    invocation_state: dict[str, Any],
-    structured_output_context: StructuredOutputContext | None = None
-) -> AsyncGenerator[TypedEvent, None]
+        agent: "Agent",
+        invocation_state: dict[str, Any],
+        structured_output_context: StructuredOutputContext | None = None,
+        limits: Limits | None = None) -> AsyncGenerator[TypedEvent, None]
 ```
 
-Defined in: [src/strands/event\_loop/event\_loop.py:120](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/event_loop/event_loop.py#L120)
+Defined in: [src/strands/event\_loop/event\_loop.py:157](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/event_loop/event_loop.py#L157)
 
 Execute a single cycle of the event loop.
 
@@ -46,6 +46,8 @@ This core function processes a single conversation turn, handling model inferenc
     -   event\_loop\_cycle\_span: Current tracing Span for this cycle
 -   `structured_output_context` - Optional context for structured output management.
     
+-   `limits` - Optional per-invocation budget caps. Checked at the top of this cycle (after tools from the previous cycle have run to completion). See :class:`~strands.types.agent.Limits`.
+    
 
 **Yields**:
 
@@ -65,13 +67,13 @@ Model and tool stream events. The last event is a tuple containing:
 
 ```python
 async def recurse_event_loop(
-    agent: "Agent",
-    invocation_state: dict[str, Any],
-    structured_output_context: StructuredOutputContext | None = None
-) -> AsyncGenerator[TypedEvent, None]
+        agent: "Agent",
+        invocation_state: dict[str, Any],
+        structured_output_context: StructuredOutputContext | None = None,
+        limits: Limits | None = None) -> AsyncGenerator[TypedEvent, None]
 ```
 
-Defined in: [src/strands/event\_loop/event\_loop.py:285](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/event_loop/event_loop.py#L285)
+Defined in: [src/strands/event\_loop/event\_loop.py:344](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/event_loop/event_loop.py#L344)
 
 Make a recursive call to event\_loop\_cycle with the current state.
 
@@ -82,6 +84,7 @@ This function is used when the event loop needs to continue processing after too
 -   `agent` - Agent for which the recursive call is being made.
 -   `invocation_state` - Arguments to pass through event\_loop\_cycle
 -   `structured_output_context` - Optional context for structured output management.
+-   `limits` - Optional per-invocation budget caps. See :class:`~strands.types.agent.Limits`.
 
 **Yields**:
 

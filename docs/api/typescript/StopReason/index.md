@@ -6,6 +6,9 @@ type StopReason =
   | "guardrailIntervened"
   | "interrupt"
   | "maxTokens"
+  | "limitOutputTokens"
+  | "limitTotalTokens"
+  | "limitTurns"
   | "pauseTurn"
   | "refusal"
   | "stopSequence"
@@ -15,7 +18,7 @@ type StopReason =
 };
 ```
 
-Defined in: [src/types/messages.ts:667](https://github.com/strands-agents/sdk-typescript/blob/0f99011408c45dcc6ca403794f60c05a1ac61eb8/strands-ts/src/types/messages.ts#L667)
+Defined in: [src/types/messages.ts:670](https://github.com/strands-agents/sdk-typescript/blob/e0658993e83c0a615dc91695915f48eda36ba169/strands-ts/src/types/messages.ts#L670)
 
 Reason why the model stopped generating content.
 
@@ -24,7 +27,10 @@ Reason why the model stopped generating content.
 -   `endTurn` - Natural end of the model’s turn
 -   `guardrailIntervened` - A guardrail policy stopped generation
 -   `interrupt` - Agent execution was interrupted for human input
--   `maxTokens` - Maximum token limit was reached
+-   `maxTokens` - The model provider’s per-call token cap was reached
+-   `limitOutputTokens` - Agent loop stopped because `InvokeOptions.limits.outputTokens` was reached
+-   `limitTotalTokens` - Agent loop stopped because `InvokeOptions.limits.totalTokens` was reached
+-   `limitTurns` - Agent loop stopped because `InvokeOptions.limits.turns` was reached
 -   `pauseTurn` - Model paused a long-running turn; the response should be sent back to continue
 -   `refusal` - A streaming classifier intervened to handle a potential policy violation
 -   `stopSequence` - A stop sequence was encountered

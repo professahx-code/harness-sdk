@@ -303,7 +303,7 @@ async def structured_output(
         **kwargs: Any) -> AsyncGenerator[dict[str, T | Any], None]
 ```
 
-Defined in: [src/strands/models/openai.py:772](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/models/openai.py#L772)
+Defined in: [src/strands/models/openai.py:776](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/models/openai.py#L776)
 
 Get structured output from the model.
 

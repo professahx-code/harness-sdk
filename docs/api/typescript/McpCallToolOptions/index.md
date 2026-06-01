@@ -1,4 +1,4 @@
-Defined in: [src/mcp.ts:65](https://github.com/strands-agents/sdk-typescript/blob/0f99011408c45dcc6ca403794f60c05a1ac61eb8/strands-ts/src/mcp.ts#L65)
+Defined in: [src/mcp.ts:64](https://github.com/strands-agents/sdk-typescript/blob/e0658993e83c0a615dc91695915f48eda36ba169/strands-ts/src/mcp.ts#L64)
 
 Options for MCP tool invocation.
 
@@ -10,6 +10,6 @@ Options for MCP tool invocation.
 optional signal?: AbortSignal;
 ```
 
-Defined in: [src/mcp.ts:67](https://github.com/strands-agents/sdk-typescript/blob/0f99011408c45dcc6ca403794f60c05a1ac61eb8/strands-ts/src/mcp.ts#L67)
+Defined in: [src/mcp.ts:66](https://github.com/strands-agents/sdk-typescript/blob/e0658993e83c0a615dc91695915f48eda36ba169/strands-ts/src/mcp.ts#L66)
 
 AbortSignal to cancel the in-flight request.

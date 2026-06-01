@@ -43,6 +43,9 @@ Reason for the model ending its response generation.
 -   “end\_turn”: Normal completion of the response
 -   “guardrail\_intervened”: Guardrail system intervened
 -   “interrupt”: Agent was interrupted for human input
--   “max\_tokens”: Maximum token limit reached
+-   “limit\_output\_tokens”: Agent loop stopped because the `limits["output_tokens"]` cap was reached
+-   “limit\_total\_tokens”: Agent loop stopped because the `limits["total_tokens"]` cap was reached
+-   “limit\_turns”: Agent loop stopped because the `limits["turns"]` cap was reached
+-   “max\_tokens”: The model provider’s per-call output cap was reached
 -   “stop\_sequence”: Stop sequence encountered
 -   “tool\_use”: Model requested to use a tool

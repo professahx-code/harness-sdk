@@ -445,7 +445,6 @@
 - [McpClientCredentials](https://strandsagents.com/docs/api/typescript/McpClientCredentials/index.md)
 - [McpClientOptions](https://strandsagents.com/docs/api/typescript/McpClientOptions/index.md)
 - [McpConnectionState](https://strandsagents.com/docs/api/typescript/McpConnectionState/index.md)
-- [McpServerConfig](https://strandsagents.com/docs/api/typescript/McpServerConfig/index.md)
 - [McpTransport](https://strandsagents.com/docs/api/typescript/McpTransport/index.md)
 - [Message](https://strandsagents.com/docs/api/typescript/Message/index.md)
 - [MessageAddedEvent](https://strandsagents.com/docs/api/typescript/MessageAddedEvent/index.md)

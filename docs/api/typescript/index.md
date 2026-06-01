@@ -120,7 +120,6 @@
     -   [McpCallToolOptions](/docs/api/typescript/McpCallToolOptions/index.md)
     -   [McpClientCredentials](/docs/api/typescript/McpClientCredentials/index.md)
     -   [McpClientOptions](/docs/api/typescript/McpClientOptions/index.md)
-    -   [McpServerConfig](/docs/api/typescript/McpServerConfig/index.md)
     -   [MessageData](/docs/api/typescript/MessageData/index.md)
     -   [Metrics](/docs/api/typescript/Metrics/index.md)
     -   [ModelContentBlockDeltaEventData](/docs/api/typescript/ModelContentBlockDeltaEventData/index.md)
