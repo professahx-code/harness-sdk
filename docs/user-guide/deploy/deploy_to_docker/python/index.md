@@ -374,6 +374,7 @@ Our other deployment guides build on this Docker foundation to show you how to d
 
 - [Deploy to Kubernetes](/docs/user-guide/deploy/deploy_to_kubernetes/index.md) (1 shared tag)
 - [Deploy to Terraform](/docs/user-guide/deploy/deploy_to_terraform/index.md) (1 shared tag)
+- [Deploy with Nx Plugin for AWS](/docs/user-guide/deploy/deploy_with_nx_plugin_for_aws/index.md) (1 shared tag)
 - [Deploying Strands Agents to Docker](/docs/user-guide/deploy/deploy_to_docker/index.md) (1 shared tag)
 - [TypeScript Deployment to Docker](/docs/user-guide/deploy/deploy_to_docker/typescript/index.md) (1 shared tag)
 - [Deploying Strands Agents SDK Agents to Amazon EC2](/docs/user-guide/deploy/deploy_to_amazon_ec2/index.md) (1 shared tag)
@@ -381,4 +382,3 @@ Our other deployment guides build on this Docker foundation to show you how to d
 - [Deploying Strands Agents SDK Agents to AWS App Runner](/docs/user-guide/deploy/deploy_to_aws_apprunner/index.md) (1 shared tag)
 - [Deploying Strands Agents SDK Agents to AWS Fargate](/docs/user-guide/deploy/deploy_to_aws_fargate/index.md) (1 shared tag)
 - [Deploying Strands Agents SDK Agents to AWS Lambda](/docs/user-guide/deploy/deploy_to_aws_lambda/index.md) (1 shared tag)
-- [Operating Agents in Production](/docs/user-guide/deploy/operating-agents-in-production/index.md) (1 shared tag)

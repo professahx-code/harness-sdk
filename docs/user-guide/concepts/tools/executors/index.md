@@ -106,6 +106,7 @@ Custom tool executors are not currently supported but are planned for a future r
 
 - [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (2 shared tags)
 - [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (2 shared tags)
+- [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (2 shared tags)
 - [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (2 shared tags)
 - [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
 - [Plugins](/docs/user-guide/concepts/plugins/index.md) (1 shared tag)

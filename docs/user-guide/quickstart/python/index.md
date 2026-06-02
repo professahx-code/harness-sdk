@@ -177,12 +177,14 @@ Traces provide detailed insight into the agent’s reasoning process. You can ac
 
 Example result.metrics.get\_summary() output
 
+Click to expand
+
 ```python
 result = agent("What is the square root of 144?")
 print(result.metrics.get_summary())
 ```
 
-```python
+```json
 {
   "accumulated_metrics": {
     "latencyMs": 6253

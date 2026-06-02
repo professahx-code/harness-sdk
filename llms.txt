@@ -36,6 +36,7 @@
     - [skills](https://strandsagents.com/docs/user-guide/concepts/plugins/skills/index.md)
     - [steering](https://strandsagents.com/docs/user-guide/concepts/plugins/steering/index.md)
     - [context-offloader](https://strandsagents.com/docs/user-guide/concepts/plugins/context-offloader/index.md)
+  - [interventions](https://strandsagents.com/docs/user-guide/concepts/agents/interventions/index.md)
   - Streaming
     - [async-iterators](https://strandsagents.com/docs/user-guide/concepts/streaming/async-iterators/index.md)
     - [callback-handlers](https://strandsagents.com/docs/user-guide/concepts/streaming/callback-handlers/index.md)
@@ -92,6 +93,7 @@
     - [typescript](https://strandsagents.com/docs/user-guide/deploy/deploy_to_docker/typescript/index.md)
   - [deploy_to_kubernetes](https://strandsagents.com/docs/user-guide/deploy/deploy_to_kubernetes/index.md)
   - [deploy_to_terraform](https://strandsagents.com/docs/user-guide/deploy/deploy_to_terraform/index.md)
+  - [deploy_with_nx_plugin_for_aws](https://strandsagents.com/docs/user-guide/deploy/deploy_with_nx_plugin_for_aws/index.md)
 - Safety & Security
   - [responsible-ai](https://strandsagents.com/docs/user-guide/safety-security/responsible-ai/index.md)
   - [guardrails](https://strandsagents.com/docs/user-guide/safety-security/guardrails/index.md)
@@ -562,6 +564,7 @@
 
 ## Blog
 
+- [Multimodal evaluators: MLLM-as-a-judge for image-to-text tasks in Strands Evals](https://strandsagents.com/blog/multimodal-evaluators-mllm-as-a-judge-image-to-text-strands-evals/index.md)
 - [What We Learned from One Year of Building Production Agents](https://strandsagents.com/blog/what-we-learned-from-one-year-of-building-production-agents/index.md)
 - [Introducing Strands Agents TypeScript 1.0: Build Production Agents in TypeScript](https://strandsagents.com/blog/strands-agents-typescript-v1/index.md)
 - [The Strands Agents Community Has a New Home](https://strandsagents.com/blog/strands-agents-discord-community/index.md)

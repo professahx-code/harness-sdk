@@ -405,6 +405,7 @@ class AsyncConfigPlugin implements Plugin {
 
 - [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (2 shared tags)
 - [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (2 shared tags)
+- [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (2 shared tags)
 - [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (2 shared tags)
 - [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)
 - [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (1 shared tag)

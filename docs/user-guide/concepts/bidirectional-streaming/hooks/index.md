@@ -356,4 +356,4 @@ For additional best practices on performance considerations, error handling, com
 - [Plugins](/docs/user-guide/concepts/plugins/index.md) (1 shared tag)
 - [Quickstart](/docs/user-guide/concepts/bidirectional-streaming/quickstart/index.md) (1 shared tag)
 - [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (1 shared tag)
-- [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) (1 shared tag)
+- [Nova Sonic](/docs/user-guide/concepts/bidirectional-streaming/models/nova_sonic/index.md) (1 shared tag)

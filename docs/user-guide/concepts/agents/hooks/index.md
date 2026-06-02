@@ -1575,6 +1575,7 @@ const agent = new Agent({ plugins: [new LoggingPlugin()] })
 ## Related pages
 
 - [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (3 shared tags)
+- [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (3 shared tags)
 - [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (3 shared tags)
 - [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (2 shared tags)
 - [Plugins](/docs/user-guide/concepts/plugins/index.md) (2 shared tags)
@@ -1583,4 +1584,3 @@ const agent = new Agent({ plugins: [new LoggingPlugin()] })
 - [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
 - [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (1 shared tag)
-- [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) (1 shared tag)
