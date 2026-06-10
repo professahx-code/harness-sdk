@@ -82,10 +82,15 @@ Each model invocation ends with a stop reason that determines what happens next:
 -   **End turn**: The model has finished its response and has no further actions to take. This is the normal successful termination. The loop exits and returns the model’s final message.
 -   **Tool use**: The model wants to execute one or more tools before continuing. The loop executes the requested tools, appends the results to the conversation history, and invokes the model again.
 -   **Cancelled**: The agent was stopped externally via `agent.cancel()`. See [Cancellation](#cancellation) below.
+-   **Limit turns** (`limit_turns` / `limitTurns`): The per-invocation turn budget was exhausted. See [Invocation Limits](#invocation-limits).
+-   **Limit total tokens** (`limit_total_tokens` / `limitTotalTokens`): The cumulative token budget was exhausted. See [Invocation Limits](#invocation-limits).
+-   **Limit output tokens** (`limit_output_tokens` / `limitOutputTokens`): The output token budget was exhausted. See [Invocation Limits](#invocation-limits).
 -   **Max tokens**: The model’s response was truncated because it hit the token limit. This is unrecoverable within the current loop. The model cannot continue from a partial response, and the loop terminates with an error.
 -   **Stop sequence**: The model encountered a configured stop sequence. Like end turn, this terminates the loop normally.
 -   **Content filtered**: The response was blocked by safety mechanisms.
 -   **Guardrail intervention**: A guardrail policy stopped generation.
+
+The limit stop reasons indicate graceful budget exhaustion. The agent’s message history remains in a valid state, and you can reinvoke with a higher budget or different prompt.
 
 Both content filtered and guardrail intervention terminate the loop and should be handled according to application requirements.
 
@@ -198,6 +203,62 @@ const myTool = tool({
 ```
 (( /tab "TypeScript" ))
 
+### Invocation Limits
+
+To cap how much work an agent does in a single invocation, pass a `limits` object. You can bound turns (loop iterations), output tokens, or total tokens. All three are optional.
+
+(( tab "Python" ))
+```python
+from strands import Agent
+
+agent = Agent()
+
+result = agent(
+    "Summarize this document",
+    limits={
+        "turns": 5,
+        "output_tokens": 2000,
+        "total_tokens": 10000,
+    },
+)
+
+if result.stop_reason == "limit_turns":
+    print("Hit turn budget")
+elif result.stop_reason == "limit_total_tokens":
+    print("Hit token budget")
+```
+
+The same parameter works with `invoke_async` and `stream_async`. Each cap must be a positive `int`.
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+const agent = new Agent()
+
+const result = await agent.invoke('Summarize this document', {
+  limits: {
+    turns: 5,
+    outputTokens: 2000,
+    totalTokens: 10000,
+  },
+})
+
+if (result.stopReason === 'limitTurns') {
+  console.log('Hit turn budget')
+} else if (result.stopReason === 'limitTotalTokens') {
+  console.log('Hit token budget')
+}
+```
+
+The same option works with `stream`. Each cap must be a positive finite number.
+(( /tab "TypeScript" ))
+
+Limits are checked at the top of each loop iteration, not mid-call. A single turn can overshoot the token budget, but the check fires before the next turn starts. Tools requested by the previous turn always run to completion before the limit check fires. The agent’s message history stays in a valid, reinvokable state.
+
+Limits apply to the current invocation only. A reused agent starts each call with fresh counters.
+
+When multiple caps trip simultaneously, the reported stop reason follows priority order: turns, then total tokens, then output tokens.
+
 ## Common Problems
 
 ### Context Window Exhaustion
@@ -241,6 +302,7 @@ Understanding the loop deeply makes these advanced patterns more approachable. T
 ## Related pages
 
 - [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (3 shared tags)
+- [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (3 shared tags)
 - [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (3 shared tags)
 - [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (3 shared tags)
 - [Plugins](/docs/user-guide/concepts/plugins/index.md) (2 shared tags)
@@ -248,5 +310,4 @@ Understanding the loop deeply makes these advanced patterns more approachable. T
 - [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
 - [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (1 shared tag)
 - [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)
-- [Human in the Loop](/docs/user-guide/concepts/agents/human-in-the-loop/index.md) (1 shared tag)
-- [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (1 shared tag)
+- [Human in the Loop](/docs/user-guide/concepts/agents/interventions/human-in-the-loop/index.md) (1 shared tag)

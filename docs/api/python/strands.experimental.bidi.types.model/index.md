@@ -8,7 +8,7 @@ Defines types and configurations that are central to model providers, including 
 class AudioConfig(TypedDict)
 ```
 
-Defined in: [src/strands/experimental/bidi/types/model.py:13](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/bidi/types/model.py#L13)
+Defined in: [src/strands/experimental/bidi/types/model.py:13](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/bidi/types/model.py#L13)
 
 Audio configuration for bidirectional streaming models.
 

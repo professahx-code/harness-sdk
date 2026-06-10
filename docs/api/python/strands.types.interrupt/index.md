@@ -79,7 +79,7 @@ Details:
 class _Interruptible(Protocol)
 ```
 
-Defined in: [src/strands/types/interrupt.py:79](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/interrupt.py#L79)
+Defined in: [src/strands/types/interrupt.py:79](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/interrupt.py#L79)
 
 Interface that adds interrupt support to hook events and tools.
 
@@ -89,7 +89,7 @@ Interface that adds interrupt support to hook events and tools.
 def interrupt(name: str, reason: Any = None, response: Any = None) -> Any
 ```
 
-Defined in: [src/strands/types/interrupt.py:82](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/interrupt.py#L82)
+Defined in: [src/strands/types/interrupt.py:82](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/interrupt.py#L82)
 
 Trigger the interrupt with a reason.
 
@@ -110,7 +110,7 @@ The response from a human user when resuming from an interrupt state.
 class InterruptResponse(TypedDict)
 ```
 
-Defined in: [src/strands/types/interrupt.py:126](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/interrupt.py#L126)
+Defined in: [src/strands/types/interrupt.py:126](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/interrupt.py#L126)
 
 User response to an interrupt.
 
@@ -125,7 +125,7 @@ User response to an interrupt.
 class InterruptResponseContent(TypedDict)
 ```
 
-Defined in: [src/strands/types/interrupt.py:138](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/interrupt.py#L138)
+Defined in: [src/strands/types/interrupt.py:138](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/interrupt.py#L138)
 
 Content block containing a user response to an interrupt.
 

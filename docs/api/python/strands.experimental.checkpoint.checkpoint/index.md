@@ -32,7 +32,7 @@ Precedence:
 class Checkpoint()
 ```
 
-Defined in: [src/strands/experimental/checkpoint/checkpoint.py:46](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/checkpoint/checkpoint.py#L46)
+Defined in: [src/strands/experimental/checkpoint/checkpoint.py:46](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/checkpoint/checkpoint.py#L46)
 
 Pause-point marker. Treat as opaque — pass back to resume.
 
@@ -50,7 +50,7 @@ Pause-point marker. Treat as opaque — pass back to resume.
 def to_dict() -> dict[str, Any]
 ```
 
-Defined in: [src/strands/experimental/checkpoint/checkpoint.py:66](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/checkpoint/checkpoint.py#L66)
+Defined in: [src/strands/experimental/checkpoint/checkpoint.py:66](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/checkpoint/checkpoint.py#L66)
 
 Serialize for persistence.
 
@@ -61,7 +61,7 @@ Serialize for persistence.
 def from_dict(cls, data: dict[str, Any]) -> "Checkpoint"
 ```
 
-Defined in: [src/strands/experimental/checkpoint/checkpoint.py:71](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/checkpoint/checkpoint.py#L71)
+Defined in: [src/strands/experimental/checkpoint/checkpoint.py:71](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/checkpoint/checkpoint.py#L71)
 
 Reconstruct from a dict produced by to\_dict().
 

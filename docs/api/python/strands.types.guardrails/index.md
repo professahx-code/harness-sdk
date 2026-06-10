@@ -10,7 +10,7 @@ These types are modeled after the Bedrock API.
 class GuardrailConfig(TypedDict)
 ```
 
-Defined in: [src/strands/types/guardrails.py:13](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/guardrails.py#L13)
+Defined in: [src/strands/types/guardrails.py:13](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/guardrails.py#L13)
 
 Configuration for content filtering guardrails.
 
@@ -27,7 +27,7 @@ Configuration for content filtering guardrails.
 class Topic(TypedDict)
 ```
 
-Defined in: [src/strands/types/guardrails.py:29](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/guardrails.py#L29)
+Defined in: [src/strands/types/guardrails.py:29](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/guardrails.py#L29)
 
 Information about a topic guardrail.
 
@@ -43,7 +43,7 @@ Information about a topic guardrail.
 class TopicPolicy(TypedDict)
 ```
 
-Defined in: [src/strands/types/guardrails.py:43](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/guardrails.py#L43)
+Defined in: [src/strands/types/guardrails.py:43](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/guardrails.py#L43)
 
 A behavior assessment of a topic policy.
 
@@ -57,7 +57,7 @@ A behavior assessment of a topic policy.
 class ContentFilter(TypedDict)
 ```
 
-Defined in: [src/strands/types/guardrails.py:53](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/guardrails.py#L53)
+Defined in: [src/strands/types/guardrails.py:53](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/guardrails.py#L53)
 
 The content filter for a guardrail.
 
@@ -73,7 +73,7 @@ The content filter for a guardrail.
 class ContentPolicy(TypedDict)
 ```
 
-Defined in: [src/strands/types/guardrails.py:67](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/guardrails.py#L67)
+Defined in: [src/strands/types/guardrails.py:67](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/guardrails.py#L67)
 
 An assessment of a content policy for a guardrail.
 
@@ -87,7 +87,7 @@ An assessment of a content policy for a guardrail.
 class CustomWord(TypedDict)
 ```
 
-Defined in: [src/strands/types/guardrails.py:77](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/guardrails.py#L77)
+Defined in: [src/strands/types/guardrails.py:77](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/guardrails.py#L77)
 
 Definition of a custom word to be filtered.
 
@@ -102,7 +102,7 @@ Definition of a custom word to be filtered.
 class ManagedWord(TypedDict)
 ```
 
-Defined in: [src/strands/types/guardrails.py:89](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/guardrails.py#L89)
+Defined in: [src/strands/types/guardrails.py:89](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/guardrails.py#L89)
 
 Definition of a managed word to be filtered.
 
@@ -118,7 +118,7 @@ Definition of a managed word to be filtered.
 class WordPolicy(TypedDict)
 ```
 
-Defined in: [src/strands/types/guardrails.py:103](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/guardrails.py#L103)
+Defined in: [src/strands/types/guardrails.py:103](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/guardrails.py#L103)
 
 The word policy assessment.
 
@@ -133,7 +133,7 @@ The word policy assessment.
 class PIIEntity(TypedDict)
 ```
 
-Defined in: [src/strands/types/guardrails.py:115](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/guardrails.py#L115)
+Defined in: [src/strands/types/guardrails.py:115](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/guardrails.py#L115)
 
 Definition of a Personally Identifiable Information (PII) entity to be filtered.
 
@@ -149,7 +149,7 @@ Definition of a Personally Identifiable Information (PII) entity to be filtered.
 class Regex(TypedDict)
 ```
 
-Defined in: [src/strands/types/guardrails.py:161](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/guardrails.py#L161)
+Defined in: [src/strands/types/guardrails.py:161](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/guardrails.py#L161)
 
 Definition of a custom regex pattern for filtering sensitive information.
 
@@ -166,7 +166,7 @@ Definition of a custom regex pattern for filtering sensitive information.
 class SensitiveInformationPolicy(TypedDict)
 ```
 
-Defined in: [src/strands/types/guardrails.py:177](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/guardrails.py#L177)
+Defined in: [src/strands/types/guardrails.py:177](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/guardrails.py#L177)
 
 Policy defining sensitive information filtering rules.
 
@@ -181,7 +181,7 @@ Policy defining sensitive information filtering rules.
 class ContextualGroundingFilter(TypedDict)
 ```
 
-Defined in: [src/strands/types/guardrails.py:189](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/guardrails.py#L189)
+Defined in: [src/strands/types/guardrails.py:189](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/guardrails.py#L189)
 
 Filter for ensuring responses are grounded in provided context.
 
@@ -198,7 +198,7 @@ Filter for ensuring responses are grounded in provided context.
 class ContextualGroundingPolicy(TypedDict)
 ```
 
-Defined in: [src/strands/types/guardrails.py:205](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/guardrails.py#L205)
+Defined in: [src/strands/types/guardrails.py:205](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/guardrails.py#L205)
 
 The policy assessment details for the guardrails contextual grounding filter.
 
@@ -212,7 +212,7 @@ The policy assessment details for the guardrails contextual grounding filter.
 class GuardrailAssessment(TypedDict)
 ```
 
-Defined in: [src/strands/types/guardrails.py:215](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/guardrails.py#L215)
+Defined in: [src/strands/types/guardrails.py:215](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/guardrails.py#L215)
 
 A behavior assessment of the guardrail policies used in a call to the Converse API.
 
@@ -230,7 +230,7 @@ A behavior assessment of the guardrail policies used in a call to the Converse A
 class GuardrailTrace(TypedDict)
 ```
 
-Defined in: [src/strands/types/guardrails.py:233](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/guardrails.py#L233)
+Defined in: [src/strands/types/guardrails.py:233](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/guardrails.py#L233)
 
 Trace information from guardrail processing.
 
@@ -246,7 +246,7 @@ Trace information from guardrail processing.
 class Trace(TypedDict)
 ```
 
-Defined in: [src/strands/types/guardrails.py:247](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/guardrails.py#L247)
+Defined in: [src/strands/types/guardrails.py:247](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/guardrails.py#L247)
 
 A Top level guardrail trace object.
 

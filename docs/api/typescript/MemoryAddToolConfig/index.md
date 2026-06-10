@@ -1,0 +1,66 @@
+Defined in: [src/memory/types.ts:175](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/types.ts#L175)
+
+Configuration for the `add_memory` tool. Extends [MemoryToolConfig](/docs/api/typescript/MemoryToolConfig/index.md) with an explicit allowlist of stores the tool may write to.
+
+## Extends
+
+-   [`MemoryToolConfig`](/docs/api/typescript/MemoryToolConfig/index.md)
+
+## Properties
+
+### name?
+
+```ts
+optional name?: string;
+```
+
+Defined in: [src/memory/types.ts:166](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/types.ts#L166)
+
+Custom tool name.
+
+#### Inherited from
+
+[`MemoryToolConfig`](/docs/api/typescript/MemoryToolConfig/index.md).[`name`](/docs/api/typescript/MemoryToolConfig/index.md#name)
+
+---
+
+### description?
+
+```ts
+optional description?: string;
+```
+
+Defined in: [src/memory/types.ts:168](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/types.ts#L168)
+
+Custom tool description.
+
+#### Inherited from
+
+[`MemoryToolConfig`](/docs/api/typescript/MemoryToolConfig/index.md).[`description`](/docs/api/typescript/MemoryToolConfig/index.md#description)
+
+---
+
+### stores?
+
+```ts
+optional stores?: (string | MemoryStore)[];
+```
+
+Defined in: [src/memory/types.ts:181](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/types.ts#L181)
+
+The writable stores the `add_memory` tool may write to, given as store names or the [MemoryStore](/docs/api/typescript/MemoryStore/index.md) instances themselves. Each must be a configured, `writable` store. Omit (or set `addToolConfig: true`) to allow all writable stores.
+
+---
+
+### waitForWrites?
+
+```ts
+optional waitForWrites?: boolean;
+```
+
+Defined in: [src/memory/types.ts:189](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/types.ts#L189)
+
+Whether the tool waits for store writes before returning to the model. Defaults to `true`.
+
+-   `true` (default): waits for writes — the tool returns `{ stored }` on success, or surfaces a failure to the model if any store write fails.
+-   `false`: fire-and-forget — the tool returns `{ accepted }` once writes are dispatched (so a slow backend never blocks the agent loop); per-store failures are logged.

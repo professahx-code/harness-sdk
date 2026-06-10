@@ -6,7 +6,7 @@ Sliding window conversation history management.
 class SlidingWindowConversationManager(ConversationManager)
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/sliding\_window\_conversation\_manager.py:20](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/sliding_window_conversation_manager.py#L20)
+Defined in: [src/strands/agent/conversation\_manager/sliding\_window\_conversation\_manager.py:21](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/sliding_window_conversation_manager.py#L21)
 
 Implements a sliding window strategy for managing conversation history.
 
@@ -23,11 +23,12 @@ def __init__(window_size: int = 40,
              should_truncate_results: bool = True,
              *,
              per_turn: bool | int = False,
+             pin_first: int | None = None,
              proactive_compression: bool | ProactiveCompressionConfig
              | None = None)
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/sliding\_window\_conversation\_manager.py:34](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/sliding_window_conversation_manager.py#L34)
+Defined in: [src/strands/agent/conversation\_manager/sliding\_window\_conversation\_manager.py:35](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/sliding_window_conversation_manager.py#L35)
 
 Initialize the sliding window conversation manager.
 
@@ -45,6 +46,8 @@ Initialize the sliding window conversation manager.
     
     When to use per\_turn: If your agent performs many tool operations in loops (e.g., web browsing with frequent screenshots), enable per\_turn to proactively manage message history and prevent the agent loop from slowing down. Start with per\_turn=True and adjust to a specific frequency (e.g., per\_turn=5) if needed for performance tuning.
     
+-   `pin_first` - Number of messages at the start of the conversation to permanently pin. Pinned messages are protected from eviction during context reduction.
+    
 -   `proactive_compression` - Enable proactive context compression before the model call.
     
     -   `True`: compress when 70% of the context window is used (default threshold).
@@ -61,7 +64,7 @@ Initialize the sliding window conversation manager.
 def register_hooks(registry: "HookRegistry", **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/sliding\_window\_conversation\_manager.py:78](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/sliding_window_conversation_manager.py#L78)
+Defined in: [src/strands/agent/conversation\_manager/sliding\_window\_conversation\_manager.py:84](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/sliding_window_conversation_manager.py#L84)
 
 Register hook callbacks for per-turn conversation management.
 
@@ -76,7 +79,7 @@ Register hook callbacks for per-turn conversation management.
 def get_state() -> dict[str, Any]
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/sliding\_window\_conversation\_manager.py:120](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/sliding_window_conversation_manager.py#L120)
+Defined in: [src/strands/agent/conversation\_manager/sliding\_window\_conversation\_manager.py:126](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/sliding_window_conversation_manager.py#L126)
 
 Get the current state of the conversation manager.
 
@@ -90,7 +93,7 @@ Dictionary containing the manager’s state, including model call count for per-
 def restore_from_session(state: dict[str, Any]) -> list | None
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/sliding\_window\_conversation\_manager.py:130](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/sliding_window_conversation_manager.py#L130)
+Defined in: [src/strands/agent/conversation\_manager/sliding\_window\_conversation\_manager.py:136](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/sliding_window_conversation_manager.py#L136)
 
 Restore the conversation manager’s state from a session.
 
@@ -108,7 +111,7 @@ Optional list of messages to prepend to the agent’s messages.
 def apply_management(agent: "Agent", **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/sliding\_window\_conversation\_manager.py:143](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/sliding_window_conversation_manager.py#L143)
+Defined in: [src/strands/agent/conversation\_manager/sliding\_window\_conversation\_manager.py:149](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/sliding_window_conversation_manager.py#L149)
 
 Apply the sliding window to the agent’s messages array to maintain a manageable history size.
 
@@ -127,7 +130,7 @@ def reduce_context(agent: "Agent",
                    **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/sliding\_window\_conversation\_manager.py:163](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/sliding_window_conversation_manager.py#L163)
+Defined in: [src/strands/agent/conversation\_manager/sliding\_window\_conversation\_manager.py:169](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/sliding_window_conversation_manager.py#L169)
 
 Trim the oldest messages to reduce the conversation context size.
 

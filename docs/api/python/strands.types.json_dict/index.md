@@ -6,7 +6,7 @@ JSON serializable dictionary utilities.
 class JSONSerializableDict()
 ```
 
-Defined in: [src/strands/types/json\_dict.py:8](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/json_dict.py#L8)
+Defined in: [src/strands/types/json\_dict.py:8](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/json_dict.py#L8)
 
 A key-value store with JSON serialization validation.
 
@@ -18,7 +18,7 @@ Provides a dict-like interface with automatic validation that all values are JSO
 def __init__(initial_state: dict[str, Any] | None = None)
 ```
 
-Defined in: [src/strands/types/json\_dict.py:15](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/json_dict.py#L15)
+Defined in: [src/strands/types/json\_dict.py:15](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/json_dict.py#L15)
 
 Initialize JSONSerializableDict.
 
@@ -28,7 +28,7 @@ Initialize JSONSerializableDict.
 def set(key: str, value: Any) -> None
 ```
 
-Defined in: [src/strands/types/json\_dict.py:25](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/json_dict.py#L25)
+Defined in: [src/strands/types/json\_dict.py:25](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/json_dict.py#L25)
 
 Set a value in the store.
 
@@ -47,7 +47,7 @@ Set a value in the store.
 def get(key: str | None = None) -> Any
 ```
 
-Defined in: [src/strands/types/json\_dict.py:40](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/json_dict.py#L40)
+Defined in: [src/strands/types/json\_dict.py:40](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/json_dict.py#L40)
 
 Get a value or entire data.
 
@@ -65,7 +65,7 @@ The stored value, entire data dict, or None if not found
 def delete(key: str) -> None
 ```
 
-Defined in: [src/strands/types/json\_dict.py:54](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/json_dict.py#L54)
+Defined in: [src/strands/types/json\_dict.py:54](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/json_dict.py#L54)
 
 Delete a specific key from the store.
 

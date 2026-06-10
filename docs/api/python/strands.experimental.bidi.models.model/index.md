@@ -16,7 +16,7 @@ Features:
 class BidiModel(Protocol)
 ```
 
-Defined in: [src/strands/experimental/bidi/models/model.py:31](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/bidi/models/model.py#L31)
+Defined in: [src/strands/experimental/bidi/models/model.py:31](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/bidi/models/model.py#L31)
 
 Protocol for bidirectional streaming models.
 
@@ -35,7 +35,7 @@ async def start(system_prompt: str | None = None,
                 **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/experimental/bidi/models/model.py:44](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/bidi/models/model.py#L44)
+Defined in: [src/strands/experimental/bidi/models/model.py:44](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/bidi/models/model.py#L44)
 
 Establish a persistent streaming connection with the model.
 
@@ -54,7 +54,7 @@ Opens a bidirectional connection that remains active for real-time communication
 async def stop() -> None
 ```
 
-Defined in: [src/strands/experimental/bidi/models/model.py:65](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/bidi/models/model.py#L65)
+Defined in: [src/strands/experimental/bidi/models/model.py:65](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/bidi/models/model.py#L65)
 
 Close the streaming connection and release resources.
 
@@ -66,7 +66,7 @@ Terminates the active bidirectional connection and cleans up any associated reso
 def receive() -> AsyncIterable[BidiOutputEvent]
 ```
 
-Defined in: [src/strands/experimental/bidi/models/model.py:74](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/bidi/models/model.py#L74)
+Defined in: [src/strands/experimental/bidi/models/model.py:74](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/bidi/models/model.py#L74)
 
 Receive streaming events from the model.
 
@@ -84,7 +84,7 @@ The stream continues until the connection is closed or an error occurs.
 async def send(content: BidiInputEvent | ToolResultEvent) -> None
 ```
 
-Defined in: [src/strands/experimental/bidi/models/model.py:89](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/bidi/models/model.py#L89)
+Defined in: [src/strands/experimental/bidi/models/model.py:89](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/bidi/models/model.py#L89)
 
 Send content to the model over the active connection.
 
@@ -114,7 +114,7 @@ await model.send(ToolResultEvent(tool_result))
 class BidiModelTimeoutError(Exception)
 ```
 
-Defined in: [src/strands/experimental/bidi/models/model.py:118](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/bidi/models/model.py#L118)
+Defined in: [src/strands/experimental/bidi/models/model.py:118](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/bidi/models/model.py#L118)
 
 Model timeout error.
 
@@ -126,7 +126,7 @@ Bidirectional models are often configured with a connection time limit. Nova son
 def __init__(message: str, **restart_config: Any) -> None
 ```
 
-Defined in: [src/strands/experimental/bidi/models/model.py:126](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/bidi/models/model.py#L126)
+Defined in: [src/strands/experimental/bidi/models/model.py:126](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/bidi/models/model.py#L126)
 
 Initialize error.
 

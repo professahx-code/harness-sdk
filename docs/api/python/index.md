@@ -6,6 +6,7 @@
     -   **Conversation Manager**
         -   [Conversation Manager](/docs/api/python/strands.agent.conversation_manager.conversation_manager)
         -   [Null Conversation Manager](/docs/api/python/strands.agent.conversation_manager.null_conversation_manager)
+        -   [Pin Message](/docs/api/python/strands.agent.conversation_manager.pin_message)
         -   [Sliding Window Conversation Manager](/docs/api/python/strands.agent.conversation_manager.sliding_window_conversation_manager)
         -   [Summarizing Conversation Manager](/docs/api/python/strands.agent.conversation_manager.summarizing_conversation_manager)
 -   **Event Loop**
@@ -45,6 +46,14 @@
     -   [Multiagent Registry](/docs/api/python/strands.plugins.multiagent_registry)
     -   [Plugin](/docs/api/python/strands.plugins.plugin)
     -   [Registry](/docs/api/python/strands.plugins.registry)
+-   **Sandbox**
+    -   [Base](/docs/api/python/strands.sandbox.base)
+    -   [Constants](/docs/api/python/strands.sandbox.constants)
+    -   [Docker](/docs/api/python/strands.sandbox.docker)
+    -   [Shell](/docs/api/python/strands.sandbox.shell)
+    -   [Ssh](/docs/api/python/strands.sandbox.ssh)
+    -   [Stream Process](/docs/api/python/strands.sandbox.stream_process)
+    -   [Types](/docs/api/python/strands.sandbox.types)
 -   **Session**
     -   [File Session Manager](/docs/api/python/strands.session.file_session_manager)
     -   [Repository Session Manager](/docs/api/python/strands.session.repository_session_manager)

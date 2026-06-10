@@ -8,7 +8,7 @@ This module provides functionality to watch tool directories for changes and aut
 class ToolWatcher()
 ```
 
-Defined in: [src/strands/tools/watcher.py:19](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/tools/watcher.py#L19)
+Defined in: [src/strands/tools/watcher.py:19](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/watcher.py#L19)
 
 Watches tool directories for changes and reloads tools when they are modified.
 
@@ -18,7 +18,7 @@ Watches tool directories for changes and reloads tools when they are modified.
 def __init__(tool_registry: ToolRegistry) -> None
 ```
 
-Defined in: [src/strands/tools/watcher.py:32](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/tools/watcher.py#L32)
+Defined in: [src/strands/tools/watcher.py:32](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/watcher.py#L32)
 
 Initialize a tool watcher for the given tool registry.
 
@@ -32,7 +32,7 @@ Initialize a tool watcher for the given tool registry.
 class ToolChangeHandler(FileSystemEventHandler)
 ```
 
-Defined in: [src/strands/tools/watcher.py:41](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/tools/watcher.py#L41)
+Defined in: [src/strands/tools/watcher.py:41](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/watcher.py#L41)
 
 Handler for tool file changes.
 
@@ -42,7 +42,7 @@ Handler for tool file changes.
 def __init__(tool_registry: ToolRegistry) -> None
 ```
 
-Defined in: [src/strands/tools/watcher.py:44](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/tools/watcher.py#L44)
+Defined in: [src/strands/tools/watcher.py:44](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/watcher.py#L44)
 
 Initialize a tool change handler.
 
@@ -56,7 +56,7 @@ Initialize a tool change handler.
 def on_modified(event: Any) -> None
 ```
 
-Defined in: [src/strands/tools/watcher.py:52](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/tools/watcher.py#L52)
+Defined in: [src/strands/tools/watcher.py:52](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/watcher.py#L52)
 
 Reload tool if file modification detected.
 
@@ -70,7 +70,7 @@ Reload tool if file modification detected.
 class MasterChangeHandler(FileSystemEventHandler)
 ```
 
-Defined in: [src/strands/tools/watcher.py:69](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/tools/watcher.py#L69)
+Defined in: [src/strands/tools/watcher.py:69](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/watcher.py#L69)
 
 Master handler that delegates to all registered handlers.
 
@@ -80,7 +80,7 @@ Master handler that delegates to all registered handlers.
 def __init__(dir_path: str) -> None
 ```
 
-Defined in: [src/strands/tools/watcher.py:72](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/tools/watcher.py#L72)
+Defined in: [src/strands/tools/watcher.py:72](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/watcher.py#L72)
 
 Initialize a master change handler for a specific directory.
 
@@ -94,7 +94,7 @@ Initialize a master change handler for a specific directory.
 def on_modified(event: Any) -> None
 ```
 
-Defined in: [src/strands/tools/watcher.py:80](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/tools/watcher.py#L80)
+Defined in: [src/strands/tools/watcher.py:80](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/watcher.py#L80)
 
 Delegate file modification events to all registered handlers.
 
@@ -108,6 +108,6 @@ Delegate file modification events to all registered handlers.
 def start() -> None
 ```
 
-Defined in: [src/strands/tools/watcher.py:98](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/tools/watcher.py#L98)
+Defined in: [src/strands/tools/watcher.py:98](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/watcher.py#L98)
 
 Start watching all tools directories for changes.

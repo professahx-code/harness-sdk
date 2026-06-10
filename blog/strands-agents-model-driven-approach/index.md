@@ -102,7 +102,7 @@ Strands is flexible enough to support a variety of production architectures:
 
 ## Building confidence through evaluation
 
-The model-driven approach requires robust [evaluation](/docs/user-guide/observability-evaluation/evaluation/index.md) to build confidence that agents perform as expected. Since model-driven agents make dynamic decisions rather than following predetermined paths, evaluation becomes both more important and more nuanced.
+The model-driven approach requires robust [evaluation](/docs/user-guide/evals-sdk/quickstart/index.md) to build confidence that agents perform as expected. Since model-driven agents make dynamic decisions rather than following predetermined paths, evaluation becomes both more important and more nuanced.
 
 Key evaluation dimensions include:
 

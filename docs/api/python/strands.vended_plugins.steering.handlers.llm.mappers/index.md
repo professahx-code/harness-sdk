@@ -6,7 +6,7 @@ LLM steering prompt mappers for generating evaluation prompts.
 class LLMPromptMapper(Protocol)
 ```
 
-Defined in: [src/strands/vended\_plugins/steering/handlers/llm/mappers.py:82](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/steering/handlers/llm/mappers.py#L82)
+Defined in: [src/strands/vended\_plugins/steering/handlers/llm/mappers.py:82](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/handlers/llm/mappers.py#L82)
 
 Protocol for mapping context and events to LLM evaluation prompts.
 
@@ -18,7 +18,7 @@ def create_steering_prompt(steering_context: SteeringContext,
                            **kwargs: Any) -> str
 ```
 
-Defined in: [src/strands/vended\_plugins/steering/handlers/llm/mappers.py:85](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/steering/handlers/llm/mappers.py#L85)
+Defined in: [src/strands/vended\_plugins/steering/handlers/llm/mappers.py:85](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/handlers/llm/mappers.py#L85)
 
 Create steering prompt for LLM evaluation.
 
@@ -38,7 +38,7 @@ Formatted prompt string for LLM evaluation
 class DefaultPromptMapper(LLMPromptMapper)
 ```
 
-Defined in: [src/strands/vended\_plugins/steering/handlers/llm/mappers.py:101](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/steering/handlers/llm/mappers.py#L101)
+Defined in: [src/strands/vended\_plugins/steering/handlers/llm/mappers.py:101](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/handlers/llm/mappers.py#L101)
 
 Default prompt mapper for steering evaluation.
 
@@ -50,7 +50,7 @@ def create_steering_prompt(steering_context: SteeringContext,
                            **kwargs: Any) -> str
 ```
 
-Defined in: [src/strands/vended\_plugins/steering/handlers/llm/mappers.py:104](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/steering/handlers/llm/mappers.py#L104)
+Defined in: [src/strands/vended\_plugins/steering/handlers/llm/mappers.py:104](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/handlers/llm/mappers.py#L104)
 
 Create default steering prompt using Agent SOP structure.
 

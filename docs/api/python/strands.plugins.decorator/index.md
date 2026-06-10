@@ -19,7 +19,7 @@ def hook(
 ) -> _WrappedHookCallable | Callable[[HookCallback], _WrappedHookCallable]
 ```
 
-Defined in: [src/strands/plugins/decorator.py:39](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/plugins/decorator.py#L39)
+Defined in: [src/strands/plugins/decorator.py:39](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/plugins/decorator.py#L39)
 
 Mark a method as a hook callback for automatic registration.
 

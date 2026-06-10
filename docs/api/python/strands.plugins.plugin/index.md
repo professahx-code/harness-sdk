@@ -8,7 +8,7 @@ This module defines the Plugin base class, which provides a composable way to ad
 class Plugin(ABC)
 ```
 
-Defined in: [src/strands/plugins/plugin.py:19](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/plugins/plugin.py#L19)
+Defined in: [src/strands/plugins/plugin.py:19](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/plugins/plugin.py#L19)
 
 Base class for objects that extend agent functionality.
 
@@ -68,7 +68,7 @@ Plugins provide a composable way to add behavior changes to agents. They support
 def name() -> str
 ```
 
-Defined in: [src/strands/plugins/plugin.py:71](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/plugins/plugin.py#L71)
+Defined in: [src/strands/plugins/plugin.py:71](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/plugins/plugin.py#L71)
 
 A stable string identifier for the plugin.
 
@@ -78,7 +78,7 @@ A stable string identifier for the plugin.
 def __init__() -> None
 ```
 
-Defined in: [src/strands/plugins/plugin.py:75](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/plugins/plugin.py#L75)
+Defined in: [src/strands/plugins/plugin.py:75](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/plugins/plugin.py#L75)
 
 Initialize the plugin and discover decorated methods.
 
@@ -93,7 +93,7 @@ Uses a guard to prevent double-discovery when used with multiple inheritance (e.
 def hooks() -> list[HookCallback]
 ```
 
-Defined in: [src/strands/plugins/plugin.py:90](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/plugins/plugin.py#L90)
+Defined in: [src/strands/plugins/plugin.py:90](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/plugins/plugin.py#L90)
 
 List of hooks the plugin provides, auto-discovered from @hook decorated methods.
 
@@ -104,7 +104,7 @@ List of hooks the plugin provides, auto-discovered from @hook decorated methods.
 def tools() -> list[DecoratedFunctionTool]
 ```
 
-Defined in: [src/strands/plugins/plugin.py:95](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/plugins/plugin.py#L95)
+Defined in: [src/strands/plugins/plugin.py:95](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/plugins/plugin.py#L95)
 
 List of tools the plugin provides, auto-discovered from @tool decorated methods.
 
@@ -114,7 +114,7 @@ List of tools the plugin provides, auto-discovered from @tool decorated methods.
 def init_agent(agent: "Agent") -> None | Awaitable[None]
 ```
 
-Defined in: [src/strands/plugins/plugin.py:99](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/plugins/plugin.py#L99)
+Defined in: [src/strands/plugins/plugin.py:99](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/plugins/plugin.py#L99)
 
 Initialize the agent instance.
 

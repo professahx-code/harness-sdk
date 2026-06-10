@@ -17,7 +17,7 @@ def config_to_agent(config: str | dict[str, Any], **kwargs: dict[str,
                                                                  Any]) -> Any
 ```
 
-Defined in: [src/strands/experimental/agent\_config.py:54](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/agent_config.py#L54)
+Defined in: [src/strands/experimental/agent\_config.py:54](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/agent_config.py#L54)
 
 Create an Agent from a configuration file or dictionary.
 

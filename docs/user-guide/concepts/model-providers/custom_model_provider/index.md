@@ -768,9 +768,10 @@ The built-in `get_config` and `update_config` methods allow for the model’s co
 ## Related pages
 
 - [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
-- [Human in the Loop](/docs/user-guide/concepts/agents/human-in-the-loop/index.md) (1 shared tag)
+- [Human in the Loop](/docs/user-guide/concepts/agents/interventions/human-in-the-loop/index.md) (1 shared tag)
 - [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
 - [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (1 shared tag)
+- [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
 - [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (1 shared tag)
 - [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (1 shared tag)

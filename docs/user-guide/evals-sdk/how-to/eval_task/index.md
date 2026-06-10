@@ -140,7 +140,6 @@ def task_function():
 ## Related pages
 
 - [Evaluating Remote Traces](/docs/user-guide/evals-sdk/how-to/trace_providers/index.md) (1 shared tag)
-- [Evaluation](/docs/user-guide/observability-evaluation/evaluation/index.md) (1 shared tag)
 - [Metrics](/docs/user-guide/observability-evaluation/metrics/index.md) (1 shared tag)
 - [Observability](/docs/user-guide/observability-evaluation/observability/index.md) (1 shared tag)
 - [Traces](/docs/user-guide/observability-evaluation/traces/index.md) (1 shared tag)
@@ -149,3 +148,4 @@ def task_function():
 - [Root Cause Analysis](/docs/user-guide/evals-sdk/detectors/root_cause_analysis/index.md) (1 shared tag)
 - [Session Diagnosis](/docs/user-guide/evals-sdk/detectors/diagnosis/index.md) (1 shared tag)
 - [AgentCore Evaluation Dashboard Configuration](/docs/user-guide/evals-sdk/how-to/agentcore_evaluation_dashboard/index.md) (1 shared tag)
+- [PII Redaction](/docs/user-guide/safety-security/pii-redaction/index.md) (1 shared tag)

@@ -8,7 +8,7 @@ These types are modeled after the Bedrock API.
 class CitationsConfig(TypedDict)
 ```
 
-Defined in: [src/strands/types/citations.py:11](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/citations.py#L11)
+Defined in: [src/strands/types/citations.py:11](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/citations.py#L11)
 
 Configuration for enabling citations on documents.
 
@@ -22,7 +22,7 @@ Configuration for enabling citations on documents.
 class DocumentCharLocation(TypedDict)
 ```
 
-Defined in: [src/strands/types/citations.py:21](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/citations.py#L21)
+Defined in: [src/strands/types/citations.py:21](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/citations.py#L21)
 
 Specifies a character-level location within a document.
 
@@ -40,7 +40,7 @@ Provides precise positioning information for cited content using start and end c
 class DocumentChunkLocation(TypedDict)
 ```
 
-Defined in: [src/strands/types/citations.py:41](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/citations.py#L41)
+Defined in: [src/strands/types/citations.py:41](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/citations.py#L41)
 
 Specifies a chunk-level location within a document.
 
@@ -58,7 +58,7 @@ Provides positioning information for cited content using logical document segmen
 class DocumentPageLocation(TypedDict)
 ```
 
-Defined in: [src/strands/types/citations.py:61](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/citations.py#L61)
+Defined in: [src/strands/types/citations.py:61](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/citations.py#L61)
 
 Specifies a page-level location within a document.
 
@@ -76,7 +76,7 @@ Provides positioning information for cited content using page numbers.
 class SearchResultLocation(TypedDict)
 ```
 
-Defined in: [src/strands/types/citations.py:80](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/citations.py#L80)
+Defined in: [src/strands/types/citations.py:80](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/citations.py#L80)
 
 Specifies a search result location within the content array.
 
@@ -94,7 +94,7 @@ Provides positioning information for cited content using search result index and
 class WebLocation(TypedDict)
 ```
 
-Defined in: [src/strands/types/citations.py:100](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/citations.py#L100)
+Defined in: [src/strands/types/citations.py:100](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/citations.py#L100)
 
 Provides the URL and domain information for a cited website.
 
@@ -111,7 +111,7 @@ Contains information about the website that was cited when performing a web sear
 class CitationSourceContent(TypedDict)
 ```
 
-Defined in: [src/strands/types/citations.py:132](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/citations.py#L132)
+Defined in: [src/strands/types/citations.py:132](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/citations.py#L132)
 
 Contains the actual text content from a source document.
 
@@ -131,7 +131,7 @@ This is a UNION type, so only one of the members can be specified.
 class CitationGeneratedContent(TypedDict)
 ```
 
-Defined in: [src/strands/types/citations.py:148](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/citations.py#L148)
+Defined in: [src/strands/types/citations.py:148](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/citations.py#L148)
 
 Contains the generated text content that corresponds to a citation.
 
@@ -151,7 +151,7 @@ This is a UNION type, so only one of the members can be specified.
 class Citation(TypedDict)
 ```
 
-Defined in: [src/strands/types/citations.py:165](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/citations.py#L165)
+Defined in: [src/strands/types/citations.py:165](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/citations.py#L165)
 
 Contains information about a citation that references a source document.
 
@@ -169,7 +169,7 @@ Citations provide traceability between the model’s generated response and the 
 class CitationsContentBlock(TypedDict)
 ```
 
-Defined in: [src/strands/types/citations.py:185](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/citations.py#L185)
+Defined in: [src/strands/types/citations.py:185](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/citations.py#L185)
 
 A content block containing generated text and associated citations.
 

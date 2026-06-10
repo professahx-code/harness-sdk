@@ -6,7 +6,7 @@ Abstract interface for conversation history management.
 class ProactiveCompressionConfig(TypedDict)
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:20](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L20)
+Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:20](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L20)
 
 Configuration for proactive compression when passed as an object.
 
@@ -20,7 +20,7 @@ Configuration for proactive compression when passed as an object.
 class ConversationManager(ABC, HookProvider)
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:32](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L32)
+Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:32](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L32)
 
 Abstract base class for managing conversation history.
 
@@ -56,7 +56,7 @@ def __init__(
 ) -> None
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:66](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L66)
+Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:66](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L66)
 
 Initialize the ConversationManager.
 
@@ -81,7 +81,7 @@ Initialize the ConversationManager.
 def register_hooks(registry: HookRegistry, **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:98](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L98)
+Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:98](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L98)
 
 Register hooks for agent lifecycle events.
 
@@ -100,7 +100,7 @@ Derived classes that override this method must call the base implementation to e
 def restore_from_session(state: dict[str, Any]) -> list[Message] | None
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:159](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L159)
+Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:159](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L159)
 
 Restore the Conversation Manager’s state from a session.
 
@@ -118,7 +118,7 @@ Optional list of messages to prepend to the agents messages. By default returns 
 def get_state() -> dict[str, Any]
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:172](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L172)
+Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:172](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L172)
 
 Get the current state of a Conversation Manager as a Json serializable dictionary.
 
@@ -129,7 +129,7 @@ Get the current state of a Conversation Manager as a Json serializable dictionar
 def apply_management(agent: "Agent", **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:180](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L180)
+Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:180](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L180)
 
 Applies management strategy to the provided agent.
 
@@ -149,7 +149,7 @@ def reduce_context(agent: "Agent",
                    **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:195](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L195)
+Defined in: [src/strands/agent/conversation\_manager/conversation\_manager.py:195](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py#L195)
 
 Reduce the conversation history.
 

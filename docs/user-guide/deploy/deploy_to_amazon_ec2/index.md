@@ -2,7 +2,7 @@ Amazon EC2 (Elastic Compute Cloud) provides resizable compute capacity in the cl
 
 If you’re not familiar with the AWS CDK, check out the [official documentation](https://docs.aws.amazon.com/cdk/v2/guide/home.html).
 
-This guide discusses EC2 integration at a high level - for a complete example project deploying to EC2, check out the [`deploy_to_ec2` sample project on GitHub](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_ec2).
+This guide discusses EC2 integration at a high level - for a complete example project deploying to EC2, check out the [`deploy_to_ec2` sample project on GitHub](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_ec2).
 
 ## Creating Your Agent in Python
 
@@ -15,7 +15,7 @@ The FastAPI application follows these steps:
 3.  Process incoming requests through the agent
 4.  Return the response back to the client
 
-Here’s an example of a weather forecasting agent application ([`app.py`](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_ec2/app/app.py)):
+Here’s an example of a weather forecasting agent application ([`app.py`](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_ec2/app/app.py)):
 
 ```python
 app = FastAPI(title="Weather API")
@@ -115,7 +115,7 @@ The implementation above employs a [custom tool](/docs/user-guide/concepts/tools
 
 ## Infrastructure
 
-To deploy the agent to EC2 using the TypeScript CDK, you need to define the infrastructure stack ([agent-ec2-stack.ts](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_ec2/lib/agent-ec2-stack.ts)). The following code snippet highlights the key components specific to deploying Strands Agents SDK agents to EC2:
+To deploy the agent to EC2 using the TypeScript CDK, you need to define the infrastructure stack ([agent-ec2-stack.ts](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_ec2/lib/agent-ec2-stack.ts)). The following code snippet highlights the key components specific to deploying Strands Agents SDK agents to EC2:
 
 ```typescript
 // ... instance role & security-group omitted for brevity ...
@@ -198,7 +198,7 @@ For EC2 deployment, the application code and dependencies are packaged separatel
  );
 ```
 
-The full example ([agent-ec2-stack.ts](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_ec2/lib/agent-ec2-stack.ts)):
+The full example ([agent-ec2-stack.ts](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_ec2/lib/agent-ec2-stack.ts)):
 
 1.  Creates a VPC with public subnets
 2.  Sets up an EC2 instance with the appropriate IAM role
@@ -267,7 +267,7 @@ Possible follow-up tasks would be to:
 
 ## Complete Example
 
-For the complete example code, including all files and configurations, see the [`deploy_to_ec2` sample project on GitHub](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_ec2).
+For the complete example code, including all files and configurations, see the [`deploy_to_ec2` sample project on GitHub](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_ec2).
 
 ## Related Resources
 

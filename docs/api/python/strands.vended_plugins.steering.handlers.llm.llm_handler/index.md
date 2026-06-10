@@ -6,7 +6,7 @@ LLM-based steering handler that uses an LLM to provide contextual guidance.
 class LLMSteeringHandler(SteeringHandler)
 ```
 
-Defined in: [src/strands/vended\_plugins/steering/handlers/llm/llm\_handler.py:33](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/steering/handlers/llm/llm_handler.py#L33)
+Defined in: [src/strands/vended\_plugins/steering/handlers/llm/llm\_handler.py:33](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/handlers/llm/llm_handler.py#L33)
 
 Steering handler that uses an LLM to provide contextual guidance.
 
@@ -21,7 +21,7 @@ def __init__(system_prompt: str,
              context_providers: list[SteeringContextProvider] | None = None)
 ```
 
-Defined in: [src/strands/vended\_plugins/steering/handlers/llm/llm\_handler.py:40](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/steering/handlers/llm/llm_handler.py#L40)
+Defined in: [src/strands/vended\_plugins/steering/handlers/llm/llm\_handler.py:40](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/handlers/llm/llm_handler.py#L40)
 
 Initialize the LLMSteeringHandler.
 
@@ -39,7 +39,7 @@ async def steer_before_tool(*, agent: Agent, tool_use: ToolUse,
                             **kwargs: Any) -> ToolSteeringAction
 ```
 
-Defined in: [src/strands/vended\_plugins/steering/handlers/llm/llm\_handler.py:65](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/steering/handlers/llm/llm_handler.py#L65)
+Defined in: [src/strands/vended\_plugins/steering/handlers/llm/llm\_handler.py:65](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/handlers/llm/llm_handler.py#L65)
 
 Provide contextual guidance for tool usage.
 

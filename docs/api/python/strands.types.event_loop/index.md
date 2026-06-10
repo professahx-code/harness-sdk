@@ -6,7 +6,7 @@ Event loop-related type definitions for the SDK.
 class Usage(TypedDict)
 ```
 
-Defined in: [src/strands/types/event\_loop.py:8](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/event_loop.py#L8)
+Defined in: [src/strands/types/event\_loop.py:8](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/event_loop.py#L8)
 
 Token usage information for model interactions.
 
@@ -24,7 +24,7 @@ Token usage information for model interactions.
 class Metrics(TypedDict)
 ```
 
-Defined in: [src/strands/types/event\_loop.py:26](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/event_loop.py#L26)
+Defined in: [src/strands/types/event\_loop.py:26](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/event_loop.py#L26)
 
 Performance metrics for model interactions.
 

@@ -850,11 +850,11 @@ Strands enforces the following rules for interrupts in graph:
 
 - [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (3 shared tags)
 - [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (3 shared tags)
+- [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (3 shared tags)
 - [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (3 shared tags)
 - [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (2 shared tags)
 - [Plugins](/docs/user-guide/concepts/plugins/index.md) (2 shared tags)
 - [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (2 shared tags)
 - [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
-- [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)
 - [Detectors](/docs/user-guide/evals-sdk/detectors/index.md) (1 shared tag)
 - [Failure Detection](/docs/user-guide/evals-sdk/detectors/failure_detection/index.md) (1 shared tag)

@@ -1,4 +1,4 @@
-This [example](https://github.com/strands-agents/docs/tree/main/docs/examples/python/multimodal.py) demonstrates how to create a multi-agent system for generating and evaluating images. It shows how Strands agents can work with multimodal content through a workflow between specialized agents.
+This [example](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/python/multimodal.py) demonstrates how to create a multi-agent system for generating and evaluating images. It shows how Strands agents can work with multimodal content through a workflow between specialized agents.
 
 ## Overview
 

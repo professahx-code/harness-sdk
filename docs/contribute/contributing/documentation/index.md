@@ -92,10 +92,8 @@ agent("Hello, world!")
 
 # Then show configuration
 from strands import Agent
-from strands.models import BedrockModel
 
 agent = Agent(
-    model=BedrockModel(model_id="us.anthropic.claude-sonnet-4-20250514"),
     system_prompt="You are a helpful assistant."
 )
 agent("What's the weather like?")
@@ -104,7 +102,7 @@ agent("What's the weather like?")
 
 (( tab "TypeScript" ))
 ```typescript
-import { Agent, BedrockModel } from '@strands-agents/sdk'
+import { Agent } from '@strands-agents/sdk'
 
 // Good: Start simple
 const agent = new Agent()
@@ -112,7 +110,6 @@ await agent.invoke('Hello, world!')
 
 // Then show configuration
 const configuredAgent = new Agent({
-  model: new BedrockModel({ modelId: 'us.anthropic.claude-sonnet-4-20250514' }),
   systemPrompt: 'You are a helpful assistant.',
 })
 await configuredAgent.invoke("What's the weather like?")

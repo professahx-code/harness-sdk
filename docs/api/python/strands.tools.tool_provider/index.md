@@ -6,7 +6,7 @@ Tool provider interface.
 class ToolProvider(ABC)
 ```
 
-Defined in: [src/strands/tools/tool\_provider.py:11](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/tools/tool_provider.py#L11)
+Defined in: [src/strands/tools/tool\_provider.py:11](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tool_provider.py#L11)
 
 Interface for providing tools with lifecycle management.
 
@@ -19,7 +19,7 @@ Provides a way to load a collection of tools and clean them up when done, with l
 async def load_tools(**kwargs: Any) -> Sequence["AgentTool"]
 ```
 
-Defined in: [src/strands/tools/tool\_provider.py:19](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/tools/tool_provider.py#L19)
+Defined in: [src/strands/tools/tool\_provider.py:19](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tool_provider.py#L19)
 
 Load and return the tools in this provider.
 
@@ -38,7 +38,7 @@ List of tools that are ready to use.
 def add_consumer(consumer_id: Any, **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/tools/tool\_provider.py:31](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/tools/tool_provider.py#L31)
+Defined in: [src/strands/tools/tool\_provider.py:31](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tool_provider.py#L31)
 
 Add a consumer to this tool provider.
 
@@ -54,7 +54,7 @@ Add a consumer to this tool provider.
 def remove_consumer(consumer_id: Any, **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/tools/tool\_provider.py:41](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/tools/tool_provider.py#L41)
+Defined in: [src/strands/tools/tool\_provider.py:41](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tool_provider.py#L41)
 
 Remove a consumer from this tool provider.
 

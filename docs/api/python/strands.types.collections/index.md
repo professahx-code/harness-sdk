@@ -6,7 +6,7 @@ Generic collection types for the Strands SDK.
 class PaginatedList(list, Generic[T])
 ```
 
-Defined in: [src/strands/types/collections.py:8](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/collections.py#L8)
+Defined in: [src/strands/types/collections.py:8](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/collections.py#L8)
 
 A generic list-like object that includes a pagination token.
 
@@ -18,7 +18,7 @@ This maintains backwards compatibility by inheriting from list, so existing code
 def __init__(data: list[T], token: str | None = None)
 ```
 
-Defined in: [src/strands/types/collections.py:15](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/collections.py#L15)
+Defined in: [src/strands/types/collections.py:15](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/collections.py#L15)
 
 Initialize a PaginatedList with data and an optional pagination token.
 

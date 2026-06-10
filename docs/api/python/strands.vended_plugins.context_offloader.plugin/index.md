@@ -34,7 +34,7 @@ agent = Agent(plugins=[
 class ContextOffloader(Plugin)
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/plugin.py:61](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/context_offloader/plugin.py#L61)
+Defined in: [src/strands/vended\_plugins/context\_offloader/plugin.py:61](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/plugin.py#L61)
 
 Plugin that offloads oversized tool results to reduce context consumption.
 
@@ -80,7 +80,7 @@ def __init__(storage: Storage,
              include_retrieval_tool: bool = True) -> None
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/plugin.py:105](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/context_offloader/plugin.py#L105)
+Defined in: [src/strands/vended\_plugins/context\_offloader/plugin.py:105](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/plugin.py#L105)
 
 Initialize the ContextOffloader plugin.
 
@@ -101,7 +101,7 @@ Initialize the ContextOffloader plugin.
 def init_agent(agent: Agent) -> None
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/plugin.py:142](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/context_offloader/plugin.py#L142)
+Defined in: [src/strands/vended\_plugins/context\_offloader/plugin.py:142](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/plugin.py#L142)
 
 Conditionally register the retrieval tool.
 
@@ -113,7 +113,7 @@ def retrieve_offloaded_content(reference: str,
                                tool_context: ToolContext) -> dict | str
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/plugin.py:149](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/context_offloader/plugin.py#L149)
+Defined in: [src/strands/vended\_plugins/context\_offloader/plugin.py:149](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/plugin.py#L149)
 
 Retrieve offloaded content by reference.
 

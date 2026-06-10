@@ -304,7 +304,7 @@ from strands.models import AnthropicModel
 
 # Create a cheaper, faster model for summarization tasks
 summarization_model = AnthropicModel(
-    model_id="claude-3-5-haiku-20241022",  # More cost-effective for summarization
+    model_id="claude-haiku-4-5-20251001",  # More cost-effective for summarization
     max_tokens=1000,
     params={"temperature": 0.1}  # Low temperature for consistent summaries
 )
@@ -370,10 +370,8 @@ Pass `proactive_compression` to any built-in conversation manager. Use `True` fo
 ```python
 from strands import Agent
 from strands.agent.conversation_manager import SlidingWindowConversationManager
-from strands.models.bedrock import BedrockModel
 
 agent = Agent(
-    model=BedrockModel(model_id="anthropic.claude-sonnet-4-6-v1:0"),
     conversation_manager=SlidingWindowConversationManager(
         window_size=50,
         proactive_compression={"compression_threshold": 0.7},
@@ -386,10 +384,8 @@ agent = Agent(
 ```python
 from strands import Agent
 from strands.agent.conversation_manager import SummarizingConversationManager
-from strands.models.bedrock import BedrockModel
 
 agent = Agent(
-    model=BedrockModel(model_id="anthropic.claude-sonnet-4-6-v1:0"),
     conversation_manager=SummarizingConversationManager(
         proactive_compression=True,
     ),
@@ -405,16 +401,9 @@ Pass `proactiveCompression` to any built-in conversation manager. Use `true` for
 **With SlidingWindowConversationManager:**
 
 ```typescript
-import {
-  Agent,
-  BedrockModel,
-  SlidingWindowConversationManager,
-} from '@strands-agents/sdk'
+import { Agent, SlidingWindowConversationManager } from '@strands-agents/sdk'
 
 const agent = new Agent({
-  model: new BedrockModel({
-    modelId: 'anthropic.claude-sonnet-4-20250514-v1:0',
-  }),
   conversationManager: new SlidingWindowConversationManager({
     windowSize: 50,
     proactiveCompression: { compressionThreshold: 0.7 },
@@ -425,12 +414,9 @@ const agent = new Agent({
 **With SummarizingConversationManager:**
 
 ```typescript
-import { Agent, BedrockModel, SummarizingConversationManager } from '@strands-agents/sdk'
+import { Agent, SummarizingConversationManager } from '@strands-agents/sdk'
 
 const agent = new Agent({
-  model: new BedrockModel({
-    modelId: 'anthropic.claude-sonnet-4-20250514-v1:0',
-  }),
   conversationManager: new SummarizingConversationManager({
     proactiveCompression: true,
   }),

@@ -8,7 +8,7 @@ This module provides the \_MultiAgentPluginRegistry class for tracking and manag
 class _MultiAgentPluginRegistry()
 ```
 
-Defined in: [src/strands/plugins/multiagent\_registry.py:20](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/plugins/multiagent_registry.py#L20)
+Defined in: [src/strands/plugins/multiagent\_registry.py:20](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/plugins/multiagent_registry.py#L20)
 
 Registry for managing plugins attached to a multi-agent orchestrator.
 
@@ -45,7 +45,7 @@ registry.add_and_init(plugin)
 def __init__(orchestrator: "MultiAgentBase") -> None
 ```
 
-Defined in: [src/strands/plugins/multiagent\_registry.py:50](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/plugins/multiagent_registry.py#L50)
+Defined in: [src/strands/plugins/multiagent\_registry.py:50](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/plugins/multiagent_registry.py#L50)
 
 Initialize a plugin registry with an orchestrator reference.
 
@@ -59,7 +59,7 @@ Initialize a plugin registry with an orchestrator reference.
 def add_and_init(plugin: MultiAgentPlugin) -> None
 ```
 
-Defined in: [src/strands/plugins/multiagent\_registry.py:67](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/plugins/multiagent_registry.py#L67)
+Defined in: [src/strands/plugins/multiagent\_registry.py:67](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/plugins/multiagent_registry.py#L67)
 
 Add and initialize a plugin with the orchestrator.
 

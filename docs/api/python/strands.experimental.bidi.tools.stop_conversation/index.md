@@ -9,7 +9,7 @@ Tool to gracefully stop a bidirectional connection.
 def stop_conversation() -> str
 ```
 
-Defined in: [src/strands/experimental/bidi/tools/stop\_conversation.py:14](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/bidi/tools/stop_conversation.py#L14)
+Defined in: [src/strands/experimental/bidi/tools/stop\_conversation.py:14](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/bidi/tools/stop_conversation.py#L14)
 
 Stop the bidirectional conversation gracefully.
 

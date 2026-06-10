@@ -8,7 +8,7 @@ This module provides a real tool implementation for structured output that integ
 class StructuredOutputTool(AgentTool)
 ```
 
-Defined in: [src/strands/tools/structured\_output/structured\_output\_tool.py:26](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/tools/structured_output/structured_output_tool.py#L26)
+Defined in: [src/strands/tools/structured\_output/structured\_output\_tool.py:26](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/structured_output/structured_output_tool.py#L26)
 
 Tool implementation for structured output validation.
 
@@ -18,7 +18,7 @@ Tool implementation for structured output validation.
 def __init__(structured_output_model: type[BaseModel]) -> None
 ```
 
-Defined in: [src/strands/tools/structured\_output/structured\_output\_tool.py:29](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/tools/structured_output/structured_output_tool.py#L29)
+Defined in: [src/strands/tools/structured\_output/structured\_output\_tool.py:29](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/structured_output/structured_output_tool.py#L29)
 
 Initialize a structured output tool.
 
@@ -33,7 +33,7 @@ Initialize a structured output tool.
 def tool_name() -> str
 ```
 
-Defined in: [src/strands/tools/structured\_output/structured\_output\_tool.py:60](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/tools/structured_output/structured_output_tool.py#L60)
+Defined in: [src/strands/tools/structured\_output/structured\_output\_tool.py:60](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/structured_output/structured_output_tool.py#L60)
 
 Get the name of the tool.
 
@@ -48,7 +48,7 @@ The name of the tool (same as the Pydantic model class name).
 def tool_spec() -> ToolSpec
 ```
 
-Defined in: [src/strands/tools/structured\_output/structured\_output\_tool.py:69](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/tools/structured_output/structured_output_tool.py#L69)
+Defined in: [src/strands/tools/structured\_output/structured\_output\_tool.py:69](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/structured_output/structured_output_tool.py#L69)
 
 Get the tool specification for this structured output tool.
 
@@ -63,7 +63,7 @@ The tool specification generated from the Pydantic model.
 def tool_type() -> str
 ```
 
-Defined in: [src/strands/tools/structured\_output/structured\_output\_tool.py:78](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/tools/structured_output/structured_output_tool.py#L78)
+Defined in: [src/strands/tools/structured\_output/structured\_output\_tool.py:78](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/structured_output/structured_output_tool.py#L78)
 
 Identifies this as a structured output tool implementation.
 
@@ -78,7 +78,7 @@ Identifies this as a structured output tool implementation.
 def structured_output_model() -> type[BaseModel]
 ```
 
-Defined in: [src/strands/tools/structured\_output/structured\_output\_tool.py:87](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/tools/structured_output/structured_output_tool.py#L87)
+Defined in: [src/strands/tools/structured\_output/structured\_output\_tool.py:87](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/structured_output/structured_output_tool.py#L87)
 
 Get the Pydantic model type for this tool.
 
@@ -94,7 +94,7 @@ async def stream(tool_use: ToolUse, invocation_state: dict[str, Any],
                  **kwargs: Any) -> ToolGenerator
 ```
 
-Defined in: [src/strands/tools/structured\_output/structured\_output\_tool.py:96](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/tools/structured_output/structured_output_tool.py#L96)
+Defined in: [src/strands/tools/structured\_output/structured\_output\_tool.py:96](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/structured_output/structured_output_tool.py#L96)
 
 Validate the structured output and return appropriate result.
 

@@ -1,5 +1,9 @@
 Steering provides modular prompting for complex agent tasks through context-aware guidance that appears when relevant, rather than front-loading all instructions in monolithic prompts. This lets you assign agents complex, multi-step tasks while maintaining effectiveness through just-in-time feedback loops.
 
+TypeScript SDK
+
+In TypeScript, steering handlers use the [interventions](/docs/user-guide/concepts/agents/interventions/steering/index.md) framework rather than plugins. See [Steering (Interventions)](/docs/user-guide/concepts/agents/interventions/steering/index.md) for the full TypeScript API reference including `SteeringHandler`, `LLMSteeringHandler`, and context providers.
+
 ## What Is Steering?
 
 Building agents for complex multi-step tasks runs into a prompting wall. Traditional approaches require front-loading all instructions, business rules, and operational guidance into a single prompt. For tasks with 30+ steps, monolithic prompts become unwieldy: agents ignore instructions, hallucinate behaviors, or fail to follow critical procedures.
@@ -39,11 +43,9 @@ flowchart LR
 
 The handler returns one of three actions:
 
--   **Approve**: tool executes immediately
--   **Guide**: tool is cancelled, agent receives contextual feedback
--   **Pause for human input**: tool execution pauses for human input
-
-The action symbols differ by language. Python returns `Proceed`, `Guide`, or `Interrupt`. TypeScript returns `proceed()`, `guide()`, or `confirm()`.
+-   **`Proceed`**: tool executes immediately
+-   **`Guide`**: tool is cancelled, agent receives contextual feedback
+-   **`Interrupt`**: tool execution pauses for human input
 
 ### After a Model Response
 
@@ -60,8 +62,8 @@ flowchart LR
 
 The handler returns one of two actions:
 
--   **Approve**: accept the response as-is
--   **Guide**: discard the response and retry with guidance injected into the conversation
+-   **`Proceed`**: accept the response as-is
+-   **`Guide`**: discard the response and retry with guidance injected into the conversation
 
 After-model steering enables handlers to validate responses, ensure required tools are used before completion, or guide conversation flow based on output.
 
@@ -73,9 +75,8 @@ When you want to express guidance in plain English rather than imperative code, 
 
 For best practices on writing steering prompts, see the [Agent Standard Operating Procedures (SOP)](https://github.com/strands-agents/agent-sop) framework, which provides structured templates for effective agent prompts.
 
-The two SDKs attach steering handlers differently. Python passes them through `plugins=[handler]`; TypeScript passes them through `interventions: [handler]`.
+Steering handlers are attached via `plugins=[handler]` on the agent:
 
-(( tab "Python" ))
 ```python
 from strands import Agent, tool
 from strands.vended_plugins.steering import LLMSteeringHandler
@@ -115,54 +116,6 @@ print(agent.messages)
 # Typical: agent.messages includes a cancelled send_email ToolUseBlock,
 # a guidance message, then a retried send_email with cheerier wording.
 ```
-(( /tab "Python" ))
-
-(( tab "TypeScript" ))
-```typescript
-import { Agent, tool } from '@strands-agents/sdk'
-import { LLMSteeringHandler } from '@strands-agents/sdk/vended-interventions/steering'
-import { z } from 'zod'
-
-const sendEmail = tool({
-  name: 'send_email',
-  description: 'Send an email to a recipient',
-  inputSchema: z.object({
-    recipient: z.string(),
-    subject: z.string(),
-    message: z.string(),
-  }),
-  callback: (input) => `Email sent to ${input.recipient}`,
-})
-
-const handler = new LLMSteeringHandler({
-  systemPrompt: `
-    You are providing guidance to ensure emails maintain a cheerful, positive tone.
-
-    Guidance:
-    - Review email content for tone and sentiment
-    - Suggest more cheerful phrasing if the message seems negative or neutral
-    - Encourage use of positive language and friendly greetings
-
-    When agents attempt to send emails, check if the message tone
-    is appropriately cheerful and provide feedback if improvements are needed.
-  `,
-})
-
-const agent = new Agent({
-  tools: [sendEmail],
-  interventions: [handler],
-})
-
-await agent.invoke(
-  'Send a frustrated email to tom@example.com, ' +
-    'a client who keeps rescheduling important meetings at the last minute'
-)
-console.log(agent.messages)
-
-// Typical: agent.messages includes a cancelled send_email ToolUseBlock,
-// a guidance message, then a retried send_email with cheerier wording.
-```
-(( /tab "TypeScript" ))
 
 ```mermaid
 sequenceDiagram
@@ -191,7 +144,7 @@ The ledger captures:
 
 **Structured Data**: the ledger is stored in JSON-serializable form in the handler’s steering context, making it directly accessible to LLM-based steering decisions.
 
-The provider class name differs by language: Python exposes `LedgerProvider`, TypeScript exposes `ToolLedgerProvider`. Both default to retaining the most recent 100 tool calls; older entries are dropped.
+The `LedgerProvider` retains all tool calls for the lifetime of the handler instance.
 
 ## Comparison with Other Approaches
 

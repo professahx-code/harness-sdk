@@ -6,7 +6,7 @@ Summarizing conversation history management with configurable options.
 class SummarizingConversationManager(ConversationManager)
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:54](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L54)
+Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:55](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L55)
 
 Implements a summarizing window manager.
 
@@ -20,11 +20,12 @@ def __init__(summary_ratio: float = 0.3,
              summarization_agent: Optional["Agent"] = None,
              summarization_system_prompt: str | None = None,
              *,
+             pin_first: int | None = None,
              proactive_compression: bool | ProactiveCompressionConfig
              | None = None)
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:62](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L62)
+Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:63](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L63)
 
 Initialize the summarizing conversation manager.
 
@@ -34,6 +35,7 @@ Initialize the summarizing conversation manager.
 -   `preserve_recent_messages` - Minimum number of recent messages to always keep. Defaults to 10 messages.
 -   `summarization_agent` - Optional agent to use for summarization instead of the parent agent. If provided, this agent can use tools as part of the summarization process.
 -   `summarization_system_prompt` - Optional system prompt override for summarization. If None, uses the default summarization prompt.
+-   `pin_first` - Number of messages at the start of the conversation to permanently pin. Pinned messages are protected from summarization and compacted to the front.
 -   `proactive_compression` - Enable proactive context compression before the model call.
     -   `True`: compress when 70% of the context window is used (default threshold).
     -   `\{"compression_threshold": float}`: compress at the specified ratio (0, 1\].
@@ -46,7 +48,7 @@ Initialize the summarizing conversation manager.
 def restore_from_session(state: dict[str, Any]) -> list[Message] | None
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:101](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L101)
+Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:107](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L107)
 
 Restores the Summarizing Conversation manager from its previous state in a session.
 
@@ -64,7 +66,7 @@ Optionally returns the previous conversation summary if it exists.
 def get_state() -> dict[str, Any]
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:114](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L114)
+Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:120](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L120)
 
 Returns a dictionary representation of the state for the Summarizing Conversation Manager.
 
@@ -74,7 +76,7 @@ Returns a dictionary representation of the state for the Summarizing Conversatio
 def apply_management(agent: "Agent", **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:118](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L118)
+Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:124](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L124)
 
 Apply management strategy to conversation history.
 
@@ -93,7 +95,7 @@ def reduce_context(agent: "Agent",
                    **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:132](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L132)
+Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:138](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L138)
 
 Reduce context using summarization.
 

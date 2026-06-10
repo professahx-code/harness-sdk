@@ -6,7 +6,7 @@ Session repository interface for agent session management.
 class SessionRepository(ABC)
 ```
 
-Defined in: [src/strands/session/session\_repository.py:12](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/session_repository.py#L12)
+Defined in: [src/strands/session/session\_repository.py:12](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/session_repository.py#L12)
 
 Abstract repository for creating, reading, and updating Sessions, AgentSessions, and AgentMessages.
 
@@ -17,7 +17,7 @@ Abstract repository for creating, reading, and updating Sessions, AgentSessions,
 def create_session(session: Session, **kwargs: Any) -> Session
 ```
 
-Defined in: [src/strands/session/session\_repository.py:16](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/session_repository.py#L16)
+Defined in: [src/strands/session/session\_repository.py:16](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/session_repository.py#L16)
 
 Create a new Session.
 
@@ -28,7 +28,7 @@ Create a new Session.
 def read_session(session_id: str, **kwargs: Any) -> Session | None
 ```
 
-Defined in: [src/strands/session/session\_repository.py:20](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/session_repository.py#L20)
+Defined in: [src/strands/session/session\_repository.py:20](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/session_repository.py#L20)
 
 Read a Session.
 
@@ -40,7 +40,7 @@ def create_agent(session_id: str, session_agent: SessionAgent,
                  **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/session/session\_repository.py:24](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/session_repository.py#L24)
+Defined in: [src/strands/session/session\_repository.py:24](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/session_repository.py#L24)
 
 Create a new Agent in a Session.
 
@@ -52,7 +52,7 @@ def read_agent(session_id: str, agent_id: str,
                **kwargs: Any) -> SessionAgent | None
 ```
 
-Defined in: [src/strands/session/session\_repository.py:28](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/session_repository.py#L28)
+Defined in: [src/strands/session/session\_repository.py:28](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/session_repository.py#L28)
 
 Read an Agent.
 
@@ -64,7 +64,7 @@ def update_agent(session_id: str, session_agent: SessionAgent,
                  **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/session/session\_repository.py:32](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/session_repository.py#L32)
+Defined in: [src/strands/session/session\_repository.py:32](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/session_repository.py#L32)
 
 Update an Agent.
 
@@ -76,7 +76,7 @@ def create_message(session_id: str, agent_id: str,
                    session_message: SessionMessage, **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/session/session\_repository.py:36](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/session_repository.py#L36)
+Defined in: [src/strands/session/session\_repository.py:36](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/session_repository.py#L36)
 
 Create a new Message for the Agent.
 
@@ -88,7 +88,7 @@ def read_message(session_id: str, agent_id: str, message_id: int,
                  **kwargs: Any) -> SessionMessage | None
 ```
 
-Defined in: [src/strands/session/session\_repository.py:40](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/session_repository.py#L40)
+Defined in: [src/strands/session/session\_repository.py:40](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/session_repository.py#L40)
 
 Read a Message.
 
@@ -100,7 +100,7 @@ def update_message(session_id: str, agent_id: str,
                    session_message: SessionMessage, **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/session/session\_repository.py:44](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/session_repository.py#L44)
+Defined in: [src/strands/session/session\_repository.py:44](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/session_repository.py#L44)
 
 Update a Message.
 
@@ -117,7 +117,7 @@ def list_messages(session_id: str,
                   **kwargs: Any) -> list[SessionMessage]
 ```
 
-Defined in: [src/strands/session/session\_repository.py:51](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/session_repository.py#L51)
+Defined in: [src/strands/session/session\_repository.py:51](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/session_repository.py#L51)
 
 List Messages from an Agent with pagination.
 
@@ -128,7 +128,7 @@ def create_multi_agent(session_id: str, multi_agent: "MultiAgentBase",
                        **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/session/session\_repository.py:56](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/session_repository.py#L56)
+Defined in: [src/strands/session/session\_repository.py:56](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/session_repository.py#L56)
 
 Create a new MultiAgent state for the Session.
 
@@ -139,7 +139,7 @@ def read_multi_agent(session_id: str, multi_agent_id: str,
                      **kwargs: Any) -> dict[str, Any] | None
 ```
 
-Defined in: [src/strands/session/session\_repository.py:60](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/session_repository.py#L60)
+Defined in: [src/strands/session/session\_repository.py:60](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/session_repository.py#L60)
 
 Read the MultiAgent state for the Session.
 
@@ -150,6 +150,6 @@ def update_multi_agent(session_id: str, multi_agent: "MultiAgentBase",
                        **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/session/session\_repository.py:64](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/session_repository.py#L64)
+Defined in: [src/strands/session/session\_repository.py:64](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/session_repository.py#L64)
 
 Update the MultiAgent state for the Session.

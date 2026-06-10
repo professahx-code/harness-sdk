@@ -36,10 +36,10 @@ Tool configuration
 ## Call Signature
 
 ```ts
-function tool<TInput, TReturn>(config): InvokableTool<output<TInput>, TReturn>;
+function tool<TInput, TReturn>(config): InvokableTool<infer<TInput>, TReturn>;
 ```
 
-Defined in: [src/tools/tool-factory.ts:26](https://github.com/strands-agents/sdk-typescript/blob/00e04880c30c5ce1f76e40c164d32ce52f7b6dca/strands-ts/src/tools/tool-factory.ts#L26)
+Defined in: [src/tools/tool-factory.ts:26](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/tools/tool-factory.ts#L26)
 
 Creates an InvokableTool from a Zod schema and callback function.
 
@@ -47,7 +47,7 @@ Creates an InvokableTool from a Zod schema and callback function.
 
 | Type Parameter | Default type | Description |
 | --- | --- | --- |
-| `TInput` *extends* `ZodType`<`unknown`, `unknown`, `$ZodTypeInternals`<`unknown`, `unknown`\>> | \- | Zod schema type for input validation |
+| `TInput` *extends* `ZodType` | \- | Zod schema type for input validation |
 | `TReturn` *extends* [`JSONValue`](/docs/api/typescript/JSONValue/index.md) | [`JSONValue`](/docs/api/typescript/JSONValue/index.md) | Return type of the callback function |
 
 ### Parameters
@@ -58,7 +58,7 @@ Creates an InvokableTool from a Zod schema and callback function.
 
 ### Returns
 
-[`InvokableTool`](/docs/api/typescript/InvokableTool/index.md)<`output`<`TInput`\>, `TReturn`\>
+[`InvokableTool`](/docs/api/typescript/InvokableTool/index.md)<`infer`<`TInput`\>, `TReturn`\>
 
 An InvokableTool with typed input and output
 
@@ -68,7 +68,7 @@ An InvokableTool with typed input and output
 function tool(config): InvokableTool<unknown, JSONValue>;
 ```
 
-Defined in: [src/tools/tool-factory.ts:36](https://github.com/strands-agents/sdk-typescript/blob/00e04880c30c5ce1f76e40c164d32ce52f7b6dca/strands-ts/src/tools/tool-factory.ts#L36)
+Defined in: [src/tools/tool-factory.ts:36](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/tools/tool-factory.ts#L36)
 
 Creates an InvokableTool from a JSON schema and callback function.
 

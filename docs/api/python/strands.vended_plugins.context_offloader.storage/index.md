@@ -30,7 +30,7 @@ storage = S3Storage(bucket="my-bucket", prefix="artifacts/")
 class Storage(Protocol)
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:58](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L58)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:58](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L58)
 
 Backend for storing and retrieving offloaded content blocks.
 
@@ -44,7 +44,7 @@ Lifecycle: This protocol intentionally does not include eviction or deletion met
 def store(key: str, content: bytes, content_type: str = "text/plain") -> str
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:73](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L73)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:73](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L73)
 
 Store content and return a reference identifier.
 
@@ -64,7 +64,7 @@ A reference string that can be used to retrieve the content later.
 def retrieve(reference: str) -> tuple[bytes, str]
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:87](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L87)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:87](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L87)
 
 Retrieve stored content by reference.
 
@@ -86,7 +86,7 @@ A tuple of (content bytes, content type).
 class FileStorage()
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:102](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L102)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:102](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L102)
 
 Store offloaded content as files on disk.
 
@@ -102,7 +102,7 @@ Files are written to the configured artifact directory with unique names. File e
 def __init__(artifact_dir: str = "./artifacts") -> None
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:115](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L115)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:115](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L115)
 
 Initialize file-based storage.
 
@@ -116,7 +116,7 @@ Initialize file-based storage.
 def store(key: str, content: bytes, content_type: str = "text/plain") -> str
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:133](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L133)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:133](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L133)
 
 Store content as a file and return the path as reference.
 
@@ -138,7 +138,7 @@ The file path (e.g., `./artifacts/1234_1_key.txt`).
 def retrieve(reference: str) -> tuple[bytes, str]
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:165](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L165)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:165](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L165)
 
 Retrieve content from a stored file.
 
@@ -162,7 +162,7 @@ A tuple of (content bytes, content type).
 class InMemoryStorage()
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:210](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L210)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:210](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L210)
 
 Store offloaded content in memory.
 
@@ -178,7 +178,7 @@ Content accumulates for the lifetime of this instance. For long-running agents, 
 def __init__() -> None
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:223](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L223)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:223](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L223)
 
 Initialize in-memory storage.
 
@@ -188,7 +188,7 @@ Initialize in-memory storage.
 def store(key: str, content: bytes, content_type: str = "text/plain") -> str
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:229](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L229)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:229](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L229)
 
 Store content in memory and return a reference.
 
@@ -208,7 +208,7 @@ A unique reference string.
 def retrieve(reference: str) -> tuple[bytes, str]
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:246](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L246)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:246](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L246)
 
 Retrieve content from memory.
 
@@ -230,7 +230,7 @@ A tuple of (content bytes, content type).
 def clear() -> None
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:263](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L263)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:263](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L263)
 
 Remove all stored content.
 
@@ -242,7 +242,7 @@ Call this to free memory when offloaded results are no longer needed, e.g., betw
 class S3Storage()
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:273](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L273)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:273](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L273)
 
 Store offloaded content in Amazon S3.
 
@@ -277,7 +277,7 @@ def __init__(bucket: str,
              region_name: str | None = None) -> None
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:298](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L298)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:298](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L298)
 
 Initialize S3-based storage.
 
@@ -295,7 +295,7 @@ Initialize S3-based storage.
 def store(key: str, content: bytes, content_type: str = "text/plain") -> str
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:334](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L334)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:334](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L334)
 
 Store content as an S3 object and return an `s3://` URI as reference.
 
@@ -319,7 +319,7 @@ An S3 URI (e.g., `s3://bucket/prefix/1234_1_key`).
 def retrieve(reference: str) -> tuple[bytes, str]
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:365](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L365)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:365](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L365)
 
 Retrieve content from an S3 object.
 

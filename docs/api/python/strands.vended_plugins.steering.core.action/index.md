@@ -14,7 +14,7 @@ Extensibility: New action types can be added to the union. Always handle the def
 class Proceed(BaseModel)
 ```
 
-Defined in: [src/strands/vended\_plugins/steering/core/action.py:27](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/steering/core/action.py#L27)
+Defined in: [src/strands/vended\_plugins/steering/core/action.py:27](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/core/action.py#L27)
 
 Allow execution to continue without intervention.
 
@@ -26,7 +26,7 @@ The action proceeds as planned. The reason provides context for logging and debu
 class Guide(BaseModel)
 ```
 
-Defined in: [src/strands/vended\_plugins/steering/core/action.py:38](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/steering/core/action.py#L38)
+Defined in: [src/strands/vended\_plugins/steering/core/action.py:38](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/core/action.py#L38)
 
 Provide contextual guidance to redirect the agent.
 
@@ -38,7 +38,7 @@ The agent receives the reason as contextual feedback to help guide its behavior.
 class Interrupt(BaseModel)
 ```
 
-Defined in: [src/strands/vended\_plugins/steering/core/action.py:50](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/steering/core/action.py#L50)
+Defined in: [src/strands/vended\_plugins/steering/core/action.py:50](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/core/action.py#L50)
 
 Pause execution for human input via interrupt system.
 

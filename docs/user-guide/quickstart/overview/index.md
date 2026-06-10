@@ -43,8 +43,8 @@ The table below compares feature availability between the Python and TypeScript 
 |  | [Agent-to-Agent (A2A)](/docs/user-guide/concepts/multi-agent/agent-to-agent/index.md) | ✅ | ✅ |
 | **Session management** | [File, S3, repository managers](/docs/user-guide/concepts/agents/session-management/index.md) | ✅ | ✅ |
 | **Observability** | [OpenTelemetry integration](/docs/user-guide/observability-evaluation/observability/index.md) | ✅ | ✅ |
+| **Steering** | [Agent steering](/docs/user-guide/concepts/plugins/steering/index.md) | ✅ | ✅ |
 | **Experimental** | [Bidirectional streaming](/docs/user-guide/concepts/bidirectional-streaming/quickstart/index.md) | ✅ | ❌ |
-|  | [Agent steering](/docs/user-guide/concepts/plugins/steering/index.md) | ✅ | ❌ |
 
 ## Related pages
 

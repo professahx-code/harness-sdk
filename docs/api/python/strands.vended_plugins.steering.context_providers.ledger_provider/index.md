@@ -17,7 +17,7 @@ Usage: Use as context provider functions or mix into steering handlers.
 class LedgerBeforeToolCall(SteeringContextCallback[BeforeToolCallEvent])
 ```
 
-Defined in: [src/strands/vended\_plugins/steering/context\_providers/ledger\_provider.py:28](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/steering/context_providers/ledger_provider.py#L28)
+Defined in: [src/strands/vended\_plugins/steering/context\_providers/ledger\_provider.py:28](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/context_providers/ledger_provider.py#L28)
 
 Context provider for ledger tracking before tool calls.
 
@@ -27,7 +27,7 @@ Context provider for ledger tracking before tool calls.
 def __init__() -> None
 ```
 
-Defined in: [src/strands/vended\_plugins/steering/context\_providers/ledger\_provider.py:31](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/steering/context_providers/ledger_provider.py#L31)
+Defined in: [src/strands/vended\_plugins/steering/context\_providers/ledger\_provider.py:31](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/context_providers/ledger_provider.py#L31)
 
 Initialize the ledger provider.
 
@@ -38,7 +38,7 @@ def __call__(event: BeforeToolCallEvent, steering_context: SteeringContext,
              **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/vended\_plugins/steering/context\_providers/ledger\_provider.py:35](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/steering/context_providers/ledger_provider.py#L35)
+Defined in: [src/strands/vended\_plugins/steering/context\_providers/ledger\_provider.py:35](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/context_providers/ledger_provider.py#L35)
 
 Update ledger before tool call.
 
@@ -48,7 +48,7 @@ Update ledger before tool call.
 class LedgerAfterToolCall(SteeringContextCallback[AfterToolCallEvent])
 ```
 
-Defined in: [src/strands/vended\_plugins/steering/context\_providers/ledger\_provider.py:58](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/steering/context_providers/ledger_provider.py#L58)
+Defined in: [src/strands/vended\_plugins/steering/context\_providers/ledger\_provider.py:58](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/context_providers/ledger_provider.py#L58)
 
 Context provider for ledger tracking after tool calls.
 
@@ -59,7 +59,7 @@ def __call__(event: AfterToolCallEvent, steering_context: SteeringContext,
              **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/vended\_plugins/steering/context\_providers/ledger\_provider.py:61](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/steering/context_providers/ledger_provider.py#L61)
+Defined in: [src/strands/vended\_plugins/steering/context\_providers/ledger\_provider.py:61](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/context_providers/ledger_provider.py#L61)
 
 Update ledger after tool call.
 
@@ -69,7 +69,7 @@ Update ledger after tool call.
 class LedgerProvider(SteeringContextProvider)
 ```
 
-Defined in: [src/strands/vended\_plugins/steering/context\_providers/ledger\_provider.py:83](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/steering/context_providers/ledger_provider.py#L83)
+Defined in: [src/strands/vended\_plugins/steering/context\_providers/ledger\_provider.py:83](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/context_providers/ledger_provider.py#L83)
 
 Combined ledger context provider for both before and after tool calls.
 
@@ -79,6 +79,6 @@ Combined ledger context provider for both before and after tool calls.
 def context_providers(**kwargs: Any) -> list[SteeringContextCallback]
 ```
 
-Defined in: [src/strands/vended\_plugins/steering/context\_providers/ledger\_provider.py:86](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/steering/context_providers/ledger_provider.py#L86)
+Defined in: [src/strands/vended\_plugins/steering/context\_providers/ledger\_provider.py:86](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/context_providers/ledger_provider.py#L86)
 
 Return ledger context providers with shared state.

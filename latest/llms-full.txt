@@ -190,7 +190,7 @@ The [extension template](https://github.com/strands-agents/extension-template-py
 
 ## Quick Steps
 
-1.  **Create a PR** to [strands-agents/docs](https://github.com/strands-agents/docs)
+1.  **Create a PR** to [strands-agents/harness-sdk](https://github.com/strands-agents/harness-sdk)
 2.  **Add your doc file** in the appropriate `community/` subdirectory
 3.  **Include the required frontmatter** so your page appears in the [community catalog](/docs/community/community-packages/index.md)
 4.  **Update `src/config/navigation.yml`** to include your new page in the nav
@@ -295,14 +295,14 @@ Add your page to `src/config/navigation.yml` under the Community section:
 
 Look at existing community pages for reference:
 
--   **Tool**: [strands-deepgram.mdx](https://github.com/strands-agents/docs/blob/main/src/content/docs/community/tools/strands-deepgram.mdx)
--   **Model Provider**: [nvidia-nim.mdx](https://github.com/strands-agents/docs/blob/main/src/content/docs/community/model-providers/nvidia-nim.mdx)
--   **Session Manager**: [agentcore-memory.mdx](https://github.com/strands-agents/docs/blob/main/src/content/docs/community/session-managers/agentcore-memory.mdx)
--   **Integration**: [ag-ui.mdx](https://github.com/strands-agents/docs/blob/main/src/content/docs/community/integrations/ag-ui.mdx)
+-   **Tool**: [strands-deepgram.mdx](https://github.com/strands-agents/harness-sdk/blob/main/site/src/content/docs/community/tools/strands-deepgram.mdx)
+-   **Model Provider**: [nvidia-nim.mdx](https://github.com/strands-agents/harness-sdk/blob/main/site/src/content/docs/community/model-providers/nvidia-nim.mdx)
+-   **Session Manager**: [agentcore-memory.mdx](https://github.com/strands-agents/harness-sdk/blob/main/site/src/content/docs/community/session-managers/agentcore-memory.mdx)
+-   **Integration**: [ag-ui.mdx](https://github.com/strands-agents/harness-sdk/blob/main/site/src/content/docs/community/integrations/ag-ui.mdx)
 
 ## Questions?
 
-Open an issue at [strands-agents/docs](https://github.com/strands-agents/docs/issues) — we’re happy to help!
+Open an issue at [strands-agents/harness-sdk](https://github.com/strands-agents/harness-sdk/issues) — we’re happy to help!
 
 Source: https://strandsagents.com/docs/community/get-featured/index.md
 
@@ -3784,8 +3784,8 @@ You can share your tools, model providers, hooks, and session managers with the 
 -   [Community Catalog](/docs/community/community-packages/index.md) — Discover community-built extensions
 -   [GitHub Discussions](https://github.com/strands-agents/harness-sdk/discussions) — Ask questions, share ideas
 -   [Roadmap](https://github.com/orgs/strands-agents/projects/8/views/1) — See what we’re working on
--   [Development Tenets](https://github.com/strands-agents/docs/blob/main/team/TENETS.md) — Principles that guide SDK design
--   [Decision Records](https://github.com/strands-agents/docs/blob/main/team/DECISIONS.md) — Past design decisions with rationale
+-   [Development Tenets](https://github.com/strands-agents/harness-sdk/blob/main/team/TENETS.md) — Principles that guide SDK design
+-   [Decision Records](https://github.com/strands-agents/harness-sdk/blob/main/team/DECISIONS.md) — Past design decisions with rationale
 -   [Code of Conduct](https://aws.github.io/code-of-conduct) — Community guidelines
 -   [Report a Security Issue](https://aws.amazon.com/security/vulnerability-reporting/) — For vulnerabilities, not public issues
 
@@ -4033,10 +4033,8 @@ agent("Hello, world!")
 
 # Then show configuration
 from strands import Agent
-from strands.models import BedrockModel
 
 agent = Agent(
-    model=BedrockModel(model_id="us.anthropic.claude-sonnet-4-20250514"),
     system_prompt="You are a helpful assistant."
 )
 agent("What's the weather like?")
@@ -4045,7 +4043,7 @@ agent("What's the weather like?")
 
 (( tab "TypeScript" ))
 ```typescript
-import { Agent, BedrockModel } from '@strands-agents/sdk'
+import { Agent } from '@strands-agents/sdk'
 
 // Good: Start simple
 const agent = new Agent()
@@ -4053,7 +4051,6 @@ await agent.invoke('Hello, world!')
 
 // Then show configuration
 const configuredAgent = new Agent({
-  model: new BedrockModel({ modelId: 'us.anthropic.claude-sonnet-4-20250514' }),
   systemPrompt: 'You are a helpful assistant.',
 })
 await configuredAgent.invoke("What's the weather like?")
@@ -4182,8 +4179,8 @@ A collection of sample implementations to help you get started with Strands Agen
 3.  Clone the examples:
     
     ```bash
-    git clone https://github.com/strands-agents/docs.git
-    cd docs/docs/examples
+    git clone https://github.com/strands-agents/harness-sdk.git
+    cd harness-sdk/site/docs/examples
     ```
     
 4.  Browse the examples below and follow the instructions in each one
@@ -4225,7 +4222,7 @@ Source: https://strandsagents.com/docs/examples/index.md
 
 ## Agentic Workflow: Research Assistant - Multi-Agent Collaboration Example
 
-This [example](https://github.com/strands-agents/docs/blob/main/docs/examples/python/agents_workflow.py) shows how to create a multi-agent workflow using Strands agents to perform web research, fact-checking, and report generation. It demonstrates specialized agent roles working together in sequence to process information.
+This [example](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/python/agents_workflow.py) shows how to create a multi-agent workflow using Strands agents to perform web research, fact-checking, and report generation. It demonstrates specialized agent roles working together in sequence to process information.
 
 ## Overview
 
@@ -4430,7 +4427,7 @@ Source: https://strandsagents.com/docs/examples/python/agents_workflows/index.md
 
 ## File Operations - Strands Agent for File Management
 
-This [example](https://github.com/strands-agents/docs/blob/main/docs/examples/python/file_operations.py) demonstrates how to create a Strands agent specialized in file operations, allowing users to read, write, search, and modify files through natural language commands. It showcases how Strands agents can be configured to work with the filesystem in a safe and intuitive manner.
+This [example](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/python/file_operations.py) demonstrates how to create a Strands agent specialized in file operations, allowing users to read, write, search, and modify files through natural language commands. It showcases how Strands agents can be configured to work with the filesystem in a safe and intuitive manner.
 
 ## Overview
 
@@ -4662,7 +4659,7 @@ Source: https://strandsagents.com/docs/examples/python/file_operations/index.md
 
 ## 🔄 Graph with Loops - Multi-Agent Feedback Cycles
 
-This [example](https://github.com/strands-agents/docs/blob/main/docs/examples/python/graph_loops_example.py) demonstrates how to create multi-agent graphs with feedback loops using the Strands Agents SDK. It showcases a write-review-improve cycle where content iterates through multiple agents until quality standards are met.
+This [example](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/python/graph_loops_example.py) demonstrates how to create multi-agent graphs with feedback loops using the Strands Agents SDK. It showcases a write-review-improve cycle where content iterates through multiple agents until quality standards are met.
 
 ## Overview
 
@@ -4843,7 +4840,7 @@ Source: https://strandsagents.com/docs/examples/python/graph_loops_example/index
 
 ## Knowledge Base Agent - Intelligent Information Storage and Retrieval
 
-This [example](https://github.com/strands-agents/docs/blob/main/docs/examples/python/knowledge_base_agent.py) demonstrates how to create a Strands agent that determines whether to store information to a knowledge base or retrieve information from it based on the user’s query. It showcases a code-defined decision-making workflow that routes user inputs to the appropriate action.
+This [example](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/python/knowledge_base_agent.py) demonstrates how to create a Strands agent that determines whether to store information to a knowledge base or retrieve information from it based on the user’s query. It showcases a code-defined decision-making workflow that routes user inputs to the appropriate action.
 
 ## Setup Requirements
 
@@ -5022,7 +5019,7 @@ Source: https://strandsagents.com/docs/examples/python/knowledge_base_agent/inde
 
 ## MCP Calculator - Model Context Protocol Integration Example
 
-This [example](https://github.com/strands-agents/docs/blob/main/docs/examples/python/mcp_calculator.py) demonstrates how to integrate Strands agents with external tools using the Model Context Protocol (MCP). It shows how to create a simple MCP server that provides calculator functionality and connect a Strands agent to use these tools.
+This [example](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/python/mcp_calculator.py) demonstrates how to integrate Strands agents with external tools using the Model Context Protocol (MCP). It shows how to create a simple MCP server that provides calculator functionality and connect a Strands agent to use these tools.
 
 ## Overview
 
@@ -5172,7 +5169,7 @@ Source: https://strandsagents.com/docs/examples/python/mcp_calculator/index.md
 
 ## 🧠 Mem0 Memory Agent - Personalized Context Through Persistent Memory
 
-This [example](https://github.com/strands-agents/docs/blob/main/docs/examples/python/memory_agent.py) demonstrates how to create a Strands agent that leverages [mem0.ai](https://mem0.ai) to maintain context across conversations and provide personalized responses. It showcases how to store, retrieve, and utilize memories to create more intelligent and contextual AI interactions.
+This [example](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/python/memory_agent.py) demonstrates how to create a Strands agent that leverages [mem0.ai](https://mem0.ai) to maintain context across conversations and provide personalized responses. It showcases how to store, retrieve, and utilize memories to create more intelligent and contextual AI interactions.
 
 ## Overview
 
@@ -5436,7 +5433,7 @@ Source: https://strandsagents.com/docs/examples/python/memory_agent/index.md
 
 ## Meta-Tooling Example - Strands Agent's Dynamic Tool Creation
 
-Meta-tooling refers to the ability of an AI system to create new tools at runtime, rather than being limited to a predefined set of capabilities. The following [example](https://github.com/strands-agents/docs/blob/main/docs/examples/python/meta_tooling.py) demonstrates Strands Agents’ meta-tooling capabilities - allowing agents to create, load, and use custom tools at runtime.
+Meta-tooling refers to the ability of an AI system to create new tools at runtime, rather than being limited to a predefined set of capabilities. The following [example](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/python/meta_tooling.py) demonstrates Strands Agents’ meta-tooling capabilities - allowing agents to create, load, and use custom tools at runtime.
 
 ## Overview
 
@@ -5478,7 +5475,7 @@ agent = Agent(
 
 #### 2\. Agent System Prompt outlines a strict guideline for naming, structure, and creation of the new tools.
 
-The system prompt guides the agent in proper tool creation. The [TOOL\_BUILDER\_SYSTEM\_PROMPT](https://github.com/strands-agents/docs/blob/main/docs/examples/python/meta_tooling.py#L17) outlines important elements to enable the agent achieve meta-tooling capabilities:
+The system prompt guides the agent in proper tool creation. The [TOOL\_BUILDER\_SYSTEM\_PROMPT](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/python/meta_tooling.py#L17) outlines important elements to enable the agent achieve meta-tooling capabilities:
 
 -   **Tool Naming Convention**: Provides the naming convention to use when building new custom tools.
     
@@ -5646,7 +5643,7 @@ Source: https://strandsagents.com/docs/examples/python/meta_tooling/index.md
 
 ## Teacher's Assistant - Strands Multi-Agent Architecture Example
 
-This [example](https://github.com/strands-agents/docs/blob/main/docs/examples/python/multi_agent_example/teachers_assistant.py) demonstrates how to implement a multi-agent architecture using Strands Agents, where specialized agents work together under the coordination of a central orchestrator. The system uses natural language routing to direct queries to the most appropriate specialized agent based on subject matter expertise.
+This [example](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/python/multi_agent_example/teachers_assistant.py) demonstrates how to implement a multi-agent architecture using Strands Agents, where specialized agents work together under the coordination of a central orchestrator. The system uses natural language routing to direct queries to the most appropriate specialized agent based on subject matter expertise.
 
 ## Overview
 
@@ -5705,7 +5702,7 @@ This example implements a multi-agent architecture where specialized agents work
 
 ### 1\. Teacher’s Assistant (Orchestrator)
 
-The `teacher_assistant` acts as the central coordinator that analyzes incoming natural language queries, determines the most appropriate specialized agent, and routes queries to that agent. All of this is accomplished through instructions outlined in the [TEACHER\_SYSTEM\_PROMPT](https://github.com/strands-agents/docs/blob/main/docs/examples/python/multi_agent_example/teachers_assistant.py#L51) for the agent. Furthermore, each specialized agent is part of the tools array for the orchestrator agent.
+The `teacher_assistant` acts as the central coordinator that analyzes incoming natural language queries, determines the most appropriate specialized agent, and routes queries to that agent. All of this is accomplished through instructions outlined in the [TEACHER\_SYSTEM\_PROMPT](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/python/multi_agent_example/teachers_assistant.py#L51) for the agent. Furthermore, each specialized agent is part of the tools array for the orchestrator agent.
 
 **Implementation:**
 
@@ -5757,10 +5754,10 @@ def math_assistant(query: str) -> str:
 
 Each specialized agent has a distinct system prompt, and tools in its inventory, and follows this general pattern.
 
--   [Language Assistant](https://github.com/strands-agents/docs/blob/main/docs/examples/python/multi_agent_example/language_assistant.py) specializes in queries related to translation into different languages.
--   [Computer Science Assistant](https://github.com/strands-agents/docs/blob/main/docs/examples/python/multi_agent_example/computer_science_assistant.py) specializes in queries related to writing, editing, running, code and explaining computer science concepts.
--   [English Assistant](https://github.com/strands-agents/docs/blob/main/docs/examples/python/multi_agent_example/english_assistant.py) specializes in queries related to grammar, and english comprehension.
--   [General Assistant](https://github.com/strands-agents/docs/blob/main/docs/examples/python/multi_agent_example/no_expertise.py) is a no specialty agent that aims to answer queries outside of the specific domains the agents are specialized in.
+-   [Language Assistant](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/python/multi_agent_example/language_assistant.py) specializes in queries related to translation into different languages.
+-   [Computer Science Assistant](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/python/multi_agent_example/computer_science_assistant.py) specializes in queries related to writing, editing, running, code and explaining computer science concepts.
+-   [English Assistant](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/python/multi_agent_example/english_assistant.py) specializes in queries related to grammar, and english comprehension.
+-   [General Assistant](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/python/multi_agent_example/no_expertise.py) is a no specialty agent that aims to answer queries outside of the specific domains the agents are specialized in.
 
 ### 3\. Agent as Tool Pattern
 
@@ -5878,7 +5875,7 @@ Source: https://strandsagents.com/docs/examples/python/multi_agent_example/multi
 
 ## Multi-modal - Strands Agents for Image Generation and Evaluation
 
-This [example](https://github.com/strands-agents/docs/tree/main/docs/examples/python/multimodal.py) demonstrates how to create a multi-agent system for generating and evaluating images. It shows how Strands agents can work with multimodal content through a workflow between specialized agents.
+This [example](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/python/multimodal.py) demonstrates how to create a multi-agent system for generating and evaluating images. It shows how Strands agents can work with multimodal content through a workflow between specialized agents.
 
 ## Overview
 
@@ -6042,7 +6039,7 @@ Source: https://strandsagents.com/docs/examples/python/multimodal/index.md
 
 ## Weather Forecaster - Strands Agents HTTP Integration Example
 
-This [example](https://github.com/strands-agents/docs/blob/main/docs/examples/python/weather_forecaster.py) demonstrates how to integrate the Strands Agents SDK with tool use, specifically using the `http_request` tool to build a weather forecasting agent that connects with the National Weather Service API. It shows how to combine natural language understanding with API capabilities to retrieve and present weather information.
+This [example](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/python/weather_forecaster.py) demonstrates how to integrate the Strands Agents SDK with tool use, specifically using the `http_request` tool to build a weather forecasting agent that connects with the National Weather Service API. It shows how to combine natural language understanding with API capabilities to retrieve and present weather information.
 
 ## Overview
 
@@ -6441,7 +6438,7 @@ from strands.models.bedrock import BedrockModel
 from strands.models.openai import OpenAIModel
 
 # Use Claude Sonnet on Amazon Bedrock (default if `model` is not specified)
-model = BedrockModel(model_id="anthropic.claude-sonnet-4-20250514-v1:0")
+model = BedrockModel()
 
 # Or use a different provider and model
 model = OpenAIModel(client_args={"api_key": "<KEY>"}, model_id="gpt-4o")
@@ -7762,10 +7759,15 @@ Each model invocation ends with a stop reason that determines what happens next:
 -   **End turn**: The model has finished its response and has no further actions to take. This is the normal successful termination. The loop exits and returns the model’s final message.
 -   **Tool use**: The model wants to execute one or more tools before continuing. The loop executes the requested tools, appends the results to the conversation history, and invokes the model again.
 -   **Cancelled**: The agent was stopped externally via `agent.cancel()`. See [Cancellation](#cancellation) below.
+-   **Limit turns** (`limit_turns` / `limitTurns`): The per-invocation turn budget was exhausted. See [Invocation Limits](#invocation-limits).
+-   **Limit total tokens** (`limit_total_tokens` / `limitTotalTokens`): The cumulative token budget was exhausted. See [Invocation Limits](#invocation-limits).
+-   **Limit output tokens** (`limit_output_tokens` / `limitOutputTokens`): The output token budget was exhausted. See [Invocation Limits](#invocation-limits).
 -   **Max tokens**: The model’s response was truncated because it hit the token limit. This is unrecoverable within the current loop. The model cannot continue from a partial response, and the loop terminates with an error.
 -   **Stop sequence**: The model encountered a configured stop sequence. Like end turn, this terminates the loop normally.
 -   **Content filtered**: The response was blocked by safety mechanisms.
 -   **Guardrail intervention**: A guardrail policy stopped generation.
+
+The limit stop reasons indicate graceful budget exhaustion. The agent’s message history remains in a valid state, and you can reinvoke with a higher budget or different prompt.
 
 Both content filtered and guardrail intervention terminate the loop and should be handled according to application requirements.
 
@@ -7878,6 +7880,62 @@ const myTool = tool({
 ```
 (( /tab "TypeScript" ))
 
+### Invocation Limits
+
+To cap how much work an agent does in a single invocation, pass a `limits` object. You can bound turns (loop iterations), output tokens, or total tokens. All three are optional.
+
+(( tab "Python" ))
+```python
+from strands import Agent
+
+agent = Agent()
+
+result = agent(
+    "Summarize this document",
+    limits={
+        "turns": 5,
+        "output_tokens": 2000,
+        "total_tokens": 10000,
+    },
+)
+
+if result.stop_reason == "limit_turns":
+    print("Hit turn budget")
+elif result.stop_reason == "limit_total_tokens":
+    print("Hit token budget")
+```
+
+The same parameter works with `invoke_async` and `stream_async`. Each cap must be a positive `int`.
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+const agent = new Agent()
+
+const result = await agent.invoke('Summarize this document', {
+  limits: {
+    turns: 5,
+    outputTokens: 2000,
+    totalTokens: 10000,
+  },
+})
+
+if (result.stopReason === 'limitTurns') {
+  console.log('Hit turn budget')
+} else if (result.stopReason === 'limitTotalTokens') {
+  console.log('Hit token budget')
+}
+```
+
+The same option works with `stream`. Each cap must be a positive finite number.
+(( /tab "TypeScript" ))
+
+Limits are checked at the top of each loop iteration, not mid-call. A single turn can overshoot the token budget, but the check fires before the next turn starts. Tools requested by the previous turn always run to completion before the limit check fires. The agent’s message history stays in a valid, reinvokable state.
+
+Limits apply to the current invocation only. A reused agent starts each call with fresh counters.
+
+When multiple caps trip simultaneously, the reported stop reason follows priority order: turns, then total tokens, then output tokens.
+
 ## Common Problems
 
 ### Context Window Exhaustion
@@ -7921,6 +7979,7 @@ Understanding the loop deeply makes these advanced patterns more approachable. T
 ## Related pages
 
 - [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (3 shared tags)
+- [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (3 shared tags)
 - [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (3 shared tags)
 - [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (3 shared tags)
 - [Plugins](/docs/user-guide/concepts/plugins/index.md) (2 shared tags)
@@ -7928,8 +7987,7 @@ Understanding the loop deeply makes these advanced patterns more approachable. T
 - [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
 - [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (1 shared tag)
 - [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)
-- [Human in the Loop](/docs/user-guide/concepts/agents/human-in-the-loop/index.md) (1 shared tag)
-- [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (1 shared tag)
+- [Human in the Loop](/docs/user-guide/concepts/agents/interventions/human-in-the-loop/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/agents/agent-loop/index.md
 
@@ -8243,7 +8301,7 @@ from strands.models import AnthropicModel
 
 # Create a cheaper, faster model for summarization tasks
 summarization_model = AnthropicModel(
-    model_id="claude-3-5-haiku-20241022",  # More cost-effective for summarization
+    model_id="claude-haiku-4-5-20251001",  # More cost-effective for summarization
     max_tokens=1000,
     params={"temperature": 0.1}  # Low temperature for consistent summaries
 )
@@ -8309,10 +8367,8 @@ Pass `proactive_compression` to any built-in conversation manager. Use `True` fo
 ```python
 from strands import Agent
 from strands.agent.conversation_manager import SlidingWindowConversationManager
-from strands.models.bedrock import BedrockModel
 
 agent = Agent(
-    model=BedrockModel(model_id="anthropic.claude-sonnet-4-6-v1:0"),
     conversation_manager=SlidingWindowConversationManager(
         window_size=50,
         proactive_compression={"compression_threshold": 0.7},
@@ -8325,10 +8381,8 @@ agent = Agent(
 ```python
 from strands import Agent
 from strands.agent.conversation_manager import SummarizingConversationManager
-from strands.models.bedrock import BedrockModel
 
 agent = Agent(
-    model=BedrockModel(model_id="anthropic.claude-sonnet-4-6-v1:0"),
     conversation_manager=SummarizingConversationManager(
         proactive_compression=True,
     ),
@@ -8344,16 +8398,9 @@ Pass `proactiveCompression` to any built-in conversation manager. Use `true` for
 **With SlidingWindowConversationManager:**
 
 ```typescript
-import {
-  Agent,
-  BedrockModel,
-  SlidingWindowConversationManager,
-} from '@strands-agents/sdk'
+import { Agent, SlidingWindowConversationManager } from '@strands-agents/sdk'
 
 const agent = new Agent({
-  model: new BedrockModel({
-    modelId: 'anthropic.claude-sonnet-4-20250514-v1:0',
-  }),
   conversationManager: new SlidingWindowConversationManager({
     windowSize: 50,
     proactiveCompression: { compressionThreshold: 0.7 },
@@ -8364,12 +8411,9 @@ const agent = new Agent({
 **With SummarizingConversationManager:**
 
 ```typescript
-import { Agent, BedrockModel, SummarizingConversationManager } from '@strands-agents/sdk'
+import { Agent, SummarizingConversationManager } from '@strands-agents/sdk'
 
 const agent = new Agent({
-  model: new BedrockModel({
-    modelId: 'anthropic.claude-sonnet-4-20250514-v1:0',
-  }),
   conversationManager: new SummarizingConversationManager({
     proactiveCompression: true,
   }),
@@ -10137,6 +10181,7 @@ const agent = new Agent({ plugins: [new LoggingPlugin()] })
 ## Related pages
 
 - [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (3 shared tags)
+- [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (3 shared tags)
 - [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (3 shared tags)
 - [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (3 shared tags)
 - [Plugins](/docs/user-guide/concepts/plugins/index.md) (2 shared tags)
@@ -10144,237 +10189,9 @@ const agent = new Agent({ plugins: [new LoggingPlugin()] })
 - [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
 - [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (1 shared tag)
 - [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)
-- [Human in the Loop](/docs/user-guide/concepts/agents/human-in-the-loop/index.md) (1 shared tag)
-- [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (1 shared tag)
+- [Human in the Loop](/docs/user-guide/concepts/agents/interventions/human-in-the-loop/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/agents/hooks/index.md
-
----
-
-## Human in the Loop
-
-The `HumanInTheLoop` intervention handler pauses agent execution before tool calls to request human approval. It provides a configurable, drop-in way to add human oversight without writing custom interrupt logic. Pass it to `interventions` and choose how you want to collect the human’s response.
-
-## How It Works
-
-The handler uses the [`confirm` action](/docs/user-guide/concepts/agents/interventions/index.md) to pause for human input. Under the hood it builds on the SDK’s [interrupt mechanism](/docs/user-guide/concepts/interrupts/index.md), but abstracts away the manual interrupt/resume loop when you provide an `ask` option.
-
-```mermaid
-flowchart LR
-    A[Tool call] --> B{Allowed?}
-    B -->|Yes| C[Execute]
-    B -->|No| D{Trusted?}
-    D -->|Yes| C
-    D -->|No| E{Human approves?}
-    E -->|Yes| C
-    E -->|No| F[Cancel]
-```
-
-## Usage
-
-### Interrupt/Resume Mode (Default)
-
-Without an `ask` option, the handler raises an interrupt and the agent pauses. The caller presents the interrupt to the user, collects their response, and resumes the agent. This is the same [interrupt/resume pattern](/docs/user-guide/concepts/interrupts/index.md#hooks) used throughout the SDK. For stateless deployments, combine with a [session manager](/docs/user-guide/concepts/agents/session-management/index.md) to persist state between requests.
-
-```typescript
-import { Agent, tool, InterruptResponseContent } from '@strands-agents/sdk'
-import { HumanInTheLoop } from '@strands-agents/sdk/vended-interventions/hitl'
-import { z } from 'zod'
-
-const deleteFiles = tool({
-  name: 'delete_files',
-  description: 'Delete files at the given paths',
-  inputSchema: z.object({ paths: z.array(z.string()) }),
-  callback: (input) => `Deleted ${input.paths.length} files`,
-})
-
-const agent = new Agent({
-  tools: [deleteFiles],
-  interventions: [new HumanInTheLoop()],
-})
-
-// Agent pauses with stopReason 'interrupt' when a tool needs approval
-let result = await agent.invoke('Delete the temp files')
-
-if (result.stopReason === 'interrupt') {
-  // Present the interrupt to the user (web UI, Slack, etc.)
-  console.log(result.interrupts![0].reason)
-
-  // Resume with the human's response
-  result = await agent.invoke([
-    new InterruptResponseContent({
-      interruptId: result.interrupts![0].id,
-      response: 'yes', // 'y', 'yes', or true → approved
-    }),
-  ])
-}
-```
-
-### Stdio Mode
-
-For CLI applications, pass `ask: 'stdio'` to prompt the user inline via Node.js readline. The agent blocks until the user responds, so no interrupt handling is needed on the caller side.
-
-```typescript
-import { Agent, tool } from '@strands-agents/sdk'
-import { HumanInTheLoop } from '@strands-agents/sdk/vended-interventions/hitl'
-import { z } from 'zod'
-
-// const deleteFiles = tool({ ... }) — same as above
-
-const agent = new Agent({
-  tools: [deleteFiles],
-  interventions: [new HumanInTheLoop({ ask: 'stdio' })],
-})
-
-await agent.invoke('Delete the temp files')
-// Terminal prompt:
-// Tool "delete_files" requires human approval. Input: {...} (y/n):
-```
-
-### Custom UI Callback
-
-For web UIs, Slack bots, or other custom interfaces, pass an async function to `ask`. The function receives a prompt string describing the tool call and must return the user’s response.
-
-```typescript
-import { Agent, tool } from '@strands-agents/sdk'
-import { HumanInTheLoop } from '@strands-agents/sdk/vended-interventions/hitl'
-import { z } from 'zod'
-
-// const deleteFiles = tool({ ... }) — same as above
-
-const agent = new Agent({
-  tools: [deleteFiles],
-  interventions: [
-    new HumanInTheLoop({
-      ask: async (prompt) => {
-        // Your UI: Slack DM, web modal, push notification, etc.
-        return await askUserViaSlack(prompt)
-      },
-    }),
-  ],
-})
-
-await agent.invoke('Delete the temp files')
-```
-
-## Configuration
-
-| Parameter | Type | Default | Description |
-| --- | --- | --- | --- |
-| `allowedTools` | `string[]` | `undefined` | Tools that bypass approval. Supports `'*'` (all) and `'!toolName'` (negation). |
-| `enableTrust` | `boolean` | `false` | When `true`, trust responses are remembered for the session. |
-| `evaluateTrust` | Function | Accepts `'t'` or `'trust'` | Custom validator for trust responses. Only evaluated when `enableTrust` is `true`. |
-| `evaluate` | Function | Accepts `true`, `'y'`, or `'yes'` | Custom validator for approval responses. |
-| `ask` | Function or `'stdio'` | `undefined` | Pass an async function for custom UIs, `'stdio'` for CLI readline, or omit for interrupt/resume. |
-
-### Allowed Tools
-
-Use `allowedTools` to skip approval for safe, read-only tools:
-
-```typescript
-import { Agent, tool } from '@strands-agents/sdk'
-import { HumanInTheLoop } from '@strands-agents/sdk/vended-interventions/hitl'
-import { z } from 'zod'
-
-// const deleteFiles = tool({ ... }) — same as above
-// const readFile = tool({ ... })
-
-const agent = new Agent({
-  tools: [readFile, deleteFiles],
-  interventions: [
-    new HumanInTheLoop({
-      ask: 'stdio',
-      // Pattern syntax:
-      //   'read_file'             → runs without approval
-      //   '*'                     → all tools run freely (disables handler)
-      //   ['*', '!delete_files']  → all except delete_files
-      allowedTools: ['read_file'],
-    }),
-  ],
-})
-
-await agent.invoke('Read config.json then delete /tmp/old-logs')
-// Only delete_files prompts; read_file executes immediately
-```
-
-### Trust Mode
-
-When `enableTrust` is `true`, a human can respond with `'t'` or `'trust'` to approve the current tool call AND remember that decision for the rest of the session. Subsequent calls to the same tool skip the prompt entirely. Trust works in all modes: interrupt/resume, stdio, and custom callbacks.
-
-Trust state is stored in `agent.appState` and persists across turns within a session but resets when the agent is re-created. Negated tools (`'!toolName'`) cannot be trusted and always prompt.
-
-```typescript
-import { Agent, tool } from '@strands-agents/sdk'
-import { HumanInTheLoop } from '@strands-agents/sdk/vended-interventions/hitl'
-import { z } from 'zod'
-
-// const deleteFiles = tool({ ... }) — same as above
-
-const agent = new Agent({
-  tools: [deleteFiles],
-  interventions: [
-    new HumanInTheLoop({
-      ask: 'stdio',
-      enableTrust: true,
-    }),
-  ],
-})
-
-await agent.invoke('Delete all log files in /tmp')
-// First call: user responds 't' → approved AND remembered
-// Subsequent calls: no prompt needed for the session
-```
-
-### Custom Evaluate
-
-By default, the handler accepts `true`, `'y'`, or `'yes'` as approval. Use `evaluate` to define your own approval logic, for example requiring the user to type “confirm”:
-
-```typescript
-import { Agent, tool } from '@strands-agents/sdk'
-import { HumanInTheLoop } from '@strands-agents/sdk/vended-interventions/hitl'
-import { z } from 'zod'
-
-// const deleteFiles = tool({ ... }) — same as above
-
-const agent = new Agent({
-  tools: [deleteFiles],
-  interventions: [
-    new HumanInTheLoop({
-      ask: 'stdio',
-      // Only approve if the user types "confirm"
-      evaluate: (response) =>
-        typeof response === 'string' && response.toLowerCase() === 'confirm',
-    }),
-  ],
-})
-
-await agent.invoke('Delete the temp files')
-// Prompt: Tool "delete_files" requires human approval. Input: {...}
-// User must type "confirm" to approve (not just "y" or "yes")
-```
-
-## When to Use
-
-Use `HumanInTheLoop` when you want tool-level approval gating with minimal code: it handles allow-lists, trust, and collection mode out of the box. Use [raw interrupts](/docs/user-guide/concepts/interrupts/index.md) when you need full control: custom interrupt shapes, multi-step interactions, or workflows beyond simple approve/deny.
-
-## Related Topics
-
--   [Interventions](/docs/user-guide/concepts/agents/interventions/index.md): The intervention handler framework that HITL is built on
--   [Interrupts](/docs/user-guide/concepts/interrupts/index.md): Low-level interrupt/resume mechanism
--   [Agent State](/docs/user-guide/concepts/agents/state/index.md): How trust decisions persist via `appState`
--   [Session Management](/docs/user-guide/concepts/agents/session-management/index.md): Persisting interrupt state across sessions
-
-## Related pages
-
-- [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (2 shared tags)
-- [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
-- [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
-- [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
-- [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (1 shared tag)
-- [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
-- [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (1 shared tag)
-
-Source: https://strandsagents.com/docs/user-guide/concepts/agents/human-in-the-loop/index.md
 
 ---
 
@@ -10627,7 +10444,8 @@ Interventions return typed actions that the framework interprets. This enables:
 
 ## Related topics
 
--   [Human in the Loop](/docs/user-guide/concepts/agents/human-in-the-loop/index.md) — Ready-to-use intervention handler for tool approval workflows
+-   [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) — LLM-based contextual guidance using the steering handler
+-   [Human in the Loop](/docs/user-guide/concepts/agents/interventions/human-in-the-loop/index.md) — Ready-to-use intervention handler for tool approval workflows
 -   [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) — Low-level event callbacks for observing and modifying agent behavior
 -   [Plugins](/docs/user-guide/concepts/plugins/index.md) — Bundle related hooks and tools into reusable modules
 -   [Interrupts](/docs/user-guide/concepts/interrupts/index.md) — The interrupt/resume system that `confirm()` builds on
@@ -10636,16 +10454,571 @@ Interventions return typed actions that the framework interprets. This enables:
 
 - [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (3 shared tags)
 - [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (3 shared tags)
+- [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (3 shared tags)
 - [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (3 shared tags)
-- [Human in the Loop](/docs/user-guide/concepts/agents/human-in-the-loop/index.md) (2 shared tags)
+- [Human in the Loop](/docs/user-guide/concepts/agents/interventions/human-in-the-loop/index.md) (2 shared tags)
 - [Plugins](/docs/user-guide/concepts/plugins/index.md) (2 shared tags)
 - [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (2 shared tags)
 - [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
 - [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (1 shared tag)
 - [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)
-- [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/agents/interventions/index.md
+
+---
+
+## Human in the Loop
+
+The `HumanInTheLoop` intervention handler pauses agent execution before tool calls to request human approval. It provides a configurable, drop-in way to add human oversight without writing custom interrupt logic. Pass it to `interventions` and choose how you want to collect the human’s response.
+
+## How It Works
+
+The handler uses the [`confirm` action](/docs/user-guide/concepts/agents/interventions/index.md) to pause for human input. Under the hood it builds on the SDK’s [interrupt mechanism](/docs/user-guide/concepts/interrupts/index.md), but abstracts away the manual interrupt/resume loop when you provide an `ask` option.
+
+```mermaid
+flowchart LR
+    A[Tool call] --> B{Allowed?}
+    B -->|Yes| C[Execute]
+    B -->|No| D{Trusted?}
+    D -->|Yes| C
+    D -->|No| E{Human approves?}
+    E -->|Yes| C
+    E -->|No| F[Cancel]
+```
+
+## Usage
+
+### Interrupt/Resume Mode (Default)
+
+Without an `ask` option, the handler raises an interrupt and the agent pauses. The caller presents the interrupt to the user, collects their response, and resumes the agent. This is the same [interrupt/resume pattern](/docs/user-guide/concepts/interrupts/index.md#hooks) used throughout the SDK. For stateless deployments, combine with a [session manager](/docs/user-guide/concepts/agents/session-management/index.md) to persist state between requests.
+
+```typescript
+import { Agent, tool, InterruptResponseContent } from '@strands-agents/sdk'
+import { HumanInTheLoop } from '@strands-agents/sdk/vended-interventions/hitl'
+import { z } from 'zod'
+
+const deleteFiles = tool({
+  name: 'delete_files',
+  description: 'Delete files at the given paths',
+  inputSchema: z.object({ paths: z.array(z.string()) }),
+  callback: (input) => `Deleted ${input.paths.length} files`,
+})
+
+const agent = new Agent({
+  tools: [deleteFiles],
+  interventions: [new HumanInTheLoop()],
+})
+
+// Agent pauses with stopReason 'interrupt' when a tool needs approval
+let result = await agent.invoke('Delete the temp files')
+
+if (result.stopReason === 'interrupt') {
+  // Present the interrupt to the user (web UI, Slack, etc.)
+  console.log(result.interrupts![0].reason)
+
+  // Resume with the human's response
+  result = await agent.invoke([
+    new InterruptResponseContent({
+      interruptId: result.interrupts![0].id,
+      response: 'yes', // 'y', 'yes', or true → approved
+    }),
+  ])
+}
+```
+
+### Stdio Mode
+
+For CLI applications, pass `ask: 'stdio'` to prompt the user inline via Node.js readline. The agent blocks until the user responds, so no interrupt handling is needed on the caller side.
+
+```typescript
+import { Agent, tool } from '@strands-agents/sdk'
+import { HumanInTheLoop } from '@strands-agents/sdk/vended-interventions/hitl'
+import { z } from 'zod'
+
+// const deleteFiles = tool({ ... }) — same as above
+
+const agent = new Agent({
+  tools: [deleteFiles],
+  interventions: [new HumanInTheLoop({ ask: 'stdio' })],
+})
+
+await agent.invoke('Delete the temp files')
+// Terminal prompt:
+// Tool "delete_files" requires human approval. Input: {...} (y/n):
+```
+
+### Custom UI Callback
+
+For web UIs, Slack bots, or other custom interfaces, pass an async function to `ask`. The function receives a prompt string describing the tool call and must return the user’s response.
+
+```typescript
+import { Agent, tool } from '@strands-agents/sdk'
+import { HumanInTheLoop } from '@strands-agents/sdk/vended-interventions/hitl'
+import { z } from 'zod'
+
+// const deleteFiles = tool({ ... }) — same as above
+
+const agent = new Agent({
+  tools: [deleteFiles],
+  interventions: [
+    new HumanInTheLoop({
+      ask: async (prompt) => {
+        // Your UI: Slack DM, web modal, push notification, etc.
+        return await askUserViaSlack(prompt)
+      },
+    }),
+  ],
+})
+
+await agent.invoke('Delete the temp files')
+```
+
+## Configuration
+
+| Parameter | Type | Default | Description |
+| --- | --- | --- | --- |
+| `allowedTools` | `string[]` | `undefined` | Tools that bypass approval. Supports `'*'` (all) and `'!toolName'` (negation). |
+| `enableTrust` | `boolean` | `false` | When `true`, trust responses are remembered for the session. |
+| `evaluateTrust` | Function | Accepts `'t'` or `'trust'` | Custom validator for trust responses. Only evaluated when `enableTrust` is `true`. |
+| `evaluate` | Function | Accepts `true`, `'y'`, or `'yes'` | Custom validator for approval responses. |
+| `ask` | Function or `'stdio'` | `undefined` | Pass an async function for custom UIs, `'stdio'` for CLI readline, or omit for interrupt/resume. |
+
+### Allowed Tools
+
+Use `allowedTools` to skip approval for safe, read-only tools:
+
+```typescript
+import { Agent, tool } from '@strands-agents/sdk'
+import { HumanInTheLoop } from '@strands-agents/sdk/vended-interventions/hitl'
+import { z } from 'zod'
+
+// const deleteFiles = tool({ ... }) — same as above
+// const readFile = tool({ ... })
+
+const agent = new Agent({
+  tools: [readFile, deleteFiles],
+  interventions: [
+    new HumanInTheLoop({
+      ask: 'stdio',
+      // Pattern syntax:
+      //   'read_file'             → runs without approval
+      //   '*'                     → all tools run freely (disables handler)
+      //   ['*', '!delete_files']  → all except delete_files
+      allowedTools: ['read_file'],
+    }),
+  ],
+})
+
+await agent.invoke('Read config.json then delete /tmp/old-logs')
+// Only delete_files prompts; read_file executes immediately
+```
+
+### Trust Mode
+
+When `enableTrust` is `true`, a human can respond with `'t'` or `'trust'` to approve the current tool call AND remember that decision for the rest of the session. Subsequent calls to the same tool skip the prompt entirely. Trust works in all modes: interrupt/resume, stdio, and custom callbacks.
+
+Trust state is stored in `agent.appState` and persists across turns within a session but resets when the agent is re-created. Negated tools (`'!toolName'`) cannot be trusted and always prompt.
+
+```typescript
+import { Agent, tool } from '@strands-agents/sdk'
+import { HumanInTheLoop } from '@strands-agents/sdk/vended-interventions/hitl'
+import { z } from 'zod'
+
+// const deleteFiles = tool({ ... }) — same as above
+
+const agent = new Agent({
+  tools: [deleteFiles],
+  interventions: [
+    new HumanInTheLoop({
+      ask: 'stdio',
+      enableTrust: true,
+    }),
+  ],
+})
+
+await agent.invoke('Delete all log files in /tmp')
+// First call: user responds 't' → approved AND remembered
+// Subsequent calls: no prompt needed for the session
+```
+
+### Custom Evaluate
+
+By default, the handler accepts `true`, `'y'`, or `'yes'` as approval. Use `evaluate` to define your own approval logic, for example requiring the user to type “confirm”:
+
+```typescript
+import { Agent, tool } from '@strands-agents/sdk'
+import { HumanInTheLoop } from '@strands-agents/sdk/vended-interventions/hitl'
+import { z } from 'zod'
+
+// const deleteFiles = tool({ ... }) — same as above
+
+const agent = new Agent({
+  tools: [deleteFiles],
+  interventions: [
+    new HumanInTheLoop({
+      ask: 'stdio',
+      // Only approve if the user types "confirm"
+      evaluate: (response) =>
+        typeof response === 'string' && response.toLowerCase() === 'confirm',
+    }),
+  ],
+})
+
+await agent.invoke('Delete the temp files')
+// Prompt: Tool "delete_files" requires human approval. Input: {...}
+// User must type "confirm" to approve (not just "y" or "yes")
+```
+
+## When to Use
+
+Use `HumanInTheLoop` when you want tool-level approval gating with minimal code: it handles allow-lists, trust, and collection mode out of the box. Use [raw interrupts](/docs/user-guide/concepts/interrupts/index.md) when you need full control: custom interrupt shapes, multi-step interactions, or workflows beyond simple approve/deny.
+
+## Related Topics
+
+-   [Interventions](/docs/user-guide/concepts/agents/interventions/index.md): The intervention handler framework that HITL is built on
+-   [Interrupts](/docs/user-guide/concepts/interrupts/index.md): Low-level interrupt/resume mechanism
+-   [Agent State](/docs/user-guide/concepts/agents/state/index.md): How trust decisions persist via `appState`
+-   [Session Management](/docs/user-guide/concepts/agents/session-management/index.md): Persisting interrupt state across sessions
+
+## Related pages
+
+- [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (2 shared tags)
+- [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
+- [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
+- [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
+- [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (1 shared tag)
+- [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (1 shared tag)
+- [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
+- [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (1 shared tag)
+
+Source: https://strandsagents.com/docs/user-guide/concepts/agents/interventions/human-in-the-loop/index.md
+
+---
+
+## Steering
+
+Steering provides modular prompting for complex agent tasks through context-aware guidance that appears when relevant, rather than front-loading all instructions in monolithic prompts. Steering handlers observe agent activity and intervene at key moments — before a tool call or after a model response — with targeted feedback. They are built on the [interventions](/docs/user-guide/concepts/agents/interventions/index.md) framework and use the same typed action model.
+
+Python SDK
+
+In Python, steering handlers use the [plugins](/docs/user-guide/concepts/plugins/steering/index.md) interface rather than interventions. See [Steering (Plugins)](/docs/user-guide/concepts/plugins/steering/index.md) for the Python API reference including `LLMSteeringHandler` and context providers.
+
+## What Is Steering?
+
+Building agents for complex multi-step tasks runs into a prompting wall. Traditional approaches require front-loading all instructions, business rules, and operational guidance into a single prompt. For tasks with 30+ steps, monolithic prompts become unwieldy: agents ignore instructions, hallucinate behaviors, or fail to follow critical procedures.
+
+A common workaround is decomposing the agent into a graph with predefined nodes and edges that control execution flow. While this improves predictability and reduces prompt complexity, it limits the adaptive reasoning that makes agents valuable in the first place, and it is costly to maintain as requirements change.
+
+Steering takes a different approach: **modular prompting**. Instead of front-loading all instructions, you define context-aware steering handlers that provide feedback at the right moment. Each handler defines the business rules to enforce and the lifecycle hooks where agent behavior should be validated, like before a tool call or before returning output to the user.
+
+## Comparison with Other Approaches
+
+### Steering vs. Workflow Frameworks
+
+Workflow frameworks force you to specify discrete steps and control flow logic upfront, making agents brittle and requiring extensive developer time to define complex decision trees. When business requirements change, you rebuild the workflow logic. Steering uses modular prompting where you define contextual guidance that appears when relevant rather than prescribing exact execution paths. This maintains the adaptive reasoning that makes agents valuable while enabling reliable execution of complex procedures.
+
+### Steering vs. Traditional Prompting
+
+Traditional prompting requires front-loading all instructions into a single prompt. For complex tasks with 30+ steps, this leads to prompt bloat where agents ignore instructions, hallucinate behaviors, or fail to follow critical procedures. Steering provides context-aware reminders that appear at the right moment, like post-it notes that guide agents when they need specific information. This keeps context windows lean while maintaining agent effectiveness on complex tasks.
+
+## Context Population
+
+To give the handler something to reason about, attach a provider that observes agent activity and records it as steering context.
+
+```mermaid
+flowchart LR
+    A[Hook Events] --> B[Context Providers]
+    B --> C[Update Steering Context]
+    C --> D[Handler Access]
+```
+
+**Context Providers** observe agent activity and contribute structured data into the handler’s steering context. The built-in `ToolLedgerProvider` tracks tool call history, timing, and results. Steering handlers read from this context when deciding whether to intervene.
+
+## Intervention Points
+
+### Before a Tool Call
+
+When you want the handler to validate a tool call before it runs, return a steering action from `beforeToolCall`:
+
+```mermaid
+flowchart LR
+    A[Tool Call Attempt] --> B[BeforeToolCallEvent]
+    B --> C[Handler Evaluates Call]
+    C --> D{Steering Action}
+    D -->|Approve| E[Tool Executes]
+    D -->|Guide| F[Cancel + Feedback]
+    D -->|Pause for Human| G[Human Input]
+```
+
+The handler returns one of three actions:
+
+-   **`InterventionActions.proceed()`**: tool executes immediately
+-   **`InterventionActions.guide(feedback)`**: tool is cancelled, agent receives contextual feedback and retries
+-   **`InterventionActions.confirm(prompt)`**: tool execution pauses for human approval
+
+### After a Model Response
+
+When you want the handler to validate the model’s output before it reaches the user, return a steering action from `afterModelCall`:
+
+```mermaid
+flowchart LR
+    A[Model Response] --> B[AfterModelCallEvent]
+    B --> C[Handler Evaluates Output]
+    C --> D{Steering Action}
+    D -->|Approve| E[Response Accepted]
+    D -->|Guide| F[Discard + Retry]
+```
+
+The handler returns one of two actions:
+
+-   **`InterventionActions.proceed()`**: accept the response as-is
+-   **`InterventionActions.guide(feedback)`**: discard the response and retry with guidance injected into the conversation
+
+## Writing Custom Steering Logic
+
+`SteeringHandler` extends `InterventionHandler` and narrows the return types to enforce a steering-specific contract:
+
+| Method | Valid Returns | Purpose |
+| --- | --- | --- |
+| `beforeToolCall` | `Proceed | Guide | Confirm` | Gate or redirect a tool call |
+| `afterModelCall` | `Proceed | Guide` | Validate model output before delivery |
+
+The wider intervention vocabulary (`Deny`, `Transform`) is excluded at the type level — out-of-contract actions are caught at compile time. Subclass `SteeringHandler` when you want to write imperative steering logic:
+
+```typescript
+import { Agent, tool, InterventionActions } from '@strands-agents/sdk'
+import type { BeforeToolCallEvent, AfterModelCallEvent } from '@strands-agents/sdk'
+import { SteeringHandler } from '@strands-agents/sdk/vended-interventions/steering'
+import { z } from 'zod'
+
+class ToneSteeringHandler extends SteeringHandler {
+  override readonly name = 'tone-steering'
+
+  override beforeToolCall(event: BeforeToolCallEvent) {
+    if (event.toolUse.name === 'send_email') {
+      const input = event.toolUse.input as Record<string, string>
+      if (input.message?.includes('URGENT') || input.message?.includes('!!!')) {
+        return InterventionActions.guide(
+          'Rewrite the email with a calmer, more professional tone. ' +
+            'Avoid all-caps words and excessive punctuation.'
+        )
+      }
+    }
+    return InterventionActions.proceed()
+  }
+
+  override afterModelCall(_event: AfterModelCallEvent) {
+    return InterventionActions.proceed()
+  }
+}
+
+const agent = new Agent({
+  tools: [sendEmail],
+  interventions: [new ToneSteeringHandler()],
+})
+
+await agent.invoke('Send an urgent email to the team about the deadline')
+// Handler detects "URGENT" → guides agent to rewrite with calmer tone → email sends
+```
+
+`SteeringHandler` also implements `LifecycleObserver`. When the agent initializes, it calls `observeAgent(agent)` on each intervention handler that implements this interface. `SteeringHandler` forwards this call to its registered context providers, allowing them to self-subscribe to agent hooks.
+
+## Steering with Natural Language
+
+When you want to express steering rules in natural language rather than imperative code, use `LLMSteeringHandler`. It delegates decisions to an LLM that evaluates each tool call against your system prompt and the accumulated steering context.
+
+```typescript
+import { Agent, tool } from '@strands-agents/sdk'
+import { LLMSteeringHandler } from '@strands-agents/sdk/vended-interventions/steering'
+import { z } from 'zod'
+
+const handler = new LLMSteeringHandler({
+  systemPrompt: `
+    You are providing guidance to ensure the agent follows best practices:
+
+    Rules:
+    - Emails must always include a clear subject line
+    - Never send emails with aggressive or unprofessional language
+    - If the same tool has failed twice in a row, suggest a different approach
+    - Require human confirmation before sending emails to external domains
+  `,
+})
+
+const agent = new Agent({
+  tools: [sendEmail, searchWeb],
+  interventions: [handler],
+})
+
+await agent.invoke('Email the client about the project delay')
+// LLM evaluates tone and content → may guide agent to soften language before sending
+```
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant A as Agent
+    participant S as Steering Handler
+    participant T as Tool
+
+    U->>A: "Send frustrated email to client"
+    A->>A: Reason about request
+    A->>S: Evaluate send_email tool call
+    S->>S: Evaluate tone in message
+    S->>A: Guide toward professional tone
+    A->>A: Revise approach
+    A->>S: Evaluate revised send_email
+    S->>A: Proceed
+    A->>T: Execute send_email
+    T->>A: Email sent
+    A->>U: "I've sent a professional email..."
+```
+
+### Configuration
+
+| Option | Type | Default | Description |
+| --- | --- | --- | --- |
+| `systemPrompt` | `string | SystemContentBlock[]` | *(required)* | Steering rules for the evaluation LLM |
+| `model` | `Model` | Parent agent’s model | Model used for steering evaluation |
+| `contextProviders` | `SteeringContextProvider[]` | `[new ToolLedgerProvider()]` | Providers that supply evaluation context. Pass `[]` to disable |
+| `promptBuilder` | `PromptBuilder` | Built-in builder with cache points | Custom function to build evaluation prompts |
+| `name` | `string` | `'strands:llm-steering-handler'` | Unique handler name (must be distinct if multiple handlers are attached) |
+
+### How it works
+
+1.  Before each tool call, the handler collects context snapshots from all registered providers.
+2.  It builds an evaluation prompt combining your system prompt, the context data, and the pending tool call details.
+3.  A **fresh inner Agent** evaluates the prompt and returns a structured decision: `proceed`, `guide`, or `confirm`.
+4.  The decision maps to the corresponding intervention action.
+
+The inner agent is constructed fresh per evaluation — this keeps the handler stateless and safe for concurrent evaluations across multiple parent agents.
+
+The default prompt builder uses **prompt caching**: static instructions are separated from dynamic context with a `CachePointBlock`, reducing API costs for repeated evaluations within the same session.
+
+For best practices on writing steering prompts, see the [Agent Standard Operating Procedures (SOP)](https://github.com/strands-agents/agent-sop) framework.
+
+## What the Handler Sees
+
+Context providers are passive observers that track agent activity and supply structured data to steering handlers. They implement the `SteeringContextProvider` interface:
+
+-   **`name`** — identifier for the provider instance
+-   **`observeAgent(agent)`** — called once at initialization; subscribe to hooks here
+-   **`context`** (getter) — returns the current context snapshot for steering evaluation
+
+```typescript
+import { Agent, tool, AfterToolCallEvent } from '@strands-agents/sdk'
+import type { LocalAgent } from '@strands-agents/sdk'
+import {
+  LLMSteeringHandler,
+  ToolLedgerProvider,
+} from '@strands-agents/sdk/vended-interventions/steering'
+import type {
+  SteeringContextProvider,
+  SteeringContextData,
+} from '@strands-agents/sdk/vended-interventions/steering'
+import { z } from 'zod'
+
+class ToolCallCounter implements SteeringContextProvider {
+  readonly name = 'toolCallCounter'
+  private _count = 0
+
+  observeAgent(agent: LocalAgent): void {
+    agent.addHook(AfterToolCallEvent, () => {
+      this._count += 1
+    })
+  }
+
+  get context(): SteeringContextData {
+    return { type: 'toolCallCounter', totalCalls: this._count }
+  }
+}
+
+const handler = new LLMSteeringHandler({
+  systemPrompt: `
+    Monitor tool usage. If the agent has made more than 5 tool calls,
+    guide it to wrap up and produce a final answer.
+  `,
+  contextProviders: [new ToolCallCounter(), new ToolLedgerProvider()],
+})
+
+const agent = new Agent({
+  tools: [searchWeb],
+  interventions: [handler],
+})
+
+await agent.invoke('Research the history of quantum computing')
+// After 5+ tool calls, handler guides the agent to wrap up and produce a final answer
+```
+
+Providers self-register their hooks via `observeAgent` — the steering handler does not need to know which hooks a provider uses. This keeps concerns cleanly separated: providers observe, handlers decide.
+
+## ToolLedgerProvider
+
+The built-in `ToolLedgerProvider` tracks tool call history within a session. It records:
+
+-   Tool name and input arguments
+-   Start and end timestamps
+-   Execution status (`pending`, `success`, `error`)
+-   Result content and error messages
+
+This gives the steering LLM visibility into patterns like repeated failures, excessive retries, or tool usage sequences.
+
+```typescript
+import { Agent, tool } from '@strands-agents/sdk'
+import {
+  LLMSteeringHandler,
+  ToolLedgerProvider,
+} from '@strands-agents/sdk/vended-interventions/steering'
+import { z } from 'zod'
+
+const ledger = new ToolLedgerProvider({
+  maxEntries: 50,
+  name: 'my-app:tool-ledger',
+})
+
+const handler = new LLMSteeringHandler({
+  systemPrompt: `
+    You monitor tool call patterns. If a tool has failed 3 times consecutively,
+    guide the agent to try a different approach rather than retrying.
+  `,
+  contextProviders: [ledger],
+})
+
+const agent = new Agent({
+  tools: [searchWeb, sendEmail],
+  interventions: [handler],
+})
+
+await agent.invoke('Find contact info for Acme Corp and send them a proposal')
+// If search_web fails 3 times, handler guides agent to try a different approach
+```
+
+| Option | Type | Default | Description |
+| --- | --- | --- | --- |
+| `maxEntries` | `number` | `100` | Maximum tool calls to retain (oldest dropped) |
+| `name` | `string` | `'strands:steering:toolLedger'` | Provider instance identifier |
+
+`LLMSteeringHandler` creates a `ToolLedgerProvider` by default if you don’t specify `contextProviders`. Pass an empty array to disable it, or combine it with your own providers for richer context.
+
+## Related topics
+
+-   [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) — The typed action model, lifecycle methods, evaluation order, and error handling
+-   [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) — Low-level event callbacks that context providers subscribe to
+-   [Steering (Python)](/docs/user-guide/concepts/plugins/steering/index.md) — Python-specific steering using the plugins interface
+
+## Related pages
+
+- [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (3 shared tags)
+- [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (3 shared tags)
+- [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (3 shared tags)
+- [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (3 shared tags)
+- [Plugins](/docs/user-guide/concepts/plugins/index.md) (2 shared tags)
+- [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (2 shared tags)
+- [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
+- [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (1 shared tag)
+- [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)
+- [Human in the Loop](/docs/user-guide/concepts/agents/interventions/human-in-the-loop/index.md) (1 shared tag)
+
+Source: https://strandsagents.com/docs/user-guide/concepts/agents/interventions/steering/index.md
 
 ---
 
@@ -11063,10 +11436,10 @@ See [Hooks](/docs/user-guide/concepts/agents/hooks/index.md#model-call-retry) fo
 - [Detectors](/docs/user-guide/evals-sdk/detectors/index.md) (1 shared tag)
 - [Failure Detection](/docs/user-guide/evals-sdk/detectors/failure_detection/index.md) (1 shared tag)
 - [Operating Agents in Production](/docs/user-guide/deploy/operating-agents-in-production/index.md) (1 shared tag)
-- [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
-- [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (1 shared tag)
 - [Root Cause Analysis](/docs/user-guide/evals-sdk/detectors/root_cause_analysis/index.md) (1 shared tag)
 - [Session Diagnosis](/docs/user-guide/evals-sdk/detectors/diagnosis/index.md) (1 shared tag)
+- [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
+- [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/agents/retry-strategies/index.md
 
@@ -11841,10 +12214,10 @@ snapshot = agent.take_snapshot(preset="session")
 
 print(snapshot.schema_version)  # "1.0"
 print(snapshot.created_at)      # ISO 8601 timestamp
-print(snapshot.data.keys())     # messages, state, conversation_manager_state, interrupt_state
+print(snapshot.data.keys())     # messages, state, conversation_manager_state, interrupt_state, model_state
 ```
 
-The `"session"` preset captures `messages`, `state`, `conversation_manager_state`, and `interrupt_state`. The `system_prompt` field is not included by default — see [Field Selection](#field-selection) to customize which fields are captured.
+The `"session"` preset captures `messages`, `state`, `conversation_manager_state`, `interrupt_state`, and `model_state`. The `system_prompt` field is not included by default — see [Field Selection](#field-selection) to customize which fields are captured.
 (( /tab "Python" ))
 
 (( tab "TypeScript" ))
@@ -11928,6 +12301,7 @@ Snapshots support flexible field selection through presets, includes, and exclud
 | `conversation_manager_state` | Conversation manager internal state |
 | `interrupt_state` | Human-in-the-loop interrupt state |
 | `system_prompt` | System prompt content |
+| `model_state` | Model provider state (e.g. response IDs for stateful models) |
 (( /tab "Python" ))
 
 (( tab "TypeScript" ))
@@ -14620,8 +14994,8 @@ For additional best practices on performance considerations, error handling, com
 - [OpenAI Realtime](/docs/user-guide/concepts/bidirectional-streaming/models/openai_realtime/index.md) (1 shared tag)
 - [Plugins](/docs/user-guide/concepts/plugins/index.md) (1 shared tag)
 - [Quickstart](/docs/user-guide/concepts/bidirectional-streaming/quickstart/index.md) (1 shared tag)
-- [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (1 shared tag)
 - [Nova Sonic](/docs/user-guide/concepts/bidirectional-streaming/models/nova_sonic/index.md) (1 shared tag)
+- [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md
 
@@ -17286,12 +17660,12 @@ Strands enforces the following rules for interrupts in graph:
 
 - [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (3 shared tags)
 - [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (3 shared tags)
+- [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (3 shared tags)
 - [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (3 shared tags)
 - [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (2 shared tags)
 - [Plugins](/docs/user-guide/concepts/plugins/index.md) (2 shared tags)
 - [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (2 shared tags)
 - [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
-- [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)
 - [Detectors](/docs/user-guide/evals-sdk/detectors/index.md) (1 shared tag)
 - [Failure Detection](/docs/user-guide/evals-sdk/detectors/failure_detection/index.md) (1 shared tag)
 
@@ -17385,9 +17759,7 @@ from strands.models.bedrock import BedrockModel
 from strands.models.openai import OpenAIModel
 
 # Use Bedrock
-bedrock_model = BedrockModel(
-    model_id="anthropic.claude-sonnet-4-20250514-v1:0"
-)
+bedrock_model = BedrockModel()
 agent = Agent(model=bedrock_model)
 response = agent("What can you help me with?")
 
@@ -17408,9 +17780,7 @@ import { BedrockModel } from '@strands-agents/sdk/models/bedrock'
 import { OpenAIModel } from '@strands-agents/sdk/models/openai'
 
 // Use Bedrock
-const bedrockModel = new BedrockModel({
-  modelId: 'anthropic.claude-sonnet-4-20250514-v1:0',
-})
+const bedrockModel = new BedrockModel()
 let agent = new Agent({ model: bedrockModel })
 let response = await agent.invoke('What can you help me with?')
 
@@ -19900,9 +20270,10 @@ The built-in `get_config` and `update_config` methods allow for the model’s co
 ## Related pages
 
 - [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
-- [Human in the Loop](/docs/user-guide/concepts/agents/human-in-the-loop/index.md) (1 shared tag)
+- [Human in the Loop](/docs/user-guide/concepts/agents/interventions/human-in-the-loop/index.md) (1 shared tag)
 - [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
 - [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (1 shared tag)
+- [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
 - [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (1 shared tag)
 - [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (1 shared tag)
@@ -23972,10 +24343,10 @@ The [Agents as Tools](https://github.com/strands-agents/harness-sdk/tree/main/st
 - [Multi-agent Patterns](/docs/user-guide/concepts/multi-agent/multi-agent-patterns/index.md) (1 shared tag)
 - [Swarm Multi-Agent Pattern](/docs/user-guide/concepts/multi-agent/swarm/index.md) (1 shared tag)
 - [Community Built Tools](/docs/user-guide/concepts/tools/community-tools-package/index.md) (1 shared tag)
-- [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
 - [Creating Custom Tools](/docs/user-guide/concepts/tools/custom-tools/index.md) (1 shared tag)
 - [Vended Tools](/docs/user-guide/concepts/tools/vended-tools/index.md) (1 shared tag)
-- [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
+- [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
+- [Build with AI](/docs/user-guide/build-with-ai/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md
 
@@ -25882,7 +26253,7 @@ def process_workflow(topic):
     return final_report
 ```
 
-This sequential workflow creates a pipeline where each agent’s output becomes the input for the next agent, allowing for specialized processing at each stage. For a functional example of sequential workflow implementation, see the [agents\_workflows.md](https://github.com/strands-agents/docs/blob/main/docs/examples/python/agents_workflows.md) example in the Strands Agents SDK documentation.
+This sequential workflow creates a pipeline where each agent’s output becomes the input for the next agent, allowing for specialized processing at each stage. For a functional example of sequential workflow implementation, see the [agents\_workflow.py](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/python/agents_workflow.py) example in the Strands Agents SDK documentation.
 
 ## Quick Start with the Workflow Tool
 
@@ -26468,6 +26839,7 @@ class AsyncConfigPlugin implements Plugin {
 
 - [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (2 shared tags)
 - [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (2 shared tags)
+- [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (2 shared tags)
 - [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (2 shared tags)
 - [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (2 shared tags)
 - [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
@@ -27320,6 +27692,10 @@ Source: https://strandsagents.com/docs/user-guide/concepts/plugins/skills/index.
 
 Steering provides modular prompting for complex agent tasks through context-aware guidance that appears when relevant, rather than front-loading all instructions in monolithic prompts. This lets you assign agents complex, multi-step tasks while maintaining effectiveness through just-in-time feedback loops.
 
+TypeScript SDK
+
+In TypeScript, steering handlers use the [interventions](/docs/user-guide/concepts/agents/interventions/steering/index.md) framework rather than plugins. See [Steering (Interventions)](/docs/user-guide/concepts/agents/interventions/steering/index.md) for the full TypeScript API reference including `SteeringHandler`, `LLMSteeringHandler`, and context providers.
+
 ## What Is Steering?
 
 Building agents for complex multi-step tasks runs into a prompting wall. Traditional approaches require front-loading all instructions, business rules, and operational guidance into a single prompt. For tasks with 30+ steps, monolithic prompts become unwieldy: agents ignore instructions, hallucinate behaviors, or fail to follow critical procedures.
@@ -27359,11 +27735,9 @@ flowchart LR
 
 The handler returns one of three actions:
 
--   **Approve**: tool executes immediately
--   **Guide**: tool is cancelled, agent receives contextual feedback
--   **Pause for human input**: tool execution pauses for human input
-
-The action symbols differ by language. Python returns `Proceed`, `Guide`, or `Interrupt`. TypeScript returns `proceed()`, `guide()`, or `confirm()`.
+-   **`Proceed`**: tool executes immediately
+-   **`Guide`**: tool is cancelled, agent receives contextual feedback
+-   **`Interrupt`**: tool execution pauses for human input
 
 ### After a Model Response
 
@@ -27380,8 +27754,8 @@ flowchart LR
 
 The handler returns one of two actions:
 
--   **Approve**: accept the response as-is
--   **Guide**: discard the response and retry with guidance injected into the conversation
+-   **`Proceed`**: accept the response as-is
+-   **`Guide`**: discard the response and retry with guidance injected into the conversation
 
 After-model steering enables handlers to validate responses, ensure required tools are used before completion, or guide conversation flow based on output.
 
@@ -27393,9 +27767,8 @@ When you want to express guidance in plain English rather than imperative code, 
 
 For best practices on writing steering prompts, see the [Agent Standard Operating Procedures (SOP)](https://github.com/strands-agents/agent-sop) framework, which provides structured templates for effective agent prompts.
 
-The two SDKs attach steering handlers differently. Python passes them through `plugins=[handler]`; TypeScript passes them through `interventions: [handler]`.
+Steering handlers are attached via `plugins=[handler]` on the agent:
 
-(( tab "Python" ))
 ```python
 from strands import Agent, tool
 from strands.vended_plugins.steering import LLMSteeringHandler
@@ -27435,54 +27808,6 @@ print(agent.messages)
 # Typical: agent.messages includes a cancelled send_email ToolUseBlock,
 # a guidance message, then a retried send_email with cheerier wording.
 ```
-(( /tab "Python" ))
-
-(( tab "TypeScript" ))
-```typescript
-import { Agent, tool } from '@strands-agents/sdk'
-import { LLMSteeringHandler } from '@strands-agents/sdk/vended-interventions/steering'
-import { z } from 'zod'
-
-const sendEmail = tool({
-  name: 'send_email',
-  description: 'Send an email to a recipient',
-  inputSchema: z.object({
-    recipient: z.string(),
-    subject: z.string(),
-    message: z.string(),
-  }),
-  callback: (input) => `Email sent to ${input.recipient}`,
-})
-
-const handler = new LLMSteeringHandler({
-  systemPrompt: `
-    You are providing guidance to ensure emails maintain a cheerful, positive tone.
-
-    Guidance:
-    - Review email content for tone and sentiment
-    - Suggest more cheerful phrasing if the message seems negative or neutral
-    - Encourage use of positive language and friendly greetings
-
-    When agents attempt to send emails, check if the message tone
-    is appropriately cheerful and provide feedback if improvements are needed.
-  `,
-})
-
-const agent = new Agent({
-  tools: [sendEmail],
-  interventions: [handler],
-})
-
-await agent.invoke(
-  'Send a frustrated email to tom@example.com, ' +
-    'a client who keeps rescheduling important meetings at the last minute'
-)
-console.log(agent.messages)
-
-// Typical: agent.messages includes a cancelled send_email ToolUseBlock,
-// a guidance message, then a retried send_email with cheerier wording.
-```
-(( /tab "TypeScript" ))
 
 ```mermaid
 sequenceDiagram
@@ -27511,7 +27836,7 @@ The ledger captures:
 
 **Structured Data**: the ledger is stored in JSON-serializable form in the handler’s steering context, making it directly accessible to LLM-based steering decisions.
 
-The provider class name differs by language: Python exposes `LedgerProvider`, TypeScript exposes `ToolLedgerProvider`. Both default to retaining the most recent 100 tool calls; older entries are dropped.
+The `LedgerProvider` retains all tool calls for the lifetime of the handler instance.
 
 ## Comparison with Other Approaches
 
@@ -28157,6 +28482,8 @@ interface PromptRequest {
 async function handleStreamRequest(req: any, res: any) {
   console.log(`Got Request: ${JSON.stringify(req.body)}`)
   const { prompt } = req.body as PromptRequest
+
+  res.setHeader('Content-Type', 'application/x-ndjson')
 
   const agent = new Agent({
     tools: [notebook],
@@ -30388,12 +30715,13 @@ Custom tool executors are not currently supported but are planned for a future r
 
 - [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (2 shared tags)
 - [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (2 shared tags)
+- [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (2 shared tags)
 - [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (2 shared tags)
 - [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
 - [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (2 shared tags)
 - [Plugins](/docs/user-guide/concepts/plugins/index.md) (1 shared tag)
 - [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (1 shared tag)
-- [Human in the Loop](/docs/user-guide/concepts/agents/human-in-the-loop/index.md) (1 shared tag)
+- [Human in the Loop](/docs/user-guide/concepts/agents/interventions/human-in-the-loop/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/tools/executors/index.md
@@ -31309,7 +31637,7 @@ Amazon EC2 (Elastic Compute Cloud) provides resizable compute capacity in the cl
 
 If you’re not familiar with the AWS CDK, check out the [official documentation](https://docs.aws.amazon.com/cdk/v2/guide/home.html).
 
-This guide discusses EC2 integration at a high level - for a complete example project deploying to EC2, check out the [`deploy_to_ec2` sample project on GitHub](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_ec2).
+This guide discusses EC2 integration at a high level - for a complete example project deploying to EC2, check out the [`deploy_to_ec2` sample project on GitHub](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_ec2).
 
 ## Creating Your Agent in Python
 
@@ -31322,7 +31650,7 @@ The FastAPI application follows these steps:
 3.  Process incoming requests through the agent
 4.  Return the response back to the client
 
-Here’s an example of a weather forecasting agent application ([`app.py`](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_ec2/app/app.py)):
+Here’s an example of a weather forecasting agent application ([`app.py`](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_ec2/app/app.py)):
 
 ```python
 app = FastAPI(title="Weather API")
@@ -31422,7 +31750,7 @@ The implementation above employs a [custom tool](/docs/user-guide/concepts/tools
 
 ## Infrastructure
 
-To deploy the agent to EC2 using the TypeScript CDK, you need to define the infrastructure stack ([agent-ec2-stack.ts](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_ec2/lib/agent-ec2-stack.ts)). The following code snippet highlights the key components specific to deploying Strands Agents SDK agents to EC2:
+To deploy the agent to EC2 using the TypeScript CDK, you need to define the infrastructure stack ([agent-ec2-stack.ts](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_ec2/lib/agent-ec2-stack.ts)). The following code snippet highlights the key components specific to deploying Strands Agents SDK agents to EC2:
 
 ```typescript
 // ... instance role & security-group omitted for brevity ...
@@ -31505,7 +31833,7 @@ For EC2 deployment, the application code and dependencies are packaged separatel
  );
 ```
 
-The full example ([agent-ec2-stack.ts](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_ec2/lib/agent-ec2-stack.ts)):
+The full example ([agent-ec2-stack.ts](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_ec2/lib/agent-ec2-stack.ts)):
 
 1.  Creates a VPC with public subnets
 2.  Sets up an EC2 instance with the appropriate IAM role
@@ -31574,7 +31902,7 @@ Possible follow-up tasks would be to:
 
 ## Complete Example
 
-For the complete example code, including all files and configurations, see the [`deploy_to_ec2` sample project on GitHub](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_ec2).
+For the complete example code, including all files and configurations, see the [`deploy_to_ec2` sample project on GitHub](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_ec2).
 
 ## Related Resources
 
@@ -31605,7 +31933,7 @@ Amazon Elastic Kubernetes Service (EKS) is a managed container orchestration ser
 
 In this tutorial we are using [Amazon EKS Auto Mode](https://aws.amazon.com/eks/auto-mode), EKS Auto Mode extends AWS management of Kubernetes clusters beyond the cluster itself, to allow AWS to also set up and manage the infrastructure that enables the smooth operation of your workloads. This makes it an excellent choice for deploying Strands Agents SDK agents as containerized applications with high availability and scalability.
 
-This guide discuss EKS integration at a high level - for a complete example project deploying to EKS, check out the [`deploy_to_eks` sample project on GitHub](https://github.com/strands-agents/docs/tree/main/docs/examples/deploy_to_eks).
+This guide discuss EKS integration at a high level - for a complete example project deploying to EKS, check out the [`deploy_to_eks` sample project on GitHub](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/deploy_to_eks).
 
 ## Creating Your Agent in Python
 
@@ -31618,7 +31946,7 @@ The FastAPI application follows these steps:
 3.  Process incoming requests through the agent
 4.  Return the response back to the client
 
-Here’s an example of a weather forecasting agent application ([`app.py`](https://github.com/strands-agents/docs/tree/main/docs/examples/deploy_to_eks/docker/app/app.py)):
+Here’s an example of a weather forecasting agent application ([`app.py`](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/deploy_to_eks/docker/app/app.py)):
 
 ```python
 app = FastAPI(title="Weather API")
@@ -31717,7 +32045,7 @@ The implementation above employs a [custom tool](/docs/user-guide/concepts/tools
 
 ## Containerization
 
-To deploy your agent to EKS, you need to containerize it using Podman or Docker. The Dockerfile defines how your application is packaged and run. Below is an example Docker file that installs all needed dependencies, the application, and configures the FastAPI server to run via Uvicorn ([Dockerfile](https://github.com/strands-agents/docs/tree/main/docs/examples/deploy_to_eks/docker/Dockerfile)):
+To deploy your agent to EKS, you need to containerize it using Podman or Docker. The Dockerfile defines how your application is packaged and run. Below is an example Docker file that installs all needed dependencies, the application, and configures the FastAPI server to run via Uvicorn ([Dockerfile](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/deploy_to_eks/docker/Dockerfile)):
 
 ```dockerfile
 FROM public.ecr.aws/docker/library/python:3.12-slim
@@ -31753,7 +32081,7 @@ CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "
 To deploy our containerized agent to EKS, we will first need to provision an EKS Auto Mode cluster, define IAM role and policies, associate them with a Kubernetes Service Account and package & deploy our Agent using Helm.  
 Helm packages and deploys application to Kubernetes and EKS, Helm enables deployment to different environments, define version control, updates, and consistent deployments across EKS clusters.
 
-Follow the full example [`deploy_to_eks` sample project on GitHub](https://github.com/strands-agents/docs/tree/main/docs/examples/deploy_to_eks):
+Follow the full example [`deploy_to_eks` sample project on GitHub](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/deploy_to_eks):
 
 1.  Using eksctl creates an EKS Auto Mode cluster and a VPC
 2.  Builds and pushes the Docker image from your Dockerfile to Amazon Elastic Container Registry (ECR).
@@ -31815,7 +32143,7 @@ Possible follow-up tasks would be to:
 
 ## Complete Example
 
-For the complete example code, including all files and configurations, see the [`deploy_to_eks` sample project on GitHub](https://github.com/strands-agents/docs/tree/main/docs/examples/deploy_to_eks)
+For the complete example code, including all files and configurations, see the [`deploy_to_eks` sample project on GitHub](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/deploy_to_eks)
 
 ## Related Resources
 
@@ -31848,7 +32176,7 @@ AWS App Runner automatically deploys containerized applications with secure HTTP
 
 If you’re not familiar with the AWS CDK, check out the [official documentation](https://docs.aws.amazon.com/cdk/v2/guide/home.html).
 
-This guide discusses AWS App Runner integration at a high level - for a complete example project deploying to App Runner, check out the [`deploy_to_apprunner` sample project on GitHub](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_apprunner).
+This guide discusses AWS App Runner integration at a high level - for a complete example project deploying to App Runner, check out the [`deploy_to_apprunner` sample project on GitHub](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_apprunner).
 
 ## Creating Your Agent in Python
 
@@ -31861,7 +32189,7 @@ The FastAPI application follows these steps:
 3.  Process incoming requests through the agent
 4.  Return the response back to the client
 
-Here’s an example of a weather forecasting agent application ([`app.py`](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_apprunner/docker/app/app.py)):
+Here’s an example of a weather forecasting agent application ([`app.py`](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_apprunner/docker/app/app.py)):
 
 ```python
 app = FastAPI(title="Weather API")
@@ -31968,7 +32296,7 @@ The implementation above employs a [custom tool](/docs/user-guide/concepts/tools
 
 ## Containerization
 
-To deploy your agent to App Runner, you need to containerize it using Podman or Docker. The Dockerfile defines how your application is packaged and run. Below is an example Docker file that installs all needed dependencies, the application, and configures the FastAPI server to run via Uvicorn ([Dockerfile](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_apprunner/docker/Dockerfile)):
+To deploy your agent to App Runner, you need to containerize it using Podman or Docker. The Dockerfile defines how your application is packaged and run. Below is an example Docker file that installs all needed dependencies, the application, and configures the FastAPI server to run via Uvicorn ([Dockerfile](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_apprunner/docker/Dockerfile)):
 
 ```dockerfile
 FROM public.ecr.aws/docker/library/python:3.12-slim
@@ -32001,7 +32329,7 @@ CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "
 
 ## Infrastructure
 
-To deploy the containerized agent to App Runner using the TypeScript CDK, you need to define the infrastructure stack ([agent-apprunner-stack.ts](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_apprunner/lib/agent-apprunner-stack.ts)). Much of the configuration follows standard App Runner deployment patterns, but the following code snippet highlights the key components specific to deploying Strands Agents SDK agents:
+To deploy the containerized agent to App Runner using the TypeScript CDK, you need to define the infrastructure stack ([agent-apprunner-stack.ts](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_apprunner/lib/agent-apprunner-stack.ts)). Much of the configuration follows standard App Runner deployment patterns, but the following code snippet highlights the key components specific to deploying Strands Agents SDK agents:
 
 ```typescript
 // Create IAM role for App Runner instance
@@ -32079,7 +32407,7 @@ this.exportValue(service.attrServiceUrl, {
 });
 ```
 
-The full example ([agent-apprunner-stack.ts](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_apprunner/lib/agent-apprunner-stack.ts)):
+The full example ([agent-apprunner-stack.ts](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_apprunner/lib/agent-apprunner-stack.ts)):
 
 1.  Creates an instance role with permissions to invoke Bedrock APIs
 2.  Creates an access role for App Runner to pull images from ECR
@@ -32135,7 +32463,7 @@ The above steps covered:
 
 ## Complete Example
 
-For the complete example code, including all files and configurations, see the [`deploy_to_apprunner` sample project on GitHub](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_apprunner).
+For the complete example code, including all files and configurations, see the [`deploy_to_apprunner` sample project on GitHub](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_apprunner).
 
 ## Related Resources
 
@@ -32167,7 +32495,7 @@ AWS Fargate is a serverless compute engine for containers that works with Amazon
 
 If you’re not familiar with the AWS CDK, check out the [official documentation](https://docs.aws.amazon.com/cdk/v2/guide/home.html).
 
-This guide discusses Fargate integration at a high level - for a complete example project deploying to Fargate, check out the [`deploy_to_fargate` sample project on GitHub](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_fargate).
+This guide discusses Fargate integration at a high level - for a complete example project deploying to Fargate, check out the [`deploy_to_fargate` sample project on GitHub](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_fargate).
 
 ## Creating Your Agent in Python
 
@@ -32180,7 +32508,7 @@ The FastAPI application follows these steps:
 3.  Process incoming requests through the agent
 4.  Return the response back to the client
 
-Here’s an example of a weather forecasting agent application ([`app.py`](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_fargate/docker/app/app.py)):
+Here’s an example of a weather forecasting agent application ([`app.py`](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_fargate/docker/app/app.py)):
 
 ```python
 app = FastAPI(title="Weather API")
@@ -32279,7 +32607,7 @@ The implementation above employs a [custom tool](/docs/user-guide/concepts/tools
 
 ## Containerization
 
-To deploy your agent to Fargate, you need to containerize it using Podman or Docker. The Dockerfile defines how your application is packaged and run. Below is an example Docker file that installs all needed dependencies, the application, and configures the FastAPI server to run via unicorn ([Dockerfile](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_fargate/docker/Dockerfile)):
+To deploy your agent to Fargate, you need to containerize it using Podman or Docker. The Dockerfile defines how your application is packaged and run. Below is an example Docker file that installs all needed dependencies, the application, and configures the FastAPI server to run via unicorn ([Dockerfile](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_fargate/docker/Dockerfile)):
 
 ```dockerfile
 FROM public.ecr.aws/docker/library/python:3.12-slim
@@ -32312,7 +32640,7 @@ CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "
 
 ## Infrastructure
 
-To deploy the containerized agent to Fargate using the TypeScript CDK, you need to define the infrastructure stack ([agent-fargate-stack.ts](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_fargate/lib/agent-fargate-stack.ts)). Much of the configuration follows standard Fargate deployment patterns, but the following code snippet highlights the key components specific to deploying Strands Agents SDK agents:
+To deploy the containerized agent to Fargate using the TypeScript CDK, you need to define the infrastructure stack ([agent-fargate-stack.ts](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_fargate/lib/agent-fargate-stack.ts)). Much of the configuration follows standard Fargate deployment patterns, but the following code snippet highlights the key components specific to deploying Strands Agents SDK agents:
 
 ```typescript
 // ... vpc, cluster, logGroup, executionRole, and taskRole omitted for brevity ...
@@ -32388,7 +32716,7 @@ const service = new ecs.FargateService(this, "AgentService", {
 // ... load balancer omitted for brevity ...
 ```
 
-The full example ([agent-fargate-stack.ts](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_fargate/lib/agent-fargate-stack.ts)):
+The full example ([agent-fargate-stack.ts](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_fargate/lib/agent-fargate-stack.ts)):
 
 1.  Creates a VPC with public and private subnets
 2.  Sets up an ECS cluster
@@ -32453,7 +32781,7 @@ Possible follow-up tasks would be to:
 
 ## Complete Example
 
-For the complete example code, including all files and configurations, see the [`deploy_to_fargate` sample project on GitHub](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_fargate).
+For the complete example code, including all files and configurations, see the [`deploy_to_fargate` sample project on GitHub](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_fargate).
 
 ## Related Resources
 
@@ -32485,7 +32813,7 @@ AWS Lambda is a serverless compute service that lets you run code without provis
 
 If you’re not familiar with the AWS CDK, check out the [official documentation](https://docs.aws.amazon.com/cdk/v2/guide/home.html).
 
-This guide discusses Lambda integration at a high level - for a complete example project deploying to Lambda, check out the [`deploy_to_lambda` sample project on GitHub](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_lambda).
+This guide discusses Lambda integration at a high level - for a complete example project deploying to Lambda, check out the [`deploy_to_lambda` sample project on GitHub](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_lambda).
 
 Note
 
@@ -32503,7 +32831,7 @@ The Lambda handler follows these steps:
 4.  Extract the text from the agent’s response
 5.  Format and return the response back to the client
 
-Here’s an example of a weather forecasting agent handler ([`agent_handler.py`](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_lambda/lambda/agent_handler.py)):
+Here’s an example of a weather forecasting agent handler ([`agent_handler.py`](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_lambda/lambda/agent_handler.py)):
 
 ```python
 from strands import Agent
@@ -32583,7 +32911,7 @@ aws lambda get-layer-version \
 
 ### Using a Custom Dependencies Layer
 
-If you need packages beyond the base `strands-agents` SDK (such as `strands-agents-tools`), create a custom layer ([`AgentLambdaStack.ts`](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_lambda/lib/agent-lambda-stack.ts)):
+If you need packages beyond the base `strands-agents` SDK (such as `strands-agents-tools`), create a custom layer ([`AgentLambdaStack.ts`](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_lambda/lib/agent-lambda-stack.ts)):
 
 ```typescript
 const packagingDirectory = path.join(__dirname, "../packaging");
@@ -32639,7 +32967,7 @@ Failing to match the architecture can result in runtime errors when the Lambda f
 
 ### Packaging Your Code
 
-The CDK constructs above expect the Python code to be packaged before running the deployment - this can be done using a Python script that creates two ZIP files ([`package_for_lambda.py`](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_lambda/bin/package_for_lambda.py)):
+The CDK constructs above expect the Python code to be packaged before running the deployment - this can be done using a Python script that creates two ZIP files ([`package_for_lambda.py`](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_lambda/bin/package_for_lambda.py)):
 
 ```python
 def create_lambda_package():
@@ -32768,7 +33096,7 @@ Possible follow-up tasks would be to:
 
 ## Complete Example
 
-For the complete example code, including all files and configurations, see the [`deploy_to_lambda` sample project on GitHub](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_lambda).
+For the complete example code, including all files and configurations, see the [`deploy_to_lambda` sample project on GitHub](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_lambda).
 
 ## Related Resources
 
@@ -36865,13 +37193,13 @@ Operating Strands agents in production requires careful consideration of configu
 - [Root Cause Analysis](/docs/user-guide/evals-sdk/detectors/root_cause_analysis/index.md) (2 shared tags)
 - [Session Diagnosis](/docs/user-guide/evals-sdk/detectors/diagnosis/index.md) (2 shared tags)
 - [Evaluating Remote Traces](/docs/user-guide/evals-sdk/how-to/trace_providers/index.md) (1 shared tag)
-- [Evaluation](/docs/user-guide/observability-evaluation/evaluation/index.md) (1 shared tag)
 - [Metrics](/docs/user-guide/observability-evaluation/metrics/index.md) (1 shared tag)
 - [Observability](/docs/user-guide/observability-evaluation/observability/index.md) (1 shared tag)
 - [Task Decorator](/docs/user-guide/evals-sdk/how-to/eval_task/index.md) (1 shared tag)
 - [Traces](/docs/user-guide/observability-evaluation/traces/index.md) (1 shared tag)
 - [Deploy to Kubernetes](/docs/user-guide/deploy/deploy_to_kubernetes/index.md) (1 shared tag)
 - [Deploy to Terraform](/docs/user-guide/deploy/deploy_to_terraform/index.md) (1 shared tag)
+- [Deploy with Nx Plugin for AWS](/docs/user-guide/deploy/deploy_with_nx_plugin_for_aws/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/deploy/operating-agents-in-production/index.md
 
@@ -37317,11 +37645,11 @@ combined.display(include_recommendations=True)
 - [Failure Detection](/docs/user-guide/evals-sdk/detectors/failure_detection/index.md) (2 shared tags)
 - [Operating Agents in Production](/docs/user-guide/deploy/operating-agents-in-production/index.md) (2 shared tags)
 - [Evaluating Remote Traces](/docs/user-guide/evals-sdk/how-to/trace_providers/index.md) (1 shared tag)
-- [Evaluation](/docs/user-guide/observability-evaluation/evaluation/index.md) (1 shared tag)
 - [Metrics](/docs/user-guide/observability-evaluation/metrics/index.md) (1 shared tag)
 - [Observability](/docs/user-guide/observability-evaluation/observability/index.md) (1 shared tag)
 - [Task Decorator](/docs/user-guide/evals-sdk/how-to/eval_task/index.md) (1 shared tag)
 - [Traces](/docs/user-guide/observability-evaluation/traces/index.md) (1 shared tag)
+- [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/evals-sdk/detectors/diagnosis/index.md
 
@@ -37721,11 +38049,11 @@ for fix_type, recs in by_type.items():
 - [Failure Detection](/docs/user-guide/evals-sdk/detectors/failure_detection/index.md) (2 shared tags)
 - [Operating Agents in Production](/docs/user-guide/deploy/operating-agents-in-production/index.md) (2 shared tags)
 - [Evaluating Remote Traces](/docs/user-guide/evals-sdk/how-to/trace_providers/index.md) (1 shared tag)
-- [Evaluation](/docs/user-guide/observability-evaluation/evaluation/index.md) (1 shared tag)
 - [Metrics](/docs/user-guide/observability-evaluation/metrics/index.md) (1 shared tag)
 - [Observability](/docs/user-guide/observability-evaluation/observability/index.md) (1 shared tag)
 - [Task Decorator](/docs/user-guide/evals-sdk/how-to/eval_task/index.md) (1 shared tag)
 - [Traces](/docs/user-guide/observability-evaluation/traces/index.md) (1 shared tag)
+- [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/evals-sdk/detectors/root_cause_analysis/index.md
 
@@ -38949,7 +39277,7 @@ Source: https://strandsagents.com/docs/user-guide/evals-sdk/evaluators/correctne
 
 ## Overview
 
-The Strands Evals SDK allows you to create custom evaluators by extending the base `Evaluator` class. This enables you to implement domain-specific evaluation logic tailored to your unique requirements. A complete example can be found [here](https://github.com/strands-agents/docs/blob/main/docs/examples/evals-sdk/custom_evaluator.py).
+The Strands Evals SDK allows you to create custom evaluators by extending the base `Evaluator` class. This enables you to implement domain-specific evaluation logic tailored to your unique requirements. A complete example can be found [here](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/evals-sdk/custom_evaluator.py).
 
 ## When to Create a Custom Evaluator
 
@@ -39432,7 +39760,7 @@ Source: https://strandsagents.com/docs/user-guide/evals-sdk/evaluators/determini
 
 ## Overview
 
-The `FaithfulnessEvaluator` evaluates whether agent responses are grounded in the conversation history. It assesses if the agent’s statements are faithful to the information available in the preceding context, helping detect hallucinations and unsupported claims. A complete example can be found [here](https://github.com/strands-agents/docs/blob/main/docs/examples/evals-sdk/faithfulness_evaluator.py).
+The `FaithfulnessEvaluator` evaluates whether agent responses are grounded in the conversation history. It assesses if the agent’s statements are faithful to the information available in the preceding context, helping detect hallucinations and unsupported claims. A complete example can be found [here](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/evals-sdk/faithfulness_evaluator.py).
 
 ## Key Features
 
@@ -39640,7 +39968,7 @@ Source: https://strandsagents.com/docs/user-guide/evals-sdk/evaluators/faithfuln
 
 ## Overview
 
-The `GoalSuccessRateEvaluator` evaluates whether all user goals were successfully achieved in a conversation. It provides a holistic assessment of whether the agent accomplished what the user set out to do, considering the entire conversation session. A complete example can be found [here](https://github.com/strands-agents/docs/blob/main/docs/examples/evals-sdk/goal_success_rate_evaluator.py).
+The `GoalSuccessRateEvaluator` evaluates whether all user goals were successfully achieved in a conversation. It provides a holistic assessment of whether the agent accomplished what the user set out to do, considering the entire conversation session. A complete example can be found [here](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/evals-sdk/goal_success_rate_evaluator.py).
 
 ## Key Features
 
@@ -40055,7 +40383,7 @@ Source: https://strandsagents.com/docs/user-guide/evals-sdk/evaluators/harmfulne
 
 ## Overview
 
-The `HelpfulnessEvaluator` evaluates the helpfulness of agent responses from the user’s perspective. It assesses whether responses effectively address user needs, provide useful information, and contribute positively to achieving the user’s goals. A complete example can be found [here](https://github.com/strands-agents/docs/blob/main/docs/examples/evals-sdk/helpfulness_evaluator.py).
+The `HelpfulnessEvaluator` evaluates the helpfulness of agent responses from the user’s perspective. It assesses whether responses effectively address user needs, provide useful information, and contribute positively to achieving the user’s goals. A complete example can be found [here](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/evals-sdk/helpfulness_evaluator.py).
 
 ## Key Features
 
@@ -41182,7 +41510,7 @@ Source: https://strandsagents.com/docs/user-guide/evals-sdk/evaluators/multimoda
 
 ## Overview
 
-The `MultimodalOutputEvaluator` assesses the quality of agent outputs for tasks that involve images or documents alongside text. It uses an MLLM as the judge and evaluates responses against a user-defined rubric, extending [`OutputEvaluator`](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) with multimodal input support. A complete example can be found [here](https://github.com/strands-agents/docs/blob/main/docs/examples/evals-sdk/multimodal_output_evaluator.py).
+The `MultimodalOutputEvaluator` assesses the quality of agent outputs for tasks that involve images or documents alongside text. It uses an MLLM as the judge and evaluates responses against a user-defined rubric, extending [`OutputEvaluator`](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) with multimodal input support. A complete example can be found [here](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/evals-sdk/multimodal_output_evaluator.py).
 
 ## Key Features
 
@@ -41543,7 +41871,7 @@ Source: https://strandsagents.com/docs/user-guide/evals-sdk/evaluators/multimoda
 
 ## Overview
 
-The `OutputEvaluator` is an LLM-based evaluator that assesses the quality of agent outputs against custom criteria. It uses a judge LLM to evaluate responses based on a user-defined rubric, making it ideal for evaluating subjective qualities like safety, relevance, accuracy, and completeness. A complete example can be found [here](https://github.com/strands-agents/docs/blob/main/docs/examples/evals-sdk/output_evaluator.py).
+The `OutputEvaluator` is an LLM-based evaluator that assesses the quality of agent outputs against custom criteria. It uses a judge LLM to evaluate responses based on a user-defined rubric, making it ideal for evaluating subjective qualities like safety, relevance, accuracy, and completeness. A complete example can be found [here](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/evals-sdk/output_evaluator.py).
 
 ## Key Features
 
@@ -42074,7 +42402,7 @@ Source: https://strandsagents.com/docs/user-guide/evals-sdk/evaluators/stereotyp
 
 ## Overview
 
-The `ToolParameterAccuracyEvaluator` is a specialized evaluator that assesses whether tool call parameters faithfully use information from the preceding conversation context. It evaluates each tool call individually to ensure parameters are grounded in available information rather than hallucinated or incorrectly inferred. A complete example can be found [here](https://github.com/strands-agents/docs/blob/main/docs/examples/evals-sdk/tool_parameter_accuracy_evaluator.py).
+The `ToolParameterAccuracyEvaluator` is a specialized evaluator that assesses whether tool call parameters faithfully use information from the preceding conversation context. It evaluates each tool call individually to ensure parameters are grounded in available information rather than hallucinated or incorrectly inferred. A complete example can be found [here](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/evals-sdk/tool_parameter_accuracy_evaluator.py).
 
 ## Key Features
 
@@ -42243,7 +42571,7 @@ Source: https://strandsagents.com/docs/user-guide/evals-sdk/evaluators/tool_para
 
 ## Overview
 
-The `ToolSelectionAccuracyEvaluator` evaluates whether tool calls are justified at specific points in the conversation. It assesses if the agent selected the right tool at the right time based on the conversation context and available tools. A complete example can be found [here](https://github.com/strands-agents/docs/blob/main/docs/examples/evals-sdk/tool_selection_accuracy_evaluator.py).
+The `ToolSelectionAccuracyEvaluator` evaluates whether tool calls are justified at specific points in the conversation. It assesses if the agent selected the right tool at the right time based on the conversation context and available tools. A complete example can be found [here](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/evals-sdk/tool_selection_accuracy_evaluator.py).
 
 ## Key Features
 
@@ -42441,7 +42769,7 @@ Source: https://strandsagents.com/docs/user-guide/evals-sdk/evaluators/tool_sele
 
 ## Overview
 
-The `TrajectoryEvaluator` is an LLM-based evaluator that assesses the sequence of actions or tool calls made by an agent during task execution. It evaluates whether the agent followed an appropriate path to reach its goal, making it ideal for evaluating multi-step reasoning and tool usage patterns. A complete example can be found [here](https://github.com/strands-agents/docs/blob/main/docs/examples/evals-sdk/trajectory_evaluator.py).
+The `TrajectoryEvaluator` is an LLM-based evaluator that assesses the sequence of actions or tool calls made by an agent during task execution. It evaluates whether the agent followed an appropriate path to reach its goal, making it ideal for evaluating multi-step reasoning and tool usage patterns. A complete example can be found [here](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/evals-sdk/trajectory_evaluator.py).
 
 ## Key Features
 
@@ -43792,7 +44120,7 @@ This will output detailed ADOT logs to help identify configuration problems.
 - [PII Redaction](/docs/user-guide/safety-security/pii-redaction/index.md) (2 shared tags)
 - [Amazon Bedrock](/docs/user-guide/concepts/model-providers/amazon-bedrock/index.md) (2 shared tags)
 - [Evaluating Remote Traces](/docs/user-guide/evals-sdk/how-to/trace_providers/index.md) (1 shared tag)
-- [Evaluation](/docs/user-guide/observability-evaluation/evaluation/index.md) (1 shared tag)
+- [Metrics](/docs/user-guide/observability-evaluation/metrics/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/evals-sdk/how-to/agentcore_evaluation_dashboard/index.md
 
@@ -43942,7 +44270,6 @@ def task_function():
 ## Related pages
 
 - [Evaluating Remote Traces](/docs/user-guide/evals-sdk/how-to/trace_providers/index.md) (1 shared tag)
-- [Evaluation](/docs/user-guide/observability-evaluation/evaluation/index.md) (1 shared tag)
 - [Metrics](/docs/user-guide/observability-evaluation/metrics/index.md) (1 shared tag)
 - [Observability](/docs/user-guide/observability-evaluation/observability/index.md) (1 shared tag)
 - [Traces](/docs/user-guide/observability-evaluation/traces/index.md) (1 shared tag)
@@ -43951,6 +44278,7 @@ def task_function():
 - [Root Cause Analysis](/docs/user-guide/evals-sdk/detectors/root_cause_analysis/index.md) (1 shared tag)
 - [Session Diagnosis](/docs/user-guide/evals-sdk/detectors/diagnosis/index.md) (1 shared tag)
 - [AgentCore Evaluation Dashboard Configuration](/docs/user-guide/evals-sdk/how-to/agentcore_evaluation_dashboard/index.md) (1 shared tag)
+- [PII Redaction](/docs/user-guide/safety-security/pii-redaction/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/evals-sdk/how-to/eval_task/index.md
 
@@ -44771,7 +45099,6 @@ The returned `TaskOutput` must contain:
 
 ## Related pages
 
-- [Evaluation](/docs/user-guide/observability-evaluation/evaluation/index.md) (1 shared tag)
 - [Metrics](/docs/user-guide/observability-evaluation/metrics/index.md) (1 shared tag)
 - [Observability](/docs/user-guide/observability-evaluation/observability/index.md) (1 shared tag)
 - [Task Decorator](/docs/user-guide/evals-sdk/how-to/eval_task/index.md) (1 shared tag)
@@ -44781,6 +45108,7 @@ The returned `TaskOutput` must contain:
 - [Root Cause Analysis](/docs/user-guide/evals-sdk/detectors/root_cause_analysis/index.md) (1 shared tag)
 - [Session Diagnosis](/docs/user-guide/evals-sdk/detectors/diagnosis/index.md) (1 shared tag)
 - [AgentCore Evaluation Dashboard Configuration](/docs/user-guide/evals-sdk/how-to/agentcore_evaluation_dashboard/index.md) (1 shared tag)
+- [PII Redaction](/docs/user-guide/safety-security/pii-redaction/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/evals-sdk/how-to/trace_providers/index.md
 
@@ -45960,12 +46288,12 @@ Specify a different model for simulation inference:
 
 ```python
 # Via model ID string (Bedrock)
-tool_simulator = ToolSimulator(model="anthropic.claude-3-5-sonnet-20241022-v2:0")
+tool_simulator = ToolSimulator(model="anthropic.claude-haiku-4-5-20251001-v1:0")
 
 # Via Strands Model provider
 from strands.models import BedrockModel
 
-model = BedrockModel(model_id="anthropic.claude-3-5-sonnet-20241022-v2:0")
+model = BedrockModel(model_id="anthropic.claude-haiku-4-5-20251001-v1:0")
 tool_simulator = ToolSimulator(model=model)
 ```
 
@@ -46778,385 +47106,6 @@ Source: https://strandsagents.com/docs/user-guide/evals-sdk/simulators/user_simu
 
 ---
 
-## Evaluation
-
-This guide covers approaches to evaluating agents. Effective evaluation is essential for measuring agent performance, tracking improvements, and ensuring your agents meet quality standards.
-
-When building AI agents, evaluating their performance is crucial during this process. It’s important to consider various qualitative and quantitative factors, including response quality, task completion, success, and inaccuracies or hallucinations. In evaluations, it’s also important to consider comparing different agent configurations to optimize for specific desired outcomes. Given the dynamic and non-deterministic nature of LLMs, it’s also important to have rigorous and frequent evaluations to ensure a consistent baseline for tracking improvements or regressions.
-
-## Creating Test Cases
-
-### Basic Test Case Structure
-
-```json
-[
-  {
-    "id": "knowledge-1",
-    "query": "What is the capital of France?",
-    "expected": "The capital of France is Paris.",
-    "category": "knowledge"
-  },
-  {
-    "id": "calculation-1",
-    "query": "Calculate the total cost of 5 items at $12.99 each with 8% tax.",
-    "expected": "The total cost would be $70.15.",
-    "category": "calculation"
-  }
-]
-```
-
-### Test Case Categories
-
-When developing your test cases, consider building a diverse suite that spans multiple categories.
-
-Some common categories to consider include:
-
-1.  **Knowledge Retrieval** - Facts, definitions, explanations
-2.  **Reasoning** - Logic problems, deductions, inferences
-3.  **Tool Usage** - Tasks requiring specific tool selection
-4.  **Conversation** - Multi-turn interactions
-5.  **Edge Cases** - Unusual or boundary scenarios
-6.  **Safety** - Handling of sensitive topics
-
-## Metrics to Consider
-
-Evaluating agent performance requires tracking multiple dimensions of quality; consider tracking these metrics in addition to any domain-specific metrics for your industry or use case:
-
-1.  **Accuracy** - Factual correctness of responses
-2.  **Task Completion** - Whether the agent successfully completed the tasks
-3.  **Tool Selection** - Appropriateness of tool choices
-4.  **Response Time** - How long the agent took to respond
-5.  **Hallucination Rate** - Frequency of fabricated information
-6.  **Token Usage** - Efficiency of token consumption
-7.  **User Satisfaction** - Subjective ratings of helpfulness
-
-## Continuous Evaluation
-
-Implementing a continuous evaluation strategy is crucial for ongoing success and improvements. It’s crucial to establish baseline testing for initial performance tracking and comparisons for improvements. Some important things to note about establishing a baseline: given LLMs are non-deterministic, the same question asked 10 times could yield different responses. So it’s important to establish statistically significant baselines to compare. Once a clear baseline is established, this can be used to identify regressions as well as longitudinal analysis to track performance over time.
-
-## Evaluation Approaches
-
-### Manual Evaluation
-
-The simplest approach is direct manual testing:
-
-```python
-from strands import Agent
-from strands_tools import calculator
-
-# Create agent with specific configuration
-agent = Agent(
-    model="us.anthropic.claude-sonnet-4-20250514-v1:0",
-    system_prompt="You are a helpful assistant specialized in data analysis.",
-    tools=[calculator]
-)
-
-# Test with specific queries
-response = agent("Analyze this data and create a summary: [Item, Cost 2024, Cost 2025\n Apple, $0.47, $0.55, Banana, $0.13, $0.47\n]")
-print(str(response))
-
-# Manually analyze the response for quality, accuracy, and task completion
-```
-
-### Structured Testing
-
-Create a more structured testing framework with predefined test cases:
-
-```python
-from strands import Agent
-import json
-import pandas as pd
-
-# Load test cases from JSON file
-with open("test_cases.json", "r") as f:
-    test_cases = json.load(f)
-
-# Create agent
-agent = Agent(model="us.anthropic.claude-sonnet-4-20250514-v1:0")
-
-# Run tests and collect results
-results = []
-for case in test_cases:
-    query = case["query"]
-    expected = case.get("expected")
-
-    # Execute the agent query
-    response = agent(query)
-
-    # Store results for analysis
-    results.append({
-        "test_id": case.get("id", ""),
-        "query": query,
-        "expected": expected,
-        "actual": str(response),
-        "timestamp": pd.Timestamp.now()
-    })
-
-# Export results for review
-results_df = pd.DataFrame(results)
-results_df.to_csv("evaluation_results.csv", index=False)
-# Example output:
-# |test_id    |query                         |expected                       |actual                          |timestamp                 |
-# |-----------|------------------------------|-------------------------------|--------------------------------|--------------------------|
-# |knowledge-1|What is the capital of France?|The capital of France is Paris.|The capital of France is Paris. |2025-05-13 18:37:22.673230|
-#
-```
-
-### LLM Judge Evaluation
-
-Leverage another LLM to evaluate your agent’s responses:
-
-```python
-from strands import Agent
-import json
-
-# Create the agent to evaluate
-agent = Agent(model="anthropic.claude-3-5-sonnet-20241022-v2:0")
-
-# Create an evaluator agent with a stronger model
-evaluator = Agent(
-    model="us.anthropic.claude-sonnet-4-20250514-v1:0",
-    system_prompt="""
-    You are an expert AI evaluator. Your job is to assess the quality of AI responses based on:
-    1. Accuracy - factual correctness of the response
-    2. Relevance - how well the response addresses the query
-    3. Completeness - whether all aspects of the query are addressed
-    4. Tool usage - appropriate use of available tools
-
-    Score each criterion from 1-5, where 1 is poor and 5 is excellent.
-    Provide an overall score and brief explanation for your assessment.
-    """
-)
-
-# Load test cases
-with open("test_cases.json", "r") as f:
-    test_cases = json.load(f)
-
-# Run evaluations
-evaluation_results = []
-for case in test_cases:
-    # Get agent response
-    agent_response = agent(case["query"])
-
-    # Create evaluation prompt
-    eval_prompt = f"""
-    Query: {case['query']}
-
-    Response to evaluate:
-    {agent_response}
-
-    Expected response (if available):
-    {case.get('expected', 'Not provided')}
-
-    Please evaluate the response based on accuracy, relevance, completeness, and tool usage.
-    """
-
-    # Get evaluation
-    evaluation = evaluator(eval_prompt)
-
-    # Store results
-    evaluation_results.append({
-        "test_id": case.get("id", ""),
-        "query": case["query"],
-        "agent_response": str(agent_response),
-        "evaluation": evaluation.message['content']
-    })
-
-# Save evaluation results
-with open("evaluation_results.json", "w") as f:
-    json.dump(evaluation_results, f, indent=2)
-```
-
-### Tool-Specific Evaluation
-
-For agents using tools, evaluate their ability to select and use appropriate tools:
-
-```python
-from strands import Agent
-from strands_tools import calculator, file_read, current_time
-# Create agent with multiple tools
-agent = Agent(
-    model="us.anthropic.claude-sonnet-4-20250514-v1:0",
-    tools=[calculator, file_read, current_time],
-    record_direct_tool_call = True
-)
-
-# Define tool-specific test cases
-tool_test_cases = [
-    {"query": "What is 15% of 230?", "expected_tool": "calculator"},
-    {"query": "Read the content of data.txt", "expected_tool": "file_read"},
-    {"query": "Get the time in Seattle", "expected_tool": "current_time"},
-]
-
-# Track tool usage
-tool_usage_results = []
-for case in tool_test_cases:
-    response = agent(case["query"])
-
-    # Extract used tools from the response metrics
-    used_tools = []
-    if hasattr(response, 'metrics') and hasattr(response.metrics, 'tool_metrics'):
-        for tool_name, tool_metric in response.metrics.tool_metrics.items():
-            if tool_metric.call_count > 0:
-                used_tools.append(tool_name)
-
-    tool_usage_results.append({
-        "query": case["query"],
-        "expected_tool": case["expected_tool"],
-        "used_tools": used_tools,
-        "correct_tool_used": case["expected_tool"] in used_tools
-    })
-
-# Analyze tool usage accuracy
-correct_usage_count = sum(1 for result in tool_usage_results if result["correct_tool_used"])
-accuracy = correct_usage_count / len(tool_usage_results)
-print('\n Results:\n')
-print(f"Tool selection accuracy: {accuracy:.2%}")
-```
-
-## Example: Building an Evaluation Workflow
-
-Below is a simplified example of a comprehensive evaluation workflow:
-
-```python
-from strands import Agent
-import json
-import pandas as pd
-import matplotlib.pyplot as plt
-import datetime
-import os
-
-
-class AgentEvaluator:
-    def __init__(self, test_cases_path, output_dir="evaluation_results"):
-        """Initialize evaluator with test cases"""
-        with open(test_cases_path, "r") as f:
-            self.test_cases = json.load(f)
-
-        self.output_dir = output_dir
-        os.makedirs(output_dir, exist_ok=True)
-
-    def evaluate_agent(self, agent, agent_name):
-        """Run evaluation on an agent"""
-        results = []
-        start_time = datetime.datetime.now()
-
-        print(f"Starting evaluation of {agent_name} at {start_time}")
-
-        for case in self.test_cases:
-            case_start = datetime.datetime.now()
-            response = agent(case["query"])
-            case_duration = (datetime.datetime.now() - case_start).total_seconds()
-
-            results.append({
-                "test_id": case.get("id", ""),
-                "category": case.get("category", ""),
-                "query": case["query"],
-                "expected": case.get("expected", ""),
-                "actual": str(response),
-                "response_time": case_duration
-            })
-
-        total_duration = (datetime.datetime.now() - start_time).total_seconds()
-
-        # Save raw results
-        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        results_path = os.path.join(self.output_dir, f"{agent_name}_{timestamp}.json")
-        with open(results_path, "w") as f:
-            json.dump(results, f, indent=2)
-
-        print(f"Evaluation completed in {total_duration:.2f} seconds")
-        print(f"Results saved to {results_path}")
-
-        return results
-
-    def analyze_results(self, results, agent_name):
-        """Generate analysis of evaluation results"""
-        df = pd.DataFrame(results)
-
-        # Calculate metrics
-        metrics = {
-            "total_tests": len(results),
-            "avg_response_time": df["response_time"].mean(),
-            "max_response_time": df["response_time"].max(),
-            "categories": df["category"].value_counts().to_dict()
-        }
-
-        # Generate charts
-        plt.figure(figsize=(10, 6))
-        df.groupby("category")["response_time"].mean().plot(kind="bar")
-        plt.title(f"Average Response Time by Category - {agent_name}")
-        plt.ylabel("Seconds")
-        plt.tight_layout()
-
-        chart_path = os.path.join(self.output_dir, f"{agent_name}_response_times.png")
-        plt.savefig(chart_path)
-
-        return metrics
-
-
-# Usage example
-if __name__ == "__main__":
-    # Create agents with different configurations
-    agent1 = Agent(
-        model="anthropic.claude-3-5-sonnet-20241022-v2:0",
-        system_prompt="You are a helpful assistant."
-    )
-
-    agent2 = Agent(
-        model="anthropic.claude-3-5-haiku-20241022-v1:0",
-        system_prompt="You are a helpful assistant."
-    )
-
-    # Create evaluator
-    evaluator = AgentEvaluator("test_cases.json")
-
-    # Evaluate agents
-    results1 = evaluator.evaluate_agent(agent1, "claude-sonnet")
-    metrics1 = evaluator.analyze_results(results1, "claude-sonnet")
-
-    results2 = evaluator.evaluate_agent(agent2, "claude-haiku")
-    metrics2 = evaluator.analyze_results(results2, "claude-haiku")
-
-    # Compare results
-    print("\nPerformance Comparison:")
-    print(f"Sonnet avg response time: {metrics1['avg_response_time']:.2f}s")
-    print(f"Haiku avg response time: {metrics2['avg_response_time']:.2f}s")
-```
-
-## Best Practices
-
-### Evaluation Strategy
-
-1.  **Diversify test cases** - Cover a wide range of scenarios and edge cases
-2.  **Use control questions** - Include questions with known answers to validate evaluation
-3.  **Blind evaluations** - When using human evaluators, avoid biasing them with expected answers
-4.  **Regular cadence** - Implement a consistent evaluation schedule
-
-### Using Evaluation Results
-
-1.  **Iterative improvement** - Use results to inform agent refinements
-2.  **System prompt engineering** - Adjust prompts based on identified weaknesses
-3.  **Tool selection optimization** - Improve tool names, descriptions, and tool selection strategies
-4.  **Version control** - Track agent configurations alongside evaluation results
-
-## Related pages
-
-- [Evaluating Remote Traces](/docs/user-guide/evals-sdk/how-to/trace_providers/index.md) (1 shared tag)
-- [Metrics](/docs/user-guide/observability-evaluation/metrics/index.md) (1 shared tag)
-- [Observability](/docs/user-guide/observability-evaluation/observability/index.md) (1 shared tag)
-- [Task Decorator](/docs/user-guide/evals-sdk/how-to/eval_task/index.md) (1 shared tag)
-- [Traces](/docs/user-guide/observability-evaluation/traces/index.md) (1 shared tag)
-- [Logging](/docs/user-guide/observability-evaluation/logs/index.md) (1 shared tag)
-- [Operating Agents in Production](/docs/user-guide/deploy/operating-agents-in-production/index.md) (1 shared tag)
-- [Root Cause Analysis](/docs/user-guide/evals-sdk/detectors/root_cause_analysis/index.md) (1 shared tag)
-- [Session Diagnosis](/docs/user-guide/evals-sdk/detectors/diagnosis/index.md) (1 shared tag)
-- [AgentCore Evaluation Dashboard Configuration](/docs/user-guide/evals-sdk/how-to/agentcore_evaluation_dashboard/index.md) (1 shared tag)
-
-Source: https://strandsagents.com/docs/user-guide/observability-evaluation/evaluation/index.md
-
----
-
 ## Logging
 
 The Strands SDK provides logging infrastructure to give visibility into its operations.
@@ -47309,7 +47258,7 @@ DEBUG | strands.event_loop.error_handler | message_index=<5> | found message wit
 Logs related to interactions with foundation models:
 
 ```plaintext
-DEBUG | strands.models.bedrock | config=<{'model_id': 'us.anthropic.claude-4-sonnet-20250219-v1:0'}> | initializing
+DEBUG | strands.models.bedrock | config=<{'model_id': 'global.anthropic.claude-sonnet-4-6'}> | initializing
 WARNING | strands.models.bedrock | bedrock threw context window overflow error
 DEBUG | strands.models.bedrock | Found blocked output guardrail. Redacting output.
 ```
@@ -47334,7 +47283,7 @@ WARN choice=<null> | invalid choice format in openai chunk
 WARN tool_call=<{"type":"function","id":"xyz"}> | received tool call with invalid index
 
 # Bedrock-specific logs
-DEBUG model_id=<us.anthropic.claude-sonnet-4-20250514-v1:0>, include_tool_result_status=<true> | auto-detected includeToolResultStatus
+DEBUG model_id=<global.anthropic.claude-sonnet-4-6>, include_tool_result_status=<true> | auto-detected includeToolResultStatus
 WARN block_key=<unknown_key> | skipping unsupported block key
 WARN event_type=<unknown_type> | unsupported bedrock event type
 ```
@@ -47439,7 +47388,6 @@ configureLogging(customLogger)
 
 - [PII Redaction](/docs/user-guide/safety-security/pii-redaction/index.md) (2 shared tags)
 - [Evaluating Remote Traces](/docs/user-guide/evals-sdk/how-to/trace_providers/index.md) (1 shared tag)
-- [Evaluation](/docs/user-guide/observability-evaluation/evaluation/index.md) (1 shared tag)
 - [Metrics](/docs/user-guide/observability-evaluation/metrics/index.md) (1 shared tag)
 - [Observability](/docs/user-guide/observability-evaluation/observability/index.md) (1 shared tag)
 - [Task Decorator](/docs/user-guide/evals-sdk/how-to/eval_task/index.md) (1 shared tag)
@@ -47447,6 +47395,7 @@ configureLogging(customLogger)
 - [Operating Agents in Production](/docs/user-guide/deploy/operating-agents-in-production/index.md) (1 shared tag)
 - [Root Cause Analysis](/docs/user-guide/evals-sdk/detectors/root_cause_analysis/index.md) (1 shared tag)
 - [Session Diagnosis](/docs/user-guide/evals-sdk/detectors/diagnosis/index.md) (1 shared tag)
+- [AgentCore Evaluation Dashboard Configuration](/docs/user-guide/evals-sdk/how-to/agentcore_evaluation_dashboard/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/observability-evaluation/logs/index.md
 
@@ -47868,7 +47817,6 @@ Traces are separate from `AgentMetrics` and are accessed via `result.traces`. No
 ## Related pages
 
 - [Evaluating Remote Traces](/docs/user-guide/evals-sdk/how-to/trace_providers/index.md) (1 shared tag)
-- [Evaluation](/docs/user-guide/observability-evaluation/evaluation/index.md) (1 shared tag)
 - [Observability](/docs/user-guide/observability-evaluation/observability/index.md) (1 shared tag)
 - [Task Decorator](/docs/user-guide/evals-sdk/how-to/eval_task/index.md) (1 shared tag)
 - [Traces](/docs/user-guide/observability-evaluation/traces/index.md) (1 shared tag)
@@ -47877,6 +47825,7 @@ Traces are separate from `AgentMetrics` and are accessed via `result.traces`. No
 - [Root Cause Analysis](/docs/user-guide/evals-sdk/detectors/root_cause_analysis/index.md) (1 shared tag)
 - [Session Diagnosis](/docs/user-guide/evals-sdk/detectors/diagnosis/index.md) (1 shared tag)
 - [AgentCore Evaluation Dashboard Configuration](/docs/user-guide/evals-sdk/how-to/agentcore_evaluation_dashboard/index.md) (1 shared tag)
+- [PII Redaction](/docs/user-guide/safety-security/pii-redaction/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/observability-evaluation/metrics/index.md
 
@@ -47895,7 +47844,7 @@ While this document provides high-level information about observability, look to
 -   [Metrics](/docs/user-guide/observability-evaluation/metrics/index.md)
 -   [Traces](/docs/user-guide/observability-evaluation/traces/index.md)
 -   [Logs](/docs/user-guide/observability-evaluation/logs/index.md)
--   [Evaluation](/docs/user-guide/observability-evaluation/evaluation/index.md)
+-   [Evaluation](/docs/user-guide/evals-sdk/quickstart/index.md)
 
 ## Telemetry Primitives
 
@@ -47985,7 +47934,6 @@ Effective observability is crucial for developing agents that reliably complete 
 ## Related pages
 
 - [Evaluating Remote Traces](/docs/user-guide/evals-sdk/how-to/trace_providers/index.md) (1 shared tag)
-- [Evaluation](/docs/user-guide/observability-evaluation/evaluation/index.md) (1 shared tag)
 - [Metrics](/docs/user-guide/observability-evaluation/metrics/index.md) (1 shared tag)
 - [Task Decorator](/docs/user-guide/evals-sdk/how-to/eval_task/index.md) (1 shared tag)
 - [Traces](/docs/user-guide/observability-evaluation/traces/index.md) (1 shared tag)
@@ -47994,6 +47942,7 @@ Effective observability is crucial for developing agents that reliably complete 
 - [Root Cause Analysis](/docs/user-guide/evals-sdk/detectors/root_cause_analysis/index.md) (1 shared tag)
 - [Session Diagnosis](/docs/user-guide/evals-sdk/detectors/diagnosis/index.md) (1 shared tag)
 - [AgentCore Evaluation Dashboard Configuration](/docs/user-guide/evals-sdk/how-to/agentcore_evaluation_dashboard/index.md) (1 shared tag)
+- [PII Redaction](/docs/user-guide/safety-security/pii-redaction/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/observability-evaluation/observability/index.md
 
@@ -48592,7 +48541,6 @@ There are several ways to send traces, metrics, and logs to CloudWatch. Please v
 ## Related pages
 
 - [Evaluating Remote Traces](/docs/user-guide/evals-sdk/how-to/trace_providers/index.md) (1 shared tag)
-- [Evaluation](/docs/user-guide/observability-evaluation/evaluation/index.md) (1 shared tag)
 - [Metrics](/docs/user-guide/observability-evaluation/metrics/index.md) (1 shared tag)
 - [Observability](/docs/user-guide/observability-evaluation/observability/index.md) (1 shared tag)
 - [Task Decorator](/docs/user-guide/evals-sdk/how-to/eval_task/index.md) (1 shared tag)
@@ -48601,6 +48549,7 @@ There are several ways to send traces, metrics, and logs to CloudWatch. Please v
 - [Root Cause Analysis](/docs/user-guide/evals-sdk/detectors/root_cause_analysis/index.md) (1 shared tag)
 - [Session Diagnosis](/docs/user-guide/evals-sdk/detectors/diagnosis/index.md) (1 shared tag)
 - [AgentCore Evaluation Dashboard Configuration](/docs/user-guide/evals-sdk/how-to/agentcore_evaluation_dashboard/index.md) (1 shared tag)
+- [PII Redaction](/docs/user-guide/safety-security/pii-redaction/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/observability-evaluation/traces/index.md
 
@@ -48653,8 +48602,8 @@ The table below compares feature availability between the Python and TypeScript 
 |  | [Agent-to-Agent (A2A)](/docs/user-guide/concepts/multi-agent/agent-to-agent/index.md) | ✅ | ✅ |
 | **Session management** | [File, S3, repository managers](/docs/user-guide/concepts/agents/session-management/index.md) | ✅ | ✅ |
 | **Observability** | [OpenTelemetry integration](/docs/user-guide/observability-evaluation/observability/index.md) | ✅ | ✅ |
+| **Steering** | [Agent steering](/docs/user-guide/concepts/plugins/steering/index.md) | ✅ | ✅ |
 | **Experimental** | [Bidirectional streaming](/docs/user-guide/concepts/bidirectional-streaming/quickstart/index.md) | ✅ | ❌ |
-|  | [Agent steering](/docs/user-guide/concepts/plugins/steering/index.md) | ✅ | ❌ |
 
 ## Related pages
 
@@ -49060,7 +49009,7 @@ from strands import Agent
 agent = Agent()
 
 print(agent.model.config)
-# {'model_id': 'us.anthropic.claude-sonnet-4-20250514-v1:0'}
+# {'model_id': 'global.anthropic.claude-sonnet-4-6'}
 ```
 
 You can specify a different model in two ways:
@@ -49527,7 +49476,6 @@ from strands.models import BedrockModel
 
 # Create a Bedrock model with guardrail configuration
 bedrock_model = BedrockModel(
-    model_id="global.anthropic.claude-sonnet-4-5-20250929-v1:0",
     guardrail_id="your-guardrail-id",         # Your Bedrock guardrail ID
     guardrail_version="1",                    # Guardrail version
     guardrail_trace="enabled",                # Enable trace info for debugging
@@ -49904,7 +49852,7 @@ service:
 - [Responsible AI](/docs/user-guide/safety-security/responsible-ai/index.md) (1 shared tag)
 - [Stereotyping Evaluator](/docs/user-guide/evals-sdk/evaluators/stereotyping_evaluator/index.md) (1 shared tag)
 - [Evaluating Remote Traces](/docs/user-guide/evals-sdk/how-to/trace_providers/index.md) (1 shared tag)
-- [Evaluation](/docs/user-guide/observability-evaluation/evaluation/index.md) (1 shared tag)
+- [Metrics](/docs/user-guide/observability-evaluation/metrics/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/safety-security/pii-redaction/index.md
 
@@ -50364,6 +50312,136 @@ Source: https://strandsagents.com/docs/user-guide/versioning-and-support/index.m
 
 ---
 
+## Inside Agentic Football Cup: 10 Strands Agents, 1 Second to Decide
+
+Date: 2026-06-06T00:00:00.000Z
+Tags: Use Cases, Multi-Agent, Model-Driven, Structured Output, Amazon Bedrock
+
+[Agentic Football Cup](https://agenticfootballcup.com) is a hands-on technical workshop where developers learn to build production agents with Amazon Bedrock AgentCore and the Strands Agents SDK. It’s designed for developers of all levels, across every geo and segment. Startup engineers, enterprise builders, partners, students. The 4-hour, hands-on session is where the work happens. Live demos at AWS Summits and at re:Invent are how people first see it.
+
+The deliverable is football: each participant ships five Strands agents (four outfielders and a goalkeeper) and plays 5v5 against another participant’s team in a live, 2-minute match. Every goal scored is the output of a foundation model deciding `SHOOT` inside one second. But the patterns participants learn (the model-driven loop, structured output, multi-agent coordination, hard latency budgets) are the same ones they take back to call-center agents, supply-chain agents, code-review agents, claims agents.
+
+This post walks through how we use Strands Agents, deployed and invoked through Amazon Bedrock AgentCore, to make ten autonomous agents play coherent football together under hard runtime constraints — the football is the vehicle, but the architecture patterns map cleanly onto the agents you’d build for production.
+
+## The setup
+
+A match is two teams of five Strands agents. Every two seconds, the game server emits a *decision point* and calls all ten agents in parallel with the full game state: ball position, every player’s position and velocity, stamina, score, clock. Each agent has 1 second to return one of eleven structured commands: `MOVE_TO`, `PASS`, `SHOOT`, `DRIBBLE`, `PRESS_BALL`, `MARK`, `INTERCEPT`, `TACKLE`, `CLEAR`, `IDLE`, plus goalkeeper-specific actions. Anything slower IDLEs that player for the tick, and there are no retries during a match.
+
+That contract (parallel multi-agent invocation, structured output, hard timeout) is exactly what production agentic workloads look like, except we play it out at 60 frames per second on a football pitch.
+
+## Why model-driven
+
+A football match is the wrong place to write if/else because the state space is too large: eleven command types, five players, a ball, the clock, stamina, opponents, and a teammate distribution that changes every tick. A rules-based controller can cover the obvious cases and ship something that *almost* plays football, but it will freeze the moment play does something the rules didn’t anticipate.
+
+The model-driven approach handles this naturally. The system prompt describes the team’s identity (“you press high, you favor through-balls, you shoot from distance”), the tools expose game-state queries, and the model picks the next command. When play goes somewhere unexpected (a 2-on-1 break, a tired defender, a goalkeeper off the line), the model reasons about it instead of falling back to a default branch.
+
+This mirrors the lesson the Strands team has written about before: orchestration logic that worked for older models gets in the way of what modern LLMs can do natively. The football pitch is just a particularly visible place to see it.
+
+## What an agent looks like
+
+Each player is a Strands `Agent` with a Bedrock model, a system prompt that encodes the team’s tactics, and a Pydantic schema for its command:
+
+```python
+from typing import Literal
+from pydantic import BaseModel, Field
+from strands import Agent
+from strands.models.bedrock import BedrockModel
+
+
+class AgentCommand(BaseModel):
+    type: Literal[
+        "MOVE_TO", "PASS", "SHOOT", "DRIBBLE", "PRESS_BALL",
+        "MARK", "INTERCEPT", "TACKLE", "CLEAR", "IDLE",
+    ]
+    target_player_id: str | None = None
+    target: tuple[float, float] | None = None
+    rationale: str = Field(..., description="One short line, for the replay log.")
+
+
+striker = Agent(
+    model=BedrockModel(model_id="amazon.nova-micro-v1:0"),
+    system_prompt=(
+        "You are the striker for Crimson Rovers. "
+        "Press high. Take shots when the lane is open. "
+        "Conserve stamina when you are off the ball."
+    ),
+)
+```
+
+Every two seconds, the game server hands the agent a snapshot of the field and asks it for one structured command:
+
+```python
+command = striker.structured_output(AgentCommand, game_state_json)
+```
+
+The Pydantic schema is doing real work here. It bounds what the model is allowed to return, gives the game server something it can deserialize without parsing a free-form essay, and gives us a clean event log when we replay the match later. Same structured-output pattern any production tool-calling agent should use.
+
+## Multi-agent coordination, the soccer version
+
+Two patterns are at work in every match.
+
+**Human guidance through a free-text channel:** During the match, participants can type messages to their team in real time (“press higher,” “stop pulling our striker out wide,” “stay compact”), but these aren’t commands. The agents are autonomous. The free-text input simply becomes part of the context they reason over on their next decision cycle, alongside the full game state, and they may or may not act on it. Tell your defender to push up while the opposition is breaking on you, and the agent will rightly ignore you.
+
+This is a clean expression of the model-driven principle: the human contributes intent, and the model decides whether and how that intent applies given everything else it can see. It’s the same shape as a production agent receiving a hint from an upstream system or a user-provided constraint that may or may not be reachable from the current state.
+
+**Swarm dynamics on the pitch:** Among the five players themselves, nobody is the orchestrator. Each agent reads the same game state, sees the same teammates, and decides what its role should be on this tick. If your striker is out of position, your midfielder picks up the runner. The handoff is implicit, driven by what the model sees, not by a routing table.
+
+We expected to write an orchestrator, but didn’t need one. The model-driven approach, applied to five agents looking at the same world, produced coherent team play without us coding the coordination at all.
+
+## The 1-second hard contract
+
+Agents that don’t have to be fast won’t be, so we force the issue. Every agent has 1 second per decision, end-to-end including network. Miss the deadline and the player IDLEs for that tick. The match doesn’t pause.
+
+A few things this forces:
+
+-   **Pick the right model for the job.** Smaller, faster models like Amazon Nova Micro are well-suited to the per-tick command decision because the latency budget is tight and the action space is bounded. Larger models can earn their slot when the decision genuinely needs it. Letting the model match the role is exactly the kind of tuning Strands makes easy.
+-   **Keep the prompt tight.** A short, well-shaped system prompt outperforms a long one inside this budget. Participants tend to iterate on their prompts more than their code, which is the right instinct.
+-   **Validate ruthlessly.** Pydantic catches malformed commands before they reach the game server. A malformed command in production is an outage; here, it’s a missed pass.
+
+The thing participants tune is almost never the code. It’s the prompt and the model choice.
+
+## Running it on AgentCore
+
+Each participant deploys their five agents into their own AWS account using Amazon Bedrock AgentCore. The match platform calls those endpoints cross-account over HTTPS with bearer tokens. The platform never sees the agent code or the model choice, which is the same isolation pattern enterprises need for multi-tenant agentic platforms.
+
+The full match event stream, every tick and every agent decision, is appended to an NDJSON event log in S3. After the match, a participant can replay every command their agent issued and see exactly why their striker passed when they should have shot. Strands’ clean separation between agent invocation and observability makes that log essentially free to produce.
+
+## Going further with AgentCore Memory, Gateway, and Observability
+
+The base agents in the workshop are stateless. Every tick is a fresh inference. That works, but it leaves a lot on the field. The advanced track of the workshop layers three AgentCore features onto the same Strands agents. Each one maps directly to a production pattern participants take back with them.
+
+**Memory** gives an agent recall across ticks and across matches. With AgentCore Memory wired in, a defender can notice that the opposing striker has cut left on every shot in the previous match and adjust its positioning this match. In production, this is the same primitive you’d use to give a customer-service agent recall of a user’s last three sessions, or a code-review agent recall of a team’s prior style decisions.
+
+**Gateway** turns external systems into MCP tools the agent can call mid-decision. In the workshop, participants stand up an analytics service exposed through Gateway that returns pass-success rates between any two players based on prior matches. The agent calls it inside its 1-second budget, sees that “pass to Player 3 succeeds 82% of the time, pass to Player 4 succeeds 31% of the time,” and chooses accordingly. The production analogue is the same: a single managed front door over your internal APIs, exposed as MCP tools, callable by any Strands agent without bespoke client code.
+
+**Observability** surfaces every reasoning step, tool call, and timing trace through OpenTelemetry. After a confusing moment in a match (a defender sprinting forward when they shouldn’t), the participant opens the trace and sees the agent’s reasoning chain, the tool calls it made, and the prompt fragment that misled it. Same workflow you’d want when debugging a production agent at 2 a.m.
+
+Participants don’t have to add all three. The workshop encourages picking the one that solves the biggest problem in their current team and shipping it. Memory for teams that are losing because they can’t adapt. Gateway for teams whose decisions are guesses. Observability for teams who can’t explain why their agents do what they do. The choice itself is part of the lesson.
+
+## What we’ve learned so far
+
+Across the workshops we’ve run, a few patterns hold up every time:
+
+-   **Command diversity is the single biggest lever.** Teams whose agents over-rely on one command type (usually `PASS`) lose to teams whose agents reach for the full eleven. Same lesson production agents teach: tool diversity matters.
+-   **Structured output is non-negotiable.** Every team that tries to skip Pydantic and parse free-form responses ships late and plays poorly.
+-   **The model-driven approach scales to multi-agent without extra plumbing** — we didn’t write an orchestrator because the model wrote it for us, every tick, in five places at once.
+-   **Learning feels like play.** Participants come for the football and stay for the architecture. By the time they’ve tuned a pressing strategy or debugged a passing chain, they’ve internalized prompt engineering, structured output, latency budgets, and observability. The skills transfer directly to production agent work.
+
+## Try it yourself
+
+The workshop is free, instructor-led, and runs in major cities worldwide. To express interest in attending a future session, visit [agenticfootballcup.com](https://agenticfootballcup.com).
+
+If you want to dig into the building blocks today:
+
+-   Strands Agents quickstart: see the [Strands docs](https://strandsagents.com/)
+-   Bedrock AgentCore: see the [AgentCore documentation](https://docs.aws.amazon.com/bedrock-agentcore/)
+
+If you ship a team, we’d love to see it. Tag us when you do, because every match is a Strands story.
+
+Source: https://strandsagents.com/blog/inside-agentic-football-cup/index.md
+
+---
+
 ## Multimodal evaluators: MLLM-as-a-judge for image-to-text tasks in Strands Evals
 
 Date: 2026-05-20T00:00:00.000Z
@@ -50593,7 +50671,7 @@ Then explore the resources below:
 
 -   Read the [Strands Evals documentation](https://strandsagents.com/) for an end-to-end overview of the `Case` → `Experiment` → `Report` workflow.
 -   See the [multimodal evaluator reference](https://strandsagents.com/docs/user-guide/evals-sdk/evaluators/multimodal_output_evaluator/) for the full API, including `MultimodalInput`, `ImageData`, the built-in rubrics, and the four convenience subclasses.
--   Try the [multimodal evaluator example](https://github.com/strands-agents/docs/blob/main/docs/examples/evals-sdk/multimodal_output_evaluator.py) in the Strands Agents docs repository.
+-   Try the [multimodal evaluator example](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/evals-sdk/multimodal_output_evaluator.py) in the Strands Agents docs repository.
 -   Share your feedback and feature requests in [GitHub Issues](https://github.com/strands-agents/evals/issues).
 
 Source: https://strandsagents.com/blog/multimodal-evaluators-mllm-as-a-judge-image-to-text-strands-evals/index.md
@@ -52493,7 +52571,7 @@ Source: https://strandsagents.com/blog/strands-agents-with-agent-control/index.m
 Date: 2026-02-23T00:00:00.000Z
 Tags: Open Source, Announcement
 
-We’re introducing [Strands Labs](https://github.com/strands-labs), a new Strands GitHub organization designed to give developers the ability to get hands-on with experimental, state-of-the-art approaches to agentic AI development. The Strands Agents SDK — available for both [Python](https://github.com/strands-agents/sdk-python) and [TypeScript](https://github.com/strands-agents/sdk-typescript) — has gained incredible traction in the developer community since we released it as open source in May of 2025. The SDK has been downloaded 14 million + times, and the AWS team has been hard at work adding new functionality, including experiments like [Steering](https://strandsagents.com/latest/documentation/docs/user-guide/concepts/experimental/steering/), to support a very active developer community. Strands’ model-driven approach has proven itself as simple, powerful and scalable for everything from prototyping to enterprise production workloads. Learn more about Strands and the model-driven approach [here](https://aws.amazon.com/blogs/opensource/strands-agents-and-the-model-driven-approach/).
+We’re introducing [Strands Labs](https://github.com/strands-labs), a new Strands GitHub organization designed to give developers the ability to get hands-on with experimental, state-of-the-art approaches to agentic AI development. The Strands Agents SDK — available for both [Python](https://github.com/strands-agents/harness-sdk) and [TypeScript](https://github.com/strands-agents/sdk-typescript) — has gained incredible traction in the developer community since we released it as open source in May of 2025. The SDK has been downloaded 14 million + times, and the AWS team has been hard at work adding new functionality, including experiments like [Steering](https://strandsagents.com/latest/documentation/docs/user-guide/concepts/experimental/steering/), to support a very active developer community. Strands’ model-driven approach has proven itself as simple, powerful and scalable for everything from prototyping to enterprise production workloads. Learn more about Strands and the model-driven approach [here](https://aws.amazon.com/blogs/opensource/strands-agents-and-the-model-driven-approach/).
 
 We’ve chosen to make Strands Labs a separate GitHub organization to encourage innovation through experimentation, and to push the frontier of agentic development. We’ve also opened Strands Labs to all the development teams across Amazon — meaning, they can all contribute their innovative open source projects for community use and feedback. This model will encourage faster experimentation, learning, and growth for Strands’ community of developers, without coupling experiments to the Strands SDK and its production use release cycle. You can expect all projects in Strands-Labs to ship with clear use cases, functional code, and tests to help you get started.
 
@@ -53417,7 +53495,7 @@ Strands is flexible enough to support a variety of production architectures:
 
 ## Building confidence through evaluation
 
-The model-driven approach requires robust [evaluation](/docs/user-guide/observability-evaluation/evaluation/index.md) to build confidence that agents perform as expected. Since model-driven agents make dynamic decisions rather than following predetermined paths, evaluation becomes both more important and more nuanced.
+The model-driven approach requires robust [evaluation](/docs/user-guide/evals-sdk/quickstart/index.md) to build confidence that agents perform as expected. Since model-driven agents make dynamic decisions rather than following predetermined paths, evaluation becomes both more important and more nuanced.
 
 Key evaluation dimensions include:
 
@@ -53441,9 +53519,9 @@ Source: https://strandsagents.com/blog/strands-agents-model-driven-approach/inde
 Date: 2025-07-15T00:00:00.000Z
 Tags: Release, Multi-Agent, A2A, Production
 
-Today we are excited to announce version 1.0 of the [Strands Agents SDK](https://github.com/strands-agents/sdk-python), marking a significant milestone in our journey to make building AI agents simple, reliable, and production-ready. Strands Agents is an open source SDK that takes a model-driven approach to building and running AI agents in just a few lines of code. Strands scales from simple to complex agent use cases, and from local development to deployment in production.
+Today we are excited to announce version 1.0 of the [Strands Agents SDK](https://github.com/strands-agents/harness-sdk), marking a significant milestone in our journey to make building AI agents simple, reliable, and production-ready. Strands Agents is an open source SDK that takes a model-driven approach to building and running AI agents in just a few lines of code. Strands scales from simple to complex agent use cases, and from local development to deployment in production.
 
-Since launching as a preview in May 2025, we’ve seen over 2,000 stars on GitHub and over 150K downloads on PyPI. Strands 1.0 brings the same level of simplicity to multi-agent applications that Strands has provided for single agents, with the addition of four new primitives and support for the Agent to Agent (A2A) protocol. To take multi-agent architectures into production, 1.0 also includes a new session manager for retrieving agent state from a remote datastore, and improved async support throughout the SDK. For flexibility to build your agents with any model, support for five additional model provider APIs were contributed by partners like [Anthropic](https://www.anthropic.com/), [Meta](https://www.llama.com/), [OpenAI](https://openai.com/), [Cohere](https://cohere.com/), [Mistral](https://mistral.ai/), [Stability](https://stability.ai/), [Writer](https://writer.com/), and [Baseten](https://www.baseten.co/) (see the [pull request](https://github.com/strands-agents/sdk-python/pull/389)). Let’s get into these updates in detail. Complete code samples are available on [strandsagents.com](https://strandsagents.com/).
+Since launching as a preview in May 2025, we’ve seen over 2,000 stars on GitHub and over 150K downloads on PyPI. Strands 1.0 brings the same level of simplicity to multi-agent applications that Strands has provided for single agents, with the addition of four new primitives and support for the Agent to Agent (A2A) protocol. To take multi-agent architectures into production, 1.0 also includes a new session manager for retrieving agent state from a remote datastore, and improved async support throughout the SDK. For flexibility to build your agents with any model, support for five additional model provider APIs were contributed by partners like [Anthropic](https://www.anthropic.com/), [Meta](https://www.llama.com/), [OpenAI](https://openai.com/), [Cohere](https://cohere.com/), [Mistral](https://mistral.ai/), [Stability](https://stability.ai/), [Writer](https://writer.com/), and [Baseten](https://www.baseten.co/) (see the [pull request](https://github.com/strands-agents/harness-sdk/pull/389)). Let’s get into these updates in detail. Complete code samples are available on [strandsagents.com](https://strandsagents.com/).
 
 ## Simplifying multi-agent patterns
 
@@ -53697,7 +53775,7 @@ Because A2A provides features like the agent card, a standardized description of
 
 ## Production-Ready
 
-While Strands has been used in production by Amazon teams like Amazon Q Developer and AWS Glue long before its public release, we’ve been working backwards with hundreds of customers worldwide to extend Strands to support your production needs. These updates include a session management abstraction to support persisting data to and recovering from external data stores, structured output, improved async support, and much more ([releases changelog](https://github.com/strands-agents/sdk-python/releases)).
+While Strands has been used in production by Amazon teams like Amazon Q Developer and AWS Glue long before its public release, we’ve been working backwards with hundreds of customers worldwide to extend Strands to support your production needs. These updates include a session management abstraction to support persisting data to and recovering from external data stores, structured output, improved async support, and much more ([releases changelog](https://github.com/strands-agents/harness-sdk/releases)).
 
 **Durable Session Management**: We’ve added `SessionManager`, a session management abstraction that enables automatic persistence and restoration of agent conversations and state. This allows agents to save their complete history to a storage backend like Amazon Simple Storage Service (Amazon S3) and seamlessly resume conversations even after compute restarts. Here’s an example using basic file-based persistence.
 
@@ -53846,7 +53924,7 @@ analyzer = Agent(
 
 ## Get started
 
-The Strands community has been a critical voice in shaping all of these updates, through usage, feedback and direct code contributions. Of the over 150 PRs merged into Strands between 0.1.0 and 1.0, 22% were contributed by community members who fixed bugs, added model providers, wrote docs, added features, and refactored classes to improve performance. We’re deeply grateful to [each of you](https://github.com/strands-agents/sdk-python/graphs/contributors) for helping make Strands the simplest way to take an agent from prototype to production.
+The Strands community has been a critical voice in shaping all of these updates, through usage, feedback and direct code contributions. Of the over 150 PRs merged into Strands between 0.1.0 and 1.0, 22% were contributed by community members who fixed bugs, added model providers, wrote docs, added features, and refactored classes to improve performance. We’re deeply grateful to [each of you](https://github.com/strands-agents/harness-sdk/graphs/contributors) for helping make Strands the simplest way to take an agent from prototype to production.
 
 The future of AI is multi-agent, and with Strands 1.0, that future is ready for production. Start building today at [strandsagents.com](https://strandsagents.com/).
 
@@ -53859,7 +53937,7 @@ Source: https://strandsagents.com/blog/strands-agents-1-0/index.md
 Date: 2025-06-13T00:00:00.000Z
 Tags: Amazon Bedrock, Model-Driven, Technical How-to
 
-When we [introduced](https://aws.amazon.com/blogs/opensource/introducing-strands-agents-an-open-source-ai-agents-sdk/) the Strands Agents SDK, our goal was to make agentic development simple and flexible by embracing a model-driven approach. Today, we’re excited to highlight how you can use Claude 4’s interleaved thinking beta feature with Strands to further simplify how you write AI agents to solve complex tasks with tools. With a model-driven approach, developers no longer need to define a rigid workflow to call tools and parse model responses at each step to complete a task. With [Strands Agents](https://github.com/strands-agents/sdk-python), you equip a model with tools and a prompt, letting it plan, chain thoughts, call tools, and reflect. Strands manages an event loop around model calls until it considers the task completed, returning a response to the client. Let’s consider how it works with this simple example (assuming you have completed the [quickstart](/docs/user-guide/quickstart/index.md)):
+When we [introduced](https://aws.amazon.com/blogs/opensource/introducing-strands-agents-an-open-source-ai-agents-sdk/) the Strands Agents SDK, our goal was to make agentic development simple and flexible by embracing a model-driven approach. Today, we’re excited to highlight how you can use Claude 4’s interleaved thinking beta feature with Strands to further simplify how you write AI agents to solve complex tasks with tools. With a model-driven approach, developers no longer need to define a rigid workflow to call tools and parse model responses at each step to complete a task. With [Strands Agents](https://github.com/strands-agents/harness-sdk), you equip a model with tools and a prompt, letting it plan, chain thoughts, call tools, and reflect. Strands manages an event loop around model calls until it considers the task completed, returning a response to the client. Let’s consider how it works with this simple example (assuming you have completed the [quickstart](/docs/user-guide/quickstart/index.md)):
 
 ```python
 from strands import Agent
@@ -54065,7 +54143,7 @@ This puts the ISS somewhere over the Pacific Ocean, likely between Russia and Al
 
 These examples only scratch the surface of what you can build with Strands and Claude 4 using interleaved thinking. We’ve published additional [agent samples](https://github.com/strands-agents/samples/tree/main) tackling more complex problems and equipped with numerous tools, like [this one](https://github.com/strands-agents/samples/blob/main/python/01-learn/10-agents-as-tools/agents-as-tools-interleaved.ipynb) demonstrating interleaved thinking. Using these examples, you’ll see more dynamic reasoning from Claude, like learning from a failed tool call and retrying with refined parameters, or coming up with new strategies on the fly instead of looping the same strategy across multiple tool calls.
 
-We built Strands Agents to simplify agent development by embracing models like Claude 4 that do a great job of breaking down problems into tool workflows that achieve results. We can’t wait to see what you build with Strands. Join the discussion at [https://github.com/strands-agents/sdk-python](https://github.com/strands-agents/sdk-python).
+We built Strands Agents to simplify agent development by embracing models like Claude 4 that do a great job of breaking down problems into tool workflows that achieve results. We can’t wait to see what you build with Strands. Join the discussion at [https://github.com/strands-agents/harness-sdk](https://github.com/strands-agents/harness-sdk).
 
 *Jawhny Cooke, Vadim Omeltchenko, and Mark Roy contributed to this post.*
 

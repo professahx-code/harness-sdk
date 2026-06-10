@@ -6,7 +6,7 @@ File-based session manager for local filesystem storage.
 class FileSessionManager(RepositorySessionManager, SessionRepository)
 ```
 
-Defined in: [src/strands/session/file\_session\_manager.py:27](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/file_session_manager.py#L27)
+Defined in: [src/strands/session/file\_session\_manager.py:27](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/file_session_manager.py#L27)
 
 File-based session manager for local filesystem storage.
 
@@ -30,7 +30,7 @@ Creates the following filesystem structure for the session storage:
 def __init__(session_id: str, storage_dir: str | None = None, **kwargs: Any)
 ```
 
-Defined in: [src/strands/session/file\_session\_manager.py:44](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/file_session_manager.py#L44)
+Defined in: [src/strands/session/file\_session\_manager.py:44](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/file_session_manager.py#L44)
 
 Initialize FileSession with filesystem storage.
 
@@ -46,7 +46,7 @@ Initialize FileSession with filesystem storage.
 def create_session(session: Session, **kwargs: Any) -> Session
 ```
 
-Defined in: [src/strands/session/file\_session\_manager.py:125](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/file_session_manager.py#L125)
+Defined in: [src/strands/session/file\_session\_manager.py:125](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/file_session_manager.py#L125)
 
 Create a new session.
 
@@ -56,7 +56,7 @@ Create a new session.
 def read_session(session_id: str, **kwargs: Any) -> Session | None
 ```
 
-Defined in: [src/strands/session/file\_session\_manager.py:143](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/file_session_manager.py#L143)
+Defined in: [src/strands/session/file\_session\_manager.py:143](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/file_session_manager.py#L143)
 
 Read session data.
 
@@ -66,7 +66,7 @@ Read session data.
 def delete_session(session_id: str, **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/session/file\_session\_manager.py:152](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/file_session_manager.py#L152)
+Defined in: [src/strands/session/file\_session\_manager.py:152](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/file_session_manager.py#L152)
 
 Delete session and all associated data.
 
@@ -77,7 +77,7 @@ def create_agent(session_id: str, session_agent: SessionAgent,
                  **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/session/file\_session\_manager.py:160](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/file_session_manager.py#L160)
+Defined in: [src/strands/session/file\_session\_manager.py:160](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/file_session_manager.py#L160)
 
 Create a new agent in the session.
 
@@ -88,7 +88,7 @@ def read_agent(session_id: str, agent_id: str,
                **kwargs: Any) -> SessionAgent | None
 ```
 
-Defined in: [src/strands/session/file\_session\_manager.py:172](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/file_session_manager.py#L172)
+Defined in: [src/strands/session/file\_session\_manager.py:172](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/file_session_manager.py#L172)
 
 Read agent data.
 
@@ -99,7 +99,7 @@ def update_agent(session_id: str, session_agent: SessionAgent,
                  **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/session/file\_session\_manager.py:181](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/file_session_manager.py#L181)
+Defined in: [src/strands/session/file\_session\_manager.py:181](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/file_session_manager.py#L181)
 
 Update agent data.
 
@@ -110,7 +110,7 @@ def create_message(session_id: str, agent_id: str,
                    session_message: SessionMessage, **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/session/file\_session\_manager.py:192](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/file_session_manager.py#L192)
+Defined in: [src/strands/session/file\_session\_manager.py:192](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/file_session_manager.py#L192)
 
 Create a new message for the agent.
 
@@ -121,7 +121,7 @@ def read_message(session_id: str, agent_id: str, message_id: int,
                  **kwargs: Any) -> SessionMessage | None
 ```
 
-Defined in: [src/strands/session/file\_session\_manager.py:202](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/file_session_manager.py#L202)
+Defined in: [src/strands/session/file\_session\_manager.py:202](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/file_session_manager.py#L202)
 
 Read message data.
 
@@ -132,7 +132,7 @@ def update_message(session_id: str, agent_id: str,
                    session_message: SessionMessage, **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/session/file\_session\_manager.py:210](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/file_session_manager.py#L210)
+Defined in: [src/strands/session/file\_session\_manager.py:210](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/file_session_manager.py#L210)
 
 Update message data.
 
@@ -146,7 +146,7 @@ def list_messages(session_id: str,
                   **kwargs: Any) -> list[SessionMessage]
 ```
 
-Defined in: [src/strands/session/file\_session\_manager.py:222](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/file_session_manager.py#L222)
+Defined in: [src/strands/session/file\_session\_manager.py:222](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/file_session_manager.py#L222)
 
 List messages for an agent with pagination.
 
@@ -157,7 +157,7 @@ def create_multi_agent(session_id: str, multi_agent: "MultiAgentBase",
                        **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/session/file\_session\_manager.py:262](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/file_session_manager.py#L262)
+Defined in: [src/strands/session/file\_session\_manager.py:262](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/file_session_manager.py#L262)
 
 Create a new multiagent state in the session.
 
@@ -168,7 +168,7 @@ def read_multi_agent(session_id: str, multi_agent_id: str,
                      **kwargs: Any) -> dict[str, Any] | None
 ```
 
-Defined in: [src/strands/session/file\_session\_manager.py:272](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/file_session_manager.py#L272)
+Defined in: [src/strands/session/file\_session\_manager.py:272](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/file_session_manager.py#L272)
 
 Read multi-agent state from filesystem.
 
@@ -179,6 +179,6 @@ def update_multi_agent(session_id: str, multi_agent: "MultiAgentBase",
                        **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/session/file\_session\_manager.py:279](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/session/file_session_manager.py#L279)
+Defined in: [src/strands/session/file\_session\_manager.py:279](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/file_session_manager.py#L279)
 
 Update multi-agent state from filesystem.

@@ -1,0 +1,190 @@
+Defined in: [src/memory/memory-manager.ts:75](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/memory-manager.ts#L75)
+
+Provides cross-session memory retrieval and storage for agents.
+
+Manages one or more [MemoryStore](/docs/api/typescript/MemoryStore/index.md) backends, exposing `search_memory` and `add_memory` tools for agent-driven recall and persistence. Any tools the stores themselves provide (via [MemoryStore.getTools](/docs/api/typescript/MemoryStore/index.md#gettools)) are registered alongside these.
+
+## Example
+
+```typescript
+import { Agent, MemoryManager } from '@strands-agents/sdk'
+
+// Config shorthand
+const agent = new Agent({
+  model,
+  memoryManager: { stores: [myStore], addToolConfig: true },
+})
+
+// Class instance (for programmatic access)
+const memoryManager = new MemoryManager({ stores: [myStore], addToolConfig: true })
+const agent = new Agent({ model, memoryManager })
+await memoryManager.search('user preferences')
+```
+
+## Implements
+
+-   [`Plugin`](/docs/api/typescript/Plugin/index.md)
+
+## Constructors
+
+### Constructor
+
+```ts
+new MemoryManager(config): MemoryManager;
+```
+
+Defined in: [src/memory/memory-manager.ts:89](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/memory-manager.ts#L89)
+
+#### Parameters
+
+| Parameter | Type |
+| --- | --- |
+| `config` | [`MemoryManagerConfig`](/docs/api/typescript/MemoryManagerConfig/index.md) |
+
+#### Returns
+
+`MemoryManager`
+
+## Properties
+
+### name
+
+```ts
+readonly name: "strands:memory-manager" = 'strands:memory-manager';
+```
+
+Defined in: [src/memory/memory-manager.ts:76](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/memory-manager.ts#L76)
+
+A stable string identifier for the plugin. Used for logging, duplicate detection, and plugin management.
+
+For strands-vended plugins, names should be prefixed with `strands:`.
+
+#### Implementation of
+
+[`Plugin`](/docs/api/typescript/Plugin/index.md).[`name`](/docs/api/typescript/Plugin/index.md#name)
+
+## Methods
+
+### initAgent()
+
+```ts
+initAgent(agent): void;
+```
+
+Defined in: [src/memory/memory-manager.ts:189](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/memory-manager.ts#L189)
+
+Initializes the plugin with the agent.
+
+Wires up automatic extraction for any store configured with [ExtractionConfig](/docs/api/typescript/ExtractionConfig/index.md): buffers conversation messages and attaches each store’s triggers. A no-op when no store uses extraction.
+
+#### Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `agent` | `LocalAgent` | The agent this plugin is being attached to |
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+[`Plugin`](/docs/api/typescript/Plugin/index.md).[`initAgent`](/docs/api/typescript/Plugin/index.md#initagent)
+
+---
+
+### flush()
+
+```ts
+flush(): Promise<void>;
+```
+
+Defined in: [src/memory/memory-manager.ts:221](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/memory-manager.ts#L221)
+
+Saves every store’s remaining messages and waits for all saves to finish. No-op when no store has extraction configured.
+
+Extraction normally runs in the background, so the most recent turn may not be saved yet when the agent responds. Call this once at a boundary you control - typically your app’s shutdown handler - so nothing is lost. A process killed before then (crash, hard timeout) may still lose the last unsaved turn; a more frequent trigger narrows that window.
+
+Do not call this after every turn alongside a periodic trigger: it forces a save each time and so defeats the trigger’s schedule.
+
+#### Returns
+
+`Promise`<`void`\>
+
+---
+
+### getTools()
+
+```ts
+getTools(): Tool[];
+```
+
+Defined in: [src/memory/memory-manager.ts:233](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/memory-manager.ts#L233)
+
+Returns tools registered by this plugin.
+
+Includes the manager’s own `search_memory` / `add_memory` tools (per their config) plus any tools the configured stores expose via [MemoryStore.getTools](/docs/api/typescript/MemoryStore/index.md#gettools).
+
+#### Returns
+
+[`Tool`](/docs/api/typescript/Tool/index.md)\[\]
+
+Array of tools to register with the agent
+
+#### Implementation of
+
+[`Plugin`](/docs/api/typescript/Plugin/index.md).[`getTools`](/docs/api/typescript/Plugin/index.md#gettools)
+
+---
+
+### search()
+
+```ts
+search(query, options?): Promise<MemoryEntry[]>;
+```
+
+Defined in: [src/memory/memory-manager.ts:269](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/memory-manager.ts#L269)
+
+Search stores for entries matching the query. If `stores` is provided, only searches to those named stores.
+
+This method is unscoped with full access to all configured stores. Tool-level store scoping is applied by the search tool callback. When `options.stores` is omitted, all stores are searched.
+
+Only `maxSearchResults` and routing (`stores`) cross this layer. Store-specific search parameters (e.g. a Bedrock metadata `filter` or search-type override) are not expressible here across heterogeneous stores — set them as per-instance defaults on the store, or call the store’s own `search()` directly for full control. Per-instance store policy (such as a tenant filter) always applies, including when reached through the `search_memory` tool.
+
+#### Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `query` | `string` | The search query string |
+| `options?` | [`MemorySearchOptions`](/docs/api/typescript/MemorySearchOptions/index.md) | Optional max results (forwarded to all stores) and store name filter |
+
+#### Returns
+
+`Promise`<[`MemoryEntry`](/docs/api/typescript/MemoryEntry/index.md)\[\]>
+
+Array of memory entries from matching stores
+
+---
+
+### add()
+
+```ts
+add(content, options?): Promise<void>;
+```
+
+Defined in: [src/memory/memory-manager.ts:324](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/memory-manager.ts#L324)
+
+Add content to writable stores. If `stores` is provided, only writes to those named stores; otherwise all writable stores are targeted.
+
+This method is unscoped, with full access to all configured writable stores; tool-level store scoping is applied by the add tool callback. Target stores are validated first (an unknown or read-only named store throws), then the writes are awaited: per-store failures are logged, and an `AggregateError` is thrown if any store fails.
+
+#### Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `content` | `string` | The text content to add |
+| `options?` | [`MemoryAddOptions`](/docs/api/typescript/MemoryAddOptions/index.md) | Optional metadata and store name filter |
+
+#### Returns
+
+`Promise`<`void`\>

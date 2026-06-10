@@ -20,7 +20,7 @@ Implementation: Each handler maintains its own JSONSerializableDict context. Cal
 class SteeringContext()
 ```
 
-Defined in: [src/strands/vended\_plugins/steering/core/context.py:35](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/steering/core/context.py#L35)
+Defined in: [src/strands/vended\_plugins/steering/core/context.py:35](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/core/context.py#L35)
 
 Container for steering context data.
 
@@ -30,7 +30,7 @@ Container for steering context data.
 class SteeringContextCallback(ABC, Generic[EventType])
 ```
 
-Defined in: [src/strands/vended\_plugins/steering/core/context.py:49](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/steering/core/context.py#L49)
+Defined in: [src/strands/vended\_plugins/steering/core/context.py:49](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/core/context.py#L49)
 
 Abstract base class for steering context update callbacks.
 
@@ -41,7 +41,7 @@ Abstract base class for steering context update callbacks.
 def event_type() -> type[HookEvent]
 ```
 
-Defined in: [src/strands/vended\_plugins/steering/core/context.py:53](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/steering/core/context.py#L53)
+Defined in: [src/strands/vended\_plugins/steering/core/context.py:53](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/core/context.py#L53)
 
 Return the event type this callback handles.
 
@@ -52,7 +52,7 @@ def __call__(event: EventType, steering_context: "SteeringContext",
              **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/vended\_plugins/steering/core/context.py:60](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/steering/core/context.py#L60)
+Defined in: [src/strands/vended\_plugins/steering/core/context.py:60](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/core/context.py#L60)
 
 Update steering context based on hook event.
 
@@ -68,7 +68,7 @@ Update steering context based on hook event.
 class SteeringContextProvider(ABC)
 ```
 
-Defined in: [src/strands/vended\_plugins/steering/core/context.py:71](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/steering/core/context.py#L71)
+Defined in: [src/strands/vended\_plugins/steering/core/context.py:71](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/core/context.py#L71)
 
 Abstract base class for context providers that handle multiple event types.
 
@@ -79,6 +79,6 @@ Abstract base class for context providers that handle multiple event types.
 def context_providers(**kwargs: Any) -> list[SteeringContextCallback]
 ```
 
-Defined in: [src/strands/vended\_plugins/steering/core/context.py:75](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/vended_plugins/steering/core/context.py#L75)
+Defined in: [src/strands/vended\_plugins/steering/core/context.py:75](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/core/context.py#L75)
 
 Return list of context callbacks with event types extracted from generics.

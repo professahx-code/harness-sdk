@@ -8,7 +8,7 @@ This module defines the types used for an Agent.
 class Limits(TypedDict)
 ```
 
-Defined in: [src/strands/types/agent.py:17](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/agent.py#L17)
+Defined in: [src/strands/types/agent.py:17](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/agent.py#L17)
 
 Per-invocation budget caps for the agent loop.
 
@@ -30,7 +30,7 @@ Priority on simultaneous trip (highest first): `turns`, `total_tokens`, `output_
 class ConcurrentInvocationMode(str, Enum)
 ```
 
-Defined in: [src/strands/types/agent.py:52](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/agent.py#L52)
+Defined in: [src/strands/types/agent.py:52](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/agent.py#L52)
 
 Mode controlling concurrent invocation behavior.
 

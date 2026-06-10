@@ -9,8 +9,8 @@ A collection of sample implementations to help you get started with Strands Agen
 3.  Clone the examples:
     
     ```bash
-    git clone https://github.com/strands-agents/docs.git
-    cd docs/docs/examples
+    git clone https://github.com/strands-agents/harness-sdk.git
+    cd harness-sdk/site/docs/examples
     ```
     
 4.  Browse the examples below and follow the instructions in each one

@@ -6,7 +6,7 @@ Additional A2A types.
 class A2AStreamEvent(TypedEvent)
 ```
 
-Defined in: [src/strands/types/a2a.py:12](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/a2a.py#L12)
+Defined in: [src/strands/types/a2a.py:12](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/a2a.py#L12)
 
 Event emitted for every update received from the remote A2A server.
 
@@ -25,7 +25,7 @@ The event is emitted for EVERY update from the server, regardless of whether it 
 def __init__(a2a_event: A2AResponse) -> None
 ```
 
-Defined in: [src/strands/types/a2a.py:27](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/a2a.py#L27)
+Defined in: [src/strands/types/a2a.py:27](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/a2a.py#L27)
 
 Initialize with A2A event.
 

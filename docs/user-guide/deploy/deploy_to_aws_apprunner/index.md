@@ -4,7 +4,7 @@ AWS App Runner automatically deploys containerized applications with secure HTTP
 
 If you’re not familiar with the AWS CDK, check out the [official documentation](https://docs.aws.amazon.com/cdk/v2/guide/home.html).
 
-This guide discusses AWS App Runner integration at a high level - for a complete example project deploying to App Runner, check out the [`deploy_to_apprunner` sample project on GitHub](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_apprunner).
+This guide discusses AWS App Runner integration at a high level - for a complete example project deploying to App Runner, check out the [`deploy_to_apprunner` sample project on GitHub](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_apprunner).
 
 ## Creating Your Agent in Python
 
@@ -17,7 +17,7 @@ The FastAPI application follows these steps:
 3.  Process incoming requests through the agent
 4.  Return the response back to the client
 
-Here’s an example of a weather forecasting agent application ([`app.py`](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_apprunner/docker/app/app.py)):
+Here’s an example of a weather forecasting agent application ([`app.py`](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_apprunner/docker/app/app.py)):
 
 ```python
 app = FastAPI(title="Weather API")
@@ -124,7 +124,7 @@ The implementation above employs a [custom tool](/docs/user-guide/concepts/tools
 
 ## Containerization
 
-To deploy your agent to App Runner, you need to containerize it using Podman or Docker. The Dockerfile defines how your application is packaged and run. Below is an example Docker file that installs all needed dependencies, the application, and configures the FastAPI server to run via Uvicorn ([Dockerfile](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_apprunner/docker/Dockerfile)):
+To deploy your agent to App Runner, you need to containerize it using Podman or Docker. The Dockerfile defines how your application is packaged and run. Below is an example Docker file that installs all needed dependencies, the application, and configures the FastAPI server to run via Uvicorn ([Dockerfile](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_apprunner/docker/Dockerfile)):
 
 ```dockerfile
 FROM public.ecr.aws/docker/library/python:3.12-slim
@@ -157,7 +157,7 @@ CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "
 
 ## Infrastructure
 
-To deploy the containerized agent to App Runner using the TypeScript CDK, you need to define the infrastructure stack ([agent-apprunner-stack.ts](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_apprunner/lib/agent-apprunner-stack.ts)). Much of the configuration follows standard App Runner deployment patterns, but the following code snippet highlights the key components specific to deploying Strands Agents SDK agents:
+To deploy the containerized agent to App Runner using the TypeScript CDK, you need to define the infrastructure stack ([agent-apprunner-stack.ts](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_apprunner/lib/agent-apprunner-stack.ts)). Much of the configuration follows standard App Runner deployment patterns, but the following code snippet highlights the key components specific to deploying Strands Agents SDK agents:
 
 ```typescript
 // Create IAM role for App Runner instance
@@ -235,7 +235,7 @@ this.exportValue(service.attrServiceUrl, {
 });
 ```
 
-The full example ([agent-apprunner-stack.ts](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_apprunner/lib/agent-apprunner-stack.ts)):
+The full example ([agent-apprunner-stack.ts](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_apprunner/lib/agent-apprunner-stack.ts)):
 
 1.  Creates an instance role with permissions to invoke Bedrock APIs
 2.  Creates an access role for App Runner to pull images from ECR
@@ -291,7 +291,7 @@ The above steps covered:
 
 ## Complete Example
 
-For the complete example code, including all files and configurations, see the [`deploy_to_apprunner` sample project on GitHub](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_apprunner).
+For the complete example code, including all files and configurations, see the [`deploy_to_apprunner` sample project on GitHub](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_apprunner).
 
 ## Related Resources
 

@@ -14,7 +14,7 @@ Supported document formats.
 class Location(TypedDict)
 ```
 
-Defined in: [src/strands/types/media.py:18](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/media.py#L18)
+Defined in: [src/strands/types/media.py:18](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/media.py#L18)
 
 A location for a document.
 
@@ -26,7 +26,7 @@ This type is a generic location for a document. Its usage is determined by the u
 class S3Location(Location)
 ```
 
-Defined in: [src/strands/types/media.py:27](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/media.py#L27)
+Defined in: [src/strands/types/media.py:27](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/media.py#L27)
 
 A storage location in an Amazon S3 bucket.
 
@@ -50,7 +50,7 @@ type: ignore\[misc\]
 class DocumentSource(TypedDict)
 ```
 
-Defined in: [src/strands/types/media.py:50](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/media.py#L50)
+Defined in: [src/strands/types/media.py:50](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/media.py#L50)
 
 Contains the content of a document.
 
@@ -67,7 +67,7 @@ Only one of `bytes` or `s3Location` should be specified.
 class DocumentContent(TypedDict)
 ```
 
-Defined in: [src/strands/types/media.py:64](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/media.py#L64)
+Defined in: [src/strands/types/media.py:64](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/media.py#L64)
 
 A document to include in a message.
 
@@ -87,7 +87,7 @@ Supported image formats.
 class ImageSource(TypedDict)
 ```
 
-Defined in: [src/strands/types/media.py:84](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/media.py#L84)
+Defined in: [src/strands/types/media.py:84](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/media.py#L84)
 
 Contains the content of an image.
 
@@ -104,7 +104,7 @@ Only one of `bytes` or `s3Location` should be specified.
 class ImageContent(TypedDict)
 ```
 
-Defined in: [src/strands/types/media.py:98](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/media.py#L98)
+Defined in: [src/strands/types/media.py:98](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/media.py#L98)
 
 An image to include in a message.
 
@@ -123,7 +123,7 @@ Supported video formats.
 class VideoSource(TypedDict)
 ```
 
-Defined in: [src/strands/types/media.py:114](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/media.py#L114)
+Defined in: [src/strands/types/media.py:114](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/media.py#L114)
 
 Contains the content of a video.
 
@@ -140,7 +140,7 @@ Only one of `bytes` or `s3Location` should be specified.
 class VideoContent(TypedDict)
 ```
 
-Defined in: [src/strands/types/media.py:128](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/types/media.py#L128)
+Defined in: [src/strands/types/media.py:128](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/media.py#L128)
 
 A video to include in a message.
 

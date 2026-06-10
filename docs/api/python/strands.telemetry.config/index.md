@@ -8,7 +8,7 @@ This module provides centralized configuration and initialization functionality 
 def get_otel_resource() -> Resource
 ```
 
-Defined in: [src/strands/telemetry/config.py:27](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/config.py#L27)
+Defined in: [src/strands/telemetry/config.py:27](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/telemetry/config.py#L27)
 
 Create a standard OpenTelemetry resource with service information.
 
@@ -22,7 +22,7 @@ Resource object with standard service information.
 class StrandsTelemetry()
 ```
 
-Defined in: [src/strands/telemetry/config.py:47](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/config.py#L47)
+Defined in: [src/strands/telemetry/config.py:47](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/telemetry/config.py#L47)
 
 OpenTelemetry configuration and setup for Strands applications.
 
@@ -70,7 +70,7 @@ To setup global meter provider
 def __init__(tracer_provider: SDKTracerProvider | None = None) -> None
 ```
 
-Defined in: [src/strands/telemetry/config.py:87](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/config.py#L87)
+Defined in: [src/strands/telemetry/config.py:87](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/telemetry/config.py#L87)
 
 Initialize the StrandsTelemetry instance.
 
@@ -87,7 +87,7 @@ Initialize the StrandsTelemetry instance.
 def setup_console_exporter(**kwargs: Any) -> "StrandsTelemetry"
 ```
 
-Defined in: [src/strands/telemetry/config.py:126](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/config.py#L126)
+Defined in: [src/strands/telemetry/config.py:126](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/telemetry/config.py#L126)
 
 Set up console exporter for the tracer provider.
 
@@ -108,7 +108,7 @@ Set up console exporter for the tracer provider.
 def setup_otlp_exporter(**kwargs: Any) -> "StrandsTelemetry"
 ```
 
-Defined in: [src/strands/telemetry/config.py:148](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/config.py#L148)
+Defined in: [src/strands/telemetry/config.py:148](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/telemetry/config.py#L148)
 
 Set up OTLP exporter for the tracer provider.
 
@@ -130,6 +130,6 @@ def setup_meter(enable_console_exporter: bool = False,
                 enable_otlp_exporter: bool = False) -> "StrandsTelemetry"
 ```
 
-Defined in: [src/strands/telemetry/config.py:173](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/telemetry/config.py#L173)
+Defined in: [src/strands/telemetry/config.py:173](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/telemetry/config.py#L173)
 
 Initialize the OpenTelemetry Meter.

@@ -10,7 +10,7 @@ MultiAgentPlugin is the orchestrator-level counterpart to Plugin (which targets 
 class MultiAgentPlugin(ABC)
 ```
 
-Defined in: [src/strands/plugins/multiagent\_plugin.py:22](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/plugins/multiagent_plugin.py#L22)
+Defined in: [src/strands/plugins/multiagent\_plugin.py:22](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/plugins/multiagent_plugin.py#L22)
 
 Base class for objects that extend multi-agent orchestrator functionality.
 
@@ -86,7 +86,7 @@ Unlike agent-level Plugin, MultiAgentPlugin does not support @tool decorated met
 def name() -> str
 ```
 
-Defined in: [src/strands/plugins/multiagent\_plugin.py:89](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/plugins/multiagent_plugin.py#L89)
+Defined in: [src/strands/plugins/multiagent\_plugin.py:89](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/plugins/multiagent_plugin.py#L89)
 
 A stable string identifier for the plugin.
 
@@ -96,7 +96,7 @@ A stable string identifier for the plugin.
 def __init__() -> None
 ```
 
-Defined in: [src/strands/plugins/multiagent\_plugin.py:93](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/plugins/multiagent_plugin.py#L93)
+Defined in: [src/strands/plugins/multiagent\_plugin.py:93](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/plugins/multiagent_plugin.py#L93)
 
 Initialize the plugin and discover decorated hook methods.
 
@@ -111,7 +111,7 @@ Uses a guard to prevent double-discovery when used with multiple inheritance (e.
 def hooks() -> list[HookCallback]
 ```
 
-Defined in: [src/strands/plugins/multiagent\_plugin.py:106](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/plugins/multiagent_plugin.py#L106)
+Defined in: [src/strands/plugins/multiagent\_plugin.py:106](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/plugins/multiagent_plugin.py#L106)
 
 List of hooks the plugin provides, auto-discovered from @hook decorated methods.
 
@@ -121,7 +121,7 @@ List of hooks the plugin provides, auto-discovered from @hook decorated methods.
 def init_multi_agent(orchestrator: "MultiAgentBase") -> None | Awaitable[None]
 ```
 
-Defined in: [src/strands/plugins/multiagent\_plugin.py:110](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/plugins/multiagent_plugin.py#L110)
+Defined in: [src/strands/plugins/multiagent\_plugin.py:110](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/plugins/multiagent_plugin.py#L110)
 
 Initialize the plugin with the orchestrator instance.
 

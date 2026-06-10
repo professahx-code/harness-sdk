@@ -1,6 +1,6 @@
 A2A-compatible wrapper for Strands Agent.
 
-This module provides the A2AAgent class, which adapts a Strands Agent to the A2A protocol, allowing it to be used in A2A-compatible systems.
+This module provides the A2AServer class, which adapts a Strands Agent to the A2A protocol, allowing it to be used in A2A-compatible systems.
 
 ## A2AServer
 
@@ -8,15 +8,17 @@ This module provides the A2AAgent class, which adapts a Strands Agent to the A2A
 class A2AServer()
 ```
 
-Defined in: [src/strands/multiagent/a2a/server.py:26](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L26)
+Defined in: [src/strands/multiagent/a2a/server.py:29](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L29)
 
 A2A-compatible wrapper for Strands Agent.
 
 #### \_\_init\_\_
 
 ```python
-def __init__(agent: SAAgent,
+def __init__(agent: SAAgent | None = None,
              *,
+             agent_factory: AgentFactory | None = None,
+             max_contexts: int = StrandsA2AExecutor.DEFAULT_MAX_CONTEXTS,
              host: str = "127.0.0.1",
              port: int = 9000,
              http_url: str | None = None,
@@ -30,13 +32,20 @@ def __init__(agent: SAAgent,
              enable_a2a_compliant_streaming: bool = False)
 ```
 
-Defined in: [src/strands/multiagent/a2a/server.py:29](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L29)
+Defined in: [src/strands/multiagent/a2a/server.py:32](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L32)
 
 Initialize an A2A-compatible server from a Strands agent.
 
+Provide exactly one of `agent` or `agent_factory`:
+
+-   `agent_factory` (recommended): a callable `(context_id) -> Agent` that builds a dedicated agent per A2A context. Contexts run concurrently and the factory is the place to wire per-context concerns such as a context-scoped `session_manager`. The factory is invoked once at construction (with a placeholder context id) solely to derive the agent card metadata (name, description, skills); that agent is not used for request handling. An expensive factory therefore pays its cost once at startup.
+-   `agent` (deprecated): a single agent serving one conversation. Not multi-tenant safe — every A2A context reuses the same instance — so use `agent_factory` for multi-caller deployments.
+
 **Arguments**:
 
--   `agent` - The Strands Agent to wrap with A2A compatibility.
+-   `agent` - A single Strands Agent to wrap. Deprecated; prefer `agent_factory`.
+-   `agent_factory` - Callable `(context_id) -> Agent` building a fresh agent per context.
+-   `max_contexts` - Maximum number of per-context agents to retain concurrently (factory mode); the least-recently-used is evicted beyond this. Must be >= 1.
 -   `host` - The hostname or IP address to bind the A2A server to. Defaults to “127.0.0.1”.
 -   `port` - The port to bind the A2A server to. Defaults to 9000.
 -   `http_url` - The public HTTP URL where this agent will be accessible. If provided, this overrides the generated URL from host/port and enables automatic path-based mounting for load balancer scenarios.
@@ -50,6 +59,10 @@ Initialize an A2A-compatible server from a Strands agent.
 -   `push_sender` - Custom push notification sender implementation. If None, no push notifications are sent.
 -   `enable_a2a_compliant_streaming` - If True, uses A2A-compliant streaming with artifact updates. If False, uses legacy status updates streaming behavior for backwards compatibility. Defaults to False.
 
+**Raises**:
+
+-   `ValueError` - If neither or both of `agent`/`agent_factory` are provided, or if `max_contexts` is less than 1.
+
 #### public\_agent\_card
 
 ```python
@@ -57,7 +70,7 @@ Initialize an A2A-compatible server from a Strands agent.
 def public_agent_card() -> AgentCard
 ```
 
-Defined in: [src/strands/multiagent/a2a/server.py:131](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L131)
+Defined in: [src/strands/multiagent/a2a/server.py:163](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L163)
 
 Get the public AgentCard for this agent.
 
@@ -78,7 +91,7 @@ The AgentCard contains metadata about the agent, including its name, description
 def agent_card_url() -> str
 ```
 
-Defined in: [src/strands/multiagent/a2a/server.py:175](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L175)
+Defined in: [src/strands/multiagent/a2a/server.py:207](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L207)
 
 Get the URL advertised in the AgentCard.
 
@@ -91,7 +104,7 @@ Defaults to http\_url. Can be overridden to advertise a custom URL (e.g., withou
 def agent_card_url(url: str) -> None
 ```
 
-Defined in: [src/strands/multiagent/a2a/server.py:184](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L184)
+Defined in: [src/strands/multiagent/a2a/server.py:216](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L216)
 
 Override the URL advertised in the AgentCard.
 
@@ -106,7 +119,7 @@ Override the URL advertised in the AgentCard.
 def agent_skills() -> list[AgentSkill]
 ```
 
-Defined in: [src/strands/multiagent/a2a/server.py:193](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L193)
+Defined in: [src/strands/multiagent/a2a/server.py:225](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L225)
 
 Get the list of skills this agent provides.
 
@@ -117,7 +130,7 @@ Get the list of skills this agent provides.
 def agent_skills(skills: list[AgentSkill]) -> None
 ```
 
-Defined in: [src/strands/multiagent/a2a/server.py:198](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L198)
+Defined in: [src/strands/multiagent/a2a/server.py:230](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L230)
 
 Set the list of skills this agent provides.
 
@@ -131,7 +144,7 @@ Set the list of skills this agent provides.
 def to_starlette_app(*, app_kwargs: dict[str, Any] | None = None) -> Starlette
 ```
 
-Defined in: [src/strands/multiagent/a2a/server.py:206](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L206)
+Defined in: [src/strands/multiagent/a2a/server.py:238](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L238)
 
 Create a Starlette application for serving this agent via HTTP.
 
@@ -151,7 +164,7 @@ Automatically handles path-based mounting if a mount path was derived from the h
 def to_fastapi_app(*, app_kwargs: dict[str, Any] | None = None) -> FastAPI
 ```
 
-Defined in: [src/strands/multiagent/a2a/server.py:231](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L231)
+Defined in: [src/strands/multiagent/a2a/server.py:263](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L263)
 
 Create a FastAPI application for serving this agent via HTTP.
 
@@ -175,7 +188,7 @@ def serve(app_type: Literal["fastapi", "starlette"] = "starlette",
           **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/multiagent/a2a/server.py:256](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L256)
+Defined in: [src/strands/multiagent/a2a/server.py:288](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/multiagent/a2a/server.py#L288)
 
 Start the A2A server with the specified application type.
 

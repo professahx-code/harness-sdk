@@ -6,7 +6,7 @@ Null implementation of conversation management.
 class NullConversationManager(ConversationManager)
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/null\_conversation\_manager.py:11](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/null_conversation_manager.py#L11)
+Defined in: [src/strands/agent/conversation\_manager/null\_conversation\_manager.py:11](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/null_conversation_manager.py#L11)
 
 A no-op conversation manager that does not modify the conversation history.
 
@@ -22,7 +22,7 @@ Useful for:
 def apply_management(agent: "Agent", **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/null\_conversation\_manager.py:21](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/null_conversation_manager.py#L21)
+Defined in: [src/strands/agent/conversation\_manager/null\_conversation\_manager.py:21](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/null_conversation_manager.py#L21)
 
 Does nothing to the conversation history.
 
@@ -39,7 +39,7 @@ def reduce_context(agent: "Agent",
                    **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/null\_conversation\_manager.py:30](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/conversation_manager/null_conversation_manager.py#L30)
+Defined in: [src/strands/agent/conversation\_manager/null\_conversation\_manager.py:30](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/null_conversation_manager.py#L30)
 
 Does not reduce context.
 

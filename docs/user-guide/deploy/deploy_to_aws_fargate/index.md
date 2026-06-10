@@ -2,7 +2,7 @@ AWS Fargate is a serverless compute engine for containers that works with Amazon
 
 If you’re not familiar with the AWS CDK, check out the [official documentation](https://docs.aws.amazon.com/cdk/v2/guide/home.html).
 
-This guide discusses Fargate integration at a high level - for a complete example project deploying to Fargate, check out the [`deploy_to_fargate` sample project on GitHub](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_fargate).
+This guide discusses Fargate integration at a high level - for a complete example project deploying to Fargate, check out the [`deploy_to_fargate` sample project on GitHub](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_fargate).
 
 ## Creating Your Agent in Python
 
@@ -15,7 +15,7 @@ The FastAPI application follows these steps:
 3.  Process incoming requests through the agent
 4.  Return the response back to the client
 
-Here’s an example of a weather forecasting agent application ([`app.py`](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_fargate/docker/app/app.py)):
+Here’s an example of a weather forecasting agent application ([`app.py`](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_fargate/docker/app/app.py)):
 
 ```python
 app = FastAPI(title="Weather API")
@@ -114,7 +114,7 @@ The implementation above employs a [custom tool](/docs/user-guide/concepts/tools
 
 ## Containerization
 
-To deploy your agent to Fargate, you need to containerize it using Podman or Docker. The Dockerfile defines how your application is packaged and run. Below is an example Docker file that installs all needed dependencies, the application, and configures the FastAPI server to run via unicorn ([Dockerfile](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_fargate/docker/Dockerfile)):
+To deploy your agent to Fargate, you need to containerize it using Podman or Docker. The Dockerfile defines how your application is packaged and run. Below is an example Docker file that installs all needed dependencies, the application, and configures the FastAPI server to run via unicorn ([Dockerfile](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_fargate/docker/Dockerfile)):
 
 ```dockerfile
 FROM public.ecr.aws/docker/library/python:3.12-slim
@@ -147,7 +147,7 @@ CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "
 
 ## Infrastructure
 
-To deploy the containerized agent to Fargate using the TypeScript CDK, you need to define the infrastructure stack ([agent-fargate-stack.ts](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_fargate/lib/agent-fargate-stack.ts)). Much of the configuration follows standard Fargate deployment patterns, but the following code snippet highlights the key components specific to deploying Strands Agents SDK agents:
+To deploy the containerized agent to Fargate using the TypeScript CDK, you need to define the infrastructure stack ([agent-fargate-stack.ts](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_fargate/lib/agent-fargate-stack.ts)). Much of the configuration follows standard Fargate deployment patterns, but the following code snippet highlights the key components specific to deploying Strands Agents SDK agents:
 
 ```typescript
 // ... vpc, cluster, logGroup, executionRole, and taskRole omitted for brevity ...
@@ -223,7 +223,7 @@ const service = new ecs.FargateService(this, "AgentService", {
 // ... load balancer omitted for brevity ...
 ```
 
-The full example ([agent-fargate-stack.ts](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_fargate/lib/agent-fargate-stack.ts)):
+The full example ([agent-fargate-stack.ts](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_fargate/lib/agent-fargate-stack.ts)):
 
 1.  Creates a VPC with public and private subnets
 2.  Sets up an ECS cluster
@@ -288,7 +288,7 @@ Possible follow-up tasks would be to:
 
 ## Complete Example
 
-For the complete example code, including all files and configurations, see the [`deploy_to_fargate` sample project on GitHub](https://github.com/strands-agents/docs/tree/main/docs/examples/cdk/deploy_to_fargate).
+For the complete example code, including all files and configurations, see the [`deploy_to_fargate` sample project on GitHub](https://github.com/strands-agents/harness-sdk/tree/main/site/docs/examples/cdk/deploy_to_fargate).
 
 ## Related Resources
 

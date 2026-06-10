@@ -1,4 +1,4 @@
-Defined in: [src/sandbox/base.ts:35](https://github.com/strands-agents/sdk-typescript/blob/00e04880c30c5ce1f76e40c164d32ce52f7b6dca/strands-ts/src/sandbox/base.ts#L35)
+Defined in: [src/sandbox/base.ts:41](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/base.ts#L41)
 
 Abstract execution environment.
 
@@ -32,7 +32,7 @@ abstract executeStreaming(command, options?): AsyncIterable<
 | ExecutionResult>;
 ```
 
-Defined in: [src/sandbox/base.ts:47](https://github.com/strands-agents/sdk-typescript/blob/00e04880c30c5ce1f76e40c164d32ce52f7b6dca/strands-ts/src/sandbox/base.ts#L47)
+Defined in: [src/sandbox/base.ts:53](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/base.ts#L53)
 
 Execute a shell command, streaming output.
 
@@ -43,7 +43,7 @@ Yields [StreamChunk](/docs/api/typescript/StreamChunk/index.md) objects for stdo
 | Parameter | Type | Description |
 | --- | --- | --- |
 | `command` | `string` | The shell command to execute. |
-| `options?` | [`ExecuteOptions`](/docs/api/typescript/ExecuteOptions/index.md) | Execution options (timeout, cwd). |
+| `options?` | [`ExecuteOptions`](/docs/api/typescript/ExecuteOptions/index.md) | Execution options. |
 
 #### Returns
 
@@ -64,7 +64,7 @@ abstract executeCodeStreaming(
 | ExecutionResult>;
 ```
 
-Defined in: [src/sandbox/base.ts:57](https://github.com/strands-agents/sdk-typescript/blob/00e04880c30c5ce1f76e40c164d32ce52f7b6dca/strands-ts/src/sandbox/base.ts#L57)
+Defined in: [src/sandbox/base.ts:63](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/base.ts#L63)
 
 Execute source code via a language interpreter, streaming output.
 
@@ -74,7 +74,7 @@ Execute source code via a language interpreter, streaming output.
 | --- | --- | --- |
 | `code` | `string` | The source code to execute. |
 | `language` | `string` | The interpreter to use (e.g., `"python3"`, `"node"`). |
-| `options?` | [`ExecuteOptions`](/docs/api/typescript/ExecuteOptions/index.md) | Execution options (timeout, cwd). |
+| `options?` | [`ExecuteOptions`](/docs/api/typescript/ExecuteOptions/index.md) | Execution options. |
 
 #### Returns
 
@@ -90,7 +90,7 @@ Async iterable yielding StreamChunks followed by a final ExecutionResult.
 abstract readFile(path): Promise<Uint8Array<ArrayBufferLike>>;
 ```
 
-Defined in: [src/sandbox/base.ts:73](https://github.com/strands-agents/sdk-typescript/blob/00e04880c30c5ce1f76e40c164d32ce52f7b6dca/strands-ts/src/sandbox/base.ts#L73)
+Defined in: [src/sandbox/base.ts:79](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/base.ts#L79)
 
 Read a file from the sandbox filesystem as raw bytes.
 
@@ -120,7 +120,7 @@ Error if the file does not exist.
 abstract writeFile(path, content): Promise<void>;
 ```
 
-Defined in: [src/sandbox/base.ts:84](https://github.com/strands-agents/sdk-typescript/blob/00e04880c30c5ce1f76e40c164d32ce52f7b6dca/strands-ts/src/sandbox/base.ts#L84)
+Defined in: [src/sandbox/base.ts:90](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/base.ts#L90)
 
 Write raw bytes to a file in the sandbox filesystem.
 
@@ -145,7 +145,7 @@ Implementations should create parent directories if they do not exist. Use [writ
 abstract removeFile(path): Promise<void>;
 ```
 
-Defined in: [src/sandbox/base.ts:92](https://github.com/strands-agents/sdk-typescript/blob/00e04880c30c5ce1f76e40c164d32ce52f7b6dca/strands-ts/src/sandbox/base.ts#L92)
+Defined in: [src/sandbox/base.ts:98](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/base.ts#L98)
 
 Remove a file from the sandbox filesystem.
 
@@ -171,7 +171,7 @@ Error if the file does not exist.
 abstract listFiles(path): Promise<FileInfo[]>;
 ```
 
-Defined in: [src/sandbox/base.ts:105](https://github.com/strands-agents/sdk-typescript/blob/00e04880c30c5ce1f76e40c164d32ce52f7b6dca/strands-ts/src/sandbox/base.ts#L105)
+Defined in: [src/sandbox/base.ts:111](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/base.ts#L111)
 
 List files in a sandbox directory.
 
@@ -201,7 +201,7 @@ Error if the directory does not exist.
 execute(command, options?): Promise<ExecutionResult>;
 ```
 
-Defined in: [src/sandbox/base.ts:119](https://github.com/strands-agents/sdk-typescript/blob/00e04880c30c5ce1f76e40c164d32ce52f7b6dca/strands-ts/src/sandbox/base.ts#L119)
+Defined in: [src/sandbox/base.ts:125](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/base.ts#L125)
 
 Execute a shell command and return the result.
 
@@ -212,7 +212,7 @@ Consumes [executeStreaming](#executestreaming) and returns the final [ExecutionR
 | Parameter | Type | Description |
 | --- | --- | --- |
 | `command` | `string` | The shell command to execute. |
-| `options?` | [`ExecuteOptions`](/docs/api/typescript/ExecuteOptions/index.md) | Execution options (timeout, cwd). |
+| `options?` | [`ExecuteOptions`](/docs/api/typescript/ExecuteOptions/index.md) | Execution options. |
 
 #### Returns
 
@@ -231,7 +231,7 @@ executeCode(
 options?): Promise<ExecutionResult>;
 ```
 
-Defined in: [src/sandbox/base.ts:139](https://github.com/strands-agents/sdk-typescript/blob/00e04880c30c5ce1f76e40c164d32ce52f7b6dca/strands-ts/src/sandbox/base.ts#L139)
+Defined in: [src/sandbox/base.ts:145](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/base.ts#L145)
 
 Execute source code and return the result.
 
@@ -243,7 +243,7 @@ Consumes [executeCodeStreaming](#executecodestreaming) and returns the final [Ex
 | --- | --- | --- |
 | `code` | `string` | The source code to execute. |
 | `language` | `string` | The interpreter to use. |
-| `options?` | [`ExecuteOptions`](/docs/api/typescript/ExecuteOptions/index.md) | Execution options (timeout, cwd). |
+| `options?` | [`ExecuteOptions`](/docs/api/typescript/ExecuteOptions/index.md) | Execution options. |
 
 #### Returns
 
@@ -259,7 +259,7 @@ The execution result with exit code and output.
 readText(path): Promise<string>;
 ```
 
-Defined in: [src/sandbox/base.ts:157](https://github.com/strands-agents/sdk-typescript/blob/00e04880c30c5ce1f76e40c164d32ce52f7b6dca/strands-ts/src/sandbox/base.ts#L157)
+Defined in: [src/sandbox/base.ts:163](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/base.ts#L163)
 
 Read a text file from the sandbox filesystem.
 
@@ -285,7 +285,7 @@ The file contents decoded as a UTF-8 string.
 writeText(path, content): Promise<void>;
 ```
 
-Defined in: [src/sandbox/base.ts:170](https://github.com/strands-agents/sdk-typescript/blob/00e04880c30c5ce1f76e40c164d32ce52f7b6dca/strands-ts/src/sandbox/base.ts#L170)
+Defined in: [src/sandbox/base.ts:176](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/base.ts#L176)
 
 Write a text file to the sandbox filesystem.
 

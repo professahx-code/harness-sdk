@@ -9,7 +9,7 @@ This module defines the events that are emitted as Agents and BidiAgents run thr
 class BidiHookEvent(BaseHookEvent)
 ```
 
-Defined in: [src/strands/experimental/hooks/events.py:44](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/hooks/events.py#L44)
+Defined in: [src/strands/experimental/hooks/events.py:44](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/hooks/events.py#L44)
 
 Base class for BidiAgent hook events.
 
@@ -24,7 +24,7 @@ Base class for BidiAgent hook events.
 class BidiAgentInitializedEvent(BidiHookEvent)
 ```
 
-Defined in: [src/strands/experimental/hooks/events.py:55](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/hooks/events.py#L55)
+Defined in: [src/strands/experimental/hooks/events.py:55](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/hooks/events.py#L55)
 
 Event triggered when a BidiAgent has finished initialization.
 
@@ -37,7 +37,7 @@ This event is fired after the BidiAgent has been fully constructed and all built
 class BidiBeforeInvocationEvent(BidiHookEvent)
 ```
 
-Defined in: [src/strands/experimental/hooks/events.py:67](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/hooks/events.py#L67)
+Defined in: [src/strands/experimental/hooks/events.py:67](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/hooks/events.py#L67)
 
 Event triggered when BidiAgent starts a streaming session.
 
@@ -52,7 +52,7 @@ This event is triggered at the beginning of agent.start().
 class BidiAfterInvocationEvent(BidiHookEvent)
 ```
 
-Defined in: [src/strands/experimental/hooks/events.py:81](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/hooks/events.py#L81)
+Defined in: [src/strands/experimental/hooks/events.py:81](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/hooks/events.py#L81)
 
 Event triggered when BidiAgent ends a streaming session.
 
@@ -69,7 +69,7 @@ This event is triggered at the end of agent.stop().
 def should_reverse_callbacks() -> bool
 ```
 
-Defined in: [src/strands/experimental/hooks/events.py:95](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/hooks/events.py#L95)
+Defined in: [src/strands/experimental/hooks/events.py:95](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/hooks/events.py#L95)
 
 True to invoke callbacks in reverse order.
 
@@ -80,7 +80,7 @@ True to invoke callbacks in reverse order.
 class BidiMessageAddedEvent(BidiHookEvent)
 ```
 
-Defined in: [src/strands/experimental/hooks/events.py:101](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/hooks/events.py#L101)
+Defined in: [src/strands/experimental/hooks/events.py:101](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/hooks/events.py#L101)
 
 Event triggered when BidiAgent adds a message to the conversation.
 
@@ -99,7 +99,7 @@ Note: This event is only triggered for messages added by the framework itself, n
 class BidiBeforeToolCallEvent(BidiHookEvent)
 ```
 
-Defined in: [src/strands/experimental/hooks/events.py:120](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/hooks/events.py#L120)
+Defined in: [src/strands/experimental/hooks/events.py:120](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/hooks/events.py#L120)
 
 Event triggered before BidiAgent executes a tool.
 
@@ -119,7 +119,7 @@ This event is fired just before the BidiAgent executes a tool during a streaming
 class BidiAfterToolCallEvent(BidiHookEvent)
 ```
 
-Defined in: [src/strands/experimental/hooks/events.py:148](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/hooks/events.py#L148)
+Defined in: [src/strands/experimental/hooks/events.py:148](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/hooks/events.py#L148)
 
 Event triggered after BidiAgent executes a tool.
 
@@ -143,7 +143,7 @@ Note: This event uses reverse callback ordering, meaning callbacks registered la
 def should_reverse_callbacks() -> bool
 ```
 
-Defined in: [src/strands/experimental/hooks/events.py:180](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/hooks/events.py#L180)
+Defined in: [src/strands/experimental/hooks/events.py:180](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/hooks/events.py#L180)
 
 True to invoke callbacks in reverse order.
 
@@ -154,7 +154,7 @@ True to invoke callbacks in reverse order.
 class BidiInterruptionEvent(BidiHookEvent)
 ```
 
-Defined in: [src/strands/experimental/hooks/events.py:186](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/hooks/events.py#L186)
+Defined in: [src/strands/experimental/hooks/events.py:186](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/hooks/events.py#L186)
 
 Event triggered when model generation is interrupted.
 
@@ -174,7 +174,7 @@ Hook providers can use this event to log interruptions, implement custom interru
 class BidiBeforeConnectionRestartEvent(BidiHookEvent)
 ```
 
-Defined in: [src/strands/experimental/hooks/events.py:206](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/hooks/events.py#L206)
+Defined in: [src/strands/experimental/hooks/events.py:206](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/hooks/events.py#L206)
 
 Event emitted before agent attempts to restart model connection after timeout.
 
@@ -189,7 +189,7 @@ Event emitted before agent attempts to restart model connection after timeout.
 class BidiAfterConnectionRestartEvent(BidiHookEvent)
 ```
 
-Defined in: [src/strands/experimental/hooks/events.py:217](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/experimental/hooks/events.py#L217)
+Defined in: [src/strands/experimental/hooks/events.py:217](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/hooks/events.py#L217)
 
 Event emitted after agent attempts to restart model connection after timeout.
 

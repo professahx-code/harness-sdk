@@ -8,7 +8,7 @@ Google Gemini model provider.
 class GeminiModel(Model)
 ```
 
-Defined in: [src/strands/models/gemini.py:32](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/models/gemini.py#L32)
+Defined in: [src/strands/models/gemini.py:32](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/gemini.py#L32)
 
 Google Gemini model provider implementation.
 
@@ -20,7 +20,7 @@ Google Gemini model provider implementation.
 class GeminiConfig(BaseModelConfig)
 ```
 
-Defined in: [src/strands/models/gemini.py:38](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/models/gemini.py#L38)
+Defined in: [src/strands/models/gemini.py:38](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/gemini.py#L38)
 
 Configuration options for Gemini models.
 
@@ -40,7 +40,7 @@ def __init__(*,
              **model_config: Unpack[GeminiConfig]) -> None
 ```
 
-Defined in: [src/strands/models/gemini.py:63](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/models/gemini.py#L63)
+Defined in: [src/strands/models/gemini.py:63](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/gemini.py#L63)
 
 Initialize provider instance.
 
@@ -65,7 +65,7 @@ Initialize provider instance.
 def update_config(**model_config: Unpack[GeminiConfig]) -> None
 ```
 
-Defined in: [src/strands/models/gemini.py:105](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/models/gemini.py#L105)
+Defined in: [src/strands/models/gemini.py:105](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/gemini.py#L105)
 
 Update the Gemini model configuration with the provided arguments.
 
@@ -80,7 +80,7 @@ Update the Gemini model configuration with the provided arguments.
 def get_config() -> GeminiConfig
 ```
 
-Defined in: [src/strands/models/gemini.py:118](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/models/gemini.py#L118)
+Defined in: [src/strands/models/gemini.py:118](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/gemini.py#L118)
 
 Get the Gemini model configuration.
 
@@ -99,7 +99,7 @@ async def count_tokens(
         system_prompt_content: list[SystemContentBlock] | None = None) -> int
 ```
 
-Defined in: [src/strands/models/gemini.py:453](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/models/gemini.py#L453)
+Defined in: [src/strands/models/gemini.py:453](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/gemini.py#L453)
 
 Count tokens using Gemini’s native count\_tokens API.
 
@@ -126,7 +126,7 @@ async def stream(messages: Messages,
                  **kwargs: Any) -> AsyncGenerator[StreamEvent, None]
 ```
 
-Defined in: [src/strands/models/gemini.py:514](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/models/gemini.py#L514)
+Defined in: [src/strands/models/gemini.py:514](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/gemini.py#L514)
 
 Stream conversation with the Gemini model.
 
@@ -158,7 +158,7 @@ async def structured_output(
         **kwargs: Any) -> AsyncGenerator[dict[str, T | Any], None]
 ```
 
-Defined in: [src/strands/models/gemini.py:612](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/models/gemini.py#L612)
+Defined in: [src/strands/models/gemini.py:612](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/gemini.py#L612)
 
 Get structured output from the model using Gemini’s native structured output.
 

@@ -1,4 +1,4 @@
-Meta-tooling refers to the ability of an AI system to create new tools at runtime, rather than being limited to a predefined set of capabilities. The following [example](https://github.com/strands-agents/docs/blob/main/docs/examples/python/meta_tooling.py) demonstrates Strands Agents’ meta-tooling capabilities - allowing agents to create, load, and use custom tools at runtime.
+Meta-tooling refers to the ability of an AI system to create new tools at runtime, rather than being limited to a predefined set of capabilities. The following [example](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/python/meta_tooling.py) demonstrates Strands Agents’ meta-tooling capabilities - allowing agents to create, load, and use custom tools at runtime.
 
 ## Overview
 
@@ -40,7 +40,7 @@ agent = Agent(
 
 #### 2\. Agent System Prompt outlines a strict guideline for naming, structure, and creation of the new tools.
 
-The system prompt guides the agent in proper tool creation. The [TOOL\_BUILDER\_SYSTEM\_PROMPT](https://github.com/strands-agents/docs/blob/main/docs/examples/python/meta_tooling.py#L17) outlines important elements to enable the agent achieve meta-tooling capabilities:
+The system prompt guides the agent in proper tool creation. The [TOOL\_BUILDER\_SYSTEM\_PROMPT](https://github.com/strands-agents/harness-sdk/blob/main/site/docs/examples/python/meta_tooling.py#L17) outlines important elements to enable the agent achieve meta-tooling capabilities:
 
 -   **Tool Naming Convention**: Provides the naming convention to use when building new custom tools.
     

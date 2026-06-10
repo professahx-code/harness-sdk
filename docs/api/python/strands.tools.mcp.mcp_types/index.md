@@ -6,7 +6,7 @@ Type definitions for MCP integration.
 class MCPToolResult(ToolResult)
 ```
 
-Defined in: [src/strands/tools/mcp/mcp\_types.py:50](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/tools/mcp/mcp_types.py#L50)
+Defined in: [src/strands/tools/mcp/mcp\_types.py:50](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_types.py#L50)
 
 Result of an MCP tool execution.
 

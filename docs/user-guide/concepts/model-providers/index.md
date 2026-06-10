@@ -82,9 +82,7 @@ from strands.models.bedrock import BedrockModel
 from strands.models.openai import OpenAIModel
 
 # Use Bedrock
-bedrock_model = BedrockModel(
-    model_id="anthropic.claude-sonnet-4-20250514-v1:0"
-)
+bedrock_model = BedrockModel()
 agent = Agent(model=bedrock_model)
 response = agent("What can you help me with?")
 
@@ -105,9 +103,7 @@ import { BedrockModel } from '@strands-agents/sdk/models/bedrock'
 import { OpenAIModel } from '@strands-agents/sdk/models/openai'
 
 // Use Bedrock
-const bedrockModel = new BedrockModel({
-  modelId: 'anthropic.claude-sonnet-4-20250514-v1:0',
-})
+const bedrockModel = new BedrockModel()
 let agent = new Agent({ model: bedrockModel })
 let response = await agent.invoke('What can you help me with?')
 

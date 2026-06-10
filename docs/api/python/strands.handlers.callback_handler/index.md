@@ -6,7 +6,7 @@ This module provides handlers for formatting and displaying events from the agen
 class PrintingCallbackHandler()
 ```
 
-Defined in: [src/strands/handlers/callback\_handler.py:7](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/handlers/callback_handler.py#L7)
+Defined in: [src/strands/handlers/callback\_handler.py:7](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/handlers/callback_handler.py#L7)
 
 Handler for streaming text output and tool invocations to stdout.
 
@@ -16,7 +16,7 @@ Handler for streaming text output and tool invocations to stdout.
 def __init__(verbose_tool_use: bool = True) -> None
 ```
 
-Defined in: [src/strands/handlers/callback\_handler.py:10](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/handlers/callback_handler.py#L10)
+Defined in: [src/strands/handlers/callback\_handler.py:10](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/handlers/callback_handler.py#L10)
 
 Initialize handler.
 
@@ -30,7 +30,7 @@ Initialize handler.
 def __call__(**kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/handlers/callback\_handler.py:19](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/handlers/callback_handler.py#L19)
+Defined in: [src/strands/handlers/callback\_handler.py:19](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/handlers/callback_handler.py#L19)
 
 Stream text output and tool invocations to stdout.
 
@@ -48,7 +48,7 @@ Stream text output and tool invocations to stdout.
 class CompositeCallbackHandler()
 ```
 
-Defined in: [src/strands/handlers/callback\_handler.py:50](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/handlers/callback_handler.py#L50)
+Defined in: [src/strands/handlers/callback\_handler.py:50](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/handlers/callback_handler.py#L50)
 
 Class-based callback handler that combines multiple callback handlers.
 
@@ -60,7 +60,7 @@ This handler allows multiple callback handlers to be invoked for the same events
 def __init__(*handlers: Callable) -> None
 ```
 
-Defined in: [src/strands/handlers/callback\_handler.py:57](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/handlers/callback_handler.py#L57)
+Defined in: [src/strands/handlers/callback\_handler.py:57](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/handlers/callback_handler.py#L57)
 
 Initialize handler.
 
@@ -70,7 +70,7 @@ Initialize handler.
 def __call__(**kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/handlers/callback\_handler.py:61](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/handlers/callback_handler.py#L61)
+Defined in: [src/strands/handlers/callback\_handler.py:61](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/handlers/callback_handler.py#L61)
 
 Invoke all handlers in the chain.
 
@@ -80,7 +80,7 @@ Invoke all handlers in the chain.
 def null_callback_handler(**_kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/handlers/callback\_handler.py:67](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/handlers/callback_handler.py#L67)
+Defined in: [src/strands/handlers/callback\_handler.py:67](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/handlers/callback_handler.py#L67)
 
 Callback handler that discards all output.
 

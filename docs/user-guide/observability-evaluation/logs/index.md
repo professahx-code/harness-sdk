@@ -148,7 +148,7 @@ DEBUG | strands.event_loop.error_handler | message_index=<5> | found message wit
 Logs related to interactions with foundation models:
 
 ```plaintext
-DEBUG | strands.models.bedrock | config=<{'model_id': 'us.anthropic.claude-4-sonnet-20250219-v1:0'}> | initializing
+DEBUG | strands.models.bedrock | config=<{'model_id': 'global.anthropic.claude-sonnet-4-6'}> | initializing
 WARNING | strands.models.bedrock | bedrock threw context window overflow error
 DEBUG | strands.models.bedrock | Found blocked output guardrail. Redacting output.
 ```
@@ -173,7 +173,7 @@ WARN choice=<null> | invalid choice format in openai chunk
 WARN tool_call=<{"type":"function","id":"xyz"}> | received tool call with invalid index
 
 # Bedrock-specific logs
-DEBUG model_id=<us.anthropic.claude-sonnet-4-20250514-v1:0>, include_tool_result_status=<true> | auto-detected includeToolResultStatus
+DEBUG model_id=<global.anthropic.claude-sonnet-4-6>, include_tool_result_status=<true> | auto-detected includeToolResultStatus
 WARN block_key=<unknown_key> | skipping unsupported block key
 WARN event_type=<unknown_type> | unsupported bedrock event type
 ```
@@ -278,7 +278,6 @@ configureLogging(customLogger)
 
 - [PII Redaction](/docs/user-guide/safety-security/pii-redaction/index.md) (2 shared tags)
 - [Evaluating Remote Traces](/docs/user-guide/evals-sdk/how-to/trace_providers/index.md) (1 shared tag)
-- [Evaluation](/docs/user-guide/observability-evaluation/evaluation/index.md) (1 shared tag)
 - [Metrics](/docs/user-guide/observability-evaluation/metrics/index.md) (1 shared tag)
 - [Observability](/docs/user-guide/observability-evaluation/observability/index.md) (1 shared tag)
 - [Task Decorator](/docs/user-guide/evals-sdk/how-to/eval_task/index.md) (1 shared tag)
@@ -286,3 +285,4 @@ configureLogging(customLogger)
 - [Operating Agents in Production](/docs/user-guide/deploy/operating-agents-in-production/index.md) (1 shared tag)
 - [Root Cause Analysis](/docs/user-guide/evals-sdk/detectors/root_cause_analysis/index.md) (1 shared tag)
 - [Session Diagnosis](/docs/user-guide/evals-sdk/detectors/diagnosis/index.md) (1 shared tag)
+- [AgentCore Evaluation Dashboard Configuration](/docs/user-guide/evals-sdk/how-to/agentcore_evaluation_dashboard/index.md) (1 shared tag)

@@ -8,7 +8,7 @@ This module provides configuration types and defaults for the experimental MCP T
 class TasksConfig(TypedDict)
 ```
 
-Defined in: [src/strands/tools/mcp/mcp\_tasks.py:11](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/tools/mcp/mcp_tasks.py#L11)
+Defined in: [src/strands/tools/mcp/mcp\_tasks.py:11](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_tasks.py#L11)
 
 Configuration for MCP Tasks (task-augmented tool execution).
 

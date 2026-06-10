@@ -9,7 +9,7 @@ Defines the minimal interface that all agent types must implement.
 class AgentBase(Protocol)
 ```
 
-Defined in: [src/strands/agent/base.py:14](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/base.py#L14)
+Defined in: [src/strands/agent/base.py:14](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/base.py#L14)
 
 Protocol defining the interface for all agent types in Strands.
 
@@ -22,7 +22,7 @@ async def invoke_async(prompt: AgentInput = None,
                        **kwargs: Any) -> AgentResult
 ```
 
-Defined in: [src/strands/agent/base.py:21](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/base.py#L21)
+Defined in: [src/strands/agent/base.py:21](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/base.py#L21)
 
 Asynchronously invoke the agent with the given prompt.
 
@@ -41,7 +41,7 @@ AgentResult containing the agent’s response.
 def __call__(prompt: AgentInput = None, **kwargs: Any) -> AgentResult
 ```
 
-Defined in: [src/strands/agent/base.py:37](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/base.py#L37)
+Defined in: [src/strands/agent/base.py:37](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/base.py#L37)
 
 Synchronously invoke the agent with the given prompt.
 
@@ -61,7 +61,7 @@ def stream_async(prompt: AgentInput = None,
                  **kwargs: Any) -> AsyncIterator[Any]
 ```
 
-Defined in: [src/strands/agent/base.py:53](https://github.com/strands-agents/sdk-python/blob/main/strands-py/src/strands/agent/base.py#L53)
+Defined in: [src/strands/agent/base.py:53](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/base.py#L53)
 
 Stream agent execution asynchronously.
 
