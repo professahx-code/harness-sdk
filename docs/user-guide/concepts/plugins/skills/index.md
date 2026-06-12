@@ -394,6 +394,7 @@ Use skills when you want a single agent that can handle a wide range of tasks by
 
 ## Related pages
 
+- [Context Management](/docs/user-guide/concepts/context-management/index.md) (1 shared tag)
 - [Instruction Following Evaluator](/docs/user-guide/evals-sdk/evaluators/instruction_following_evaluator/index.md) (1 shared tag)
 - [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) (1 shared tag)
 - [Conversation Management](/docs/user-guide/concepts/agents/conversation-management/index.md) (1 shared tag)

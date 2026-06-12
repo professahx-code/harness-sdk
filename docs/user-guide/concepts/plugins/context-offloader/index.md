@@ -40,6 +40,10 @@ For non-text content, the plugin replaces the result with a descriptive placehol
 
 ## Getting Started
 
+Quick setup
+
+You can enable a pre-configured `ContextOffloader` alongside summarization-based context management with a single parameter. See [Context Management](/docs/user-guide/concepts/context-management/index.md).
+
 Pass a `ContextOffloader` instance to your agent’s `plugins` list with your choice of storage backend:
 
 (( tab "Python" ))
@@ -407,6 +411,7 @@ const agent = new Agent({
 
 ## Related pages
 
+- [Context Management](/docs/user-guide/concepts/context-management/index.md) (2 shared tags)
 - [Conversation Management](/docs/user-guide/concepts/agents/conversation-management/index.md) (2 shared tags)
 - [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (2 shared tags)
 - [Coherence Evaluator](/docs/user-guide/evals-sdk/evaluators/coherence_evaluator/index.md) (1 shared tag)
@@ -416,4 +421,3 @@ const agent = new Agent({
 - [Interactions Evaluator](/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md) (1 shared tag)
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
 - [Skills](/docs/user-guide/concepts/plugins/skills/index.md) (1 shared tag)
-- [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)

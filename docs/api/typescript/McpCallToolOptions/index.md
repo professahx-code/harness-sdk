@@ -1,4 +1,4 @@
-Defined in: [src/mcp.ts:64](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/mcp.ts#L64)
+Defined in: [src/mcp.ts:64](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/mcp.ts#L64)
 
 Options for MCP tool invocation.
 
@@ -10,6 +10,6 @@ Options for MCP tool invocation.
 optional signal?: AbortSignal;
 ```
 
-Defined in: [src/mcp.ts:66](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/mcp.ts#L66)
+Defined in: [src/mcp.ts:66](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/mcp.ts#L66)
 
 AbortSignal to cancel the in-flight request.

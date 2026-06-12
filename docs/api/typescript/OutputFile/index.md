@@ -1,4 +1,4 @@
-Defined in: [src/sandbox/types.ts:46](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/types.ts#L46)
+Defined in: [src/sandbox/types.ts:46](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/types.ts#L46)
 
 A file produced as output by code execution.
 
@@ -12,7 +12,7 @@ Used to carry binary artifacts (images, charts, PDFs, compiled files) from sandb
 readonly name: string;
 ```
 
-Defined in: [src/sandbox/types.ts:47](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/types.ts#L47)
+Defined in: [src/sandbox/types.ts:47](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/types.ts#L47)
 
 ---
 
@@ -22,7 +22,7 @@ Defined in: [src/sandbox/types.ts:47](https://github.com/strands-agents/harness-
 readonly content: Uint8Array;
 ```
 
-Defined in: [src/sandbox/types.ts:48](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/types.ts#L48)
+Defined in: [src/sandbox/types.ts:48](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/types.ts#L48)
 
 ---
 
@@ -32,4 +32,4 @@ Defined in: [src/sandbox/types.ts:48](https://github.com/strands-agents/harness-
 readonly mimeType: string;
 ```
 
-Defined in: [src/sandbox/types.ts:49](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/types.ts#L49)
+Defined in: [src/sandbox/types.ts:49](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/types.ts#L49)

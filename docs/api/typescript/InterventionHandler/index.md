@@ -1,4 +1,4 @@
-Defined in: [src/interventions/handler.ts:42](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/interventions/handler.ts#L42)
+Defined in: [src/interventions/handler.ts:42](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/interventions/handler.ts#L42)
 
 Base class for intervention handlers.
 
@@ -39,7 +39,7 @@ new InterventionHandler(): InterventionHandler;
 abstract readonly name: string;
 ```
 
-Defined in: [src/interventions/handler.ts:43](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/interventions/handler.ts#L43)
+Defined in: [src/interventions/handler.ts:43](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/interventions/handler.ts#L43)
 
 ---
 
@@ -49,7 +49,7 @@ Defined in: [src/interventions/handler.ts:43](https://github.com/strands-agents/
 readonly onError: OnError = 'throw';
 ```
 
-Defined in: [src/interventions/handler.ts:46](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/interventions/handler.ts#L46)
+Defined in: [src/interventions/handler.ts:46](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/interventions/handler.ts#L46)
 
 What to do when this handler throws. Defaults to ‘throw’.
 
@@ -61,7 +61,7 @@ What to do when this handler throws. Defaults to ‘throw’.
 beforeInvocation(_event): Awaitable<Proceed | Deny | Guide | Transform>;
 ```
 
-Defined in: [src/interventions/handler.ts:48](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/interventions/handler.ts#L48)
+Defined in: [src/interventions/handler.ts:48](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/interventions/handler.ts#L48)
 
 #### Parameters
 
@@ -81,7 +81,7 @@ Defined in: [src/interventions/handler.ts:48](https://github.com/strands-agents/
 beforeToolCall(_event): Awaitable<Proceed | Deny | Guide | Transform | Confirm>;
 ```
 
-Defined in: [src/interventions/handler.ts:52](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/interventions/handler.ts#L52)
+Defined in: [src/interventions/handler.ts:52](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/interventions/handler.ts#L52)
 
 #### Parameters
 
@@ -101,7 +101,7 @@ Defined in: [src/interventions/handler.ts:52](https://github.com/strands-agents/
 afterToolCall(_event): Awaitable<Proceed | Transform>;
 ```
 
-Defined in: [src/interventions/handler.ts:56](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/interventions/handler.ts#L56)
+Defined in: [src/interventions/handler.ts:56](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/interventions/handler.ts#L56)
 
 #### Parameters
 
@@ -121,7 +121,7 @@ Defined in: [src/interventions/handler.ts:56](https://github.com/strands-agents/
 beforeModelCall(_event): Awaitable<Proceed | Deny | Guide | Transform>;
 ```
 
-Defined in: [src/interventions/handler.ts:60](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/interventions/handler.ts#L60)
+Defined in: [src/interventions/handler.ts:60](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/interventions/handler.ts#L60)
 
 #### Parameters
 
@@ -141,7 +141,7 @@ Defined in: [src/interventions/handler.ts:60](https://github.com/strands-agents/
 afterModelCall(_event): Awaitable<Proceed | Guide | Transform>;
 ```
 
-Defined in: [src/interventions/handler.ts:64](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/interventions/handler.ts#L64)
+Defined in: [src/interventions/handler.ts:64](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/interventions/handler.ts#L64)
 
 #### Parameters
 

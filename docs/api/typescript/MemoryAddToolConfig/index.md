@@ -1,4 +1,4 @@
-Defined in: [src/memory/types.ts:175](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/types.ts#L175)
+Defined in: [src/memory/types.ts:192](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/memory/types.ts#L192)
 
 Configuration for the `add_memory` tool. Extends [MemoryToolConfig](/docs/api/typescript/MemoryToolConfig/index.md) with an explicit allowlist of stores the tool may write to.
 
@@ -14,7 +14,7 @@ Configuration for the `add_memory` tool. Extends [MemoryToolConfig](/docs/api/ty
 optional name?: string;
 ```
 
-Defined in: [src/memory/types.ts:166](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/types.ts#L166)
+Defined in: [src/memory/types.ts:183](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/memory/types.ts#L183)
 
 Custom tool name.
 
@@ -30,7 +30,7 @@ Custom tool name.
 optional description?: string;
 ```
 
-Defined in: [src/memory/types.ts:168](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/types.ts#L168)
+Defined in: [src/memory/types.ts:185](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/memory/types.ts#L185)
 
 Custom tool description.
 
@@ -46,7 +46,7 @@ Custom tool description.
 optional stores?: (string | MemoryStore)[];
 ```
 
-Defined in: [src/memory/types.ts:181](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/types.ts#L181)
+Defined in: [src/memory/types.ts:198](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/memory/types.ts#L198)
 
 The writable stores the `add_memory` tool may write to, given as store names or the [MemoryStore](/docs/api/typescript/MemoryStore/index.md) instances themselves. Each must be a configured, `writable` store. Omit (or set `addToolConfig: true`) to allow all writable stores.
 
@@ -58,7 +58,7 @@ The writable stores the `add_memory` tool may write to, given as store names or 
 optional waitForWrites?: boolean;
 ```
 
-Defined in: [src/memory/types.ts:189](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/types.ts#L189)
+Defined in: [src/memory/types.ts:206](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/memory/types.ts#L206)
 
 Whether the tool waits for store writes before returning to the model. Defaults to `true`.
 

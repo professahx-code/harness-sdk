@@ -1,4 +1,4 @@
-Defined in: [src/errors.ts:85](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/errors.ts#L85)
+Defined in: [src/errors.ts:85](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/errors.ts#L85)
 
 Error thrown when attempting to serialize a value that is not JSON-serializable.
 
@@ -16,7 +16,7 @@ This error indicates that a value contains non-serializable types such as functi
 new JsonValidationError(message): JsonValidationError;
 ```
 
-Defined in: [src/errors.ts:91](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/errors.ts#L91)
+Defined in: [src/errors.ts:91](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/errors.ts#L91)
 
 Creates a new JsonValidationError.
 

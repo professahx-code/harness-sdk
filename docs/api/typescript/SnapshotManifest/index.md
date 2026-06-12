@@ -1,4 +1,4 @@
-Defined in: [src/session/types.ts:10](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/session/types.ts#L10)
+Defined in: [src/session/types.ts:10](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/session/types.ts#L10)
 
 Manifest tracks snapshot metadata. Stored alongside snapshots to support versioning and future multi-agent patterns.
 
@@ -10,7 +10,7 @@ Manifest tracks snapshot metadata. Stored alongside snapshots to support version
 schemaVersion: string;
 ```
 
-Defined in: [src/session/types.ts:12](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/session/types.ts#L12)
+Defined in: [src/session/types.ts:12](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/session/types.ts#L12)
 
 Schema version for forward/backward compatibility
 
@@ -22,6 +22,6 @@ Schema version for forward/backward compatibility
 updatedAt: string;
 ```
 
-Defined in: [src/session/types.ts:14](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/session/types.ts#L14)
+Defined in: [src/session/types.ts:14](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/session/types.ts#L14)
 
 ISO 8601 timestamp of last manifest update

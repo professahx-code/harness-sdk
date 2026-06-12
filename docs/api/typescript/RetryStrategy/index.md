@@ -2,6 +2,6 @@
 type RetryStrategy = ModelRetryStrategy;
 ```
 
-Defined in: [src/retry/retry-strategy.ts:13](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/retry/retry-strategy.ts#L13)
+Defined in: [src/retry/retry-strategy.ts:13](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/retry/retry-strategy.ts#L13)
 
 Any retry strategy accepted by the agent.

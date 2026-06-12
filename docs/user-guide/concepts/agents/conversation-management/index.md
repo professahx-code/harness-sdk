@@ -12,6 +12,10 @@ As conversations grow, managing this context becomes increasingly important for 
 3.  **Relevance**: Older messages may become less relevant to the current conversation
 4.  **Coherence**: Maintaining logical flow and preserving important information
 
+Quick setup
+
+For most agents, you can skip manual configuration entirely. See [Context Management](/docs/user-guide/concepts/context-management/index.md).
+
 ## Built-in Conversation Managers
 
 The SDK provides a flexible system for context management through the ConversationManager interface. This allows you to implement different strategies for managing conversation history. You can either leverage one of Strands’s provided managers:
@@ -567,6 +571,7 @@ See the [SlidingWindowConversationManager](https://github.com/strands-agents/har
 
 ## Related pages
 
+- [Context Management](/docs/user-guide/concepts/context-management/index.md) (2 shared tags)
 - [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) (2 shared tags)
 - [Coherence Evaluator](/docs/user-guide/evals-sdk/evaluators/coherence_evaluator/index.md) (1 shared tag)
 - [Conciseness Evaluator](/docs/user-guide/evals-sdk/evaluators/conciseness_evaluator/index.md) (1 shared tag)
@@ -576,4 +581,3 @@ See the [SlidingWindowConversationManager](https://github.com/strands-agents/har
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
 - [Skills](/docs/user-guide/concepts/plugins/skills/index.md) (1 shared tag)
 - [User Simulation](/docs/user-guide/evals-sdk/simulators/user_simulation/index.md) (1 shared tag)
-- [Bidirectional Streaming Session Management](/docs/user-guide/concepts/bidirectional-streaming/session-management/index.md) (1 shared tag)

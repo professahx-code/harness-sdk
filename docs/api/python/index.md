@@ -18,6 +18,10 @@
     -   [Events](/docs/api/python/strands.hooks.events)
     -   [Registry](/docs/api/python/strands.hooks.registry)
 -   [Interrupt](/docs/api/python/strands.interrupt)
+-   **Interventions**
+    -   [Actions](/docs/api/python/strands.interventions.actions)
+    -   [Handler](/docs/api/python/strands.interventions.handler)
+    -   [Registry](/docs/api/python/strands.interventions.registry)
 -   **Models**
     -   [Overview](/docs/api/python/strands.models)
     -   [Anthropic](/docs/api/python/strands.models.anthropic)

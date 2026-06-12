@@ -9,7 +9,7 @@ type RetryDecision =
 };
 ```
 
-Defined in: [src/retry/retry-strategy.ts:25](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/retry/retry-strategy.ts#L25)
+Defined in: [src/retry/retry-strategy.ts:25](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/retry/retry-strategy.ts#L25)
 
 Decision returned by a retry strategy’s per-event `compute*RetryDecision` method.
 

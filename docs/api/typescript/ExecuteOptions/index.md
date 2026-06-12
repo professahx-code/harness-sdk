@@ -1,4 +1,4 @@
-Defined in: [src/sandbox/base.ts:14](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/base.ts#L14)
+Defined in: [src/sandbox/base.ts:15](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L15)
 
 Options for command and code execution.
 
@@ -10,7 +10,7 @@ Options for command and code execution.
 optional timeout?: number;
 ```
 
-Defined in: [src/sandbox/base.ts:16](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/base.ts#L16)
+Defined in: [src/sandbox/base.ts:17](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L17)
 
 Maximum execution time in seconds. `undefined` means no timeout.
 
@@ -22,7 +22,7 @@ Maximum execution time in seconds. `undefined` means no timeout.
 optional cwd?: string;
 ```
 
-Defined in: [src/sandbox/base.ts:18](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/base.ts#L18)
+Defined in: [src/sandbox/base.ts:19](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L19)
 
 Working directory for execution. `undefined` means use the sandbox default.
 
@@ -34,7 +34,7 @@ Working directory for execution. `undefined` means use the sandbox default.
 optional signal?: AbortSignal;
 ```
 
-Defined in: [src/sandbox/base.ts:20](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/base.ts#L20)
+Defined in: [src/sandbox/base.ts:21](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L21)
 
 Abort signal to cancel execution. The process is killed when the signal fires.
 
@@ -46,6 +46,6 @@ Abort signal to cancel execution. The process is killed when the signal fires.
 optional env?: Record<string, string>;
 ```
 
-Defined in: [src/sandbox/base.ts:26](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/base.ts#L26)
+Defined in: [src/sandbox/base.ts:27](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L27)
 
 Environment variables to set for this command. Built-in sandboxes always apply these, though the mechanism differs (Docker `-e` flags, SSH `env` prefix); custom `Sandbox` implementations must handle env explicitly or it has no effect.

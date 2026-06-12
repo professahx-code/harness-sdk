@@ -1,4 +1,4 @@
-Defined in: [src/sandbox/posix-shell.ts:78](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/posix-shell.ts#L78)
+Defined in: [src/sandbox/posix-shell.ts:65](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/posix-shell.ts#L65)
 
 Abstract sandbox that provides shell-based defaults for file and code operations. Assumes a POSIX-compatible shell (sh/bash) on the target.
 
@@ -28,6 +28,22 @@ new PosixShellSandbox(): PosixShellSandbox;
 
 [`Sandbox`](/docs/api/typescript/Sandbox/index.md).[`constructor`](/docs/api/typescript/Sandbox/index.md#constructor)
 
+## Properties
+
+### toolPrefix
+
+```ts
+toolPrefix: string = 'sandbox';
+```
+
+Defined in: [src/sandbox/base.ts:118](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L118)
+
+Prefix applied to tool names when registered on an agent (e.g. `'sandbox'` produces `sandbox_bash`). Set to `undefined` to disable prefixing. Defaults to `'sandbox'`.
+
+#### Inherited from
+
+[`Sandbox`](/docs/api/typescript/Sandbox/index.md).[`toolPrefix`](/docs/api/typescript/Sandbox/index.md#toolprefix)
+
 ## Methods
 
 ### executeStreaming()
@@ -38,7 +54,7 @@ abstract executeStreaming(command, options?): AsyncIterable<
 | ExecutionResult>;
 ```
 
-Defined in: [src/sandbox/base.ts:53](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/base.ts#L53)
+Defined in: [src/sandbox/base.ts:54](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L54)
 
 Execute a shell command, streaming output.
 
@@ -63,13 +79,33 @@ Async iterable yielding StreamChunks followed by a final ExecutionResult.
 
 ---
 
+### getTools()
+
+```ts
+getTools(): Tool[];
+```
+
+Defined in: [src/sandbox/base.ts:125](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L125)
+
+Tools this sandbox vends to an agent, registered during `Agent.initialize()`. A tool is skipped if the user already registered one with the same name. Override to provide them.
+
+#### Returns
+
+[`Tool`](/docs/api/typescript/Tool/index.md)\[\]
+
+#### Inherited from
+
+[`Sandbox`](/docs/api/typescript/Sandbox/index.md).[`getTools`](/docs/api/typescript/Sandbox/index.md#gettools)
+
+---
+
 ### execute()
 
 ```ts
 execute(command, options?): Promise<ExecutionResult>;
 ```
 
-Defined in: [src/sandbox/base.ts:125](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/base.ts#L125)
+Defined in: [src/sandbox/base.ts:141](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L141)
 
 Execute a shell command and return the result.
 
@@ -103,7 +139,7 @@ executeCode(
 options?): Promise<ExecutionResult>;
 ```
 
-Defined in: [src/sandbox/base.ts:145](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/base.ts#L145)
+Defined in: [src/sandbox/base.ts:161](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L161)
 
 Execute source code and return the result.
 
@@ -135,7 +171,7 @@ The execution result with exit code and output.
 readText(path): Promise<string>;
 ```
 
-Defined in: [src/sandbox/base.ts:163](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/base.ts#L163)
+Defined in: [src/sandbox/base.ts:179](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L179)
 
 Read a text file from the sandbox filesystem.
 
@@ -165,7 +201,7 @@ The file contents decoded as a UTF-8 string.
 writeText(path, content): Promise<void>;
 ```
 
-Defined in: [src/sandbox/base.ts:176](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/base.ts#L176)
+Defined in: [src/sandbox/base.ts:192](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L192)
 
 Write a text file to the sandbox filesystem.
 
@@ -199,7 +235,7 @@ executeCodeStreaming(
 | ExecutionResult, void, undefined>;
 ```
 
-Defined in: [src/sandbox/posix-shell.ts:79](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/posix-shell.ts#L79)
+Defined in: [src/sandbox/posix-shell.ts:66](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/posix-shell.ts#L66)
 
 Execute source code via a language interpreter, streaming output.
 
@@ -229,7 +265,7 @@ Async iterable yielding StreamChunks followed by a final ExecutionResult.
 readFile(path): Promise<Uint8Array<ArrayBufferLike>>;
 ```
 
-Defined in: [src/sandbox/posix-shell.ts:92](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/posix-shell.ts#L92)
+Defined in: [src/sandbox/posix-shell.ts:79](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/posix-shell.ts#L79)
 
 Read a file from the sandbox filesystem as raw bytes.
 
@@ -263,7 +299,7 @@ Error if the file does not exist.
 writeFile(path, content): Promise<void>;
 ```
 
-Defined in: [src/sandbox/posix-shell.ts:100](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/posix-shell.ts#L100)
+Defined in: [src/sandbox/posix-shell.ts:87](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/posix-shell.ts#L87)
 
 Write raw bytes to a file in the sandbox filesystem.
 
@@ -292,7 +328,7 @@ Implementations should create parent directories if they do not exist. Use [writ
 removeFile(path): Promise<void>;
 ```
 
-Defined in: [src/sandbox/posix-shell.ts:111](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/posix-shell.ts#L111)
+Defined in: [src/sandbox/posix-shell.ts:98](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/posix-shell.ts#L98)
 
 Remove a file from the sandbox filesystem.
 
@@ -322,7 +358,7 @@ Error if the file does not exist.
 listFiles(path): Promise<FileInfo[]>;
 ```
 
-Defined in: [src/sandbox/posix-shell.ts:118](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/sandbox/posix-shell.ts#L118)
+Defined in: [src/sandbox/posix-shell.ts:105](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/posix-shell.ts#L105)
 
 List files in a sandbox directory.
 

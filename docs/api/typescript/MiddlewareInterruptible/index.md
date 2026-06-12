@@ -1,0 +1,44 @@
+Defined in: [src/middleware/stages.ts:39](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/middleware/stages.ts#L39)
+
+Interface for middleware contexts that support interrupts. Unlike the hook/tool `Interruptible`, middleware interrupts return a wrapper object to allow non-breaking additions in the future.
+
+## Extended by
+
+-   [`ExecuteToolContext`](/docs/api/typescript/ExecuteToolContext/index.md)
+-   [`AgentStreamContext`](/docs/api/typescript/AgentStreamContext/index.md)
+
+## Methods
+
+### interrupt()
+
+```ts
+interrupt<T>(params): MiddlewareInterruptResult<T>;
+```
+
+Defined in: [src/middleware/stages.ts:51](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/middleware/stages.ts#L51)
+
+Request a human-in-the-loop interrupt.
+
+On first execution (no prior response), throws `InterruptError` to halt the agent. On resume (after the user provides a response), returns the response wrapped in `MiddlewareInterruptResult`.
+
+#### Type Parameters
+
+| Type Parameter | Default type |
+| --- | --- |
+| `T` | [`JSONValue`](/docs/api/typescript/JSONValue/index.md) |
+
+#### Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `params` | [`InterruptParams`](/docs/api/typescript/InterruptParams/index.md) | Interrupt parameters (name, optional reason, optional preemptive response) |
+
+#### Returns
+
+[`MiddlewareInterruptResult`](/docs/api/typescript/MiddlewareInterruptResult/index.md)<`T`\>
+
+The user’s response wrapped in `{ response: T }`
+
+#### Throws
+
+InterruptError when no response has been provided yet

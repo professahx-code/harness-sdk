@@ -2,6 +2,6 @@
 type ElicitationContext = RequestHandlerExtra<ClientRequest, ClientNotification>;
 ```
 
-Defined in: [src/types/elicitation.ts:12](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/types/elicitation.ts#L12)
+Defined in: [src/types/elicitation.ts:12](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/types/elicitation.ts#L12)
 
 Context provided to an elicitation callback, including the abort signal for the in-flight request.

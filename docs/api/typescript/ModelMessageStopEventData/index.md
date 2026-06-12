@@ -1,4 +1,4 @@
-Defined in: [src/models/streaming.ts:184](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/models/streaming.ts#L184)
+Defined in: [src/models/streaming.ts:184](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/models/streaming.ts#L184)
 
 Data for a message stop event.
 
@@ -10,7 +10,7 @@ Data for a message stop event.
 type: "modelMessageStopEvent";
 ```
 
-Defined in: [src/models/streaming.ts:188](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/models/streaming.ts#L188)
+Defined in: [src/models/streaming.ts:188](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/models/streaming.ts#L188)
 
 Discriminator for message stop events.
 
@@ -22,7 +22,7 @@ Discriminator for message stop events.
 stopReason: StopReason;
 ```
 
-Defined in: [src/models/streaming.ts:193](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/models/streaming.ts#L193)
+Defined in: [src/models/streaming.ts:193](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/models/streaming.ts#L193)
 
 Reason why generation stopped.
 
@@ -34,6 +34,6 @@ Reason why generation stopped.
 optional additionalModelResponseFields?: JSONValue;
 ```
 
-Defined in: [src/models/streaming.ts:198](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/models/streaming.ts#L198)
+Defined in: [src/models/streaming.ts:198](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/models/streaming.ts#L198)
 
 Additional provider-specific response fields.

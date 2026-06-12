@@ -1,4 +1,4 @@
-Defined in: [src/memory/types.ts:195](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/types.ts#L195)
+Defined in: [src/memory/types.ts:212](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/memory/types.ts#L212)
 
 Configuration for the [MemoryManager](/docs/api/typescript/MemoryManager/index.md).
 
@@ -10,7 +10,7 @@ Configuration for the [MemoryManager](/docs/api/typescript/MemoryManager/index.m
 stores: MemoryStore[];
 ```
 
-Defined in: [src/memory/types.ts:197](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/types.ts#L197)
+Defined in: [src/memory/types.ts:214](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/memory/types.ts#L214)
 
 One or more memory stores to manage.
 
@@ -22,7 +22,7 @@ One or more memory stores to manage.
 optional searchToolConfig?: boolean | MemoryToolConfig;
 ```
 
-Defined in: [src/memory/types.ts:199](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/types.ts#L199)
+Defined in: [src/memory/types.ts:216](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/memory/types.ts#L216)
 
 Search tool configuration. Defaults to `true`.
 
@@ -34,6 +34,6 @@ Search tool configuration. Defaults to `true`.
 optional addToolConfig?: boolean | MemoryAddToolConfig;
 ```
 
-Defined in: [src/memory/types.ts:204](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/types.ts#L204)
+Defined in: [src/memory/types.ts:221](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/memory/types.ts#L221)
 
 Add tool configuration. Defaults to `false` (opt-in). `true` lets the tool write to all writable stores; pass a [MemoryAddToolConfig](/docs/api/typescript/MemoryAddToolConfig/index.md) with `stores` to restrict it to specific ones.

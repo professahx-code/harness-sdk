@@ -1,4 +1,4 @@
-Defined in: [src/errors.ts:59](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/errors.ts#L59)
+Defined in: [src/errors.ts:59](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/errors.ts#L59)
 
 Error thrown when the model reaches its maximum token limit during generation.
 
@@ -16,7 +16,7 @@ This error indicates that the model stopped generating content because it reache
 new MaxTokensError(message, partialMessage): MaxTokensError;
 ```
 
-Defined in: [src/errors.ts:72](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/errors.ts#L72)
+Defined in: [src/errors.ts:72](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/errors.ts#L72)
 
 Creates a new MaxTokensError.
 
@@ -43,6 +43,6 @@ Creates a new MaxTokensError.
 readonly partialMessage: Message;
 ```
 
-Defined in: [src/errors.ts:64](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/errors.ts#L64)
+Defined in: [src/errors.ts:64](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/errors.ts#L64)
 
 The partial assistant message that was generated before hitting the token limit. This can be useful for understanding what the model was trying to generate.

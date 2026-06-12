@@ -1,4 +1,4 @@
-Defined in: [src/memory/extraction/types.ts:123](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/extraction/types.ts#L123)
+Defined in: [src/memory/extraction/types.ts:123](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/memory/extraction/types.ts#L123)
 
 Per-store automatic-extraction configuration.
 
@@ -6,17 +6,17 @@ Lives on a store (via [MemoryStoreConfig](/docs/api/typescript/MemoryStoreConfig
 
 ## Properties
 
-### trigger
+### trigger?
 
 ```ts
-trigger:
+optional trigger?:
   | ExtractionTrigger
   | ExtractionTrigger[];
 ```
 
-Defined in: [src/memory/extraction/types.ts:128](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/extraction/types.ts#L128)
+Defined in: [src/memory/extraction/types.ts:129](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/memory/extraction/types.ts#L129)
 
-When to run extraction. A single trigger or an array; an empty array is rejected at construction. Multiple triggers compose (extraction runs whenever any of them fires).
+When to run extraction. A single trigger or an array; multiple triggers compose (extraction runs whenever any of them fires). Omit to default to every 5 turns; an explicit empty array is rejected at construction.
 
 ---
 
@@ -26,9 +26,9 @@ When to run extraction. A single trigger or an array; an empty array is rejected
 optional extractor?: Extractor;
 ```
 
-Defined in: [src/memory/extraction/types.ts:135](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/extraction/types.ts#L135)
+Defined in: [src/memory/extraction/types.ts:137](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/memory/extraction/types.ts#L137)
 
-How to turn messages into entries. When set, the store must implement `add` (entries are written to it). When omitted, the manager hands the filtered messages straight to the store’s `addMessages` (which the store must then implement) — so backends that extract server-side need no client-side extractor.
+How to turn messages into entries (client-side extraction). When set, the store must implement `add` and each produced entry is stored through it. When omitted, the default depends on the store’s write methods: a store implementing `addMessages` uses server-side extraction (the manager hands it the raw messages, no model call), while a store implementing only `add` defaults to a [ModelExtractor](/docs/api/typescript/ModelExtractor/index.md) that distills facts client-side.
 
 ---
 
@@ -38,7 +38,7 @@ How to turn messages into entries. When set, the store must implement `add` (ent
 optional filter?: MemoryMessageFilter;
 ```
 
-Defined in: [src/memory/extraction/types.ts:143](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/memory/extraction/types.ts#L143)
+Defined in: [src/memory/extraction/types.ts:145](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/memory/extraction/types.ts#L145)
 
 Content blocks to strip before extraction. Defaults to DEFAULT\_MEMORY\_MESSAGE\_FILTER (excludes `toolUse` / `toolResult`).
 

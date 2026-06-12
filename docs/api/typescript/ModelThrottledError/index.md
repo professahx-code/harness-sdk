@@ -1,4 +1,4 @@
-Defined in: [src/errors.ts:122](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/errors.ts#L122)
+Defined in: [src/errors.ts:122](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/errors.ts#L122)
 
 Error thrown when a model provider returns a throttling or rate limit error.
 
@@ -16,7 +16,7 @@ This error indicates that the model API has rate limited the request. Users can 
 new ModelThrottledError(message, options?): ModelThrottledError;
 ```
 
-Defined in: [src/errors.ts:129](https://github.com/strands-agents/harness-sdk/blob/3db1b6375bb18b5c12c42650c6fea93014b9c687/strands-ts/src/errors.ts#L129)
+Defined in: [src/errors.ts:129](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/errors.ts#L129)
 
 Creates a new ModelThrottledError.
 

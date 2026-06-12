@@ -8009,6 +8009,10 @@ As conversations grow, managing this context becomes increasingly important for 
 3.  **Relevance**: Older messages may become less relevant to the current conversation
 4.  **Coherence**: Maintaining logical flow and preserving important information
 
+Quick setup
+
+For most agents, you can skip manual configuration entirely. See [Context Management](/docs/user-guide/concepts/context-management/index.md).
+
 ## Built-in Conversation Managers
 
 The SDK provides a flexible system for context management through the ConversationManager interface. This allows you to implement different strategies for managing conversation history. You can either leverage one of Strands’s provided managers:
@@ -8564,6 +8568,7 @@ See the [SlidingWindowConversationManager](https://github.com/strands-agents/har
 
 ## Related pages
 
+- [Context Management](/docs/user-guide/concepts/context-management/index.md) (2 shared tags)
 - [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) (2 shared tags)
 - [Coherence Evaluator](/docs/user-guide/evals-sdk/evaluators/coherence_evaluator/index.md) (1 shared tag)
 - [Conciseness Evaluator](/docs/user-guide/evals-sdk/evaluators/conciseness_evaluator/index.md) (1 shared tag)
@@ -8573,7 +8578,6 @@ See the [SlidingWindowConversationManager](https://github.com/strands-agents/har
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
 - [Skills](/docs/user-guide/concepts/plugins/skills/index.md) (1 shared tag)
 - [User Simulation](/docs/user-guide/evals-sdk/simulators/user_simulation/index.md) (1 shared tag)
-- [Bidirectional Streaming Session Management](/docs/user-guide/concepts/bidirectional-streaming/session-management/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/agents/conversation-management/index.md
 
@@ -10685,9 +10689,9 @@ Use `HumanInTheLoop` when you want tool-level approval gating with minimal code:
 - [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (2 shared tags)
 - [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
 - [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
-- [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
 - [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (1 shared tag)
 - [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (1 shared tag)
+- [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
 - [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (1 shared tag)
 
@@ -16625,6 +16629,109 @@ For best practices on session ID management, session cleanup, error handling, st
 - [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/bidirectional-streaming/session-management/index.md
+
+---
+
+## Context Management
+
+As conversations grow, your agent’s context window fills with messages, tool results, and system prompts. Without management, this leads to token limit errors, degraded performance, and loss of relevant information.
+
+The SDK provides several layers of context management that you can use independently or together.
+
+## Automatic context management
+
+For most agents with multi-turn conversations, you don’t need to configure conversation management and context offloading separately. Pass `context_manager="auto"` (Python) or `contextManager: "auto"` (TypeScript) and the SDK wires up both with tuned defaults:
+
+(( tab "Python" ))
+```python
+from strands import Agent
+
+agent = Agent(context_manager="auto")
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import { Agent } from '@strands-agents/sdk'
+
+const agent = new Agent({
+  contextManager: 'auto',
+})
+```
+(( /tab "TypeScript" ))
+
+### What it sets up
+
+This composes two components whose defaults scored highest across [ContextBench](https://arxiv.org/abs/2602.05892) evaluations relative to other Strands Agent configurations:
+
+-   **SummarizingConversationManager** (summary ratio of 0.3, compression threshold of 0.85): proactively summarizes older messages before the context window fills, preserving key information while freeing space for new turns.
+-   **ContextOffloader plugin** (max result tokens of 1,500, preview tokens of 750): intercepts large tool results at execution time, stores them externally, and keeps a truncated preview in context. Registers a `retrieve_offloaded_content` tool so the agent can fetch full content on demand.
+
+For full details on each component, see [Conversation Management](/docs/user-guide/concepts/agents/conversation-management/index.md#summarizingconversationmanager) and [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md).
+
+### Combining with explicit configuration
+
+Your own settings take precedence when you need fine-grained control:
+
+-   **Custom conversation manager**: If you also pass `conversation_manager` / `conversationManager`, your manager replaces the auto-composed `SummarizingConversationManager`. The SDK still adds the `ContextOffloader` plugin.
+-   **Existing ContextOffloader**: If your `plugins` list already contains a `ContextOffloader` instance, no duplicate is added. Your configuration is preserved.
+
+(( tab "Python" ))
+```python
+from strands import Agent
+from strands.agent.conversation_manager import (
+    SlidingWindowConversationManager,
+)
+
+# Your conversation manager is used;
+# ContextOffloader is still added automatically
+agent = Agent(
+    context_manager="auto",
+    conversation_manager=SlidingWindowConversationManager(
+        window_size=30,
+    ),
+)
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import {
+  Agent,
+  SlidingWindowConversationManager,
+} from '@strands-agents/sdk'
+
+// Your conversation manager is used;
+// ContextOffloader is still added automatically
+const agent = new Agent({
+  contextManager: 'auto',
+  conversationManager: new SlidingWindowConversationManager({
+    windowSize: 30,
+  }),
+})
+```
+(( /tab "TypeScript" ))
+
+### Limitations
+
+**Stateful models**: Stateful models manage conversation state server-side. Setting `context_manager="auto"` with a stateful model raises a `ValueError` (Python) or `Error` (TypeScript).
+
+The auto-composed offloader uses in-memory storage that does not persist across process restarts. If your agent uses session management and needs durable offloaded content, configure an explicit `ContextOffloader` with `FileStorage` or `S3Storage`. See [Storage Backends](/docs/user-guide/concepts/plugins/context-offloader/index.md#storage-backends).
+
+## Related pages
+
+- [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) (2 shared tags)
+- [Conversation Management](/docs/user-guide/concepts/agents/conversation-management/index.md) (2 shared tags)
+- [Coherence Evaluator](/docs/user-guide/evals-sdk/evaluators/coherence_evaluator/index.md) (1 shared tag)
+- [Conciseness Evaluator](/docs/user-guide/evals-sdk/evaluators/conciseness_evaluator/index.md) (1 shared tag)
+- [Goal Success Rate Evaluator](/docs/user-guide/evals-sdk/evaluators/goal_success_rate_evaluator/index.md) (1 shared tag)
+- [Helpfulness Evaluator](/docs/user-guide/evals-sdk/evaluators/helpfulness_evaluator/index.md) (1 shared tag)
+- [Interactions Evaluator](/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md) (1 shared tag)
+- [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
+- [Skills](/docs/user-guide/concepts/plugins/skills/index.md) (1 shared tag)
+- [User Simulation](/docs/user-guide/evals-sdk/simulators/user_simulation/index.md) (1 shared tag)
+
+Source: https://strandsagents.com/docs/user-guide/concepts/context-management/index.md
 
 ---
 
@@ -23544,16 +23651,17 @@ from strands.multiagent.a2a import A2AServer
 
 logging.basicConfig(level=logging.INFO)
 
-# Create a Strands agent
-strands_agent = Agent(
-    name="Calculator Agent",
-    description="A calculator agent that can perform basic arithmetic operations.",
-    tools=[calculator],
-    callback_handler=None
-)
+# Build a fresh agent for each A2A context so callers stay isolated
+def create_agent(context_id: str) -> Agent:
+    return Agent(
+        name="Calculator Agent",
+        description="A calculator agent that can perform basic arithmetic operations.",
+        tools=[calculator],
+        callback_handler=None
+    )
 
-# Create A2A server (streaming enabled by default)
-a2a_server = A2AServer(agent=strands_agent)
+# Create A2A server with a per context agent factory (streaming enabled by default)
+a2a_server = A2AServer(agent_factory=create_agent)
 
 # Start the server
 a2a_server.serve()
@@ -23562,15 +23670,15 @@ a2a_server.serve()
 
 (( tab "TypeScript" ))
 ```typescript
+import { Agent } from '@strands-agents/sdk'
 import { A2AExpressServer } from '@strands-agents/sdk/a2a/express'
 
-const agent = new Agent({
-  systemPrompt: 'You are a calculator agent that can perform basic arithmetic.',
-})
-
-// Create and start the A2A server
+// Build a fresh agent for each A2A context so callers stay isolated
 const server = new A2AExpressServer({
-  agent,
+  agentFactory: (contextId) =>
+    new Agent({
+      systemPrompt: 'You are a calculator agent that can perform basic arithmetic.',
+    }),
   name: 'Calculator Agent',
   description: 'A calculator agent that can perform basic arithmetic operations.',
 })
@@ -23581,12 +23689,77 @@ await server.serve()
 
 The server serves the agent card at `/.well-known/agent-card.json` and handles JSON-RPC requests at the root path. Streaming is supported by default.
 
+### Conversation Isolation
+
+The A2A protocol identifies each conversation with a `context_id`. The server isolates conversation state per `context_id` so that callers in different contexts never read or influence each other’s history. Two modes control how that isolation works.
+
+The recommended mode is `agent_factory` - you provide a callable that takes a `context_id` and returns a dedicated agent for each conversation, reusing it for later requests in that context. This enables different conversations to run concurrently because each owns an independent agent.
+
+The factory is also where you wire per-conversation concerns such as a `session_manager` to persist that conversation’s history.
+
+(( tab "Python" ))
+```python
+from strands import Agent
+from strands.multiagent.a2a import A2AServer
+
+def create_agent(context_id: str) -> Agent:
+    return Agent(
+        name="Calculator Agent",
+        description="A calculator agent.",
+        callback_handler=None
+    )
+
+a2a_server = A2AServer(agent_factory=create_agent)
+a2a_server.serve()
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import { Agent, SessionManager, FileStorage } from '@strands-agents/sdk'
+import { A2AExpressServer } from '@strands-agents/sdk/a2a/express'
+
+// The factory runs once per contextId and returns a dedicated agent, so each conversation
+// is isolated. Wire an optional sessionManager here to persist that conversation's history,
+// scoped to the contextId.
+const storage = new FileStorage('./sessions')
+
+const server = new A2AExpressServer({
+  agentFactory: (contextId) =>
+    new Agent({
+      name: 'Calculator Agent',
+      description: 'A calculator agent.',
+      sessionManager: new SessionManager({
+        sessionId: contextId,
+        storage: { snapshot: storage },
+      }),
+    }),
+  name: 'Calculator Agent',
+  maxContexts: 1000,
+})
+
+await server.serve()
+```
+(( /tab "TypeScript" ))
+
+The server retains at most `max_contexts` contexts at once (default 1000). When that cap is exceeded, the server evicts the least recently used context, and a later request that reuses the evicted `context_id` starts a fresh conversation. Tune this cap to bound memory in long running servers.
+
+`context_id` is not an authentication boundary
+
+Contexts are keyed on the client supplied `context_id`. A caller who knows another caller’s `context_id` can attach to that conversation. Multi-tenant deployments must enforce authenticated identity at the transport or gateway layer.
+
+Passing a single `agent` is deprecated
+
+In single-agent mode the server reuses one agent across every context, swapping each context’s saved state on and off the shared instance under a lock, which serializes all requests. A single `agent` with a configured `session_manager` is rejected, because the session manager would persist every context into one interleaved session. Prefer `agent_factory` for any deployment that serves more than one conversation.
+
 ### Server Configuration Options
 
 (( tab "Python" ))
 The `A2AServer` constructor accepts several configuration options:
 
--   `agent`: The Strands agent to wrap with A2A compatibility
+-   `agent_factory`: Callable that takes a `context_id` and returns a fresh agent per context (recommended)
+-   `agent`: A single Strands agent reused across contexts (deprecated; prefer `agent_factory`)
+-   `max_contexts`: Maximum number of per context agents to retain concurrently (default: 1000, must be at least 1)
 -   `host`: Hostname or IP address to bind to (default: “127.0.0.1”)
 -   `port`: Port to bind to (default: 9000)
 -   `version`: Version of the agent (default: “0.0.1”)
@@ -23597,17 +23770,21 @@ The `A2AServer` constructor accepts several configuration options:
 -   `queue_manager`: Custom message queue management (optional)
 -   `push_config_store`: Custom push notification configuration storage (optional)
 -   `push_sender`: Custom push notification sender implementation (optional)
+
+Provide exactly one of `agent_factory` or `agent`, recommend `agent_factory`.
 (( /tab "Python" ))
 
 (( tab "TypeScript" ))
 The TypeScript SDK provides two server classes:
 
--   **`A2AServer`** — Base class that manages the agent card and request handler. Use this when integrating with your own HTTP framework.
--   **`A2AExpressServer`** — Express-based server with `serve()` and `createMiddleware()` methods.
+-   **`A2AServer`**: Base class that manages the agent card and request handler. Use this when integrating with your own HTTP framework.
+-   **`A2AExpressServer`**: Express based server with `serve()` and `createMiddleware()` methods.
 
 The `A2AExpressServer` constructor accepts a config object:
 
--   `agent`: The Strands Agent to serve via A2A protocol
+-   `agentFactory`: Callable that takes a `contextId` and returns a fresh agent per context (recommended)
+-   `agent`: A single Strands Agent reused across contexts (deprecated; prefer `agentFactory`)
+-   `maxContexts`: Maximum number of per context agents to retain concurrently (default: 1000, must be at least 1)
 -   `name` (required): Human-readable name for the agent
 -   `description`: Description of the agent’s purpose
 -   `host`: Host to bind the server to (default: `'127.0.0.1'`)
@@ -23618,11 +23795,18 @@ The `A2AExpressServer` constructor accepts a config object:
 -   `taskStore`: Task store for persisting task state (defaults to InMemoryTaskStore)
 -   `userBuilder`: User builder for authentication (default: no authentication)
 
+Provide exactly one of `agentFactory` or `agent`, recommend `agentFactory`.
+
 ```typescript
 const server = new A2AExpressServer({
-  agent,
+  agentFactory: (contextId) =>
+    new Agent({
+      systemPrompt: 'You are a helpful agent.',
+    }),
   name: 'My Agent',
   description: 'A helpful agent',
+  // Retain at most 1000 per context agents; evict least recently used
+  maxContexts: 1000,
   host: '0.0.0.0',
   port: 8080,
   version: '1.0.0',
@@ -23647,9 +23831,11 @@ from strands import Agent
 from strands.multiagent.a2a import A2AServer
 import uvicorn
 
-# Create your agent and A2A server
-agent = Agent(name="My Agent", description="A customizable agent", callback_handler=None)
-a2a_server = A2AServer(agent=agent)
+# Create your agent factory and A2A server
+def create_agent(context_id: str) -> Agent:
+    return Agent(name="My Agent", description="A customizable agent", callback_handler=None)
+
+a2a_server = A2AServer(agent_factory=create_agent)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -23681,7 +23867,8 @@ The `A2AExpressServer` exposes a `createMiddleware()` method that returns an Exp
 const express = (await import('express')).default
 
 const server = new A2AExpressServer({
-  agent,
+  agentFactory: (contextId) =>
+    new Agent({ systemPrompt: 'You are a customizable agent.' }),
   name: 'My Agent',
   description: 'A customizable agent',
 })
@@ -23704,7 +23891,10 @@ app.listen(9000, '127.0.0.1', () => {
 You can also use an `AbortSignal` for graceful shutdown:
 
 ```typescript
-const server = new A2AExpressServer({ agent, name: 'My Agent' })
+const server = new A2AExpressServer({
+  agentFactory: (contextId) => new Agent({ systemPrompt: 'You are a helpful agent.' }),
+  name: 'My Agent',
+})
 
 const controller = new AbortController()
 await server.serve({ signal: controller.signal })
@@ -23735,11 +23925,12 @@ class CustomQueueManager(QueueManager):
     # Implementation details...
     pass
 
-# Create agent with custom components
-agent = Agent(name="My Agent", description="A customizable agent", callback_handler=None)
+# Create an agent factory with custom components
+def create_agent(context_id: str) -> Agent:
+    return Agent(name="My Agent", description="A customizable agent", callback_handler=None)
 
 a2a_server = A2AServer(
-    agent=agent,
+    agent_factory=create_agent,
     task_store=CustomTaskStore(),
     queue_manager=CustomQueueManager(),
     push_config_store=MyPushConfigStore(),
@@ -23764,10 +23955,8 @@ The TypeScript `A2AExpressServer` supports a custom `taskStore` for persisting t
 import { Agent } from '@strands-agents/sdk'
 import { A2AExpressServer } from '@strands-agents/sdk/a2a/express'
 
-const agent = new Agent({ systemPrompt: 'You are a helpful agent.' })
-
 const server = new A2AExpressServer({
-  agent,
+  agentFactory: (contextId) => new Agent({ systemPrompt: 'You are a helpful agent.' }),
   name: 'My Agent',
   taskStore: myCustomTaskStore, // Must implement TaskStore from @a2a-js/sdk/server
 })
@@ -23783,23 +23972,24 @@ The `A2AServer` supports automatic path-based mounting for deployment scenarios 
 from strands import Agent
 from strands.multiagent.a2a import A2AServer
 
-# Create an agent
-agent = Agent(
-    name="Calculator Agent",
-    description="A calculator agent",
-    callback_handler=None
-)
+# Create an agent factory
+def create_agent(context_id: str) -> Agent:
+    return Agent(
+        name="Calculator Agent",
+        description="A calculator agent",
+        callback_handler=None
+    )
 
 # Deploy with path-based mounting
 # The agent will be accessible at http://my-alb.amazonaws.com/calculator/
 a2a_server = A2AServer(
-    agent=agent,
+    agent_factory=create_agent,
     http_url="http://my-alb.amazonaws.com/calculator"
 )
 
 # For load balancers that strip path prefixes, use serve_at_root=True
 a2a_server_with_root = A2AServer(
-    agent=agent,
+    agent_factory=create_agent,
     http_url="http://my-alb.amazonaws.com/calculator",
     serve_at_root=True  # Serves at root even though URL has /calculator path
 )
@@ -23813,10 +24003,8 @@ Use the `httpUrl` option to set the public URL for the agent card. For custom pa
 import { Agent } from '@strands-agents/sdk'
 import { A2AExpressServer } from '@strands-agents/sdk/a2a/express'
 
-const agent = new Agent({ systemPrompt: 'A calculator agent.' })
-
 const server = new A2AExpressServer({
-  agent,
+  agentFactory: (contextId) => new Agent({ systemPrompt: 'A calculator agent.' }),
   name: 'Calculator Agent',
   httpUrl: 'http://my-alb.amazonaws.com/calculator',
 })
@@ -26896,6 +27084,10 @@ For non-text content, the plugin replaces the result with a descriptive placehol
 
 ## Getting Started
 
+Quick setup
+
+You can enable a pre-configured `ContextOffloader` alongside summarization-based context management with a single parameter. See [Context Management](/docs/user-guide/concepts/context-management/index.md).
+
 Pass a `ContextOffloader` instance to your agent’s `plugins` list with your choice of storage backend:
 
 (( tab "Python" ))
@@ -27263,6 +27455,7 @@ const agent = new Agent({
 
 ## Related pages
 
+- [Context Management](/docs/user-guide/concepts/context-management/index.md) (2 shared tags)
 - [Conversation Management](/docs/user-guide/concepts/agents/conversation-management/index.md) (2 shared tags)
 - [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (2 shared tags)
 - [Coherence Evaluator](/docs/user-guide/evals-sdk/evaluators/coherence_evaluator/index.md) (1 shared tag)
@@ -27272,7 +27465,6 @@ const agent = new Agent({
 - [Interactions Evaluator](/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md) (1 shared tag)
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
 - [Skills](/docs/user-guide/concepts/plugins/skills/index.md) (1 shared tag)
-- [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/plugins/context-offloader/index.md
 
@@ -27676,6 +27868,7 @@ Use skills when you want a single agent that can handle a wide range of tasks by
 
 ## Related pages
 
+- [Context Management](/docs/user-guide/concepts/context-management/index.md) (1 shared tag)
 - [Instruction Following Evaluator](/docs/user-guide/evals-sdk/evaluators/instruction_following_evaluator/index.md) (1 shared tag)
 - [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) (1 shared tag)
 - [Conversation Management](/docs/user-guide/concepts/agents/conversation-management/index.md) (1 shared tag)
@@ -39005,11 +39198,11 @@ reports[0].run_display()
 - [Helpfulness Evaluator](/docs/user-guide/evals-sdk/evaluators/helpfulness_evaluator/index.md) (1 shared tag)
 - [Interactions Evaluator](/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md) (1 shared tag)
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
+- [Context Management](/docs/user-guide/concepts/context-management/index.md) (1 shared tag)
 - [User Simulation](/docs/user-guide/evals-sdk/simulators/user_simulation/index.md) (1 shared tag)
 - [Prompt Engineering](/docs/user-guide/safety-security/prompt-engineering/index.md) (1 shared tag)
 - [Prompts](/docs/user-guide/concepts/agents/prompts/index.md) (1 shared tag)
 - [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (1 shared tag)
-- [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/evals-sdk/evaluators/coherence_evaluator/index.md
 
@@ -39126,11 +39319,11 @@ reports[0].run_display()
 - [Helpfulness Evaluator](/docs/user-guide/evals-sdk/evaluators/helpfulness_evaluator/index.md) (1 shared tag)
 - [Interactions Evaluator](/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md) (1 shared tag)
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
+- [Context Management](/docs/user-guide/concepts/context-management/index.md) (1 shared tag)
 - [User Simulation](/docs/user-guide/evals-sdk/simulators/user_simulation/index.md) (1 shared tag)
 - [Prompt Engineering](/docs/user-guide/safety-security/prompt-engineering/index.md) (1 shared tag)
 - [Prompts](/docs/user-guide/concepts/agents/prompts/index.md) (1 shared tag)
 - [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (1 shared tag)
-- [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/evals-sdk/evaluators/conciseness_evaluator/index.md
 
@@ -40244,11 +40437,11 @@ Evaluate completion of complex, multi-step processes.
 - [Helpfulness Evaluator](/docs/user-guide/evals-sdk/evaluators/helpfulness_evaluator/index.md) (1 shared tag)
 - [Interactions Evaluator](/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md) (1 shared tag)
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
+- [Context Management](/docs/user-guide/concepts/context-management/index.md) (1 shared tag)
 - [User Simulation](/docs/user-guide/evals-sdk/simulators/user_simulation/index.md) (1 shared tag)
 - [Prompt Engineering](/docs/user-guide/safety-security/prompt-engineering/index.md) (1 shared tag)
 - [Prompts](/docs/user-guide/concepts/agents/prompts/index.md) (1 shared tag)
 - [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (1 shared tag)
-- [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/evals-sdk/evaluators/goal_success_rate_evaluator/index.md
 
@@ -40617,11 +40810,11 @@ Evaluation: Above and beyond (1.0) - Comprehensive, proactive, anticipates issue
 - [Goal Success Rate Evaluator](/docs/user-guide/evals-sdk/evaluators/goal_success_rate_evaluator/index.md) (1 shared tag)
 - [Interactions Evaluator](/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md) (1 shared tag)
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
+- [Context Management](/docs/user-guide/concepts/context-management/index.md) (1 shared tag)
 - [User Simulation](/docs/user-guide/evals-sdk/simulators/user_simulation/index.md) (1 shared tag)
 - [Prompt Engineering](/docs/user-guide/safety-security/prompt-engineering/index.md) (1 shared tag)
 - [Prompts](/docs/user-guide/concepts/agents/prompts/index.md) (1 shared tag)
 - [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (1 shared tag)
-- [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/evals-sdk/evaluators/helpfulness_evaluator/index.md
 
@@ -41077,11 +41270,11 @@ Verify that agents respect declared dependencies.
 - [Goal Success Rate Evaluator](/docs/user-guide/evals-sdk/evaluators/goal_success_rate_evaluator/index.md) (1 shared tag)
 - [Helpfulness Evaluator](/docs/user-guide/evals-sdk/evaluators/helpfulness_evaluator/index.md) (1 shared tag)
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
+- [Context Management](/docs/user-guide/concepts/context-management/index.md) (1 shared tag)
 - [User Simulation](/docs/user-guide/evals-sdk/simulators/user_simulation/index.md) (1 shared tag)
 - [Prompt Engineering](/docs/user-guide/safety-security/prompt-engineering/index.md) (1 shared tag)
 - [Prompts](/docs/user-guide/concepts/agents/prompts/index.md) (1 shared tag)
 - [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (1 shared tag)
-- [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md
 
@@ -42000,11 +42193,11 @@ The `OutputEvaluator` returns `EvaluationOutput` objects with:
 - [Goal Success Rate Evaluator](/docs/user-guide/evals-sdk/evaluators/goal_success_rate_evaluator/index.md) (1 shared tag)
 - [Helpfulness Evaluator](/docs/user-guide/evals-sdk/evaluators/helpfulness_evaluator/index.md) (1 shared tag)
 - [Interactions Evaluator](/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md) (1 shared tag)
+- [Context Management](/docs/user-guide/concepts/context-management/index.md) (1 shared tag)
 - [User Simulation](/docs/user-guide/evals-sdk/simulators/user_simulation/index.md) (1 shared tag)
 - [Prompt Engineering](/docs/user-guide/safety-security/prompt-engineering/index.md) (1 shared tag)
 - [Prompts](/docs/user-guide/concepts/agents/prompts/index.md) (1 shared tag)
 - [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (1 shared tag)
-- [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md
 
@@ -47100,7 +47293,7 @@ while user_sim.has_next():
 - [Interactions Evaluator](/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md) (1 shared tag)
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
 - [Tool Simulation](/docs/user-guide/evals-sdk/simulators/tool_simulation/index.md) (1 shared tag)
-- [Prompt Engineering](/docs/user-guide/safety-security/prompt-engineering/index.md) (1 shared tag)
+- [Context Management](/docs/user-guide/concepts/context-management/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/evals-sdk/simulators/user_simulation/index.md
 
