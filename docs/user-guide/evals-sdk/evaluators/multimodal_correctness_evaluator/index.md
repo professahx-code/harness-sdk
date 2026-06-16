@@ -87,8 +87,8 @@ cases = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=[MultimodalCorrectnessEvaluator()])
-reports = experiment.run_evaluations(task_function)
-EvaluationReport.flatten(reports).run_display()
+report = experiment.run_evaluations(task_function)
+report.run_display()
 ```
 
 ### Reference-Based (compare against a known answer)
@@ -106,7 +106,7 @@ cases = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=[MultimodalCorrectnessEvaluator()])
-reports = experiment.run_evaluations(task_function)
+report = experiment.run_evaluations(task_function)
 ```
 
 When `expected_output` is set, the evaluator automatically appends the reference suffix so the judge compares the response to the reference answer.

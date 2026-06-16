@@ -124,8 +124,8 @@ def get_response(case: Case) -> str:
     return str(agent(case.input))
 
 experiment = Experiment(cases=cases, evaluators=evaluators)
-reports = experiment.run_evaluations(get_response)
-reports[0].run_display()
+report = experiment.run_evaluations(get_response)
+report.run_display()
 ```
 
 ## Combining with LLM Evaluators
@@ -161,3 +161,6 @@ evaluators = [
 - [Tool Selection Accuracy Evaluator](/docs/user-guide/evals-sdk/evaluators/tool_selection_evaluator/index.md) (1 shared tag)
 - [Trajectory Evaluator](/docs/user-guide/evals-sdk/evaluators/trajectory_evaluator/index.md) (1 shared tag)
 - [Tool Simulation](/docs/user-guide/evals-sdk/simulators/tool_simulation/index.md) (1 shared tag)
+- [Failure Communication Evaluator](/docs/user-guide/evals-sdk/evaluators/failure_communication_evaluator/index.md) (1 shared tag)
+- [Partial Completion Evaluator](/docs/user-guide/evals-sdk/evaluators/partial_completion_evaluator/index.md) (1 shared tag)
+- [Recovery Strategy Evaluator](/docs/user-guide/evals-sdk/evaluators/recovery_strategy_evaluator/index.md) (1 shared tag)

@@ -4,9 +4,11 @@
     -   [Agent Result](/docs/api/python/strands.agent.agent_result)
     -   [Base](/docs/api/python/strands.agent.base)
     -   **Conversation Manager**
+        -   **Compression**
+            -   [Context Compression](/docs/api/python/strands.agent.conversation_manager.compression.context_compression)
+            -   [Pin Message](/docs/api/python/strands.agent.conversation_manager.compression.pin_message)
         -   [Conversation Manager](/docs/api/python/strands.agent.conversation_manager.conversation_manager)
         -   [Null Conversation Manager](/docs/api/python/strands.agent.conversation_manager.null_conversation_manager)
-        -   [Pin Message](/docs/api/python/strands.agent.conversation_manager.pin_message)
         -   [Sliding Window Conversation Manager](/docs/api/python/strands.agent.conversation_manager.sliding_window_conversation_manager)
         -   [Summarizing Conversation Manager](/docs/api/python/strands.agent.conversation_manager.summarizing_conversation_manager)
 -   **Event Loop**
@@ -17,11 +19,21 @@
 -   **Hooks**
     -   [Events](/docs/api/python/strands.hooks.events)
     -   [Registry](/docs/api/python/strands.hooks.registry)
+-   **Injection**
+    -   [Types](/docs/api/python/strands.injection.types)
 -   [Interrupt](/docs/api/python/strands.interrupt)
 -   **Interventions**
     -   [Actions](/docs/api/python/strands.interventions.actions)
     -   [Handler](/docs/api/python/strands.interventions.handler)
     -   [Registry](/docs/api/python/strands.interventions.registry)
+-   **Memory**
+    -   **Extraction**
+        -   [Coordinator](/docs/api/python/strands.memory.extraction.coordinator)
+        -   [Model Extractor](/docs/api/python/strands.memory.extraction.model_extractor)
+        -   [Triggers](/docs/api/python/strands.memory.extraction.triggers)
+        -   [Types](/docs/api/python/strands.memory.extraction.types)
+    -   [Memory Manager](/docs/api/python/strands.memory.memory_manager)
+    -   [Types](/docs/api/python/strands.memory.types)
 -   **Models**
     -   [Overview](/docs/api/python/strands.models)
     -   [Anthropic](/docs/api/python/strands.models.anthropic)
@@ -54,9 +66,10 @@
     -   [Base](/docs/api/python/strands.sandbox.base)
     -   [Constants](/docs/api/python/strands.sandbox.constants)
     -   [Docker](/docs/api/python/strands.sandbox.docker)
-    -   [Shell](/docs/api/python/strands.sandbox.shell)
+    -   [Errors](/docs/api/python/strands.sandbox.errors)
+    -   [Not A Sandbox Local Environment](/docs/api/python/strands.sandbox.not_a_sandbox_local_environment)
+    -   [Posix Shell](/docs/api/python/strands.sandbox.posix_shell)
     -   [Ssh](/docs/api/python/strands.sandbox.ssh)
-    -   [Stream Process](/docs/api/python/strands.sandbox.stream_process)
     -   [Types](/docs/api/python/strands.sandbox.types)
 -   **Session**
     -   [File Session Manager](/docs/api/python/strands.session.file_session_manager)
@@ -102,10 +115,25 @@
     -   [Session](/docs/api/python/strands.types.session)
     -   [Streaming](/docs/api/python/strands.types.streaming)
     -   [Tools](/docs/api/python/strands.types.tools)
+-   **Vended Interventions**
+    -   **Cedar**
+        -   [Cedar Authorization](/docs/api/python/strands.vended_interventions.cedar.cedar_authorization)
+    -   **Hitl**
+        -   [Hitl](/docs/api/python/strands.vended_interventions.hitl.hitl)
+-   **Vended Memory Stores**
+    -   [Overview](/docs/api/python/strands.vended_memory_stores)
+    -   **Bedrock Knowledge Base**
+        -   [Store](/docs/api/python/strands.vended_memory_stores.bedrock_knowledge_base.store)
+        -   [Types](/docs/api/python/strands.vended_memory_stores.bedrock_knowledge_base.types)
 -   **Vended Plugins**
+    -   **Context Injector**
+        -   [Plugin](/docs/api/python/strands.vended_plugins.context_injector.plugin)
     -   **Context Offloader**
         -   [Plugin](/docs/api/python/strands.vended_plugins.context_offloader.plugin)
         -   [Storage](/docs/api/python/strands.vended_plugins.context_offloader.storage)
+    -   **Goal**
+        -   [Judge](/docs/api/python/strands.vended_plugins.goal.judge)
+        -   [Plugin](/docs/api/python/strands.vended_plugins.goal.plugin)
     -   **Skills**
         -   [Agent Skills](/docs/api/python/strands.vended_plugins.skills.agent_skills)
         -   [Skill](/docs/api/python/strands.vended_plugins.skills.skill)
@@ -120,6 +148,12 @@
             -   **Llm**
                 -   [Llm Handler](/docs/api/python/strands.vended_plugins.steering.handlers.llm.llm_handler)
                 -   [Mappers](/docs/api/python/strands.vended_plugins.steering.handlers.llm.mappers)
+-   **Vended Tools**
+    -   **Bash**
+        -   [Bash](/docs/api/python/strands.vended_tools.bash.bash)
+        -   [Types](/docs/api/python/strands.vended_tools.bash.types)
+    -   **File Editor**
+        -   [File Editor](/docs/api/python/strands.vended_tools.file_editor.file_editor)
 -   **Experimental**
     -   [Agent Config](/docs/api/python/strands.experimental.agent_config)
     -   **Bidi**

@@ -1,4 +1,4 @@
-Model providers occasionally encounter errors such as rate limits, service unavailability, or network timeouts. By default, the agent retries throttled responses automatically with exponential backoff. The `Agent.retry_strategy` (Python) or `Agent.retryStrategy` (TypeScript) parameter lets you customize this behavior.
+Model providers occasionally encounter errors such as rate limits, service unavailability, or network timeouts. By default, the agent retries throttled responses automatically with exponential backoff. The `Agent.retry_strategy` `Agent.retryStrategy`  parameter lets you customize this behavior.
 
 ## Default Behavior
 
@@ -122,7 +122,7 @@ const agent = new Agent({
 
 ## When Retries Occur
 
-Default retry strategies handle throttling errors (`ModelThrottledException` in Python, `ModelThrottledError` in TypeScript) raised by model providers for rate-limiting. Other exceptions propagate immediately without retry.
+Default retry strategies handle throttling errors ( `ModelThrottledException` `ModelThrottledError`  ) raised by model providers for rate-limiting. Other exceptions propagate immediately without retry.
 
 To extend or narrow the retryable set, see [Custom Retry Logic](#custom-retry-logic).
 
@@ -221,10 +221,10 @@ See [Hooks](/docs/user-guide/concepts/agents/hooks/index.md#model-call-retry) fo
 - [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (2 shared tags)
 - [Plugins](/docs/user-guide/concepts/plugins/index.md) (1 shared tag)
 - [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
+- [Chaos Testing](/docs/user-guide/evals-sdk/chaos_testing/index.md) (1 shared tag)
 - [Detectors](/docs/user-guide/evals-sdk/detectors/index.md) (1 shared tag)
 - [Failure Detection](/docs/user-guide/evals-sdk/detectors/failure_detection/index.md) (1 shared tag)
-- [Operating Agents in Production](/docs/user-guide/deploy/operating-agents-in-production/index.md) (1 shared tag)
-- [Root Cause Analysis](/docs/user-guide/evals-sdk/detectors/root_cause_analysis/index.md) (1 shared tag)
-- [Session Diagnosis](/docs/user-guide/evals-sdk/detectors/diagnosis/index.md) (1 shared tag)
 - [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
 - [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (1 shared tag)
+- [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (1 shared tag)
+- [Operating Agents in Production](/docs/user-guide/deploy/operating-agents-in-production/index.md) (1 shared tag)

@@ -7,4 +7,4 @@ type ToolResultContent =
   | DocumentBlock;
 ```
 
-Defined in: [src/types/messages.ts:318](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/types/messages.ts#L318)
+Defined in: [src/types/messages.ts:325](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/types/messages.ts#L325)

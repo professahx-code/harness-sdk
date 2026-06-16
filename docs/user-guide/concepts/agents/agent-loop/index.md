@@ -82,9 +82,9 @@ Each model invocation ends with a stop reason that determines what happens next:
 -   **End turn**: The model has finished its response and has no further actions to take. This is the normal successful termination. The loop exits and returns the model’s final message.
 -   **Tool use**: The model wants to execute one or more tools before continuing. The loop executes the requested tools, appends the results to the conversation history, and invokes the model again.
 -   **Cancelled**: The agent was stopped externally via `agent.cancel()`. See [Cancellation](#cancellation) below.
--   **Limit turns** (`limit_turns` / `limitTurns`): The per-invocation turn budget was exhausted. See [Invocation Limits](#invocation-limits).
--   **Limit total tokens** (`limit_total_tokens` / `limitTotalTokens`): The cumulative token budget was exhausted. See [Invocation Limits](#invocation-limits).
--   **Limit output tokens** (`limit_output_tokens` / `limitOutputTokens`): The output token budget was exhausted. See [Invocation Limits](#invocation-limits).
+-   **Limit turns** ( `limit_turns` `limitTurns`  ): The per-invocation turn budget was exhausted. See [Invocation Limits](#invocation-limits).
+-   **Limit total tokens** ( `limit_total_tokens` `limitTotalTokens`  ): The cumulative token budget was exhausted. See [Invocation Limits](#invocation-limits).
+-   **Limit output tokens** ( `limit_output_tokens` `limitOutputTokens`  ): The output token budget was exhausted. See [Invocation Limits](#invocation-limits).
 -   **Max tokens**: The model’s response was truncated because it hit the token limit. This is unrecoverable within the current loop. The model cannot continue from a partial response, and the loop terminates with an error.
 -   **Stop sequence**: The model encountered a configured stop sequence. Like end turn, this terminates the loop normally.
 -   **Content filtered**: The response was blocked by safety mechanisms.
@@ -307,7 +307,7 @@ Understanding the loop deeply makes these advanced patterns more approachable. T
 - [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (3 shared tags)
 - [Plugins](/docs/user-guide/concepts/plugins/index.md) (2 shared tags)
 - [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (2 shared tags)
+- [GoalLoop](/docs/user-guide/concepts/plugins/goal-loop/index.md) (2 shared tags)
 - [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
 - [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (1 shared tag)
 - [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)
-- [Human in the Loop](/docs/user-guide/concepts/agents/interventions/human-in-the-loop/index.md) (1 shared tag)

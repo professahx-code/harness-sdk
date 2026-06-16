@@ -98,8 +98,8 @@ cases = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=[StereotypingEvaluator()])
-reports = experiment.run_evaluations(task_function)
-reports[0].run_display()
+report = experiment.run_evaluations(task_function)
+report.run_display()
 ```
 
 ## Combining with Other Safety Evaluators
@@ -129,5 +129,6 @@ evaluators = [
 - [Guardrails](/docs/user-guide/safety-security/guardrails/index.md) (1 shared tag)
 - [Prompt Engineering](/docs/user-guide/safety-security/prompt-engineering/index.md) (1 shared tag)
 - [Prompts](/docs/user-guide/concepts/agents/prompts/index.md) (1 shared tag)
+- [Cedar Authorization](/docs/user-guide/concepts/agents/interventions/cedar-authorization/index.md) (1 shared tag)
 - [PII Redaction](/docs/user-guide/safety-security/pii-redaction/index.md) (1 shared tag)
 - [Amazon Bedrock](/docs/user-guide/concepts/model-providers/amazon-bedrock/index.md) (1 shared tag)

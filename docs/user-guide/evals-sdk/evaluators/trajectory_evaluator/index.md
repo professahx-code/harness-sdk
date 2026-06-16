@@ -181,8 +181,8 @@ evaluator = TrajectoryEvaluator(
 
 # Run evaluation
 experiment = Experiment[str, str](cases=test_cases, evaluators=[evaluator])
-reports = experiment.run_evaluations(get_response)
-reports[0].run_display()
+report = experiment.run_evaluations(get_response)
+report.run_display()
 ```
 
 ## Preventing Context Overflow
@@ -204,7 +204,7 @@ def task_with_many_tools(case: Case) -> dict:
     )
     evaluator.update_trajectory_description(tool_descriptions)
 
-    return TaskOutput(output=str(response), trajectory=trajectory=tools_use_extractor.extract_agent_tools_used_from_messages(agent.messages))
+    return TaskOutput(output=str(response), trajectory=tools_use_extractor.extract_agent_tools_used_from_messages(agent.messages))
 ```
 
 ## Evaluation Output
@@ -287,3 +287,6 @@ def task_with_metrics(case: Case) -> dict:
 - [Tool Parameter Accuracy Evaluator](/docs/user-guide/evals-sdk/evaluators/tool_parameter_evaluator/index.md) (1 shared tag)
 - [Tool Selection Accuracy Evaluator](/docs/user-guide/evals-sdk/evaluators/tool_selection_evaluator/index.md) (1 shared tag)
 - [Tool Simulation](/docs/user-guide/evals-sdk/simulators/tool_simulation/index.md) (1 shared tag)
+- [Failure Communication Evaluator](/docs/user-guide/evals-sdk/evaluators/failure_communication_evaluator/index.md) (1 shared tag)
+- [Partial Completion Evaluator](/docs/user-guide/evals-sdk/evaluators/partial_completion_evaluator/index.md) (1 shared tag)
+- [Recovery Strategy Evaluator](/docs/user-guide/evals-sdk/evaluators/recovery_strategy_evaluator/index.md) (1 shared tag)

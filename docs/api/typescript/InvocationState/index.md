@@ -2,7 +2,7 @@
 type InvocationState = Record<string, unknown>;
 ```
 
-Defined in: [src/types/agent.ts:82](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/types/agent.ts#L82)
+Defined in: [src/types/agent.ts:82](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/types/agent.ts#L82)
 
 Per-invocation state threaded through hooks and tools for a single agent invocation, and returned on [AgentResult.invocationState](/docs/api/typescript/AgentResult/index.md#invocationstate). One object per invocation, shared by reference; mutations by hooks or tools are visible to subsequent hooks, tools, and recursive loop cycles.
 

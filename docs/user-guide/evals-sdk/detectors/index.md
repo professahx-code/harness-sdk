@@ -108,10 +108,10 @@ experiment = Experiment(
     diagnosis_config=DiagnosisConfig(trigger=DiagnosisTrigger.ON_FAILURE),
 )
 
-reports = experiment.run_evaluations(my_task)
+report = experiment.run_evaluations(my_task)
 
 # View recommendations for failing cases
-reports[0].display(include_recommendations=True)
+report.display(include_recommendations=True)
 ```
 
 See the [Session Diagnosis guide](/docs/user-guide/evals-sdk/detectors/diagnosis/index.md) for the full integration walkthrough.
@@ -151,5 +151,9 @@ Both phases handle large sessions that exceed LLM context limits through automat
 - [Root Cause Analysis](/docs/user-guide/evals-sdk/detectors/root_cause_analysis/index.md) (2 shared tags)
 - [Session Diagnosis](/docs/user-guide/evals-sdk/detectors/diagnosis/index.md) (2 shared tags)
 - [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (1 shared tag)
+- [Chaos Testing](/docs/user-guide/evals-sdk/chaos_testing/index.md) (1 shared tag)
 - [Operating Agents in Production](/docs/user-guide/deploy/operating-agents-in-production/index.md) (1 shared tag)
+- [Failure Communication Evaluator](/docs/user-guide/evals-sdk/evaluators/failure_communication_evaluator/index.md) (1 shared tag)
+- [Partial Completion Evaluator](/docs/user-guide/evals-sdk/evaluators/partial_completion_evaluator/index.md) (1 shared tag)
+- [Recovery Strategy Evaluator](/docs/user-guide/evals-sdk/evaluators/recovery_strategy_evaluator/index.md) (1 shared tag)
 - [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (1 shared tag)

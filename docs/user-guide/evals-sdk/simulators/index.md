@@ -96,12 +96,6 @@ Key capabilities:
 
 The simulator framework is designed to be extensible. `ActorSimulator` and `ToolSimulator` provide general-purpose foundations, and additional specialized simulators can be built for specific evaluation patterns as needs emerge.
 
-## ToolSimulator
-
-The `ToolSimulator` replaces real tool execution with LLM-generated responses, enabling you to test tool-using agents without live infrastructure. It supports Pydantic output schemas and shared state between related tools.
-
-[Complete Tool Simulation Guide →](/docs/user-guide/evals-sdk/simulators/tool_simulation/index.md)
-
 ## Simulators vs Evaluators
 
 Understanding when to use simulators versus evaluators:
@@ -183,7 +177,7 @@ test_cases = [
 ]
 
 experiment = Experiment(cases=test_cases, evaluators=evaluators)
-reports = experiment.run_evaluations(task_function)
+report = experiment.run_evaluations(task_function)
 ```
 
 ## Best Practices
@@ -245,6 +239,8 @@ while simulator.has_next():
 
 ### Pattern 1: Goal Completion Testing
 
+The simulator sets `result.structured_output.stop = True` (and its own `simulator.stop` flag) when the actor signals it has completed the goal. Inspect that flag rather than scanning the message text:
+
 ```python
 def test_goal_completion(case: Case) -> bool:
     simulator = ActorSimulator.from_case_for_user_simulator(case=case)
@@ -256,10 +252,11 @@ def test_goal_completion(case: Case) -> bool:
         user_result = simulator.act(str(agent_response))
         user_message = str(user_result.structured_output.message)
 
-        if "<stop/>" in user_message:
-            return True
-
-    return False
+    # has_next() is False either because the simulator stopped (goal reached)
+    # or because max_turns was hit. Distinguish via stop_reason if needed.
+    return user_result.structured_output.stop and (
+        getattr(user_result.structured_output, "stop_reason", "") == "goal_completed"
+    )
 ```
 
 ### Pattern 2: Conversation Flow Analysis
@@ -322,4 +319,8 @@ def compare_agent_configurations(case: Case, configs: list) -> dict:
 
 - [Experiment Generator](/docs/user-guide/evals-sdk/experiment_generator/index.md) (1 shared tag)
 - [User Simulation](/docs/user-guide/evals-sdk/simulators/user_simulation/index.md) (1 shared tag)
+- [Chaos Testing](/docs/user-guide/evals-sdk/chaos_testing/index.md) (1 shared tag)
 - [Tool Simulation](/docs/user-guide/evals-sdk/simulators/tool_simulation/index.md) (1 shared tag)
+- [Failure Communication Evaluator](/docs/user-guide/evals-sdk/evaluators/failure_communication_evaluator/index.md) (1 shared tag)
+- [Partial Completion Evaluator](/docs/user-guide/evals-sdk/evaluators/partial_completion_evaluator/index.md) (1 shared tag)
+- [Recovery Strategy Evaluator](/docs/user-guide/evals-sdk/evaluators/recovery_strategy_evaluator/index.md) (1 shared tag)

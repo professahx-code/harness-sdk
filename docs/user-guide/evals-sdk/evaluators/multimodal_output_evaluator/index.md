@@ -145,8 +145,8 @@ cases = [
 
 evaluator = MultimodalOutputEvaluator(rubric=OVERALL_QUALITY_RUBRIC_V0)
 experiment = Experiment(cases=cases, evaluators=[evaluator])
-reports = experiment.run_evaluations(task_function)
-EvaluationReport.flatten(reports).run_display()
+report = experiment.run_evaluations(task_function)
+report.run_display()
 ```
 
 ### Reference-Based Evaluation
@@ -174,7 +174,7 @@ cases = [
 
 evaluator = MultimodalOutputEvaluator(rubric=CORRECTNESS_RUBRIC_V0)
 experiment = Experiment(cases=cases, evaluators=[evaluator])
-reports = experiment.run_evaluations(task_function)
+report = experiment.run_evaluations(task_function)
 ```
 
 ### Multiple Images per Case

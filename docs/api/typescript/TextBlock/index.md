@@ -1,4 +1,4 @@
-Defined in: [src/types/messages.ts:178](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/types/messages.ts#L178)
+Defined in: [src/types/messages.ts:185](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/types/messages.ts#L185)
 
 Text content block within a message.
 
@@ -15,7 +15,7 @@ Text content block within a message.
 new TextBlock(data): TextBlock;
 ```
 
-Defined in: [src/types/messages.ts:189](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/types/messages.ts#L189)
+Defined in: [src/types/messages.ts:196](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/types/messages.ts#L196)
 
 #### Parameters
 
@@ -35,7 +35,7 @@ Defined in: [src/types/messages.ts:189](https://github.com/strands-agents/harnes
 readonly type: "textBlock";
 ```
 
-Defined in: [src/types/messages.ts:182](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/types/messages.ts#L182)
+Defined in: [src/types/messages.ts:189](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/types/messages.ts#L189)
 
 Discriminator for text content.
 
@@ -47,7 +47,7 @@ Discriminator for text content.
 readonly text: string;
 ```
 
-Defined in: [src/types/messages.ts:187](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/types/messages.ts#L187)
+Defined in: [src/types/messages.ts:194](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/types/messages.ts#L194)
 
 Plain text content.
 
@@ -63,7 +63,7 @@ Plain text content.
 toJSON(): TextBlockData;
 ```
 
-Defined in: [src/types/messages.ts:197](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/types/messages.ts#L197)
+Defined in: [src/types/messages.ts:204](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/types/messages.ts#L204)
 
 Serializes the TextBlock to a JSON-compatible TextBlockData object. Called automatically by JSON.stringify().
 
@@ -85,7 +85,7 @@ JSONSerializable.toJSON
 static fromJSON(data): TextBlock;
 ```
 
-Defined in: [src/types/messages.ts:207](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/types/messages.ts#L207)
+Defined in: [src/types/messages.ts:214](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/types/messages.ts#L214)
 
 Creates a TextBlock instance from TextBlockData.
 

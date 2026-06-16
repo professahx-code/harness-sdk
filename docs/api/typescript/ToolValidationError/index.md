@@ -1,4 +1,4 @@
-Defined in: [src/errors.ts:191](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/errors.ts#L191)
+Defined in: [src/errors.ts:191](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/errors.ts#L191)
 
 Thrown when a tool fails validation during registration.
 
@@ -14,7 +14,7 @@ Thrown when a tool fails validation during registration.
 new ToolValidationError(message): ToolValidationError;
 ```
 
-Defined in: [src/errors.ts:192](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/errors.ts#L192)
+Defined in: [src/errors.ts:192](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/errors.ts#L192)
 
 #### Parameters
 

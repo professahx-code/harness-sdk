@@ -205,8 +205,8 @@ test_cases = [
 
 evaluators = [GoalSuccessRateEvaluator()]
 experiment = Experiment(cases=test_cases, evaluators=evaluators)
-reports = experiment.run_evaluations(task_function)
-reports[0].run_display()
+report = experiment.run_evaluations(task_function)
+report.run_display()
 ```
 
 ## API Reference
@@ -408,9 +408,12 @@ def tool_b(...): ...
 
 ## Related pages
 
+- [Failure Communication Evaluator](/docs/user-guide/evals-sdk/evaluators/failure_communication_evaluator/index.md) (2 shared tags)
+- [Partial Completion Evaluator](/docs/user-guide/evals-sdk/evaluators/partial_completion_evaluator/index.md) (2 shared tags)
+- [Recovery Strategy Evaluator](/docs/user-guide/evals-sdk/evaluators/recovery_strategy_evaluator/index.md) (2 shared tags)
+- [Deterministic Evaluators](/docs/user-guide/evals-sdk/evaluators/deterministic_evaluators/index.md) (1 shared tag)
 - [Experiment Generator](/docs/user-guide/evals-sdk/experiment_generator/index.md) (1 shared tag)
 - [Simulators](/docs/user-guide/evals-sdk/simulators/index.md) (1 shared tag)
-- [Deterministic Evaluators](/docs/user-guide/evals-sdk/evaluators/deterministic_evaluators/index.md) (1 shared tag)
 - [Tool Parameter Accuracy Evaluator](/docs/user-guide/evals-sdk/evaluators/tool_parameter_evaluator/index.md) (1 shared tag)
 - [Tool Selection Accuracy Evaluator](/docs/user-guide/evals-sdk/evaluators/tool_selection_evaluator/index.md) (1 shared tag)
 - [Trajectory Evaluator](/docs/user-guide/evals-sdk/evaluators/trajectory_evaluator/index.md) (1 shared tag)

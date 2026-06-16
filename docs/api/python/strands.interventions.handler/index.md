@@ -16,11 +16,13 @@ What to do when a handler throws during evaluation.
 class InterventionHandler(ABC)
 ```
 
-Defined in: [src/strands/interventions/handler.py:31](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/interventions/handler.py#L31)
+Defined in: [src/strands/interventions/handler.py:43](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/interventions/handler.py#L43)
 
 Base class for intervention handlers.
 
 Subclasses must define a `name` attribute and override the lifecycle methods they care about at the **class level**. The framework detects which methods are overridden and only calls those. Instance-level assignments (e.g., `handler.before_tool_call = my_func`) are not detected.
+
+Lifecycle methods may be implemented as either sync or `async` functions. The registry awaits any override that returns an awaitable, so an `async` handler can await I/O (a database lookup, an HTTP authorization call, a human approval prompt) before deciding on an action. The return annotations use `_MaybeAwaitable` to reflect that an override is free to return its action directly or as a coroutine.
 
 **Example**:
 
@@ -42,7 +44,7 @@ class CedarAuth(InterventionHandler):
 def name() -> str
 ```
 
-Defined in: [src/strands/interventions/handler.py:53](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/interventions/handler.py#L53)
+Defined in: [src/strands/interventions/handler.py:72](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/interventions/handler.py#L72)
 
 Unique name identifying this handler.
 
@@ -53,18 +55,19 @@ Unique name identifying this handler.
 def on_error() -> OnError
 ```
 
-Defined in: [src/strands/interventions/handler.py:58](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/interventions/handler.py#L58)
+Defined in: [src/strands/interventions/handler.py:77](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/interventions/handler.py#L77)
 
 What to do when this handler throws. Defaults to ‘throw’.
 
 #### before\_invocation
 
 ```python
-def before_invocation(event: BeforeInvocationEvent,
-                      **kwargs: Any) -> Proceed | Deny | Guide | Transform
+def before_invocation(
+        event: BeforeInvocationEvent,
+        **kwargs: Any) -> _MaybeAwaitable[Proceed | Deny | Guide | Transform]
 ```
 
-Defined in: [src/strands/interventions/handler.py:62](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/interventions/handler.py#L62)
+Defined in: [src/strands/interventions/handler.py:81](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/interventions/handler.py#L81)
 
 Called before an agent invocation begins.
 
@@ -72,11 +75,11 @@ Called before an agent invocation begins.
 
 ```python
 def before_tool_call(
-        event: BeforeToolCallEvent,
-        **kwargs: Any) -> Proceed | Deny | Guide | Confirm | Transform
+    event: BeforeToolCallEvent, **kwargs: Any
+) -> _MaybeAwaitable[Proceed | Deny | Guide | Confirm | Transform]
 ```
 
-Defined in: [src/strands/interventions/handler.py:66](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/interventions/handler.py#L66)
+Defined in: [src/strands/interventions/handler.py:87](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/interventions/handler.py#L87)
 
 Called before a tool is executed.
 
@@ -84,31 +87,33 @@ Called before a tool is executed.
 
 ```python
 def after_tool_call(event: AfterToolCallEvent,
-                    **kwargs: Any) -> Proceed | Transform
+                    **kwargs: Any) -> _MaybeAwaitable[Proceed | Transform]
 ```
 
-Defined in: [src/strands/interventions/handler.py:72](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/interventions/handler.py#L72)
+Defined in: [src/strands/interventions/handler.py:93](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/interventions/handler.py#L93)
 
 Called after a tool execution completes.
 
 #### before\_model\_call
 
 ```python
-def before_model_call(event: BeforeModelCallEvent,
-                      **kwargs: Any) -> Proceed | Deny | Guide | Transform
+def before_model_call(
+        event: BeforeModelCallEvent,
+        **kwargs: Any) -> _MaybeAwaitable[Proceed | Deny | Guide | Transform]
 ```
 
-Defined in: [src/strands/interventions/handler.py:76](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/interventions/handler.py#L76)
+Defined in: [src/strands/interventions/handler.py:97](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/interventions/handler.py#L97)
 
 Called before the model is invoked.
 
 #### after\_model\_call
 
 ```python
-def after_model_call(event: AfterModelCallEvent,
-                     **kwargs: Any) -> Proceed | Guide | Transform
+def after_model_call(
+        event: AfterModelCallEvent,
+        **kwargs: Any) -> _MaybeAwaitable[Proceed | Guide | Transform]
 ```
 
-Defined in: [src/strands/interventions/handler.py:80](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/interventions/handler.py#L80)
+Defined in: [src/strands/interventions/handler.py:103](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/interventions/handler.py#L103)
 
 Called after the model invocation completes.

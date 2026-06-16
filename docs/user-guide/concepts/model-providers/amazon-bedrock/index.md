@@ -1292,8 +1292,8 @@ Strands uses a default Claude 4 Sonnet inference model from the region of your c
 
 ## Related pages
 
-- [Guardrails](/docs/user-guide/safety-security/guardrails/index.md) (3 shared tags)
 - [Amazon Nova](/docs/user-guide/concepts/model-providers/amazon-nova/index.md) (3 shared tags)
+- [Guardrails](/docs/user-guide/safety-security/guardrails/index.md) (3 shared tags)
 - [Nova Sonic](/docs/user-guide/concepts/bidirectional-streaming/models/nova_sonic/index.md) (2 shared tags)
 - [Deploying Strands Agents to Amazon Bedrock AgentCore Runtime](/docs/user-guide/deploy/deploy_to_bedrock_agentcore/index.md) (2 shared tags)
 - [Python Deployment to Amazon Bedrock AgentCore Runtime](/docs/user-guide/deploy/deploy_to_bedrock_agentcore/python/index.md) (2 shared tags)
@@ -1301,4 +1301,4 @@ Strands uses a default Claude 4 Sonnet inference model from the region of your c
 - [AgentCore Evaluation Dashboard Configuration](/docs/user-guide/evals-sdk/how-to/agentcore_evaluation_dashboard/index.md) (2 shared tags)
 - [PII Redaction](/docs/user-guide/safety-security/pii-redaction/index.md) (2 shared tags)
 - [Result Caching](/docs/user-guide/evals-sdk/how-to/result_caching/index.md) (1 shared tag)
-- [Harmfulness Evaluator](/docs/user-guide/evals-sdk/evaluators/harmfulness_evaluator/index.md) (1 shared tag)
+- [Google](/docs/user-guide/concepts/model-providers/google/index.md) (1 shared tag)

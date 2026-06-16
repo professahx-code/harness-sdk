@@ -1,4 +1,4 @@
-Defined in: [src/sandbox/base.ts:42](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L42)
+Defined in: [src/sandbox/base.ts:42](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/sandbox/base.ts#L42)
 
 Abstract execution environment.
 
@@ -22,18 +22,6 @@ new Sandbox(): Sandbox;
 
 `Sandbox`
 
-## Properties
-
-### toolPrefix
-
-```ts
-toolPrefix: string = 'sandbox';
-```
-
-Defined in: [src/sandbox/base.ts:118](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L118)
-
-Prefix applied to tool names when registered on an agent (e.g. `'sandbox'` produces `sandbox_bash`). Set to `undefined` to disable prefixing. Defaults to `'sandbox'`.
-
 ## Methods
 
 ### executeStreaming()
@@ -44,7 +32,7 @@ abstract executeStreaming(command, options?): AsyncIterable<
 | ExecutionResult>;
 ```
 
-Defined in: [src/sandbox/base.ts:54](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L54)
+Defined in: [src/sandbox/base.ts:54](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/sandbox/base.ts#L54)
 
 Execute a shell command, streaming output.
 
@@ -76,7 +64,7 @@ abstract executeCodeStreaming(
 | ExecutionResult>;
 ```
 
-Defined in: [src/sandbox/base.ts:64](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L64)
+Defined in: [src/sandbox/base.ts:64](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/sandbox/base.ts#L64)
 
 Execute source code via a language interpreter, streaming output.
 
@@ -102,7 +90,7 @@ Async iterable yielding StreamChunks followed by a final ExecutionResult.
 abstract readFile(path): Promise<Uint8Array<ArrayBufferLike>>;
 ```
 
-Defined in: [src/sandbox/base.ts:80](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L80)
+Defined in: [src/sandbox/base.ts:80](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/sandbox/base.ts#L80)
 
 Read a file from the sandbox filesystem as raw bytes.
 
@@ -132,7 +120,7 @@ Error if the file does not exist.
 abstract writeFile(path, content): Promise<void>;
 ```
 
-Defined in: [src/sandbox/base.ts:91](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L91)
+Defined in: [src/sandbox/base.ts:91](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/sandbox/base.ts#L91)
 
 Write raw bytes to a file in the sandbox filesystem.
 
@@ -157,7 +145,7 @@ Implementations should create parent directories if they do not exist. Use [writ
 abstract removeFile(path): Promise<void>;
 ```
 
-Defined in: [src/sandbox/base.ts:99](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L99)
+Defined in: [src/sandbox/base.ts:99](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/sandbox/base.ts#L99)
 
 Remove a file from the sandbox filesystem.
 
@@ -183,7 +171,7 @@ Error if the file does not exist.
 abstract listFiles(path): Promise<FileInfo[]>;
 ```
 
-Defined in: [src/sandbox/base.ts:112](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L112)
+Defined in: [src/sandbox/base.ts:112](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/sandbox/base.ts#L112)
 
 List files in a sandbox directory.
 
@@ -213,7 +201,7 @@ Error if the directory does not exist.
 getTools(): Tool[];
 ```
 
-Defined in: [src/sandbox/base.ts:125](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L125)
+Defined in: [src/sandbox/base.ts:119](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/sandbox/base.ts#L119)
 
 Tools this sandbox vends to an agent, registered during `Agent.initialize()`. A tool is skipped if the user already registered one with the same name. Override to provide them.
 
@@ -229,7 +217,7 @@ Tools this sandbox vends to an agent, registered during `Agent.initialize()`. A 
 execute(command, options?): Promise<ExecutionResult>;
 ```
 
-Defined in: [src/sandbox/base.ts:141](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L141)
+Defined in: [src/sandbox/base.ts:135](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/sandbox/base.ts#L135)
 
 Execute a shell command and return the result.
 
@@ -259,7 +247,7 @@ executeCode(
 options?): Promise<ExecutionResult>;
 ```
 
-Defined in: [src/sandbox/base.ts:161](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L161)
+Defined in: [src/sandbox/base.ts:155](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/sandbox/base.ts#L155)
 
 Execute source code and return the result.
 
@@ -287,7 +275,7 @@ The execution result with exit code and output.
 readText(path): Promise<string>;
 ```
 
-Defined in: [src/sandbox/base.ts:179](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L179)
+Defined in: [src/sandbox/base.ts:173](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/sandbox/base.ts#L173)
 
 Read a text file from the sandbox filesystem.
 
@@ -313,7 +301,7 @@ The file contents decoded as a UTF-8 string.
 writeText(path, content): Promise<void>;
 ```
 
-Defined in: [src/sandbox/base.ts:192](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/base.ts#L192)
+Defined in: [src/sandbox/base.ts:186](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/sandbox/base.ts#L186)
 
 Write a text file to the sandbox filesystem.
 

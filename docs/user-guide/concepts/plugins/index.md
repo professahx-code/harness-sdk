@@ -1,4 +1,4 @@
-Plugins allow you to change the typical behavior of an agent. They enable you to introduce concepts like [Skills](https://agentskills.io/specification), [steering](/docs/user-guide/concepts/plugins/steering/index.md), or other behavioral modifications into the agentic loop. Plugins work by taking advantage of the low-level primitives exposed by the Agent class—`model`, `system_prompt`, `messages`, `tools`, and `hooks`—and executing logic to improve an agent’s behavior.
+Plugins allow you to change the typical behavior of an agent. They enable you to introduce concepts like [Skills](https://agentskills.io/specification), [steering](/docs/user-guide/concepts/plugins/steering/index.md), or other behavioral modifications into the agentic loop. Plugins work by taking advantage of the low-level primitives exposed by the Agent class—`model`, `system_prompt` `systemPrompt`  , `messages`, `tools`, and `hooks`—and executing logic to improve an agent’s behavior.
 
 The Strands SDK provides built-in plugins that you can use out of the box:
 
@@ -220,7 +220,7 @@ class ModelMonitorPlugin implements Plugin {
 
 ### Manual Hook and Tool Registration
 
-For more control, you can manually register hooks and tools in the `init_agent` method:
+For more control, you can manually register hooks and tools in the `init_agent` `initAgent`  method:
 
 (( tab "Python" ))
 ```python
@@ -406,10 +406,10 @@ class AsyncConfigPlugin implements Plugin {
 - [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (2 shared tags)
 - [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (2 shared tags)
 - [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (2 shared tags)
+- [GoalLoop](/docs/user-guide/concepts/plugins/goal-loop/index.md) (2 shared tags)
 - [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (2 shared tags)
 - [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (2 shared tags)
+- [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (1 shared tag)
 - [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
 - [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)
-- [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (1 shared tag)
 - [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (1 shared tag)
-- [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) (1 shared tag)

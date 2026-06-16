@@ -1,4 +1,4 @@
-Defined in: [src/memory/types.ts:171](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/memory/types.ts#L171)
+Defined in: [src/memory/types.ts:172](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/memory/types.ts#L172)
 
 Options for [MemoryManager.add](/docs/api/typescript/MemoryManager/index.md#add).
 
@@ -10,7 +10,7 @@ Options for [MemoryManager.add](/docs/api/typescript/MemoryManager/index.md#add)
 optional metadata?: Record<string, JSONValue>;
 ```
 
-Defined in: [src/memory/types.ts:173](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/memory/types.ts#L173)
+Defined in: [src/memory/types.ts:174](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/memory/types.ts#L174)
 
 Metadata to associate with the added entry.
 
@@ -22,6 +22,6 @@ Metadata to associate with the added entry.
 optional stores?: string[];
 ```
 
-Defined in: [src/memory/types.ts:175](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/memory/types.ts#L175)
+Defined in: [src/memory/types.ts:176](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/memory/types.ts#L176)
 
 Filter to specific writable stores by name. Omit to write to all writable stores.

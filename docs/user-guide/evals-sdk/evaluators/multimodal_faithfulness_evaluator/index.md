@@ -85,13 +85,13 @@ cases = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=[MultimodalFaithfulnessEvaluator()])
-reports = experiment.run_evaluations(task_function)
-EvaluationReport.flatten(reports).run_display()
+report = experiment.run_evaluations(task_function)
+report.run_display()
 ```
 
 ## Combining with Other Evaluators
 
-Pair with correctness to distinguish “wrong” from “ungrounded”. `Experiment.run_evaluations` returns one report per evaluator, so use `EvaluationReport.flatten` to view them together:
+Pair with correctness to distinguish “wrong” from “ungrounded”. `Experiment.run_evaluations` returns one combined report across all evaluators — each row in `report.cases` carries an `evaluator` key naming the producing evaluator:
 
 ```python
 from strands_evals import Experiment
@@ -107,8 +107,8 @@ evaluators = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=evaluators)
-reports = experiment.run_evaluations(task_function)
-EvaluationReport.flatten(reports).run_display()
+report = experiment.run_evaluations(task_function)
+report.run_display()
 ```
 
 ## Related Evaluators

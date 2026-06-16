@@ -8,7 +8,7 @@ Mirrors `strands-ts/src/sandbox/ssh.ts`.
 class SshSandbox(PosixShellSandbox)
 ```
 
-Defined in: [src/strands/sandbox/ssh.py:62](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/ssh.py#L62)
+Defined in: [src/strands/sandbox/ssh.py:67](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/ssh.py#L67)
 
 Execute commands on a remote host via SSH.
 
@@ -29,7 +29,7 @@ def __init__(host: str,
              allow_unsafe_ssh_options: bool = False) -> None
 ```
 
-Defined in: [src/strands/sandbox/ssh.py:74](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/ssh.py#L74)
+Defined in: [src/strands/sandbox/ssh.py:79](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/ssh.py#L79)
 
 Initialize the SSH sandbox.
 
@@ -59,7 +59,7 @@ async def execute_streaming(
         **kwargs: Any) -> AsyncGenerator[StreamChunk | ExecutionResult, None]
 ```
 
-Defined in: [src/strands/sandbox/ssh.py:121](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/ssh.py#L121)
+Defined in: [src/strands/sandbox/ssh.py:126](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/ssh.py#L126)
 
 Execute a command on the remote host, streaming output.
 
@@ -78,4 +78,18 @@ Execute a command on the remote host, streaming output.
 **Raises**:
 
 -   `ValueError` - If an environment variable name is invalid.
--   `TimeoutError` - If execution exceeds `timeout` seconds.
+-   `SandboxTimeoutError` - If execution exceeds `timeout` seconds.
+
+#### get\_tools
+
+```python
+def get_tools() -> list[AgentTool]
+```
+
+Defined in: [src/strands/sandbox/ssh.py:182](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/ssh.py#L182)
+
+Default sandbox-compatible tools auto-registered with this sandbox.
+
+**Returns**:
+
+The tools bound to this sandbox, with descriptions naming the remote host.

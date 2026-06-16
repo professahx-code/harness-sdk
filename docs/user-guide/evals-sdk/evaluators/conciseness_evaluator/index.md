@@ -90,8 +90,8 @@ cases = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=[ConcisenessEvaluator()])
-reports = experiment.run_evaluations(task_function)
-reports[0].run_display()
+report = experiment.run_evaluations(task_function)
+report.run_display()
 ```
 
 ## Related Evaluators
@@ -107,8 +107,8 @@ reports[0].run_display()
 - [Helpfulness Evaluator](/docs/user-guide/evals-sdk/evaluators/helpfulness_evaluator/index.md) (1 shared tag)
 - [Interactions Evaluator](/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md) (1 shared tag)
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
-- [Context Management](/docs/user-guide/concepts/context-management/index.md) (1 shared tag)
 - [User Simulation](/docs/user-guide/evals-sdk/simulators/user_simulation/index.md) (1 shared tag)
+- [Context Management](/docs/user-guide/concepts/context-management/index.md) (1 shared tag)
 - [Prompt Engineering](/docs/user-guide/safety-security/prompt-engineering/index.md) (1 shared tag)
 - [Prompts](/docs/user-guide/concepts/agents/prompts/index.md) (1 shared tag)
 - [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (1 shared tag)

@@ -192,7 +192,7 @@ Create new experiments inspired by existing ones:
 ```python
 async def generate_from_experiment():
     # Load existing experiment
-    source_experiment = Experiment.from_file("original_experiment", "json")
+    source_experiment = Experiment.from_file("original_experiment.json")
 
     # Generate similar experiment for new task
     new_experiment = await generator.from_experiment_async(
@@ -210,7 +210,7 @@ Extend experiments with additional test cases:
 
 ```python
 async def update_experiment():
-    source_experiment = Experiment.from_file("current_experiment", "json")
+    source_experiment = Experiment.from_file("current_experiment.json")
 
     updated_experiment = await generator.update_current_experiment_async(
         source_experiment=source_experiment,
@@ -277,7 +277,7 @@ generator = ExperimentGenerator[str, str](
 ```python
 import asyncio
 from strands_evals.generators import ExperimentGenerator
-from strands_evals.evaluators import TrajectoryEvaluator, HelpfulnessEvaluator
+from strands_evals.evaluators import OutputEvaluator, TrajectoryEvaluator
 
 async def create_comprehensive_dataset():
     # Initialize generator with trajectory support
@@ -324,17 +324,22 @@ async def create_comprehensive_dataset():
 
     print(f"Expanded to {len(expanded_experiment.cases)} total cases")
 
-    # Step 3: Add helpfulness evaluator
-    print("\nStep 3: Adding helpfulness evaluator...")
-    helpfulness_eval = await generator.construct_evaluator_async(
-        prompt="Evaluate helpfulness for research and content creation tasks",
-        evaluator=HelpfulnessEvaluator
+    # Step 3: Add a second LLM-judge evaluator built on a generated rubric.
+    # construct_evaluator_async only accepts the default evaluator classes
+    # (OutputEvaluator, TrajectoryEvaluator, InteractionsEvaluator).
+    print("\nStep 3: Adding output-quality evaluator...")
+    output_eval = await generator.construct_evaluator_async(
+        prompt="Evaluate output quality for research and content creation tasks",
+        evaluator=OutputEvaluator
     )
-    expanded_experiment.evaluators.append(helpfulness_eval)
+    expanded_experiment.evaluators.append(output_eval)
+
+    # For non-default evaluators (e.g. HelpfulnessEvaluator), instantiate directly:
+    # expanded_experiment.evaluators.append(HelpfulnessEvaluator())
 
     # Step 4: Save experiment
-    expanded_experiment.to_file("comprehensive_dataset", "json")
-    print("\nDataset saved to ./experiment_files/comprehensive_dataset.json")
+    expanded_experiment.to_file("comprehensive_dataset")
+    print("\nDataset saved to ./comprehensive_dataset.json")
 
     return expanded_experiment
 
@@ -427,7 +432,7 @@ expanded = await generator.update_current_experiment_async(
 
 ```python
 # Save after each generation step
-experiment.to_file(f"experiment_v{version}", "json")
+experiment.to_file(f"experiment_v{version}")
 ```
 
 ## Common Patterns
@@ -446,7 +451,7 @@ async def bootstrap_evaluation():
         evaluator=OutputEvaluator
     )
 
-    experiment.to_file("initial_suite", "json")
+    experiment.to_file("initial_suite")
     return experiment
 ```
 
@@ -454,7 +459,7 @@ async def bootstrap_evaluation():
 
 ```python
 async def adapt_for_new_task():
-    source = Experiment.from_file("existing_experiment", "json")
+    source = Experiment.from_file("existing_experiment.json")
     generator = ExperimentGenerator[str, str](str, str)
 
     adapted = await generator.from_experiment_async(
@@ -471,7 +476,7 @@ async def adapt_for_new_task():
 
 ```python
 async def expand_incrementally():
-    experiment = Experiment.from_file("current", "json")
+    experiment = Experiment.from_file("current.json")
     generator = ExperimentGenerator[str, str](str, str)
 
     # Add edge cases
@@ -556,4 +561,8 @@ experiment = await generator.from_context_async(
 
 - [Simulators](/docs/user-guide/evals-sdk/simulators/index.md) (1 shared tag)
 - [User Simulation](/docs/user-guide/evals-sdk/simulators/user_simulation/index.md) (1 shared tag)
+- [Chaos Testing](/docs/user-guide/evals-sdk/chaos_testing/index.md) (1 shared tag)
 - [Tool Simulation](/docs/user-guide/evals-sdk/simulators/tool_simulation/index.md) (1 shared tag)
+- [Failure Communication Evaluator](/docs/user-guide/evals-sdk/evaluators/failure_communication_evaluator/index.md) (1 shared tag)
+- [Partial Completion Evaluator](/docs/user-guide/evals-sdk/evaluators/partial_completion_evaluator/index.md) (1 shared tag)
+- [Recovery Strategy Evaluator](/docs/user-guide/evals-sdk/evaluators/recovery_strategy_evaluator/index.md) (1 shared tag)

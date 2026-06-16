@@ -16,7 +16,7 @@ Idiomatic divergences from the TypeScript oracle (see PR description):
 class Sandbox(ABC)
 ```
 
-Defined in: [src/strands/sandbox/base.py:35](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/base.py#L35)
+Defined in: [src/strands/sandbox/base.py:36](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/base.py#L36)
 
 Abstract execution environment.
 
@@ -49,7 +49,7 @@ async def execute_streaming(
         **kwargs: Any) -> AsyncGenerator[StreamChunk | ExecutionResult, None]
 ```
 
-Defined in: [src/strands/sandbox/base.py:69](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/base.py#L69)
+Defined in: [src/strands/sandbox/base.py:70](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/base.py#L70)
 
 Execute a shell command, streaming output.
 
@@ -81,7 +81,7 @@ async def execute_code_streaming(
         **kwargs: Any) -> AsyncGenerator[StreamChunk | ExecutionResult, None]
 ```
 
-Defined in: [src/strands/sandbox/base.py:105](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/base.py#L105)
+Defined in: [src/strands/sandbox/base.py:106](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/base.py#L106)
 
 Execute source code via a language interpreter, streaming output.
 
@@ -105,7 +105,7 @@ Execute source code via a language interpreter, streaming output.
 async def read_file(path: str, **kwargs: Any) -> bytes
 ```
 
-Defined in: [src/strands/sandbox/base.py:134](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/base.py#L134)
+Defined in: [src/strands/sandbox/base.py:135](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/base.py#L135)
 
 Read a file from the sandbox filesystem as raw bytes.
 
@@ -131,7 +131,7 @@ The file contents as raw bytes.
 async def write_file(path: str, content: bytes, **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/sandbox/base.py:153](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/base.py#L153)
+Defined in: [src/strands/sandbox/base.py:154](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/base.py#L154)
 
 Write raw bytes to a file in the sandbox filesystem.
 
@@ -154,7 +154,7 @@ Implementations should create parent directories if they do not exist. Use :meth
 async def remove_file(path: str, **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/sandbox/base.py:170](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/base.py#L170)
+Defined in: [src/strands/sandbox/base.py:171](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/base.py#L171)
 
 Remove a file from the sandbox filesystem.
 
@@ -174,7 +174,7 @@ Remove a file from the sandbox filesystem.
 async def list_files(path: str, **kwargs: Any) -> list[FileInfo]
 ```
 
-Defined in: [src/strands/sandbox/base.py:183](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/base.py#L183)
+Defined in: [src/strands/sandbox/base.py:184](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/base.py#L184)
 
 List files in a sandbox directory.
 
@@ -193,6 +193,22 @@ A list of :class:`FileInfo` entries for the directory contents.
 
 -   `FileNotFoundError` - If the directory does not exist.
 
+#### get\_tools
+
+```python
+def get_tools() -> list[AgentTool]
+```
+
+Defined in: [src/strands/sandbox/base.py:205](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/base.py#L205)
+
+Tools this sandbox vends to an agent.
+
+Returned tools are registered when the agent initializes; a tool is skipped if the user already registered one with the same name. The base implementation vends nothing; concrete sandboxes override this.
+
+**Returns**:
+
+The tools to register, or an empty list.
+
 #### execute
 
 ```python
@@ -204,7 +220,7 @@ async def execute(command: str,
                   **kwargs: Any) -> ExecutionResult
 ```
 
-Defined in: [src/strands/sandbox/base.py:204](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/base.py#L204)
+Defined in: [src/strands/sandbox/base.py:219](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/base.py#L219)
 
 Execute a shell command and return the result.
 
@@ -238,7 +254,7 @@ async def execute_code(code: str,
                        **kwargs: Any) -> ExecutionResult
 ```
 
-Defined in: [src/strands/sandbox/base.py:239](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/base.py#L239)
+Defined in: [src/strands/sandbox/base.py:254](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/base.py#L254)
 
 Execute source code and return the result.
 
@@ -267,7 +283,7 @@ The execution result with exit code and output.
 async def read_text(path: str, encoding: str = "utf-8", **kwargs: Any) -> str
 ```
 
-Defined in: [src/strands/sandbox/base.py:278](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/base.py#L278)
+Defined in: [src/strands/sandbox/base.py:293](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/base.py#L293)
 
 Read a text file from the sandbox filesystem.
 
@@ -292,7 +308,7 @@ async def write_text(path: str,
                      **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/sandbox/base.py:295](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/base.py#L295)
+Defined in: [src/strands/sandbox/base.py:310](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/base.py#L310)
 
 Write a text file to the sandbox filesystem.
 

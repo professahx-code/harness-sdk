@@ -100,8 +100,8 @@ evaluator = ToolParameterAccuracyEvaluator()
 
 # Run evaluation
 experiment = Experiment[str, str](cases=test_cases, evaluators=[evaluator])
-reports = experiment.run_evaluations(user_task_function)
-reports[0].run_display()
+report = experiment.run_evaluations(user_task_function)
+report.run_display()
 ```
 
 ## Evaluation Output
@@ -160,3 +160,6 @@ The judge determines if each parameter value can be traced back to information i
 - [Tool Selection Accuracy Evaluator](/docs/user-guide/evals-sdk/evaluators/tool_selection_evaluator/index.md) (1 shared tag)
 - [Trajectory Evaluator](/docs/user-guide/evals-sdk/evaluators/trajectory_evaluator/index.md) (1 shared tag)
 - [Tool Simulation](/docs/user-guide/evals-sdk/simulators/tool_simulation/index.md) (1 shared tag)
+- [Failure Communication Evaluator](/docs/user-guide/evals-sdk/evaluators/failure_communication_evaluator/index.md) (1 shared tag)
+- [Partial Completion Evaluator](/docs/user-guide/evals-sdk/evaluators/partial_completion_evaluator/index.md) (1 shared tag)
+- [Recovery Strategy Evaluator](/docs/user-guide/evals-sdk/evaluators/recovery_strategy_evaluator/index.md) (1 shared tag)

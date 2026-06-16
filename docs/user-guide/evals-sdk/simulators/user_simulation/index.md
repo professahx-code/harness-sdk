@@ -203,8 +203,8 @@ test_cases = [
 # Run evaluation
 evaluators = [HelpfulnessEvaluator()]
 experiment = Experiment(cases=test_cases, evaluators=evaluators)
-reports = experiment.run_evaluations(task_function)
-reports[0].run_display()
+report = experiment.run_evaluations(task_function)
+report.run_display()
 ```
 
 ## Conversation Control
@@ -213,8 +213,10 @@ reports[0].run_display()
 
 The simulator automatically stops when:
 
-1.  **Goal Completion**: Actor includes `<stop/>` token in message
-2.  **Turn Limit**: Maximum number of turns is reached
+1.  **Goal Completion**: The actor sets `stop=True` on its structured output (signalling the goal has been reached). `simulator.stop` is then `True` and `has_next()` returns `False`.
+2.  **Turn Limit**: The configured `max_turns` is reached.
+
+Detect goal completion via `user_result.structured_output.stop` rather than scanning the message text.
 
 ```python
 user_sim = ActorSimulator.from_case_for_user_simulator(
@@ -282,7 +284,7 @@ Guidelines:
 - Be concise and direct
 - Ask clarifying questions when needed
 - Express satisfaction when goals are met
-- Include <stop/> when your goal is achieved
+- Set `stop=True` on your structured response when your goal is achieved
 """
 
 user_sim = ActorSimulator.from_case_for_user_simulator(
@@ -314,7 +316,7 @@ user_sim = ActorSimulator.from_case_for_user_simulator(
 ```python
 user_sim = ActorSimulator.from_case_for_user_simulator(
     case=case,
-    model="anthropic.claude-3-5-sonnet-20241022-v2:0",  # Specific model
+    model="global.anthropic.claude-sonnet-4-6",  # Specific model
     max_turns=10
 )
 ```
@@ -431,14 +433,11 @@ evaluators = [
 ]
 
 experiment = Experiment(cases=test_cases, evaluators=evaluators)
-reports = experiment.run_evaluations(customer_service_task)
+report = experiment.run_evaluations(customer_service_task)
 
-# Display results
-for report in reports:
-    print(f"\n{'='*60}")
-    print(f"Evaluator: {report.evaluator_name}")
-    print(f"{'='*60}")
-    report.run_display()
+# The experiment returns a single combined report — each row in `report.cases`
+# carries an `evaluator` key naming the producing evaluator.
+report.run_display()
 ```
 
 ## Best Practices
@@ -526,19 +525,20 @@ def test_goal_completion(case: Case) -> bool:
     agent = Agent(system_prompt="Your agent prompt")
 
     user_message = case.input
-    goal_completed = False
+    user_result = None
 
     while user_sim.has_next():
         agent_response = agent(user_message)
         user_result = user_sim.act(str(agent_response))
         user_message = str(user_result.structured_output.message)
 
-        # Check for stop token
-        if "<stop/>" in user_message:
-            goal_completed = True
-            break
-
-    return goal_completed
+    # Goal completion is signalled via `stop=True` (with `stop_reason="goal_completed"`
+    # to distinguish it from hitting `max_turns`).
+    return bool(
+        user_result
+        and user_result.structured_output.stop
+        and getattr(user_result.structured_output, "stop_reason", "") == "goal_completed"
+    )
 ```
 
 ### Pattern 2: Multi-Evaluator Assessment
@@ -551,7 +551,7 @@ def comprehensive_evaluation(case: Case) -> dict:
         "output": final_message,
         "trajectory": session,
         "turns_taken": turn_count,
-        "goal_completed": "<stop/>" in last_user_message
+        "goal_completed": bool(last_user_result and last_user_result.structured_output.stop),
     }
 
 evaluators = [
@@ -561,7 +561,7 @@ evaluators = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=evaluators)
-reports = experiment.run_evaluations(comprehensive_evaluation)
+report = experiment.run_evaluations(comprehensive_evaluation)
 ```
 
 ### Pattern 3: Conversation Analysis
@@ -632,7 +632,7 @@ Be natural and human-like:
 - Don't be overly formal
 - Ask follow-up questions naturally
 - Express emotions appropriately
-- Include <stop/> only when truly satisfied
+- Set `stop=True` only when truly satisfied
 """
 
 user_sim = ActorSimulator.from_case_for_user_simulator(
@@ -670,5 +670,5 @@ while user_sim.has_next():
 - [Helpfulness Evaluator](/docs/user-guide/evals-sdk/evaluators/helpfulness_evaluator/index.md) (1 shared tag)
 - [Interactions Evaluator](/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md) (1 shared tag)
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
+- [Chaos Testing](/docs/user-guide/evals-sdk/chaos_testing/index.md) (1 shared tag)
 - [Tool Simulation](/docs/user-guide/evals-sdk/simulators/tool_simulation/index.md) (1 shared tag)
-- [Context Management](/docs/user-guide/concepts/context-management/index.md) (1 shared tag)

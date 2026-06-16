@@ -30,7 +30,7 @@ storage = S3Storage(bucket="my-bucket", prefix="artifacts/")
 class Storage(Protocol)
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:58](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L58)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:64](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L64)
 
 Backend for storing and retrieving offloaded content blocks.
 
@@ -41,10 +41,12 @@ Lifecycle: This protocol intentionally does not include eviction or deletion met
 #### store
 
 ```python
-def store(key: str, content: bytes, content_type: str = "text/plain") -> str
+async def store(key: str,
+                content: bytes,
+                content_type: str = "text/plain") -> str
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:73](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L73)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:79](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L79)
 
 Store content and return a reference identifier.
 
@@ -61,10 +63,10 @@ A reference string that can be used to retrieve the content later.
 #### retrieve
 
 ```python
-def retrieve(reference: str) -> tuple[bytes, str]
+async def retrieve(reference: str) -> tuple[bytes, str]
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:87](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L87)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:93](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L93)
 
 Retrieve stored content by reference.
 
@@ -86,37 +88,65 @@ A tuple of (content bytes, content type).
 class FileStorage()
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:102](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L102)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:108](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L108)
 
-Store offloaded content as files on disk.
+Store offloaded content as files, on the host filesystem or through a sandbox.
 
 Files are written to the configured artifact directory with unique names. File extensions are derived from the content type. A `.metadata.json` sidecar file tracks content types so they survive process restarts.
+
+When constructed without a `sandbox`, writes go to the host filesystem. When used by :class:`ContextOffloader`, the plugin binds a per-agent copy to that agent’s sandbox (which may be the host default) via :meth:`for_sandbox`.
 
 **Arguments**:
 
 -   `artifact_dir` - Directory path where artifact files will be stored.
+-   `sandbox` - Optional sandbox to route file I/O through. When `None`, the host filesystem is used directly.
 
 #### \_\_init\_\_
 
 ```python
-def __init__(artifact_dir: str = "./artifacts") -> None
+def __init__(artifact_dir: str = "./artifacts",
+             *,
+             sandbox: "Sandbox | None" = None) -> None
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:115](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L115)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:127](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L127)
 
 Initialize file-based storage.
 
 **Arguments**:
 
 -   `artifact_dir` - Directory path where artifact files will be stored.
+-   `sandbox` - Optional sandbox to route file I/O through.
+
+#### for\_sandbox
+
+```python
+def for_sandbox(sandbox: "Sandbox") -> "FileStorage"
+```
+
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:147](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L147)
+
+Return a storage instance bound to the given sandbox.
+
+Instances constructed with an explicit sandbox keep using it (returns `self`). Otherwise a new instance is returned so a shared :class:`ContextOffloader` can isolate artifacts per agent sandbox.
+
+**Arguments**:
+
+-   `sandbox` - Sandbox to bind the returned instance to.
+
+**Returns**:
+
+A FileStorage routed through `sandbox`.
 
 #### store
 
 ```python
-def store(key: str, content: bytes, content_type: str = "text/plain") -> str
+async def store(key: str,
+                content: bytes,
+                content_type: str = "text/plain") -> str
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:133](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L133)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:175](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L175)
 
 Store content as a file and return the path as reference.
 
@@ -135,10 +165,10 @@ The file path (e.g., `./artifacts/1234_1_key.txt`).
 #### retrieve
 
 ```python
-def retrieve(reference: str) -> tuple[bytes, str]
+async def retrieve(reference: str) -> tuple[bytes, str]
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:165](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L165)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:217](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L217)
 
 Retrieve content from a stored file.
 
@@ -162,33 +192,52 @@ A tuple of (content bytes, content type).
 class InMemoryStorage()
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:210](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L210)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:287](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L287)
 
 Store offloaded content in memory.
 
 Useful for testing and serverless environments where disk access is not available or not desired. Thread-safe.
 
+Supports turn-based eviction: entries not accessed (stored or retrieved) within `evict_after_turns` agent loop cycles are automatically removed. The `ContextOffloader` plugin triggers eviction on each model invocation cycle. Eviction is enabled by default (20 cycles). Pass `None` to disable.
+
 **Notes**:
 
-Content accumulates for the lifetime of this instance. For long-running agents, consider creating a new instance per session or switching to `FileStorage` or `S3Storage` for persistent storage with external lifecycle management.
+Content does not survive process restarts. For multi-session persistence, use `FileStorage` or `S3Storage`. Each agent should use its own `InMemoryStorage` instance — sharing one across multiple agents is not supported when eviction is enabled.
+
+Evicted entries are permanently deleted from memory. The agent will receive an error if it attempts to retrieve evicted content. The original tool result is not preserved in the conversation history after offloading — only the preview and references remain in context.
+
+**Arguments**:
+
+-   `evict_after_turns` - Number of cycles of inactivity before an entry is evicted. Defaults to 20. `None` disables eviction.
 
 #### \_\_init\_\_
 
 ```python
-def __init__() -> None
+def __init__(
+        evict_after_turns: int | None = _DEFAULT_EVICT_AFTER_TURNS) -> None
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:223](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L223)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:316](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L316)
 
 Initialize in-memory storage.
+
+**Arguments**:
+
+-   `evict_after_turns` - Number of cycles of inactivity before an entry is evicted. Defaults to 20. `None` disables eviction.
+
+**Raises**:
+
+-   `ValueError` - If evict\_after\_turns is not a positive integer.
 
 #### store
 
 ```python
-def store(key: str, content: bytes, content_type: str = "text/plain") -> str
+async def store(key: str,
+                content: bytes,
+                content_type: str = "text/plain") -> str
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:229](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L229)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:336](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L336)
 
 Store content in memory and return a reference.
 
@@ -205,12 +254,14 @@ A unique reference string.
 #### retrieve
 
 ```python
-def retrieve(reference: str) -> tuple[bytes, str]
+async def retrieve(reference: str) -> tuple[bytes, str]
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:246](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L246)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:353](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L353)
 
 Retrieve content from memory.
+
+Refreshes the last-accessed turn so the entry stays alive longer when eviction is enabled.
 
 **Arguments**:
 
@@ -222,7 +273,7 @@ A tuple of (content bytes, content type).
 
 **Raises**:
 
--   `KeyError` - If the reference is not found.
+-   `KeyError` - If the reference is not found (or was evicted).
 
 #### clear
 
@@ -230,7 +281,7 @@ A tuple of (content bytes, content type).
 def clear() -> None
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:263](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L263)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:411](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L411)
 
 Remove all stored content.
 
@@ -242,7 +293,7 @@ Call this to free memory when offloaded results are no longer needed, e.g., betw
 class S3Storage()
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:273](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L273)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:421](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L421)
 
 Store offloaded content in Amazon S3.
 
@@ -277,7 +328,7 @@ def __init__(bucket: str,
              region_name: str | None = None) -> None
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:298](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L298)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:446](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L446)
 
 Initialize S3-based storage.
 
@@ -292,10 +343,12 @@ Initialize S3-based storage.
 #### store
 
 ```python
-def store(key: str, content: bytes, content_type: str = "text/plain") -> str
+async def store(key: str,
+                content: bytes,
+                content_type: str = "text/plain") -> str
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:334](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L334)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:482](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L482)
 
 Store content as an S3 object and return an `s3://` URI as reference.
 
@@ -316,10 +369,10 @@ An S3 URI (e.g., `s3://bucket/prefix/1234_1_key`).
 #### retrieve
 
 ```python
-def retrieve(reference: str) -> tuple[bytes, str]
+async def retrieve(reference: str) -> tuple[bytes, str]
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:365](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L365)
+Defined in: [src/strands/vended\_plugins/context\_offloader/storage.py:513](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py#L513)
 
 Retrieve content from an S3 object.
 

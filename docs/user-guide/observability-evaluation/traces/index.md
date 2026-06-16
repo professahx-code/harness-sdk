@@ -431,7 +431,7 @@ span.end()
 
 Tip
 
-`getTracer()` (TypeScript) and `trace.get_tracer()` (Python) use the global tracer provider. When you use `setupTracer()` or `StrandsTelemetry()` without a custom provider, it’s automatically registered as global — so your custom spans will use the same provider as the agent’s auto-instrumented spans.
+`trace.get_tracer()` `getTracer()`  uses the global tracer provider. When you use `StrandsTelemetry()` `setupTracer()`  without a custom provider, it’s automatically registered as global — so your custom spans will use the same provider as the agent’s auto-instrumented spans.
 
 ### Configuring the exporters from source code
 

@@ -1,4 +1,4 @@
-Defined in: [src/memory/extraction/types.ts:101](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/memory/extraction/types.ts#L101)
+Defined in: [src/memory/extraction/types.ts:101](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/memory/extraction/types.ts#L101)
 
 Controls when a store’s [ExtractionConfig](/docs/api/typescript/ExtractionConfig/index.md) runs.
 
@@ -31,7 +31,7 @@ new ExtractionTrigger(): ExtractionTrigger;
 abstract readonly name: string;
 ```
 
-Defined in: [src/memory/extraction/types.ts:103](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/memory/extraction/types.ts#L103)
+Defined in: [src/memory/extraction/types.ts:103](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/memory/extraction/types.ts#L103)
 
 Stable identifier for this trigger kind, used in logging.
 
@@ -43,7 +43,7 @@ Stable identifier for this trigger kind, used in logging.
 abstract attach(context): void;
 ```
 
-Defined in: [src/memory/extraction/types.ts:113](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/memory/extraction/types.ts#L113)
+Defined in: [src/memory/extraction/types.ts:113](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/memory/extraction/types.ts#L113)
 
 Wire this trigger into the agent lifecycle.
 

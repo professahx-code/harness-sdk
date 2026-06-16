@@ -6,7 +6,7 @@ Summarizing conversation history management with configurable options.
 class SummarizingConversationManager(ConversationManager)
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:55](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L55)
+Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:33](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L33)
 
 Implements a summarizing window manager.
 
@@ -25,7 +25,7 @@ def __init__(summary_ratio: float = 0.3,
              | None = None)
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:63](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L63)
+Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:41](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L41)
 
 Initialize the summarizing conversation manager.
 
@@ -48,7 +48,7 @@ Initialize the summarizing conversation manager.
 def restore_from_session(state: dict[str, Any]) -> list[Message] | None
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:107](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L107)
+Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:85](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L85)
 
 Restores the Summarizing Conversation manager from its previous state in a session.
 
@@ -66,7 +66,7 @@ Optionally returns the previous conversation summary if it exists.
 def get_state() -> dict[str, Any]
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:120](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L120)
+Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:98](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L98)
 
 Returns a dictionary representation of the state for the Summarizing Conversation Manager.
 
@@ -76,7 +76,7 @@ Returns a dictionary representation of the state for the Summarizing Conversatio
 def apply_management(agent: "Agent", **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:124](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L124)
+Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:102](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L102)
 
 Apply management strategy to conversation history.
 
@@ -95,7 +95,7 @@ def reduce_context(agent: "Agent",
                    **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:138](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L138)
+Defined in: [src/strands/agent/conversation\_manager/summarizing\_conversation\_manager.py:116](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py#L116)
 
 Reduce context using summarization.
 

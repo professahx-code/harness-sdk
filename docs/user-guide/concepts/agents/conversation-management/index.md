@@ -100,7 +100,7 @@ Key features of the `SlidingWindowConversationManager`:
     
 -   **Overflow Trimming**: In the case of a context window overflow, it will trim the oldest messages from history until the request fits in the models context window.
     
--   **Configurable Tool Result Truncation**: Enable or disable truncation of tool results when the message exceeds context window limits. When enabled (the default; `should_truncate_results=True` in Python, `shouldTruncateResults: true` in TypeScript), the oldest message with tool results is truncated first so recent context is preserved as long as possible. Truncation depends on content type:
+-   **Configurable Tool Result Truncation**: Enable or disable truncation of tool results when the message exceeds context window limits. When enabled (the default; `should_truncate_results=True` `shouldTruncateResults: true`  ), the oldest message with tool results is truncated first so recent context is preserved as long as possible. Truncation depends on content type:
     
     -   Text payloads keep their head and tail, separated by a `<truncated chars="N"/>` marker.
     -   Images, videos, binary documents, and oversized JSON are replaced by a typed placeholder, for example `[image: png, source: bytes, 12345 bytes]`.
@@ -109,6 +109,8 @@ Key features of the `SlidingWindowConversationManager`:
     When disabled, full results are preserved but more historical messages may be removed. For a proactive alternative that preserves full content externally, see the [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) plugin.
     
 -   **Per-Turn Management**: Optionally apply context management proactively during the agent loop execution, not just at the end.
+    
+-   **Message Pinning**: Protect specific messages from trimming during context reduction. See [Message Pinning](#message-pinning).
     
 -   **Proactive Compression**: Pass `proactiveCompression: true` or `proactiveCompression: { compressionThreshold: 0.7 }` to trigger context reduction before the model call when projected input tokens exceed a configurable threshold. See [Proactive Context Compression](#proactive-context-compression).
     
@@ -357,8 +359,62 @@ const agent = new Agent({
 -   **Context Window Management**: Automatically reduces context when token limits are exceeded
 -   **Intelligent Summarization**: Uses structured bullet-point summaries to capture key information
 -   **Tool Pair Preservation**: Ensures tool use and result message pairs aren’t broken during summarization
+-   **Message Pinning**: Protect specific messages from summarization during context reduction. See [Message Pinning](#message-pinning).
 -   **Flexible Configuration**: Customize summarization behavior through various parameters
 -   **Fallback Safety**: Handles summarization failures gracefully
+
+## Message Pinning
+
+Message pinning protects specific messages from eviction during context reduction. Pinned messages survive both sliding-window trimming and summarization, which makes pinning useful for preserving system prompts, critical instructions, or key decisions that must remain in the conversation regardless of length.
+
+Messages are pinned by setting `metadata.custom.pinned = true` on the message object. The SDK provides both a declarative configuration (`pin_first` / `pinFirst`) and runtime utility functions for programmatic control.
+
+### Protecting Initial Messages with `pin_first`
+
+Both `SlidingWindowConversationManager` and `SummarizingConversationManager` accept a `pin_first` (Python) / `pinFirst` (TypeScript) parameter that permanently protects the first N messages from eviction. This is the simplest way to preserve system prompts or initial instructions across all context reductions.
+
+(( tab "Python" ))
+```python
+from strands import Agent
+from strands.agent.conversation_manager import SlidingWindowConversationManager
+
+agent = Agent(
+    conversation_manager=SlidingWindowConversationManager(
+        window_size=40,
+        pin_first=1,
+    )
+)
+```
+
+The same parameter works with `SummarizingConversationManager`:
+
+```python
+from strands.agent.conversation_manager import SummarizingConversationManager
+
+agent = Agent(
+    conversation_manager=SummarizingConversationManager(
+        pin_first=2,
+    )
+)
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import { Agent, SlidingWindowConversationManager } from '@strands-agents/sdk'
+
+const agent = new Agent({
+  conversationManager: new SlidingWindowConversationManager({
+    windowSize: 40,
+    pinFirst: 1,
+  }),
+})
+```
+
+The same parameter works with `SummarizingConversationManager`.
+(( /tab "TypeScript" ))
+
+The pin metadata is written during the first context reduction and remains set permanently, protecting those messages through all subsequent reductions.
 
 ## Proactive Context Compression
 

@@ -21,7 +21,7 @@ Hook callbacks are registered against specific event types and receive strongly-
 
 ### Registering Individual Hook Callbacks
 
-The simplest way to register a hook callback is using the `agent.add_hook()` method:
+The simplest way to register a hook callback is using the `agent.add_hook()` `agent.addHook()`  method:
 
 (( tab "Python" ))
 ```python
@@ -1603,7 +1603,7 @@ const agent = new Agent({ plugins: [new LoggingPlugin()] })
 - [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (3 shared tags)
 - [Plugins](/docs/user-guide/concepts/plugins/index.md) (2 shared tags)
 - [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (2 shared tags)
+- [GoalLoop](/docs/user-guide/concepts/plugins/goal-loop/index.md) (2 shared tags)
 - [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
 - [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (1 shared tag)
 - [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)
-- [Human in the Loop](/docs/user-guide/concepts/agents/interventions/human-in-the-loop/index.md) (1 shared tag)

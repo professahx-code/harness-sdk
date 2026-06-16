@@ -2,6 +2,10 @@ AgentSkills plugin for integrating Agent Skills into Strands agents.
 
 This module provides the AgentSkills class that extends the Plugin base class to add Agent Skills support. The plugin registers a tool for activating skills, and injects skill metadata into the system prompt.
 
+Filesystem skill sources are loaded through the agent’s sandbox (host or container) at `init_agent` time, not at construction, so each agent sees the skills present on its own filesystem. Skill instances and `https://` URLs are sandbox-independent and resolve eagerly at construction.
+
+:meth:`Skill.from_url` is synchronous, so URLs resolve at construction and no readiness barrier is needed. The observable effect is benign: URL skills are
+
 #### SkillSource
 
 A single skill source: path string, Path object, or Skill instance.
@@ -16,7 +20,7 @@ One or more skill sources.
 class AgentSkills(Plugin)
 ```
 
-Defined in: [src/strands/vended\_plugins/skills/agent\_skills.py:45](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/skills/agent_skills.py#L45)
+Defined in: [src/strands/vended\_plugins/skills/agent\_skills.py:74](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/skills/agent_skills.py#L74)
 
 Plugin that integrates Agent Skills into a Strands agent.
 
@@ -26,7 +30,9 @@ The AgentSkills plugin extends the Plugin base class and provides:
 2.  System prompt injection of available skill metadata before each invocation
 3.  Session persistence of active skill state via `agent.state`
 
-Skills can be provided as filesystem paths (to individual skill directories or parent directories containing multiple skills) or as pre-built `Skill` instances.
+Skills can be provided as filesystem paths (to individual skill directories or parent directories containing multiple skills), `https://` URLs pointing to raw SKILL.md content, or as pre-built `Skill` instances.
+
+Filesystem paths are read through the agent’s sandbox at `init_agent` time, so each agent loads the skills present on its own filesystem (host or container). Skill instances and URLs are sandbox-independent and resolve at construction. As a result, `get_available_skills` returns filesystem skills only when passed the agent they were loaded for.
 
 **Example**:
 
@@ -53,7 +59,7 @@ def __init__(skills: SkillSources,
              strict: bool = False) -> None
 ```
 
-Defined in: [src/strands/vended\_plugins/skills/agent\_skills.py:75](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/skills/agent_skills.py#L75)
+Defined in: [src/strands/vended\_plugins/skills/agent\_skills.py:111](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/skills/agent_skills.py#L111)
 
 Initialize the AgentSkills plugin.
 
@@ -75,14 +81,14 @@ Initialize the AgentSkills plugin.
 #### init\_agent
 
 ```python
-def init_agent(agent: Agent) -> None
+async def init_agent(agent: Agent) -> None
 ```
 
-Defined in: [src/strands/vended\_plugins/skills/agent\_skills.py:101](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/skills/agent_skills.py#L101)
+Defined in: [src/strands/vended\_plugins/skills/agent\_skills.py:144](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/skills/agent_skills.py#L144)
 
 Initialize the plugin with an agent instance.
 
-Decorated hooks and tools are auto-registered by the plugin registry.
+Loads any deferred filesystem skill paths through the agent’s sandbox, building the agent’s full skill set. Decorated hooks and tools are auto-registered by the plugin registry.
 
 **Arguments**:
 
@@ -92,10 +98,10 @@ Decorated hooks and tools are auto-registered by the plugin registry.
 
 ```python
 @tool(context=True)
-def skills(skill_name: str, tool_context: ToolContext) -> str
+async def skills(skill_name: str, tool_context: ToolContext) -> str
 ```
 
-Defined in: [src/strands/vended\_plugins/skills/agent\_skills.py:114](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/skills/agent_skills.py#L114)
+Defined in: [src/strands/vended\_plugins/skills/agent\_skills.py:161](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/skills/agent_skills.py#L161)
 
 Activate a skill to load its full instructions.
 
@@ -104,20 +110,25 @@ Use this tool to load the complete instructions for a skill listed in the availa
 **Arguments**:
 
 -   `skill_name` - Name of the skill to activate.
+-   `tool_context` - Injected by the framework. Not user-facing.
 
 #### get\_available\_skills
 
 ```python
-def get_available_skills() -> list[Skill]
+def get_available_skills(agent: Agent | None = None) -> list[Skill]
 ```
 
-Defined in: [src/strands/vended\_plugins/skills/agent\_skills.py:186](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/skills/agent_skills.py#L186)
+Defined in: [src/strands/vended\_plugins/skills/agent\_skills.py:245](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/skills/agent_skills.py#L245)
 
 Get the list of available skills.
 
+**Arguments**:
+
+-   `agent` - When provided, returns that agent’s full skill set (base skills plus filesystem skills loaded from its sandbox). When omitted, returns only the sandbox-independent base skills (Skill instances and URLs); filesystem skills are excluded because they are loaded per-agent at `init_agent` time.
+
 **Returns**:
 
-A copy of the current skills list.
+A copy of the resolved skills list.
 
 #### set\_available\_skills
 
@@ -125,13 +136,13 @@ A copy of the current skills list.
 def set_available_skills(skills: SkillSources) -> None
 ```
 
-Defined in: [src/strands/vended\_plugins/skills/agent\_skills.py:194](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/skills/agent_skills.py#L194)
+Defined in: [src/strands/vended\_plugins/skills/agent\_skills.py:261](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/skills/agent_skills.py#L261)
 
 Set the available skills, replacing any existing ones.
 
 Each element can be a `Skill` instance, a `str` or `Path` to a skill directory (containing SKILL.md), a `str` or `Path` to a parent directory containing skill subdirectories, or an `https://` URL pointing directly to raw SKILL.md content.
 
-Note: this does not persist state or deactivate skills on any agent. Active skill state is managed per-agent and will be reconciled on the next tool call or invocation.
+Filesystem paths are re-loaded per-agent on the next invocation. Note: this does not persist state or deactivate skills on any agent. Active skill state is managed per-agent and will be reconciled on the next tool call or invocation.
 
 **Arguments**:
 
@@ -143,7 +154,7 @@ Note: this does not persist state or deactivate skills on any agent. Active skil
 def get_activated_skills(agent: Agent) -> list[str]
 ```
 
-Defined in: [src/strands/vended\_plugins/skills/agent\_skills.py:407](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/skills/agent_skills.py#L407)
+Defined in: [src/strands/vended\_plugins/skills/agent\_skills.py:563](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/skills/agent_skills.py#L563)
 
 Get the list of skills activated by this agent.
 

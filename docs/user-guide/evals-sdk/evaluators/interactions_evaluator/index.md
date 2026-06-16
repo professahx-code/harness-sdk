@@ -135,8 +135,8 @@ evaluator = InteractionsEvaluator(
 
 # Run evaluation
 experiment = Experiment[str, str](cases=test_cases, evaluators=[evaluator])
-reports = experiment.run_evaluations(multi_agent_task)
-reports[0].run_display()
+report = experiment.run_evaluations(multi_agent_task)
+report.run_display()
 ```
 
 ## Evaluation Output
@@ -292,8 +292,8 @@ Verify that agents respect declared dependencies.
 - [Goal Success Rate Evaluator](/docs/user-guide/evals-sdk/evaluators/goal_success_rate_evaluator/index.md) (1 shared tag)
 - [Helpfulness Evaluator](/docs/user-guide/evals-sdk/evaluators/helpfulness_evaluator/index.md) (1 shared tag)
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
-- [Context Management](/docs/user-guide/concepts/context-management/index.md) (1 shared tag)
 - [User Simulation](/docs/user-guide/evals-sdk/simulators/user_simulation/index.md) (1 shared tag)
+- [Context Management](/docs/user-guide/concepts/context-management/index.md) (1 shared tag)
 - [Prompt Engineering](/docs/user-guide/safety-security/prompt-engineering/index.md) (1 shared tag)
 - [Prompts](/docs/user-guide/concepts/agents/prompts/index.md) (1 shared tag)
 - [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (1 shared tag)

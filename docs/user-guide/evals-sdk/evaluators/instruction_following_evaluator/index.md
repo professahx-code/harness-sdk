@@ -110,8 +110,8 @@ cases = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=[InstructionFollowingEvaluator()])
-reports = experiment.run_evaluations(task_function)
-reports[0].run_display()
+report = experiment.run_evaluations(task_function)
+report.run_display()
 ```
 
 ## Combining with Other Evaluators
@@ -143,5 +143,5 @@ evaluators = [
 - [Stereotyping Evaluator](/docs/user-guide/evals-sdk/evaluators/stereotyping_evaluator/index.md) (1 shared tag)
 - [Skills](/docs/user-guide/concepts/plugins/skills/index.md) (1 shared tag)
 - [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (1 shared tag)
+- [GoalLoop](/docs/user-guide/concepts/plugins/goal-loop/index.md) (1 shared tag)
 - [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
-- [Guardrails](/docs/user-guide/safety-security/guardrails/index.md) (1 shared tag)

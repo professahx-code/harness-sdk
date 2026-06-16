@@ -4,7 +4,7 @@ type CitationSourceContent = {
 };
 ```
 
-Defined in: [src/types/citations.ts:120](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/types/citations.ts#L120)
+Defined in: [src/types/citations.ts:120](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/types/citations.ts#L120)
 
 Source content referenced by a citation. Modeled as a union type for future extensibility.
 
@@ -16,4 +16,4 @@ Source content referenced by a citation. Modeled as a union type for future exte
 text: string;
 ```
 
-Defined in: [src/types/citations.ts:120](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/types/citations.ts#L120)
+Defined in: [src/types/citations.ts:120](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/types/citations.ts#L120)

@@ -76,82 +76,72 @@
 ;(function () {
   'use strict'
 
-  // Prevent duplicate initialization on View Transition re-executions.
-  // The astro:page-load listener (registered on first init) handles transitions.
+  // Guard against this inline script running more than once on a page.
   if (window.__strandsAnalyticsInit) return
   window.__strandsAnalyticsInit = true
 
-  var CUSTOM_EVENT_LISTENER = 'custom-awsm-acs-analytics-event-listener'
-  var SEARCH_EVENT_LISTENER = 'custom-awsm-acs-search-event-listener'
+  // The AWS WebSDK listens on this single event name and reads event content from the
+  // XDM `_aws` namespace (detail.xdm._aws.<namespace>). Events sent in any other shape are
+  // rejected by its validators and silently dropped. Values verified against the upstream
+  // source: AWSMarketingAdobeWebSDKHelpers (constants + helpers/*-event.ts).
+  var ANALYTICS_EVENT_LISTENER = 'custom-awsm-acs-event-listener'
 
   var scrollData = { initial: 0, max: 0, latest: 0 }
   var scrollSent = false
 
   // --- Helpers ---
 
-  function deriveSections(pathname) {
+  // Pipe-delimited page hierarchy from the URL path, used to label code-copy events.
+  // Anchors on the 'docs' segment and takes everything after it, so any leading base
+  // path (e.g. a "/pr-xxxx/" preview deploy) is ignored:
+  // /pr-x/docs/user-guide/quickstart/ -> "user-guide|quickstart".
+  function pageHierarchy(pathname) {
     var segments = pathname.replace(/^\/|\/$/g, '').split('/').filter(Boolean)
-    var start = segments[0] === 'docs' ? 1 : 0
-    return {
-      siteSection: segments[start] || 'home',
-      subSection1: segments[start + 1] || '',
-      subSection2: segments[start + 2] || '',
-      hierarchy: segments.slice(start).join('|'),
-    }
+    var docsIndex = segments.indexOf('docs')
+    var start = docsIndex >= 0 ? docsIndex + 1 : 0
+    return segments.slice(start).join('|') || 'home'
   }
 
   // Consent is enforced by the WebSDK listener itself - events dispatched here
   // are silently dropped if the user has not accepted performance cookies via Shortbread.
-  function dispatchAnalyticsEvent(eventType, data, useBeacon) {
+  function dispatchXdmEvent(eventType, awsContent, useBeacon) {
     var detail = {
       eventType: eventType,
-      data: data,
+      xdm: { _aws: awsContent },
       useBeacon: !!useBeacon,
     }
-    window.dispatchEvent(new CustomEvent(CUSTOM_EVENT_LISTENER, { detail: detail }))
+    window.dispatchEvent(new CustomEvent(ANALYTICS_EVENT_LISTENER, { detail: detail }))
   }
 
-  function dispatchCTAClick(name, type) {
-    dispatchAnalyticsEvent('web.awsm.customCTAClick', {
-      pageInteraction: {
-        click: { name: name, type: type || 'customClick' },
-      },
-    })
-  }
-
-  function dispatchSearchEvent(searchTerm, resultCount) {
-    window.dispatchEvent(
-      new CustomEvent(SEARCH_EVENT_LISTENER, {
-        detail: {
-          eventType: 'web.awsm.search',
-          data: {
-            searchOperations: {
-              searchTerm: searchTerm,
-              searchFilter: [],
-              resultCount: resultCount,
-            },
-          },
+  // navigates: pass true for clicks that take the user to another page (links, toggles that
+  // redirect). Those are dispatched via beacon so the request isn't cancelled on unload - the
+  // same reason scroll depth uses the beacon path. In-page clicks (tabs, copy) pass false.
+  function dispatchCTAClick(name, type, navigates) {
+    // Collapse whitespace so labels stay clean regardless of the source (textContent from
+    // elements with icons/SVG/newlines, hrefs, etc.) - keeps every caller consistent.
+    var cleanName = String(name).replace(/\s+/g, ' ').trim()
+    dispatchXdmEvent(
+      'web.awsm.customCTAClick',
+      {
+        pageInteraction: {
+          click: { name: cleanName, type: type || 'customClick' },
         },
-      })
+      },
+      !!navigates
     )
   }
 
-  // --- 1. Page View with Site Sections ---
-
-  function trackPageView() {
-    var sections = deriveSections(window.location.pathname)
-    dispatchAnalyticsEvent('web.awsm.pageInteraction', {
-      pageInteraction: {
-        name: 'pageView',
-        siteSection: sections.siteSection,
-        subSection1: sections.subSection1,
-        subSection2: sections.subSection2,
-        hierarchy: sections.hierarchy,
+  function dispatchSearchEvent(searchTerm, resultCount) {
+    dispatchXdmEvent('web.awsm.search', {
+      searchOperations: {
+        searchTerm: searchTerm,
+        searchFilter: [],
+        resultCount: resultCount,
       },
     })
   }
 
-  // --- 2. Click Tracking (anchors, nav tabs, code copy, outbound) ---
+  // --- 1. Click Tracking (anchors, nav tabs, code copy, outbound, UI controls) ---
 
   function setupClickTracking() {
     document.addEventListener('click', function (e) {
@@ -172,27 +162,95 @@
       var navTab = e.target.closest('.nav-tab, .mobile-nav-link')
       if (navTab) {
         var label = navTab.textContent.trim().replace(/\s*↗$/, '')
-        dispatchCTAClick('nav-tab:' + label, 'click')
+        dispatchCTAClick('nav-tab:' + label, 'click', true)
         return
       }
 
-      // Code copy button
-      var copyBtn = e.target.closest('.copy button, button.copy, [data-code] button')
+      // Language toggle (Python / TypeScript) - language-toggle > button.lang-option[data-lang]
+      var langControl = e.target.closest('.language-toggle .lang-option')
+      if (langControl) {
+        var lang = (langControl.getAttribute('data-lang') || '').trim()
+        // The toggle navigates to the paired page in the other language, so beacon it.
+        dispatchCTAClick('lang-toggle:' + lang, 'click', true)
+        return
+      }
+
+      // GitHub dropdown menu links (.github-dropdown .github-link, label in .github-link-text)
+      var ghLink = e.target.closest('.github-dropdown a.github-link')
+      if (ghLink) {
+        var ghTextEl = ghLink.querySelector('.github-link-text')
+        var ghLabel = (ghTextEl ? ghTextEl.textContent : ghLink.textContent).trim().replace(/\s*↗$/, '')
+        dispatchCTAClick('github-menu:' + ghLabel, 'linkClick', true)
+        return
+      }
+
+      // Sidebar collapsible group expand/collapse (nav.sidebar > details > summary).
+      // Skip the inner group-link anchor so its navigation is tracked as a normal link, not an expand.
+      var sidebarSummary = e.target.closest('nav.sidebar summary')
+      if (sidebarSummary && !e.target.closest('.group-link')) {
+        var groupLabelEl = sidebarSummary.querySelector('.group-label, .section-label')
+        var groupLabel = (groupLabelEl ? groupLabelEl.textContent : sidebarSummary.textContent).trim()
+        dispatchCTAClick('sidebar-expand:' + groupLabel, 'click')
+        return
+      }
+
+      // Tab clicks (npm/yarn, OS, etc.). AutoSyncTabs hides the Python/TypeScript language
+      // tablists (display:none) and routes language switching through the header toggle, so a
+      // real click only lands on a visible tablist - which excludes those redundant language tabs.
+      var tab = e.target.closest('[role="tab"]')
+      if (tab) {
+        dispatchCTAClick('tab:' + tab.textContent.trim(), 'click')
+        return
+      }
+
+      // Landing page CTAs. Buttons have short text labels; the Labs/Evals cards wrap a
+      // large block of text, so use their href (stable, concise) instead of textContent.
+      var homeCta = e.target.closest('a.cta-button, a.le-card')
+      if (homeCta) {
+        var ctaLabel = homeCta.matches('a.le-card') ? homeCta.getAttribute('href') : homeCta.textContent
+        dispatchCTAClick('home-cta:' + ctaLabel, 'linkClick', true)
+        return
+      }
+
+      // Blog post cards and navigation
+      var blogCard = e.target.closest('a.blog-card')
+      if (blogCard) {
+        dispatchCTAClick('blog-card:' + blogCard.getAttribute('href'), 'linkClick', true)
+        return
+      }
+      var blogNav = e.target.closest('a.blog-post-author, a.blog-back-link')
+      if (blogNav) {
+        dispatchCTAClick('blog-nav:' + blogNav.textContent.trim(), 'linkClick', true)
+        return
+      }
+
+      // Code copy button (docs Starlight + landing CodeBlock + install commands)
+      var copyBtn = e.target.closest(
+        '.copy button, button.copy, [data-code] button, button.copy-button, button.copy-button-floating, button.install-copy'
+      )
       if (copyBtn) {
-        var pageSections = deriveSections(window.location.pathname)
-        dispatchCTAClick('code-copy:' + pageSections.hierarchy, 'customClick')
+        var copyLabel
+        if (copyBtn.matches('button.install-copy')) {
+          var installEl = copyBtn.closest('[data-copy]')
+          var cmd = installEl && installEl.getAttribute('data-copy')
+          copyLabel = cmd ? 'install:' + cmd : 'install'
+        } else {
+          copyLabel = pageHierarchy(window.location.pathname)
+        }
+        dispatchCTAClick('code-copy:' + copyLabel, 'customClick')
         return
       }
 
       // Outbound links
       var link = e.target.closest('a[href]')
       if (link && link.hostname && link.hostname !== window.location.hostname) {
-        dispatchCTAClick('outbound:' + link.hostname + link.pathname, 'linkClick')
+        dispatchCTAClick('outbound:' + link.hostname + link.pathname, 'linkClick', true)
+        return
       }
     })
   }
 
-  // --- 3. Search Events ---
+  // --- 2. Search Events ---
 
   function setupSearchTracking() {
     var searchTimeout = null
@@ -213,7 +271,7 @@
     })
   }
 
-  // --- 4. Scroll Depth ---
+  // --- 3. Scroll Depth ---
 
   function updateScroll() {
     var scrollTop = window.scrollY || document.documentElement.scrollTop
@@ -227,7 +285,7 @@
     if (scrollSent) return
     scrollSent = true
     updateScroll()
-    dispatchAnalyticsEvent(
+    dispatchXdmEvent(
       'web.awsm.pageInteraction',
       {
         pageInteraction: {
@@ -271,19 +329,17 @@
     }, 500)
   }
 
-  // --- 5. SPA / View Transition Support ---
-
-  document.addEventListener('astro:page-load', function () {
-    trackPageView()
-    resetScrollData()
-  })
-
-  // --- Initial setup (runs once) ---
-  // astro:page-load fires on initial load and all subsequent navigations,
-  // so it handles trackPageView() and resetScrollData() for every page.
+  // --- 4. Setup ---
+  // The WebSDK auto-fires the standard page view (web.webpagedetails.pageViews) and derives
+  // Base URL, entry/exit, and section data from the URL server-side, so no page-view event is
+  // sent here. Each full page load re-runs this IIFE, so setup below runs fresh per page.
   setupClickTracking()
   setupSearchTracking()
   setupScrollTracking()
+
+  // If view transitions (ClientRouter) are enabled later, navigations won't reload the page,
+  // so reset the per-page scroll baseline on astro:page-load. No-op while full reloads are used.
+  document.addEventListener('astro:page-load', resetScrollData)
 })()
 </script><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"Strands Agents","url":"https://strandsagents.com","logo":"https://strandsagents.com/favicon.svg","sameAs":["https://github.com/strands-agents"],"parentOrganization":{"@type":"Organization","name":"Amazon Web Services","url":"https://aws.amazon.com"}},{"@type":"SoftwareApplication","name":"Strands Agents SDK","applicationCategory":"DeveloperApplication","operatingSystem":"Cross-platform","programmingLanguage":["Python","TypeScript"],"license":"https://github.com/strands-agents/harness-sdk/blob/main/LICENSE.APACHE","url":"https://strandsagents.com","author":{"@type":"Organization","name":"Strands Agents"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Docs","item":"https://strandsagents.com/docs/"},{"@type":"ListItem","position":2,"name":"Examples","item":"https://strandsagents.com/docs/examples/"},{"@type":"ListItem","position":3,"name":"Python","item":"https://strandsagents.com/docs/examples/python/"},{"@type":"ListItem","position":4,"name":"MCP Calculator - Model Context Protocol Integration Example"}]}]}</script><script type="module" src="/_astro/Head.astro_astro_type_script_index_0_lang.dz5iyg0n.js"></script><script>
 	window.StarlightThemeProvider = (() => {
@@ -313,7 +369,7 @@
 	})();
 </script><template id="theme-icons"><svg aria-hidden="true" class="light astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg><svg aria-hidden="true" class="dark astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg><svg aria-hidden="true" class="auto astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg></template><link rel="stylesheet" href="/_astro/print.DNXP8c50.css" media="print"><link rel="stylesheet" href="/_astro/ThemeProvider.C35VBDGb.css">
 <link rel="stylesheet" href="/_astro/middleware.C0ipMrfz.css">
-<link rel="stylesheet" href="/_astro/Code.U5FWdeyk.css"><script type="module" src="/_astro/page.B_tncCx8.js"></script><style>[data-language-tabs] starlight-tabs>.tablist-wrapper{display:none}
+<link rel="stylesheet" href="/_astro/Code.U5FWdeyk.css"><script type="module" src="/_astro/page.B_tncCx8.js"></script><style>[data-language-tabs] starlight-tabs>.tablist-wrapper{display:none}syntax-switch:where(.astro-gsvb55iz) :where(.astro-gsvb55iz)[data-lang=Python]{display:none}
 </style></head> <body class="astro-bguv2lll"> <a href="#_top" class="astro-7q3lir66">Skip to content</a> <div class="page sl-flex astro-bk6v3icc"> <header class="header astro-bk6v3icc"><div class="header astro-bkumecsx"> <div class="header-top astro-bkumecsx"> <div class="title-wrapper sl-flex astro-bkumecsx"> <a href="/" class="site-title sl-flex astro-bkumecsx"> <img src="/_astro/logo-header-light.AFIwZt-M.svg" alt="Strands Agents SDK" class="header-logo light-logo astro-bkumecsx"> <img src="/_astro/logo-header-dark.LyjuOEMF.svg" alt="Strands Agents SDK" class="header-logo dark-logo astro-bkumecsx"> </a> </div> <div class="header-spacer astro-bkumecsx"></div> <div class="search-wrapper print:hidden astro-bkumecsx"><site-search class="astro-bkumecsx astro-v37mnknz" data-translations="{&quot;placeholder&quot;:&quot;Search&quot;}"> <button data-open-modal disabled aria-label="Search" aria-keyshortcuts="Control+K" class="astro-v37mnknz"> <svg aria-hidden="true" class="astro-v37mnknz astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21.71 20.29 18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z"/></svg> <span class="sl-hidden md:sl-block astro-v37mnknz" aria-hidden="true">Search</span> <kbd class="sl-hidden md:sl-flex astro-v37mnknz" style="display: none;"> <kbd class="astro-v37mnknz">Ctrl</kbd><kbd class="astro-v37mnknz">K</kbd> </kbd> </button> <dialog style="padding:0" aria-label="Search" class="astro-v37mnknz"> <div class="dialog-frame sl-flex astro-v37mnknz">  <button data-close-modal class="sl-flex md:sl-hidden astro-v37mnknz"> Cancel </button> <div class="search-container astro-v37mnknz"> <div id="starlight__search" class="astro-v37mnknz"></div> </div> </div> </dialog> </site-search>  <script>
 	(() => {
 		const openBtn = document.querySelector('button[data-open-modal]');

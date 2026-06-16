@@ -186,3 +186,32 @@ class CheckpointException(Exception)
 Defined in: [src/strands/types/exceptions.py:126](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L126)
 
 Exception raised when checkpoint operations fail (e.g., incompatible schema version).
+
+## AggregateMemoryError
+
+```python
+class AggregateMemoryError(Exception)
+```
+
+Defined in: [src/strands/types/exceptions.py:132](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L132)
+
+Raised when one or more memory store operations fail.
+
+**Attributes**:
+
+-   `errors` - The underlying exceptions that caused this aggregate failure.
+
+#### \_\_init\_\_
+
+```python
+def __init__(message: str, errors: list[BaseException]) -> None
+```
+
+Defined in: [src/strands/types/exceptions.py:139](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L139)
+
+Initialize the aggregate error.
+
+**Arguments**:
+
+-   `message` - A human-readable description of the aggregate failure, typically naming the stores that failed.
+-   `errors` - The underlying exceptions that caused this failure.

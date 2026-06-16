@@ -158,6 +158,7 @@ Traditional prompting requires front-loading all instructions into a single prom
 
 ## Related pages
 
+- [GoalLoop](/docs/user-guide/concepts/plugins/goal-loop/index.md) (2 shared tags)
 - [Prompt Engineering](/docs/user-guide/safety-security/prompt-engineering/index.md) (2 shared tags)
 - [Prompts](/docs/user-guide/concepts/agents/prompts/index.md) (2 shared tags)
 - [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) (2 shared tags)
@@ -167,4 +168,3 @@ Traditional prompting requires front-loading all instructions into a single prom
 - [Helpfulness Evaluator](/docs/user-guide/evals-sdk/evaluators/helpfulness_evaluator/index.md) (1 shared tag)
 - [Interactions Evaluator](/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md) (1 shared tag)
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
-- [Instruction Following Evaluator](/docs/user-guide/evals-sdk/evaluators/instruction_following_evaluator/index.md) (1 shared tag)

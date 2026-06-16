@@ -1,4 +1,4 @@
-Defined in: [src/sandbox/errors.ts:32](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/errors.ts#L32)
+Defined in: [src/sandbox/errors.ts:32](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/sandbox/errors.ts#L32)
 
 Thrown by [Sandbox.listFiles](/docs/api/typescript/Sandbox/index.md#listfiles) when the path does not exist, distinguishing genuine absence from permission or transport failures (which throw plain errors).
 
@@ -14,7 +14,7 @@ Thrown by [Sandbox.listFiles](/docs/api/typescript/Sandbox/index.md#listfiles) w
 new SandboxPathNotFoundError(path): SandboxPathNotFoundError;
 ```
 
-Defined in: [src/sandbox/errors.ts:33](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/sandbox/errors.ts#L33)
+Defined in: [src/sandbox/errors.ts:33](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/sandbox/errors.ts#L33)
 
 #### Parameters
 

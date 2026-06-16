@@ -169,10 +169,9 @@ evaluators = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=evaluators)
-reports = experiment.run_evaluations(task)
+report = experiment.run_evaluations(task)
 
-for report in reports:
-    print(f"{report.overall_score:.2f} - {report.reasons}")
+print(f"{report.overall_score:.2f} - {report.reasons}")
 ```
 
 The same pattern works with `LangfuseProvider` or `OpenSearchProvider` — just swap the provider initialization.
@@ -275,13 +274,6 @@ The returned `TaskOutput` must contain:
 
 -   **`output`**: The final agent response text
 -   **`trajectory`**: A `Session` object containing `Trace` objects with typed spans (`AgentInvocationSpan`, `InferenceSpan`, `ToolExecutionSpan`)
-
-## Related Documentation
-
--   [Getting Started](/docs/user-guide/evals-sdk/quickstart/index.md): Set up your first evaluation experiment
--   [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md): Evaluate agent response quality
--   [Trajectory Evaluator](/docs/user-guide/evals-sdk/evaluators/trajectory_evaluator/index.md): Evaluate tool usage and execution paths
--   [Helpfulness Evaluator](/docs/user-guide/evals-sdk/evaluators/helpfulness_evaluator/index.md): Assess agent helpfulness
 
 ## Related Documentation
 

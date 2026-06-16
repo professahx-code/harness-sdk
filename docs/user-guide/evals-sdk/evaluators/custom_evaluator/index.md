@@ -163,8 +163,8 @@ class ToneEvaluator(Evaluator[InputT, OutputT]):
         Evaluate the tone of the response.
         """
 
-        result = judge.structured_output(EvaluationOutput, prompt)
-        return [result]
+        agent_result = judge(prompt, structured_output_model=EvaluationOutput)
+        return [agent_result.structured_output]
 
     async def evaluate_async(self, evaluation_case: EvaluationData[InputT, OutputT]) -> list[EvaluationOutput]:
         judge = Agent(
@@ -185,8 +185,8 @@ class ToneEvaluator(Evaluator[InputT, OutputT]):
         Evaluate the tone of the response.
         """
 
-        result = await judge.structured_output_async(EvaluationOutput, prompt)
-        return [result]
+        agent_result = await judge.invoke_async(prompt, structured_output_model=EvaluationOutput)
+        return [agent_result.structured_output]
 ```
 
 ## Example: Metric-Based Custom Evaluator
@@ -257,8 +257,8 @@ evaluator = ToneEvaluator(expected_tone="professional")
 
 # Run evaluation
 experiment = Experiment[str, str](cases=test_cases, evaluators=[evaluator])
-reports = experiment.run_evaluations(task_function)
-reports[0].run_display()
+report = experiment.run_evaluations(task_function)
+report.run_display()
 ```
 
 ## Best Practices

@@ -1,4 +1,4 @@
-Defined in: [src/retry/backoff-strategy.ts:60](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/retry/backoff-strategy.ts#L60)
+Defined in: [src/retry/backoff-strategy.ts:60](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/retry/backoff-strategy.ts#L60)
 
 Options for [ConstantBackoff](/docs/api/typescript/ConstantBackoff/index.md).
 
@@ -10,6 +10,6 @@ Options for [ConstantBackoff](/docs/api/typescript/ConstantBackoff/index.md).
 optional delayMs?: number;
 ```
 
-Defined in: [src/retry/backoff-strategy.ts:62](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/retry/backoff-strategy.ts#L62)
+Defined in: [src/retry/backoff-strategy.ts:62](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/retry/backoff-strategy.ts#L62)
 
 Delay in ms returned for every retry. Default 1000.

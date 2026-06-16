@@ -2,7 +2,7 @@
 function toolResultContentFromData(data): ToolResultContent;
 ```
 
-Defined in: [src/types/messages.ts:425](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/types/messages.ts#L425)
+Defined in: [src/types/messages.ts:432](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/types/messages.ts#L432)
 
 Converts a single ToolResultContentData to a ToolResultContent class instance.
 

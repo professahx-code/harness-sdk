@@ -1,4 +1,4 @@
-Defined in: [src/middleware/stages.ts:75](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/middleware/stages.ts#L75)
+Defined in: [src/middleware/stages.ts:74](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/middleware/stages.ts#L74)
 
 Context passed to model-stage middleware. All inputs to the model call are explicit — middleware can inspect and transform any of them by passing a modified context to next().
 
@@ -10,7 +10,7 @@ Context passed to model-stage middleware. All inputs to the model call are expli
 readonly agent: LocalAgent;
 ```
 
-Defined in: [src/middleware/stages.ts:77](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/middleware/stages.ts#L77)
+Defined in: [src/middleware/stages.ts:76](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/middleware/stages.ts#L76)
 
 The agent instance (escape hatch for advanced use cases).
 
@@ -22,7 +22,7 @@ The agent instance (escape hatch for advanced use cases).
 readonly messages: readonly Message[];
 ```
 
-Defined in: [src/middleware/stages.ts:79](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/middleware/stages.ts#L79)
+Defined in: [src/middleware/stages.ts:78](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/middleware/stages.ts#L78)
 
 The messages to send to the model.
 
@@ -34,7 +34,7 @@ The messages to send to the model.
 readonly optional systemPrompt?: SystemPrompt;
 ```
 
-Defined in: [src/middleware/stages.ts:81](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/middleware/stages.ts#L81)
+Defined in: [src/middleware/stages.ts:80](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/middleware/stages.ts#L80)
 
 System prompt to guide the model’s behavior.
 
@@ -46,7 +46,7 @@ System prompt to guide the model’s behavior.
 readonly toolSpecs: readonly ToolSpec[];
 ```
 
-Defined in: [src/middleware/stages.ts:83](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/middleware/stages.ts#L83)
+Defined in: [src/middleware/stages.ts:82](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/middleware/stages.ts#L82)
 
 Tool specifications available to the model.
 
@@ -58,21 +58,9 @@ Tool specifications available to the model.
 readonly optional toolChoice?: ToolChoice;
 ```
 
-Defined in: [src/middleware/stages.ts:85](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/middleware/stages.ts#L85)
+Defined in: [src/middleware/stages.ts:84](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/middleware/stages.ts#L84)
 
 Controls how the model selects tools.
-
----
-
-### modelState
-
-```ts
-readonly modelState: StateStore;
-```
-
-Defined in: [src/middleware/stages.ts:87](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/middleware/stages.ts#L87)
-
-Runtime state for stateful model providers.
 
 ---
 
@@ -82,6 +70,18 @@ Runtime state for stateful model providers.
 readonly invocationState: InvocationState;
 ```
 
-Defined in: [src/middleware/stages.ts:89](https://github.com/strands-agents/harness-sdk/blob/db79d737433905152b5d3dfe9f110fb00f4d2fa6/strands-ts/src/middleware/stages.ts#L89)
+Defined in: [src/middleware/stages.ts:86](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/middleware/stages.ts#L86)
 
-Per-invocation state shared across hooks and tools.
+Per-invocation state. Shared by reference — mutations are visible to hooks, tools, and AgentResult.
+
+---
+
+### projectedInputTokens?
+
+```ts
+readonly optional projectedInputTokens?: number;
+```
+
+Defined in: [src/middleware/stages.ts:88](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/middleware/stages.ts#L88)
+
+Estimated input token count for this model call, or undefined if estimation failed.

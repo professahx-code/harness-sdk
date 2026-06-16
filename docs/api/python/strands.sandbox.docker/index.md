@@ -8,7 +8,7 @@ Mirrors `strands-ts/src/sandbox/docker.ts`.
 class DockerSandbox(PosixShellSandbox)
 ```
 
-Defined in: [src/strands/sandbox/docker.py:14](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/docker.py#L14)
+Defined in: [src/strands/sandbox/docker.py:19](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/docker.py#L19)
 
 Execute commands in a Docker container via `docker exec`.
 
@@ -23,7 +23,7 @@ def __init__(container: str,
              user: str | None = None) -> None
 ```
 
-Defined in: [src/strands/sandbox/docker.py:22](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/docker.py#L22)
+Defined in: [src/strands/sandbox/docker.py:27](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/docker.py#L27)
 
 Initialize the Docker sandbox.
 
@@ -45,7 +45,7 @@ async def execute_streaming(
         **kwargs: Any) -> AsyncGenerator[StreamChunk | ExecutionResult, None]
 ```
 
-Defined in: [src/strands/sandbox/docker.py:39](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/docker.py#L39)
+Defined in: [src/strands/sandbox/docker.py:44](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/docker.py#L44)
 
 Execute a command in the container, streaming output.
 
@@ -64,4 +64,18 @@ Execute a command in the container, streaming output.
 **Raises**:
 
 -   `ValueError` - If an environment variable name is invalid.
--   `TimeoutError` - If execution exceeds `timeout` seconds.
+-   `SandboxTimeoutError` - If execution exceeds `timeout` seconds.
+
+#### get\_tools
+
+```python
+def get_tools() -> list[AgentTool]
+```
+
+Defined in: [src/strands/sandbox/docker.py:99](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/sandbox/docker.py#L99)
+
+Default sandbox-compatible tools auto-registered with this sandbox.
+
+**Returns**:
+
+The tools bound to this sandbox, with descriptions naming this container.
