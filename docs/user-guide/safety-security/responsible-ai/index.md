@@ -62,13 +62,13 @@ def profanity_scanner(query: str) -> str:
 
 ## Related pages
 
+- [Attack Strategies](/docs/user-guide/evals-sdk/red-teaming/strategies/index.md) (1 shared tag)
 - [Harmfulness Evaluator](/docs/user-guide/evals-sdk/evaluators/harmfulness_evaluator/index.md) (1 shared tag)
+- [Reading the Report](/docs/user-guide/evals-sdk/red-teaming/reading_the_report/index.md) (1 shared tag)
+- [Red Teaming](/docs/user-guide/evals-sdk/red-teaming/index.md) (1 shared tag)
 - [Refusal Evaluator](/docs/user-guide/evals-sdk/evaluators/refusal_evaluator/index.md) (1 shared tag)
+- [Scoring Attacks](/docs/user-guide/evals-sdk/red-teaming/evaluators/index.md) (1 shared tag)
 - [Stereotyping Evaluator](/docs/user-guide/evals-sdk/evaluators/stereotyping_evaluator/index.md) (1 shared tag)
+- [Writing Custom Cases](/docs/user-guide/evals-sdk/red-teaming/custom_cases/index.md) (1 shared tag)
 - [Instruction Following Evaluator](/docs/user-guide/evals-sdk/evaluators/instruction_following_evaluator/index.md) (1 shared tag)
-- [Guardrails](/docs/user-guide/safety-security/guardrails/index.md) (1 shared tag)
-- [Prompt Engineering](/docs/user-guide/safety-security/prompt-engineering/index.md) (1 shared tag)
-- [Prompts](/docs/user-guide/concepts/agents/prompts/index.md) (1 shared tag)
-- [Cedar Authorization](/docs/user-guide/concepts/agents/interventions/cedar-authorization/index.md) (1 shared tag)
-- [PII Redaction](/docs/user-guide/safety-security/pii-redaction/index.md) (1 shared tag)
-- [Amazon Bedrock](/docs/user-guide/concepts/model-providers/amazon-bedrock/index.md) (1 shared tag)
+- [Red Teaming Quickstart](/docs/user-guide/evals-sdk/red-teaming/quickstart/index.md) (1 shared tag)

@@ -1,4 +1,4 @@
-Defined in: [src/middleware/stages.ts:119](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/middleware/stages.ts#L119)
+Defined in: [src/middleware/stages.ts:119](https://github.com/strands-agents/harness-sdk/blob/c04fdd821ea0e816a78fdf2e3f95201e3cfa84c5/strands-ts/src/middleware/stages.ts#L119)
 
 Result from tool-stage middleware. The return value of the async generator.
 
@@ -10,6 +10,6 @@ Result from tool-stage middleware. The return value of the async generator.
 readonly result: ToolResultBlock;
 ```
 
-Defined in: [src/middleware/stages.ts:121](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/middleware/stages.ts#L121)
+Defined in: [src/middleware/stages.ts:121](https://github.com/strands-agents/harness-sdk/blob/c04fdd821ea0e816a78fdf2e3f95201e3cfa84c5/strands-ts/src/middleware/stages.ts#L121)
 
 The tool result block from execution.

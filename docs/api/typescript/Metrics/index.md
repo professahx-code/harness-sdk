@@ -1,4 +1,4 @@
-Defined in: [src/models/streaming.ts:525](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/models/streaming.ts#L525)
+Defined in: [src/models/streaming.ts:525](https://github.com/strands-agents/harness-sdk/blob/c04fdd821ea0e816a78fdf2e3f95201e3cfa84c5/strands-ts/src/models/streaming.ts#L525)
 
 Performance metrics for a model invocation.
 
@@ -10,7 +10,7 @@ Performance metrics for a model invocation.
 latencyMs: number;
 ```
 
-Defined in: [src/models/streaming.ts:529](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/models/streaming.ts#L529)
+Defined in: [src/models/streaming.ts:529](https://github.com/strands-agents/harness-sdk/blob/c04fdd821ea0e816a78fdf2e3f95201e3cfa84c5/strands-ts/src/models/streaming.ts#L529)
 
 Latency in milliseconds.
 
@@ -22,6 +22,6 @@ Latency in milliseconds.
 optional timeToFirstByteMs?: number;
 ```
 
-Defined in: [src/models/streaming.ts:535](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/models/streaming.ts#L535)
+Defined in: [src/models/streaming.ts:535](https://github.com/strands-agents/harness-sdk/blob/c04fdd821ea0e816a78fdf2e3f95201e3cfa84c5/strands-ts/src/models/streaming.ts#L535)
 
 Time to first byte in milliseconds. Latency from sending the model request to receiving the first content chunk.

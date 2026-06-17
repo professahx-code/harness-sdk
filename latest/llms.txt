@@ -154,6 +154,13 @@
     - [failure_detection](https://strandsagents.com/docs/user-guide/evals-sdk/detectors/failure_detection/index.md)
     - [root_cause_analysis](https://strandsagents.com/docs/user-guide/evals-sdk/detectors/root_cause_analysis/index.md)
     - [diagnosis](https://strandsagents.com/docs/user-guide/evals-sdk/detectors/diagnosis/index.md)
+  - Red teaming
+    - [red-teaming](https://strandsagents.com/docs/user-guide/evals-sdk/red-teaming/index.md)
+    - [quickstart](https://strandsagents.com/docs/user-guide/evals-sdk/red-teaming/quickstart/index.md)
+    - [strategies](https://strandsagents.com/docs/user-guide/evals-sdk/red-teaming/strategies/index.md)
+    - [custom_cases](https://strandsagents.com/docs/user-guide/evals-sdk/red-teaming/custom_cases/index.md)
+    - [evaluators](https://strandsagents.com/docs/user-guide/evals-sdk/red-teaming/evaluators/index.md)
+    - [reading_the_report](https://strandsagents.com/docs/user-guide/evals-sdk/red-teaming/reading_the_report/index.md)
   - [experiment_generator](https://strandsagents.com/docs/user-guide/evals-sdk/experiment_generator/index.md)
   - Simulators
     - [simulators](https://strandsagents.com/docs/user-guide/evals-sdk/simulators/index.md)

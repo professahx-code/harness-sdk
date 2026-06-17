@@ -1,4 +1,4 @@
-Defined in: [src/errors.ts:203](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/errors.ts#L203)
+Defined in: [src/errors.ts:203](https://github.com/strands-agents/harness-sdk/blob/c04fdd821ea0e816a78fdf2e3f95201e3cfa84c5/strands-ts/src/errors.ts#L203)
 
 Thrown when the model fails to produce structured output. This occurs when the LLM refuses to use the structured output tool even after being forced via toolChoice.
 
@@ -14,7 +14,7 @@ Thrown when the model fails to produce structured output. This occurs when the L
 new StructuredOutputError(message): StructuredOutputError;
 ```
 
-Defined in: [src/errors.ts:204](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/errors.ts#L204)
+Defined in: [src/errors.ts:204](https://github.com/strands-agents/harness-sdk/blob/c04fdd821ea0e816a78fdf2e3f95201e3cfa84c5/strands-ts/src/errors.ts#L204)
 
 #### Parameters
 

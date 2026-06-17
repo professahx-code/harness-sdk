@@ -1,4 +1,4 @@
-Defined in: [src/sandbox/errors.ts:21](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/sandbox/errors.ts#L21)
+Defined in: [src/sandbox/errors.ts:21](https://github.com/strands-agents/harness-sdk/blob/c04fdd821ea0e816a78fdf2e3f95201e3cfa84c5/strands-ts/src/sandbox/errors.ts#L21)
 
 Thrown by sandbox execution when the abort signal fires.
 
@@ -14,7 +14,7 @@ Thrown by sandbox execution when the abort signal fires.
 new SandboxAbortError(): SandboxAbortError;
 ```
 
-Defined in: [src/sandbox/errors.ts:22](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/sandbox/errors.ts#L22)
+Defined in: [src/sandbox/errors.ts:22](https://github.com/strands-agents/harness-sdk/blob/c04fdd821ea0e816a78fdf2e3f95201e3cfa84c5/strands-ts/src/sandbox/errors.ts#L22)
 
 #### Returns
 

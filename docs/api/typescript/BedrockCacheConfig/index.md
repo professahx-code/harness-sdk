@@ -1,4 +1,4 @@
-Defined in: [src/models/bedrock.ts:150](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/models/bedrock.ts#L150)
+Defined in: [src/models/bedrock.ts:150](https://github.com/strands-agents/harness-sdk/blob/c04fdd821ea0e816a78fdf2e3f95201e3cfa84c5/strands-ts/src/models/bedrock.ts#L150)
 
 Bedrock-specific prompt-caching configuration. Narrows the TTL fields onto the common [CacheConfig](/docs/api/typescript/CacheConfig/index.md) for the Bedrock provider.
 
@@ -14,7 +14,7 @@ Bedrock-specific prompt-caching configuration. Narrows the TTL fields onto the c
 optional toolsTTL?: BedrockCacheTTL;
 ```
 
-Defined in: [src/models/bedrock.ts:152](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/models/bedrock.ts#L152)
+Defined in: [src/models/bedrock.ts:152](https://github.com/strands-agents/harness-sdk/blob/c04fdd821ea0e816a78fdf2e3f95201e3cfa84c5/strands-ts/src/models/bedrock.ts#L152)
 
 TTL applied to the auto-injected cache point appended after `toolConfig.tools`.
 
@@ -26,7 +26,7 @@ TTL applied to the auto-injected cache point appended after `toolConfig.tools`.
 optional messagesTTL?: BedrockCacheTTL;
 ```
 
-Defined in: [src/models/bedrock.ts:155](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/models/bedrock.ts#L155)
+Defined in: [src/models/bedrock.ts:155](https://github.com/strands-agents/harness-sdk/blob/c04fdd821ea0e816a78fdf2e3f95201e3cfa84c5/strands-ts/src/models/bedrock.ts#L155)
 
 TTL applied to the auto-injected cache point appended to the last user message.
 
@@ -38,7 +38,7 @@ TTL applied to the auto-injected cache point appended to the last user message.
 strategy: "auto" | "anthropic";
 ```
 
-Defined in: [src/models/model.ts:76](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/models/model.ts#L76)
+Defined in: [src/models/model.ts:76](https://github.com/strands-agents/harness-sdk/blob/c04fdd821ea0e816a78fdf2e3f95201e3cfa84c5/strands-ts/src/models/model.ts#L76)
 
 Caching strategy to use.
 

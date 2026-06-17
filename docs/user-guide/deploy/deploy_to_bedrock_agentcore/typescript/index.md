@@ -740,5 +740,5 @@ aws logs tail /aws/bedrock-agentcore/runtimes/my-agent-service-XXXXXXXXXX-DEFAUL
 - [Deploying Strands Agents SDK Agents to AWS App Runner](/docs/user-guide/deploy/deploy_to_aws_apprunner/index.md) (2 shared tags)
 - [Deploying Strands Agents SDK Agents to AWS Fargate](/docs/user-guide/deploy/deploy_to_aws_fargate/index.md) (2 shared tags)
 - [Deploying Strands Agents SDK Agents to AWS Lambda](/docs/user-guide/deploy/deploy_to_aws_lambda/index.md) (2 shared tags)
-- [Amazon Nova](/docs/user-guide/concepts/model-providers/amazon-nova/index.md) (2 shared tags)
 - [Guardrails](/docs/user-guide/safety-security/guardrails/index.md) (2 shared tags)
+- [Amazon Nova](/docs/user-guide/concepts/model-providers/amazon-nova/index.md) (2 shared tags)
