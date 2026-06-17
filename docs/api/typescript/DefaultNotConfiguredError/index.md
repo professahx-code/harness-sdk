@@ -1,4 +1,4 @@
-Defined in: [src/errors.ts:251](https://github.com/strands-agents/harness-sdk/blob/7ac039e427e4b488f61a6af1c827532f46dfffa1/strands-ts/src/errors.ts#L251)
+Defined in: [src/errors.ts:251](https://github.com/strands-agents/harness-sdk/blob/278805cd559e63475a4c6f52f52614fffa99e401/strands-ts/src/errors.ts#L251)
 
 Thrown when a default value is read before one has been configured.
 
@@ -16,7 +16,7 @@ Catch it to distinguish a missing-default condition from other runtime errors.
 new DefaultNotConfiguredError(message): DefaultNotConfiguredError;
 ```
 
-Defined in: [src/errors.ts:252](https://github.com/strands-agents/harness-sdk/blob/7ac039e427e4b488f61a6af1c827532f46dfffa1/strands-ts/src/errors.ts#L252)
+Defined in: [src/errors.ts:252](https://github.com/strands-agents/harness-sdk/blob/278805cd559e63475a4c6f52f52614fffa99e401/strands-ts/src/errors.ts#L252)
 
 #### Parameters
 

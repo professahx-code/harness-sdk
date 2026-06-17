@@ -175,13 +175,13 @@
     - [result_caching](https://strandsagents.com/docs/user-guide/evals-sdk/how-to/result_caching/index.md)
     - [experiment_management](https://strandsagents.com/docs/user-guide/evals-sdk/how-to/experiment_management/index.md)
     - [serialization](https://strandsagents.com/docs/user-guide/evals-sdk/how-to/serialization/index.md)
-- Strands Shell SDK
-  - [shell-sdk](https://strandsagents.com/docs/user-guide/shell-sdk/index.md)
-  - [quickstart](https://strandsagents.com/docs/user-guide/shell-sdk/quickstart/index.md)
-  - [configuration](https://strandsagents.com/docs/user-guide/shell-sdk/configuration/index.md)
-  - [commands](https://strandsagents.com/docs/user-guide/shell-sdk/commands/index.md)
-  - [mcp-server](https://strandsagents.com/docs/user-guide/shell-sdk/mcp-server/index.md)
-  - [security](https://strandsagents.com/docs/user-guide/shell-sdk/security/index.md)
+- Strands Shell
+  - [shell](https://strandsagents.com/docs/user-guide/shell/index.md)
+  - [quickstart](https://strandsagents.com/docs/user-guide/shell/quickstart/index.md)
+  - [configuration](https://strandsagents.com/docs/user-guide/shell/configuration/index.md)
+  - [commands](https://strandsagents.com/docs/user-guide/shell/commands/index.md)
+  - [mcp-server](https://strandsagents.com/docs/user-guide/shell/mcp-server/index.md)
+  - [security](https://strandsagents.com/docs/user-guide/shell/security/index.md)
 - [versioning-and-support](https://strandsagents.com/docs/user-guide/versioning-and-support/index.md)
 
 ## Examples

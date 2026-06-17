@@ -2,7 +2,7 @@
 type ElicitationCallback = (context, params) => Promise<ElicitResult>;
 ```
 
-Defined in: [src/types/elicitation.ts:21](https://github.com/strands-agents/harness-sdk/blob/7ac039e427e4b488f61a6af1c827532f46dfffa1/strands-ts/src/types/elicitation.ts#L21)
+Defined in: [src/types/elicitation.ts:21](https://github.com/strands-agents/harness-sdk/blob/278805cd559e63475a4c6f52f52614fffa99e401/strands-ts/src/types/elicitation.ts#L21)
 
 Callback invoked when an MCP server sends an elicitation request to gather user input during tool execution.
 

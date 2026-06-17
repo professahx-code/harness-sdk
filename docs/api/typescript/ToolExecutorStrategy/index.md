@@ -2,7 +2,7 @@
 type ToolExecutorStrategy = "sequential" | "concurrent";
 ```
 
-Defined in: [src/agent/agent.ts:152](https://github.com/strands-agents/harness-sdk/blob/7ac039e427e4b488f61a6af1c827532f46dfffa1/strands-ts/src/agent/agent.ts#L152)
+Defined in: [src/agent/agent.ts:152](https://github.com/strands-agents/harness-sdk/blob/278805cd559e63475a4c6f52f52614fffa99e401/strands-ts/src/agent/agent.ts#L152)
 
 Strategy for executing tool calls that the model emits in a single assistant turn.
 

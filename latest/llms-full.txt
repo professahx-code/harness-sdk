@@ -17542,7 +17542,7 @@ Ready to learn more? Check out these resources:
 - [Get started](/docs/user-guide/quickstart/overview/index.md) (1 shared tag)
 - [Python Quickstart](/docs/user-guide/quickstart/python/index.md) (1 shared tag)
 - [Strands Evaluation Quickstart](/docs/user-guide/evals-sdk/quickstart/index.md) (1 shared tag)
-- [Strands Shell Quickstart](/docs/user-guide/shell-sdk/quickstart/index.md) (1 shared tag)
+- [Strands Shell Quickstart](/docs/user-guide/shell/quickstart/index.md) (1 shared tag)
 - [TypeScript Quickstart](/docs/user-guide/quickstart/typescript/index.md) (1 shared tag)
 - [BidiAgent](/docs/user-guide/concepts/bidirectional-streaming/agent/index.md) (1 shared tag)
 - [Events](/docs/user-guide/concepts/bidirectional-streaming/events/index.md) (1 shared tag)
@@ -51170,7 +51170,7 @@ Ready to dive deeper? Explore these resources:
 
 - [Get started](/docs/user-guide/quickstart/overview/index.md) (1 shared tag)
 - [Python Quickstart](/docs/user-guide/quickstart/python/index.md) (1 shared tag)
-- [Strands Shell Quickstart](/docs/user-guide/shell-sdk/quickstart/index.md) (1 shared tag)
+- [Strands Shell Quickstart](/docs/user-guide/shell/quickstart/index.md) (1 shared tag)
 - [TypeScript Quickstart](/docs/user-guide/quickstart/typescript/index.md) (1 shared tag)
 - [Red Teaming Quickstart](/docs/user-guide/evals-sdk/red-teaming/quickstart/index.md) (1 shared tag)
 - [Quickstart](/docs/user-guide/concepts/bidirectional-streaming/quickstart/index.md) (1 shared tag)
@@ -51811,7 +51811,7 @@ report.display()
 - [Get started](/docs/user-guide/quickstart/overview/index.md) (1 shared tag)
 - [Python Quickstart](/docs/user-guide/quickstart/python/index.md) (1 shared tag)
 - [Strands Evaluation Quickstart](/docs/user-guide/evals-sdk/quickstart/index.md) (1 shared tag)
-- [Strands Shell Quickstart](/docs/user-guide/shell-sdk/quickstart/index.md) (1 shared tag)
+- [Strands Shell Quickstart](/docs/user-guide/shell/quickstart/index.md) (1 shared tag)
 - [TypeScript Quickstart](/docs/user-guide/quickstart/typescript/index.md) (1 shared tag)
 - [Attack Strategies](/docs/user-guide/evals-sdk/red-teaming/strategies/index.md) (1 shared tag)
 - [Harmfulness Evaluator](/docs/user-guide/evals-sdk/evaluators/harmfulness_evaluator/index.md) (1 shared tag)
@@ -55182,7 +55182,7 @@ The table below compares feature availability between the Python and TypeScript 
 
 - [Python Quickstart](/docs/user-guide/quickstart/python/index.md) (1 shared tag)
 - [Strands Evaluation Quickstart](/docs/user-guide/evals-sdk/quickstart/index.md) (1 shared tag)
-- [Strands Shell Quickstart](/docs/user-guide/shell-sdk/quickstart/index.md) (1 shared tag)
+- [Strands Shell Quickstart](/docs/user-guide/shell/quickstart/index.md) (1 shared tag)
 - [TypeScript Quickstart](/docs/user-guide/quickstart/typescript/index.md) (1 shared tag)
 - [Red Teaming Quickstart](/docs/user-guide/evals-sdk/red-teaming/quickstart/index.md) (1 shared tag)
 - [Quickstart](/docs/user-guide/concepts/bidirectional-streaming/quickstart/index.md) (1 shared tag)
@@ -55748,7 +55748,7 @@ Ready to learn more? Check out these resources:
 
 - [Get started](/docs/user-guide/quickstart/overview/index.md) (1 shared tag)
 - [Strands Evaluation Quickstart](/docs/user-guide/evals-sdk/quickstart/index.md) (1 shared tag)
-- [Strands Shell Quickstart](/docs/user-guide/shell-sdk/quickstart/index.md) (1 shared tag)
+- [Strands Shell Quickstart](/docs/user-guide/shell/quickstart/index.md) (1 shared tag)
 - [TypeScript Quickstart](/docs/user-guide/quickstart/typescript/index.md) (1 shared tag)
 - [Red Teaming Quickstart](/docs/user-guide/evals-sdk/red-teaming/quickstart/index.md) (1 shared tag)
 - [Quickstart](/docs/user-guide/concepts/bidirectional-streaming/quickstart/index.md) (1 shared tag)
@@ -56016,7 +56016,7 @@ Ready to learn more? Check out these resources:
 - [Get started](/docs/user-guide/quickstart/overview/index.md) (1 shared tag)
 - [Python Quickstart](/docs/user-guide/quickstart/python/index.md) (1 shared tag)
 - [Strands Evaluation Quickstart](/docs/user-guide/evals-sdk/quickstart/index.md) (1 shared tag)
-- [Strands Shell Quickstart](/docs/user-guide/shell-sdk/quickstart/index.md) (1 shared tag)
+- [Strands Shell Quickstart](/docs/user-guide/shell/quickstart/index.md) (1 shared tag)
 - [Red Teaming Quickstart](/docs/user-guide/evals-sdk/red-teaming/quickstart/index.md) (1 shared tag)
 - [Quickstart](/docs/user-guide/concepts/bidirectional-streaming/quickstart/index.md) (1 shared tag)
 
@@ -56766,7 +56766,7 @@ A fresh shell starts empty without access to files, network, or credentials. You
 -   **Allowed URLs** widen the network policy. By default the SSRF guard blocks private ranges (RFC1918, link-local, loopback, and cloud metadata endpoints) while letting public URLs through. Add a prefix to the allowlist to permit a specific internal host.
     
 
-The [Configuration](/docs/user-guide/shell-sdk/configuration/index.md) guide covers each of these in depth, including the TOML format that lets you declare the whole policy in a file.
+The [Configuration](/docs/user-guide/shell/configuration/index.md) guide covers each of these in depth, including the TOML format that lets you declare the whole policy in a file.
 
 ## What Strands Shell is not
 
@@ -56783,13 +56783,13 @@ A Strands Shell instance is single-owner. If you serve multiple agents, create o
 
 ## Next steps
 
--   [Quickstart](/docs/user-guide/shell-sdk/quickstart/index.md): install the shell and run your first sandboxed command through MCP, Python, or Node.js.
--   [Configuration](/docs/user-guide/shell-sdk/configuration/index.md): bind directories, inject credentials, set the network allowlist, and load it all from TOML.
--   [Commands](/docs/user-guide/shell-sdk/commands/index.md): the full command inventory, supported flags, and known gaps versus GNU coreutils.
--   [MCP Server](/docs/user-guide/shell-sdk/mcp-server/index.md): expose the shell to any MCP-compatible agent framework over stdio.
--   [Security Model](/docs/user-guide/shell-sdk/security/index.md): the Kernel boundary, the SSRF guard, credential handling, and how to layer OS isolation for adversarial workloads.
+-   [Quickstart](/docs/user-guide/shell/quickstart/index.md): install the shell and run your first sandboxed command through MCP, Python, or Node.js.
+-   [Configuration](/docs/user-guide/shell/configuration/index.md): bind directories, inject credentials, set the network allowlist, and load it all from TOML.
+-   [Commands](/docs/user-guide/shell/commands/index.md): the full command inventory, supported flags, and known gaps versus GNU coreutils.
+-   [MCP Server](/docs/user-guide/shell/mcp-server/index.md): expose the shell to any MCP-compatible agent framework over stdio.
+-   [Security Model](/docs/user-guide/shell/security/index.md): the Kernel boundary, the SSRF guard, credential handling, and how to layer OS isolation for adversarial workloads.
 
-Source: https://strandsagents.com/docs/user-guide/shell-sdk/index.md
+Source: https://strandsagents.com/docs/user-guide/shell/index.md
 
 ---
 
@@ -56866,7 +56866,7 @@ These notes apply across commands:
 | --- | --- |
 | `curl` | GET, POST, JSON, headers, auth, redirects, and `-w` are supported. No `--max-time`, `--connect-timeout`, or `--retry` (risk of an indefinite hang); no `-I`, `-F`, `-A`, `-G`, or cookie jar. SSRF and credential controls are enforced. |
 
-The SSRF guard and credential injection on `curl` are security features, covered in the [security model](/docs/user-guide/shell-sdk/security/index.md). They are not optional and cannot be disabled per command.
+The SSRF guard and credential injection on `curl` are security features, covered in the [security model](/docs/user-guide/shell/security/index.md). They are not optional and cannot be disabled per command.
 
 ## JSON
 
@@ -56921,7 +56921,7 @@ Reach for `lua` when shell syntax gets awkward: multi-step transforms, structure
 | Jobs | background `&` |
 | Scripts | `. script.sh`, `source` |
 
-Source: https://strandsagents.com/docs/user-guide/shell-sdk/commands/index.md
+Source: https://strandsagents.com/docs/user-guide/shell/commands/index.md
 
 ---
 
@@ -56929,7 +56929,7 @@ Source: https://strandsagents.com/docs/user-guide/shell-sdk/commands/index.md
 
 A fresh shell can reach nothing. You open it up by declaring three things: which directories the agent sees, which credentials get injected on which requests, and which URLs the agent may reach. This guide covers each, plus resource limits and the TOML format that captures the whole policy in one file.
 
-Every option is available both as a constructor argument and as a TOML key. Use the constructor when the policy is dynamic (per session, computed at runtime); use TOML when the policy is static and you want it under version control or shared with the [MCP server](/docs/user-guide/shell-sdk/mcp-server/index.md).
+Every option is available both as a constructor argument and as a TOML key. Use the constructor when the policy is dynamic (per session, computed at runtime); use TOML when the policy is static and you want it under version control or shared with the [MCP server](/docs/user-guide/shell/mcp-server/index.md).
 
 The examples below use the Python API. The Node.js API takes the same options as a config object with camelCase keys (`allowedUrls`, `configFile`, `maxOutput`), and the TOML format is identical across both.
 
@@ -57042,11 +57042,11 @@ shell = strands_shell.Shell(
 | `max_inodes` | 10,000 | Total files and directories in the VFS |
 | `max_depth` | 64 | Directory nesting depth |
 
-These caps are best-effort. They stop a runaway agent from exhausting memory or hanging; they aren’t a defense against an adversary actively trying to break out. For hard guarantees, see the [security model](/docs/user-guide/shell-sdk/security/index.md).
+These caps are best-effort. They stop a runaway agent from exhausting memory or hanging; they aren’t a defense against an adversary actively trying to break out. For hard guarantees, see the [security model](/docs/user-guide/shell/security/index.md).
 
 ## TOML configuration
 
-When the policy is static, declare it in a TOML file. The Python and Node.js constructors accept a config file path, and the [MCP server](/docs/user-guide/shell-sdk/mcp-server/index.md) reads the same format through its `--config` flag. Pass a file and explicit constructor arguments together, and the explicit arguments win.
+When the policy is static, declare it in a TOML file. The Python and Node.js constructors accept a config file path, and the [MCP server](/docs/user-guide/shell/mcp-server/index.md) reads the same format through its `--config` flag. Pass a file and explicit constructor arguments together, and the explicit arguments win.
 
 ```toml
 umask = "022"
@@ -57092,11 +57092,11 @@ A few rules the parser enforces:
 
 ## Next steps
 
--   [Commands](/docs/user-guide/shell-sdk/commands/index.md): the full command inventory and supported flags.
--   [MCP Server](/docs/user-guide/shell-sdk/mcp-server/index.md): serve this configuration to any MCP-compatible agent.
--   [Security Model](/docs/user-guide/shell-sdk/security/index.md): how binds, credential injection, and the SSRF guard hold up, and where they stop.
+-   [Commands](/docs/user-guide/shell/commands/index.md): the full command inventory and supported flags.
+-   [MCP Server](/docs/user-guide/shell/mcp-server/index.md): serve this configuration to any MCP-compatible agent.
+-   [Security Model](/docs/user-guide/shell/security/index.md): how binds, credential injection, and the SSRF guard hold up, and where they stop.
 
-Source: https://strandsagents.com/docs/user-guide/shell-sdk/configuration/index.md
+Source: https://strandsagents.com/docs/user-guide/shell/configuration/index.md
 
 ---
 
@@ -57112,7 +57112,7 @@ Run the server with the `--mcp` flag. With no config, it starts a bare in-memory
 uvx strands-shell --mcp
 ```
 
-To grant access, pass a [TOML config file](/docs/user-guide/shell-sdk/configuration/index.md#toml-configuration) before the flag. The server applies the same binds, credentials, allowlist, and limits you’d set in code.
+To grant access, pass a [TOML config file](/docs/user-guide/shell/configuration/index.md#toml-configuration) before the flag. The server applies the same binds, credentials, allowlist, and limits you’d set in code.
 
 ```bash
 uvx strands-shell --config sandbox.toml --mcp
@@ -57196,14 +57196,14 @@ Nested MCP servers are a native-target feature. They aren’t available under th
 
 ## When to use the MCP server
 
-Reach for the MCP server when your agent already speaks MCP and you want isolation without writing binding code: the agent gets a shell plus file tools, all mediated by the Kernel, configured from one TOML file. When you’re writing the agent host yourself in Python or Node.js, embed the [Python](/docs/user-guide/shell-sdk/quickstart/index.md#python) or [Node.js](/docs/user-guide/shell-sdk/quickstart/index.md#nodejs) API directly instead, which gives you the typed `Output`, file operations, and per-session control without a subprocess.
+Reach for the MCP server when your agent already speaks MCP and you want isolation without writing binding code: the agent gets a shell plus file tools, all mediated by the Kernel, configured from one TOML file. When you’re writing the agent host yourself in Python or Node.js, embed the [Python](/docs/user-guide/shell/quickstart/index.md#python) or [Node.js](/docs/user-guide/shell/quickstart/index.md#nodejs) API directly instead, which gives you the typed `Output`, file operations, and per-session control without a subprocess.
 
 ## Next steps
 
--   [Configuration](/docs/user-guide/shell-sdk/configuration/index.md): the full TOML schema for binds, credentials, the allowlist, and limits.
--   [Security Model](/docs/user-guide/shell-sdk/security/index.md): what the sandbox guarantees per session and why one shell per session is the contract.
+-   [Configuration](/docs/user-guide/shell/configuration/index.md): the full TOML schema for binds, credentials, the allowlist, and limits.
+-   [Security Model](/docs/user-guide/shell/security/index.md): what the sandbox guarantees per session and why one shell per session is the contract.
 
-Source: https://strandsagents.com/docs/user-guide/shell-sdk/mcp-server/index.md
+Source: https://strandsagents.com/docs/user-guide/shell/mcp-server/index.md
 
 ---
 
@@ -57234,7 +57234,7 @@ Add this to your MCP client configuration:
 }
 ```
 
-This starts a bare in-memory sandbox without access to files, network, or credentials. To grant access, write a [TOML config file](/docs/user-guide/shell-sdk/configuration/index.md#toml-configuration) and pass it before the `--mcp` flag:
+This starts a bare in-memory sandbox without access to files, network, or credentials. To grant access, write a [TOML config file](/docs/user-guide/shell/configuration/index.md#toml-configuration) and pass it before the `--mcp` flag:
 
 ```json
 {
@@ -57247,7 +57247,7 @@ This starts a bare in-memory sandbox without access to files, network, or creden
 }
 ```
 
-The [MCP Server](/docs/user-guide/shell-sdk/mcp-server/index.md) page documents the four tools, their parameters, and how to expose other MCP servers as Lua modules inside the shell.
+The [MCP Server](/docs/user-guide/shell/mcp-server/index.md) page documents the four tools, their parameters, and how to expose other MCP servers as Lua modules inside the shell.
 
 ## Python
 
@@ -57359,9 +57359,9 @@ You created a sandbox with exactly one directory visible to it and ran a command
 
 ## Next steps
 
--   [Configuration](/docs/user-guide/shell-sdk/configuration/index.md): the difference between `copy` and `direct` binds, credential injection, the network allowlist, and the TOML format.
--   [Commands](/docs/user-guide/shell-sdk/commands/index.md): which commands and flags are supported, and where they diverge from GNU coreutils.
--   [Security Model](/docs/user-guide/shell-sdk/security/index.md): what the sandbox guarantees, what it doesn’t, and when to add OS-level isolation.
+-   [Configuration](/docs/user-guide/shell/configuration/index.md): the difference between `copy` and `direct` binds, credential injection, the network allowlist, and the TOML format.
+-   [Commands](/docs/user-guide/shell/commands/index.md): which commands and flags are supported, and where they diverge from GNU coreutils.
+-   [Security Model](/docs/user-guide/shell/security/index.md): what the sandbox guarantees, what it doesn’t, and when to add OS-level isolation.
 
 ## Related pages
 
@@ -57372,7 +57372,7 @@ You created a sandbox with exactly one directory visible to it and ran a command
 - [Red Teaming Quickstart](/docs/user-guide/evals-sdk/red-teaming/quickstart/index.md) (1 shared tag)
 - [Quickstart](/docs/user-guide/concepts/bidirectional-streaming/quickstart/index.md) (1 shared tag)
 
-Source: https://strandsagents.com/docs/user-guide/shell-sdk/quickstart/index.md
+Source: https://strandsagents.com/docs/user-guide/shell/quickstart/index.md
 
 ---
 
@@ -57405,7 +57405,7 @@ Out of the box a shell is empty: no files, no network, no credentials. You add c
 -   **Keep a timeout set.** The config-driven API defaults to a 30-second per-command timeout, which bounds runaway commands. Raise it for long-running work rather than removing it.
 -   **Set `max_output`.** Cap the output an agent can generate so a single command can’t fill memory. 1 MiB is a reasonable default.
 
-The [configuration guide](/docs/user-guide/shell-sdk/configuration/index.md) shows how to apply each of these.
+The [configuration guide](/docs/user-guide/shell/configuration/index.md) shows how to apply each of these.
 
 ## How credentials stay out of reach
 
@@ -57438,7 +57438,7 @@ A bypass of filesystem mediation, the SSRF guard, or credential injection is a s
 
 Don’t open a public GitHub issue. Report through the [AWS Vulnerability Disclosure Program on HackerOne](https://hackerone.com/aws_vdp) or by email to `aws-security@amazon.com`. The repository’s [SECURITY.md](https://github.com/strands-agents/shell/blob/main/SECURITY.md) has the full policy and the complete in-scope and out-of-scope lists.
 
-Source: https://strandsagents.com/docs/user-guide/shell-sdk/security/index.md
+Source: https://strandsagents.com/docs/user-guide/shell/security/index.md
 
 ---
 

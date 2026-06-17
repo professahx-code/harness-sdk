@@ -1,4 +1,4 @@
-Defined in: [src/memory/extraction/model-extractor.ts:35](https://github.com/strands-agents/harness-sdk/blob/7ac039e427e4b488f61a6af1c827532f46dfffa1/strands-ts/src/memory/extraction/model-extractor.ts#L35)
+Defined in: [src/memory/extraction/model-extractor.ts:35](https://github.com/strands-agents/harness-sdk/blob/278805cd559e63475a4c6f52f52614fffa99e401/strands-ts/src/memory/extraction/model-extractor.ts#L35)
 
 An [Extractor](/docs/api/typescript/Extractor/index.md) that calls a language model to distill messages into discrete facts.
 
@@ -25,7 +25,7 @@ extraction: {
 new ModelExtractor(options?): ModelExtractor;
 ```
 
-Defined in: [src/memory/extraction/model-extractor.ts:39](https://github.com/strands-agents/harness-sdk/blob/7ac039e427e4b488f61a6af1c827532f46dfffa1/strands-ts/src/memory/extraction/model-extractor.ts#L39)
+Defined in: [src/memory/extraction/model-extractor.ts:39](https://github.com/strands-agents/harness-sdk/blob/278805cd559e63475a4c6f52f52614fffa99e401/strands-ts/src/memory/extraction/model-extractor.ts#L39)
 
 #### Parameters
 
@@ -45,7 +45,7 @@ Defined in: [src/memory/extraction/model-extractor.ts:39](https://github.com/str
 extract(messages, context?): Promise<ExtractionResult[]>;
 ```
 
-Defined in: [src/memory/extraction/model-extractor.ts:46](https://github.com/strands-agents/harness-sdk/blob/7ac039e427e4b488f61a6af1c827532f46dfffa1/strands-ts/src/memory/extraction/model-extractor.ts#L46)
+Defined in: [src/memory/extraction/model-extractor.ts:46](https://github.com/strands-agents/harness-sdk/blob/278805cd559e63475a4c6f52f52614fffa99e401/strands-ts/src/memory/extraction/model-extractor.ts#L46)
 
 Extract entries from a batch of messages.
 
