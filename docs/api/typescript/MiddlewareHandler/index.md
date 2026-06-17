@@ -2,7 +2,7 @@
 type MiddlewareHandler<TContext, TResult, TEvent> = (context, next) => AsyncGenerator<TEvent, TResult, undefined>;
 ```
 
-Defined in: [src/middleware/types.ts:69](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/middleware/types.ts#L69)
+Defined in: [src/middleware/types.ts:69](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/middleware/types.ts#L69)
 
 A middleware handler function (Wrap phase). Receives the context and a `next` function to call the next layer. Must be an async generator that yields TEvent and returns TResult. Middleware can yield its own events, forward events from next, or suppress them.
 

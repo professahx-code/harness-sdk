@@ -1,4 +1,4 @@
-Defined in: [src/memory/extraction/types.ts:27](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/memory/extraction/types.ts#L27)
+Defined in: [src/memory/extraction/types.ts:27](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/memory/extraction/types.ts#L27)
 
 Filters content blocks out of messages before extraction.
 
@@ -12,6 +12,6 @@ Blocks whose kind is in [exclude](#exclude) are stripped; a message left with no
 exclude: MemoryContentBlockType[];
 ```
 
-Defined in: [src/memory/extraction/types.ts:29](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/memory/extraction/types.ts#L29)
+Defined in: [src/memory/extraction/types.ts:29](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/memory/extraction/types.ts#L29)
 
 Content block kinds to strip before extraction.

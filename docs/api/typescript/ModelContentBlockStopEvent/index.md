@@ -1,4 +1,4 @@
-Defined in: [src/models/streaming.ts:172](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/models/streaming.ts#L172)
+Defined in: [src/models/streaming.ts:172](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/models/streaming.ts#L172)
 
 Event emitted when a content block completes.
 
@@ -14,7 +14,7 @@ Event emitted when a content block completes.
 new ModelContentBlockStopEvent(_data): ModelContentBlockStopEvent;
 ```
 
-Defined in: [src/models/streaming.ts:178](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/models/streaming.ts#L178)
+Defined in: [src/models/streaming.ts:178](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/models/streaming.ts#L178)
 
 #### Parameters
 
@@ -34,7 +34,7 @@ Defined in: [src/models/streaming.ts:178](https://github.com/strands-agents/harn
 readonly type: "modelContentBlockStopEvent";
 ```
 
-Defined in: [src/models/streaming.ts:176](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/models/streaming.ts#L176)
+Defined in: [src/models/streaming.ts:176](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/models/streaming.ts#L176)
 
 Discriminator for content block stop events.
 

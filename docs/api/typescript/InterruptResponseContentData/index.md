@@ -1,4 +1,4 @@
-Defined in: [src/types/interrupt.ts:63](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/types/interrupt.ts#L63)
+Defined in: [src/types/interrupt.ts:63](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/types/interrupt.ts#L63)
 
 Data format for a content block containing a user response to an interrupt.
 
@@ -10,6 +10,6 @@ Data format for a content block containing a user response to an interrupt.
 interruptResponse: InterruptResponse;
 ```
 
-Defined in: [src/types/interrupt.ts:67](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/types/interrupt.ts#L67)
+Defined in: [src/types/interrupt.ts:67](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/types/interrupt.ts#L67)
 
 The interrupt response data.

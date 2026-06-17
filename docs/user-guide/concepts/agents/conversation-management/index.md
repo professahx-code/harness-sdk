@@ -629,6 +629,7 @@ See the [SlidingWindowConversationManager](https://github.com/strands-agents/har
 
 - [Context Management](/docs/user-guide/concepts/context-management/index.md) (2 shared tags)
 - [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) (2 shared tags)
+- [Context Injector](/docs/user-guide/concepts/plugins/context-injector/index.md) (1 shared tag)
 - [Coherence Evaluator](/docs/user-guide/evals-sdk/evaluators/coherence_evaluator/index.md) (1 shared tag)
 - [Conciseness Evaluator](/docs/user-guide/evals-sdk/evaluators/conciseness_evaluator/index.md) (1 shared tag)
 - [Goal Success Rate Evaluator](/docs/user-guide/evals-sdk/evaluators/goal_success_rate_evaluator/index.md) (1 shared tag)
@@ -636,4 +637,3 @@ See the [SlidingWindowConversationManager](https://github.com/strands-agents/har
 - [Interactions Evaluator](/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md) (1 shared tag)
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
 - [Skills](/docs/user-guide/concepts/plugins/skills/index.md) (1 shared tag)
-- [User Simulation](/docs/user-guide/evals-sdk/simulators/user_simulation/index.md) (1 shared tag)

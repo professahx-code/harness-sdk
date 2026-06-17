@@ -1,4 +1,4 @@
-Defined in: [src/memory/types.ts:258](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/memory/types.ts#L258)
+Defined in: [src/memory/types.ts:258](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/memory/types.ts#L258)
 
 Configuration for the [MemoryManager](/docs/api/typescript/MemoryManager/index.md).
 
@@ -10,7 +10,7 @@ Configuration for the [MemoryManager](/docs/api/typescript/MemoryManager/index.m
 stores: MemoryStore[];
 ```
 
-Defined in: [src/memory/types.ts:260](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/memory/types.ts#L260)
+Defined in: [src/memory/types.ts:260](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/memory/types.ts#L260)
 
 One or more memory stores to manage.
 
@@ -22,7 +22,7 @@ One or more memory stores to manage.
 optional searchToolConfig?: boolean | MemoryToolConfig;
 ```
 
-Defined in: [src/memory/types.ts:262](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/memory/types.ts#L262)
+Defined in: [src/memory/types.ts:262](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/memory/types.ts#L262)
 
 Search tool configuration. Defaults to `true`.
 
@@ -34,7 +34,7 @@ Search tool configuration. Defaults to `true`.
 optional addToolConfig?: boolean | MemoryAddToolConfig;
 ```
 
-Defined in: [src/memory/types.ts:267](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/memory/types.ts#L267)
+Defined in: [src/memory/types.ts:267](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/memory/types.ts#L267)
 
 Add tool configuration. Defaults to `false` (opt-in). `true` lets the tool write to all writable stores; pass a [MemoryAddToolConfig](/docs/api/typescript/MemoryAddToolConfig/index.md) with `stores` to restrict it to specific ones.
 
@@ -46,7 +46,7 @@ Add tool configuration. Defaults to `false` (opt-in). `true` lets the tool write
 optional injection?: boolean | MemoryInjectionConfig;
 ```
 
-Defined in: [src/memory/types.ts:283](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/memory/types.ts#L283)
+Defined in: [src/memory/types.ts:283](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/memory/types.ts#L283)
 
 Memory context injection. Defaults to `true`. `true` uses the default injection settings; pass a [MemoryInjectionConfig](/docs/api/typescript/MemoryInjectionConfig/index.md) to customize retrieval, timing, and formatting; `false` disables it.
 

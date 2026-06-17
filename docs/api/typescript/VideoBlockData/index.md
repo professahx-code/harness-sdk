@@ -1,4 +1,4 @@
-Defined in: [src/types/media.ts:277](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/types/media.ts#L277)
+Defined in: [src/types/media.ts:277](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/types/media.ts#L277)
 
 Data for a video block.
 
@@ -10,7 +10,7 @@ Data for a video block.
 format: VideoFormat;
 ```
 
-Defined in: [src/types/media.ts:281](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/types/media.ts#L281)
+Defined in: [src/types/media.ts:281](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/types/media.ts#L281)
 
 Video format.
 
@@ -22,6 +22,6 @@ Video format.
 source: VideoSourceData;
 ```
 
-Defined in: [src/types/media.ts:286](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/types/media.ts#L286)
+Defined in: [src/types/media.ts:286](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/types/media.ts#L286)
 
 Video source.

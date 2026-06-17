@@ -6,7 +6,7 @@ S3-based session manager for cloud storage.
 class S3SessionManager(RepositorySessionManager, SessionRepository)
 ```
 
-Defined in: [src/strands/session/s3\_session\_manager.py:29](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L29)
+Defined in: [src/strands/session/s3\_session\_manager.py:31](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L31)
 
 S3-based session manager for cloud storage.
 
@@ -37,7 +37,7 @@ def __init__(session_id: str,
              **kwargs: Any)
 ```
 
-Defined in: [src/strands/session/s3\_session\_manager.py:46](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L46)
+Defined in: [src/strands/session/s3\_session\_manager.py:48](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L48)
 
 Initialize S3SessionManager with S3 storage.
 
@@ -58,7 +58,7 @@ Initialize S3SessionManager with S3 storage.
 def create_session(session: Session, **kwargs: Any) -> Session
 ```
 
-Defined in: [src/strands/session/s3\_session\_manager.py:164](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L164)
+Defined in: [src/strands/session/s3\_session\_manager.py:166](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L166)
 
 Create a new session in S3.
 
@@ -68,7 +68,7 @@ Create a new session in S3.
 def read_session(session_id: str, **kwargs: Any) -> Session | None
 ```
 
-Defined in: [src/strands/session/s3\_session\_manager.py:181](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L181)
+Defined in: [src/strands/session/s3\_session\_manager.py:183](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L183)
 
 Read session data from S3.
 
@@ -78,7 +78,7 @@ Read session data from S3.
 def delete_session(session_id: str, **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/session/s3\_session\_manager.py:189](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L189)
+Defined in: [src/strands/session/s3\_session\_manager.py:191](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L191)
 
 Delete session and all associated data from S3.
 
@@ -89,7 +89,7 @@ def create_agent(session_id: str, session_agent: SessionAgent,
                  **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/session/s3\_session\_manager.py:212](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L212)
+Defined in: [src/strands/session/s3\_session\_manager.py:214](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L214)
 
 Create a new agent in S3.
 
@@ -100,7 +100,7 @@ def read_agent(session_id: str, agent_id: str,
                **kwargs: Any) -> SessionAgent | None
 ```
 
-Defined in: [src/strands/session/s3\_session\_manager.py:219](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L219)
+Defined in: [src/strands/session/s3\_session\_manager.py:221](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L221)
 
 Read agent data from S3.
 
@@ -111,7 +111,7 @@ def update_agent(session_id: str, session_agent: SessionAgent,
                  **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/session/s3\_session\_manager.py:227](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L227)
+Defined in: [src/strands/session/s3\_session\_manager.py:229](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L229)
 
 Update agent data in S3.
 
@@ -122,7 +122,7 @@ def create_message(session_id: str, agent_id: str,
                    session_message: SessionMessage, **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/session/s3\_session\_manager.py:239](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L239)
+Defined in: [src/strands/session/s3\_session\_manager.py:241](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L241)
 
 Create a new message in S3.
 
@@ -133,7 +133,7 @@ def read_message(session_id: str, agent_id: str, message_id: int,
                  **kwargs: Any) -> SessionMessage | None
 ```
 
-Defined in: [src/strands/session/s3\_session\_manager.py:246](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L246)
+Defined in: [src/strands/session/s3\_session\_manager.py:248](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L248)
 
 Read message data from S3.
 
@@ -144,7 +144,7 @@ def update_message(session_id: str, agent_id: str,
                    session_message: SessionMessage, **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/session/s3\_session\_manager.py:254](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L254)
+Defined in: [src/strands/session/s3\_session\_manager.py:256](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L256)
 
 Update message data in S3.
 
@@ -158,7 +158,7 @@ def list_messages(session_id: str,
                   **kwargs: Any) -> list[SessionMessage]
 ```
 
-Defined in: [src/strands/session/s3\_session\_manager.py:266](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L266)
+Defined in: [src/strands/session/s3\_session\_manager.py:268](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L268)
 
 List messages for an agent with pagination from S3.
 
@@ -185,7 +185,7 @@ def create_multi_agent(session_id: str, multi_agent: "MultiAgentBase",
                        **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/session/s3\_session\_manager.py:357](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L357)
+Defined in: [src/strands/session/s3\_session\_manager.py:359](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L359)
 
 Create a new multiagent state in S3.
 
@@ -196,7 +196,7 @@ def read_multi_agent(session_id: str, multi_agent_id: str,
                      **kwargs: Any) -> dict[str, Any] | None
 ```
 
-Defined in: [src/strands/session/s3\_session\_manager.py:364](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L364)
+Defined in: [src/strands/session/s3\_session\_manager.py:366](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L366)
 
 Read multi-agent state from S3.
 
@@ -207,6 +207,6 @@ def update_multi_agent(session_id: str, multi_agent: "MultiAgentBase",
                        **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/session/s3\_session\_manager.py:369](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L369)
+Defined in: [src/strands/session/s3\_session\_manager.py:371](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py#L371)
 
 Update multi-agent state in S3.

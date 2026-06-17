@@ -8647,6 +8647,7 @@ See the [SlidingWindowConversationManager](https://github.com/strands-agents/har
 
 - [Context Management](/docs/user-guide/concepts/context-management/index.md) (2 shared tags)
 - [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) (2 shared tags)
+- [Context Injector](/docs/user-guide/concepts/plugins/context-injector/index.md) (1 shared tag)
 - [Coherence Evaluator](/docs/user-guide/evals-sdk/evaluators/coherence_evaluator/index.md) (1 shared tag)
 - [Conciseness Evaluator](/docs/user-guide/evals-sdk/evaluators/conciseness_evaluator/index.md) (1 shared tag)
 - [Goal Success Rate Evaluator](/docs/user-guide/evals-sdk/evaluators/goal_success_rate_evaluator/index.md) (1 shared tag)
@@ -8654,7 +8655,6 @@ See the [SlidingWindowConversationManager](https://github.com/strands-agents/har
 - [Interactions Evaluator](/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md) (1 shared tag)
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
 - [Skills](/docs/user-guide/concepts/plugins/skills/index.md) (1 shared tag)
-- [User Simulation](/docs/user-guide/evals-sdk/simulators/user_simulation/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/agents/conversation-management/index.md
 
@@ -11491,7 +11491,7 @@ For the full policy language grammar, operators, and built-in functions, see the
 - [Stereotyping Evaluator](/docs/user-guide/evals-sdk/evaluators/stereotyping_evaluator/index.md) (1 shared tag)
 - [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
 - [Instruction Following Evaluator](/docs/user-guide/evals-sdk/evaluators/instruction_following_evaluator/index.md) (1 shared tag)
-- [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
+- [Guardrails](/docs/user-guide/safety-security/guardrails/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/agents/interventions/cedar-authorization/index.md
 
@@ -16866,6 +16866,7 @@ As a reminder, Nova Sonic is only available in us-east-1, eu-north-1, and ap-nor
 
 - [Amazon Nova](/docs/user-guide/concepts/model-providers/amazon-nova/index.md) (2 shared tags)
 - [Guardrails](/docs/user-guide/safety-security/guardrails/index.md) (2 shared tags)
+- [Bedrock Knowledge Base Store](/docs/user-guide/concepts/memory/bedrock-knowledge-base/index.md) (2 shared tags)
 - [Deploying Strands Agents to Amazon Bedrock AgentCore Runtime](/docs/user-guide/deploy/deploy_to_bedrock_agentcore/index.md) (2 shared tags)
 - [Python Deployment to Amazon Bedrock AgentCore Runtime](/docs/user-guide/deploy/deploy_to_bedrock_agentcore/python/index.md) (2 shared tags)
 - [TypeScript Deployment to Amazon Bedrock AgentCore Runtime](/docs/user-guide/deploy/deploy_to_bedrock_agentcore/typescript/index.md) (2 shared tags)
@@ -16873,7 +16874,6 @@ As a reminder, Nova Sonic is only available in us-east-1, eu-north-1, and ap-nor
 - [BidiAgent](/docs/user-guide/concepts/bidirectional-streaming/agent/index.md) (1 shared tag)
 - [Events](/docs/user-guide/concepts/bidirectional-streaming/events/index.md) (1 shared tag)
 - [Gemini Live](/docs/user-guide/concepts/bidirectional-streaming/models/gemini_live/index.md) (1 shared tag)
-- [I/O Channels](/docs/user-guide/concepts/bidirectional-streaming/io/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/bidirectional-streaming/models/nova_sonic/index.md
 
@@ -17541,13 +17541,13 @@ Ready to learn more? Check out these resources:
 - [Get started](/docs/user-guide/quickstart/overview/index.md) (1 shared tag)
 - [Python Quickstart](/docs/user-guide/quickstart/python/index.md) (1 shared tag)
 - [Strands Evaluation Quickstart](/docs/user-guide/evals-sdk/quickstart/index.md) (1 shared tag)
+- [Strands Shell Quickstart](/docs/user-guide/shell-sdk/quickstart/index.md) (1 shared tag)
 - [TypeScript Quickstart](/docs/user-guide/quickstart/typescript/index.md) (1 shared tag)
 - [BidiAgent](/docs/user-guide/concepts/bidirectional-streaming/agent/index.md) (1 shared tag)
 - [Events](/docs/user-guide/concepts/bidirectional-streaming/events/index.md) (1 shared tag)
 - [Gemini Live](/docs/user-guide/concepts/bidirectional-streaming/models/gemini_live/index.md) (1 shared tag)
 - [I/O Channels](/docs/user-guide/concepts/bidirectional-streaming/io/index.md) (1 shared tag)
 - [Interruptions](/docs/user-guide/concepts/bidirectional-streaming/interruption/index.md) (1 shared tag)
-- [OpenAI Realtime](/docs/user-guide/concepts/bidirectional-streaming/models/openai_realtime/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/bidirectional-streaming/quickstart/index.md
 
@@ -17925,6 +17925,7 @@ Both modes compose an offloader that uses in-memory storage, which does not pers
 
 - [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) (2 shared tags)
 - [Conversation Management](/docs/user-guide/concepts/agents/conversation-management/index.md) (2 shared tags)
+- [Context Injector](/docs/user-guide/concepts/plugins/context-injector/index.md) (1 shared tag)
 - [Coherence Evaluator](/docs/user-guide/evals-sdk/evaluators/coherence_evaluator/index.md) (1 shared tag)
 - [Conciseness Evaluator](/docs/user-guide/evals-sdk/evaluators/conciseness_evaluator/index.md) (1 shared tag)
 - [Goal Success Rate Evaluator](/docs/user-guide/evals-sdk/evaluators/goal_success_rate_evaluator/index.md) (1 shared tag)
@@ -17932,7 +17933,6 @@ Both modes compose an offloader that uses in-memory storage, which does not pers
 - [Interactions Evaluator](/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md) (1 shared tag)
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
 - [Skills](/docs/user-guide/concepts/plugins/skills/index.md) (1 shared tag)
-- [User Simulation](/docs/user-guide/evals-sdk/simulators/user_simulation/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/context-management/index.md
 
@@ -18980,6 +18980,1004 @@ Strands enforces the following rules for interrupts in graph:
 - [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/interrupts/index.md
+
+---
+
+## Bedrock Knowledge Base Store
+
+`BedrockKnowledgeBaseStore` is a [`MemoryStore`](/docs/user-guide/concepts/memory/overview/index.md#stores) backed by [Amazon Bedrock Knowledge Bases](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html).
+
+Connect the store to a knowledge base you have already set up. Configure your store with its knowledge base ID and data source (see [Data Source Types and Writability](#data-source-types-and-writability)). A store with only a knowledge base ID is read-only. The store reaches Bedrock with the standard AWS credential chain, the same as the [Amazon Bedrock model provider](/docs/user-guide/concepts/model-providers/amazon-bedrock/index.md).
+
+(( tab "Python" ))
+```python
+from strands import Agent
+from strands.memory import MemoryManager
+from strands.vended_memory_stores import BedrockKnowledgeBaseStore
+
+store = BedrockKnowledgeBaseStore(
+    name="docs",
+    description="Company documentation and policies.",
+    config={"knowledge_base_id": "KB123"},
+)
+
+agent = Agent(memory_manager=MemoryManager(stores=[store]))
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import { Agent, BedrockModel } from '@strands-agents/sdk'
+import { BedrockKnowledgeBaseStore } from '@strands-agents/sdk/vended-memory-stores/bedrock-knowledge-base'
+
+const store = new BedrockKnowledgeBaseStore({
+  name: 'docs',
+  description: 'Company documentation and policies.',
+  config: { knowledgeBaseId: 'KB123' },
+})
+
+const agent = new Agent({
+  model: new BedrockModel(),
+  memoryManager: { stores: [store] },
+})
+```
+(( /tab "TypeScript" ))
+
+To enable writing memories through the [`add_memory` tool](/docs/user-guide/concepts/memory/overview/index.md#memory-tools) or [automatic extraction](/docs/user-guide/concepts/memory/overview/index.md#automatic-extraction), mark the store writable and point it at a data source that accepts ingestion:
+
+(( tab "Python" ))
+```python
+from strands.vended_memory_stores import BedrockKnowledgeBaseStore
+
+store = BedrockKnowledgeBaseStore(
+    name="preferences",
+    description="User preferences and stable facts.",
+    writable=True,
+    config={
+        "knowledge_base_id": "KB123",
+        "data_source_type": "CUSTOM",
+        "data_source_id": "DS456",
+    },
+)
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import { BedrockKnowledgeBaseStore } from '@strands-agents/sdk/vended-memory-stores/bedrock-knowledge-base'
+
+const store = new BedrockKnowledgeBaseStore({
+  name: 'preferences',
+  description: 'User preferences and stable facts.',
+  writable: true,
+  config: {
+    knowledgeBaseId: 'KB123',
+    dataSourceType: 'CUSTOM',
+    dataSourceId: 'DS456',
+  },
+})
+```
+(( /tab "TypeScript" ))
+
+## Configuration
+
+### Scope and namespaces
+
+`scope` isolates documents within a single knowledge base. It is stamped on every write (under `scope_metadata_key` `scopeMetadataKey`  , default `'namespace'`) and applied as a metadata filter on search. Unlike `name`, scope is not a routing identity, so it never affects which store the `MemoryManager` targets. For per-tenant isolation, construct one store per scope; since they share a connection, this is cheap.
+
+### Store config
+
+The outer `BedrockKnowledgeBaseStoreConfig` carries the per-store identity and behavior, plus the [shared `MemoryStore` fields](/docs/user-guide/concepts/memory/overview/index.md#stores) (`name`, `description`, `max_search_results` `maxSearchResults`  , `writable`, `extraction`):
+
+| Field | Purpose |
+| --- | --- |
+| `config` | The knowledge base connection (see below). Reuse one across stores that differ only by `scope`. |
+| `scope` | Logical namespace isolating documents. Applied as a metadata filter on search and stamped on writes. |
+| `filter` | Explicit retrieval filter; overrides the auto-generated scope filter on search. |
+
+### Connection config
+
+The inner `BedrockKnowledgeBaseConfig` is the reusable connection: which knowledge base, which data source, and the clients used to reach them:
+
+| Field | Purpose |
+| --- | --- |
+| `knowledge_base_id` `knowledgeBaseId`  | The Bedrock Knowledge Base to query and ingest into. Required. |
+| `data_source_type` `dataSourceType`  | `'CUSTOM'`, `'S3'`, or `'OTHER'`. Governs whether and how the store can be written to. |
+| `data_source_id` `dataSourceId`  | The data source to ingest into. Required for writes. |
+| `s3` | S3 ingestion settings (`bucket`, `prefix`). Required when the data source type is `'S3'`. |
+| `scope_metadata_key` `scopeMetadataKey`  | Metadata attribute key used for scope filtering. Defaults to `'namespace'`. |
+| `runtime_client / agent_client` `runtimeClient / agentClient`  | Pre-constructed AWS clients. When omitted, default clients are constructed using the standard credential chain (the agent client lazily, on first write). |
+
+Because the connection is a separate object, you build it once and vary only `name` and `scope` per store. This is the cheap way to give each tenant an isolated namespace over a single knowledge base:
+
+(( tab "Python" ))
+```python
+from strands.vended_memory_stores import BedrockKnowledgeBaseStore
+
+# Build the connection once, vary only name and scope per store.
+connection = {
+    "knowledge_base_id": "KB123",
+    "data_source_type": "CUSTOM",
+    "data_source_id": "DS456",
+}
+
+alice = BedrockKnowledgeBaseStore(name="alice", writable=True, scope="user-alice", config=connection)
+bob = BedrockKnowledgeBaseStore(name="bob", writable=True, scope="user-bob", config=connection)
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import {
+  BedrockKnowledgeBaseStore,
+  type BedrockKnowledgeBaseConfig,
+} from '@strands-agents/sdk/vended-memory-stores/bedrock-knowledge-base'
+
+// Build the connection once, vary only name and scope per store.
+const connection: BedrockKnowledgeBaseConfig = {
+  knowledgeBaseId: 'KB123',
+  dataSourceType: 'CUSTOM',
+  dataSourceId: 'DS456',
+}
+
+const alice = new BedrockKnowledgeBaseStore({
+  name: 'alice',
+  writable: true,
+  scope: 'user-alice',
+  config: connection,
+})
+
+const bob = new BedrockKnowledgeBaseStore({
+  name: 'bob',
+  writable: true,
+  scope: 'user-bob',
+  config: connection,
+})
+```
+(( /tab "TypeScript" ))
+
+## Data Source Types and Writability
+
+Only data sources that accept direct ingestion can be written to. A store is writable only when you opt in *and* the backend supports ingestion: that is, the store is marked writable and the data source type is `'CUSTOM'` or `'S3'`.
+
+| Data source type | Writable | How writes work |
+| --- | --- | --- |
+| `CUSTOM` | Yes | Ingests the content as inline text, with scope and metadata attached as inline attributes. |
+| `S3` | Yes | Uploads the content to the configured `s3` bucket and ingests that object. Requires an `s3` config. |
+| `OTHER` | No | External backends such as Confluence, SharePoint, Salesforce, Web, or SQL/Redshift that sync from their own source or are query-only. Read-only. |
+| omitted | No | Read-only. |
+
+A writable `CUSTOM` store needs a data source ID. A writable `S3` store needs a data source ID and an `s3` config:
+
+(( tab "Python" ))
+```python
+from strands.vended_memory_stores import BedrockKnowledgeBaseStore
+
+store = BedrockKnowledgeBaseStore(
+    name="preferences",
+    writable=True,
+    config={
+        "knowledge_base_id": "KB123",
+        "data_source_type": "S3",
+        "data_source_id": "DS789",
+        "s3": {"bucket": "my-agent-memories", "prefix": "memories/"},
+    },
+)
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import { BedrockKnowledgeBaseStore } from '@strands-agents/sdk/vended-memory-stores/bedrock-knowledge-base'
+
+const store = new BedrockKnowledgeBaseStore({
+  name: 'preferences',
+  writable: true,
+  config: {
+    knowledgeBaseId: 'KB123',
+    dataSourceType: 'S3',
+    dataSourceId: 'DS789',
+    s3: { bucket: 'my-agent-memories', prefix: 'memories/' },
+  },
+})
+```
+(( /tab "TypeScript" ))
+
+### How S3 writes work
+
+An S3 document can’t carry metadata inline, so when a scope or metadata are present a single write produces two objects: the content as a `.txt` object, and a `<object-key>.metadata.json` sidecar beside it (Bedrock’s convention for attaching attributes to an S3 object). The uploads are not transactional, so if a later step fails, any already-uploaded objects remain in the bucket un-ingested, where a future sync may pick them up or you can clean them up out of band.
+
+A write ingests its object directly, regardless of where the data source is configured to scan. A later data-source sync reconciles the index to the scanned location, so a memory written outside that location is treated as deleted and removed. If you run periodic syncs against this data source, upload to the bucket and prefix it scans (the `s3` config) so directly-ingested memories survive them.
+
+## Search and Ingestion
+
+`search` runs the Bedrock Retrieve API and returns entries ordered by relevance, while `add` ingests new content and returns its document id:
+
+(( tab "Python" ))
+```python
+from strands.memory.types import SearchOptions
+from strands.vended_memory_stores import BedrockKnowledgeBaseStore
+
+store = BedrockKnowledgeBaseStore(
+    name="preferences",
+    writable=True,
+    config={
+        "knowledge_base_id": "KB123",
+        "data_source_type": "CUSTOM",
+        "data_source_id": "DS456",
+    },
+)
+
+results = await store.search("what are my preferences?", SearchOptions(max_search_results=5))
+for entry in results:
+    print(entry.content, entry.metadata.get("_relevance_score"))
+
+# add returns the new document's id (a UUID for CUSTOM, an s3:// URI for S3)
+result = await store.add("User prefers aisle seats", {"category": "travel"})
+print(result.document_id)
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import { BedrockKnowledgeBaseStore } from '@strands-agents/sdk/vended-memory-stores/bedrock-knowledge-base'
+
+const store = new BedrockKnowledgeBaseStore({
+  name: 'preferences',
+  writable: true,
+  config: { knowledgeBaseId: 'KB123', dataSourceType: 'CUSTOM', dataSourceId: 'DS456' },
+})
+
+const results = await store.search('what are my preferences?', { maxSearchResults: 5 })
+for (const entry of results) {
+  console.log(entry.content, entry.metadata?._relevanceScore)
+}
+
+// add returns the new document's id (a UUID for CUSTOM, an s3:// URI for S3)
+const { documentId } = await store.add('User prefers aisle seats', {
+  category: 'travel',
+})
+```
+(( /tab "TypeScript" ))
+
+The search result cap defaults to `10` when neither the call nor the store sets one. This `10` default applies only to direct calls on the store. Reached through a `MemoryManager` tool or its search method, the manager supplies its own per-call cap instead; set `max_search_results` `maxSearchResults`  on the store to pin a value across both paths.
+
+Each entry’s `metadata` carries the document’s own attributes plus two reserved synthetic keys: `_relevance_score` `_relevanceScore`  (the Bedrock relevance score) and `_source_location` `_sourceLocation`  (the retrieval location). When `scope` is set, search filters to that namespace automatically; an explicit `filter` overrides the scope-derived one. The asymmetry is deliberate: an explicit `filter` affects search only, while writes always scope by `scope`.
+
+The document id from `add` is the generated UUID for a `CUSTOM` document, or the `s3://` URI of the uploaded object for `S3`. Writes require a data source ID (and an `s3` config for S3 data sources); a write against a missing or read-only configuration raises.
+
+Ingestion is eventually consistent: a successful write does not mean the content is immediately searchable.
+
+## Extraction
+
+Enable [automatic extraction](/docs/user-guide/concepts/memory/overview/index.md#automatic-extraction) on a writable store to capture memories from the conversation. By default it runs every 5 turns, distilling facts client-side with a `ModelExtractor` that uses the agent’s own model:
+
+(( tab "Python" ))
+```python
+from strands.vended_memory_stores import BedrockKnowledgeBaseStore
+
+store = BedrockKnowledgeBaseStore(
+    name="preferences",
+    writable=True,
+    extraction=True,
+    config={
+        "knowledge_base_id": "KB123",
+        "data_source_type": "CUSTOM",
+        "data_source_id": "DS456",
+    },
+)
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import { BedrockKnowledgeBaseStore } from '@strands-agents/sdk/vended-memory-stores/bedrock-knowledge-base'
+
+const store = new BedrockKnowledgeBaseStore({
+  name: 'preferences',
+  writable: true,
+  extraction: true,
+  config: { knowledgeBaseId: 'KB123', dataSourceType: 'CUSTOM', dataSourceId: 'DS456' },
+})
+```
+(( /tab "TypeScript" ))
+
+To change the cadence, swap the extractor, or extract server-side, see [Automatic Extraction](/docs/user-guide/concepts/memory/overview/index.md#automatic-extraction) on the Memory page.
+
+## Required IAM Permissions
+
+The credentials the store uses must allow the Bedrock operations it calls, plus S3 writes when using an S3 data source:
+
+-   `bedrock:Retrieve` - for search.
+-   `bedrock:IngestKnowledgeBaseDocuments` - for writes (`CUSTOM` and `S3`).
+-   `s3:PutObject` - for writes to an `S3` data source, on the configured bucket and prefix.
+
+Here is a sample IAM policy for a writable store backed by a `CUSTOM` data source:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:Retrieve",
+                "bedrock:IngestKnowledgeBaseDocuments"
+            ],
+            "Resource": "arn:aws:bedrock:*:*:knowledge-base/KB123"
+        }
+    ]
+}
+```
+
+For an `S3` data source, add `s3:PutObject` on the bucket and prefix the store uploads to:
+
+```json
+{
+    "Effect": "Allow",
+    "Action": "s3:PutObject",
+    "Resource": "arn:aws:s3:::my-agent-memories/memories/*"
+}
+```
+
+## Related
+
+-   [Memory](/docs/user-guide/concepts/memory/overview/index.md) - the `MemoryManager` concept this store plugs into, including the tools, extraction, and injection it enables.
+-   [Amazon Bedrock](/docs/user-guide/concepts/model-providers/amazon-bedrock/index.md) - credential and region setup shared with the Bedrock model provider.
+
+## Related pages
+
+- [Amazon Nova](/docs/user-guide/concepts/model-providers/amazon-nova/index.md) (2 shared tags)
+- [Guardrails](/docs/user-guide/safety-security/guardrails/index.md) (2 shared tags)
+- [Nova Sonic](/docs/user-guide/concepts/bidirectional-streaming/models/nova_sonic/index.md) (2 shared tags)
+- [Deploying Strands Agents to Amazon Bedrock AgentCore Runtime](/docs/user-guide/deploy/deploy_to_bedrock_agentcore/index.md) (2 shared tags)
+- [Python Deployment to Amazon Bedrock AgentCore Runtime](/docs/user-guide/deploy/deploy_to_bedrock_agentcore/python/index.md) (2 shared tags)
+- [TypeScript Deployment to Amazon Bedrock AgentCore Runtime](/docs/user-guide/deploy/deploy_to_bedrock_agentcore/typescript/index.md) (2 shared tags)
+- [AgentCore Evaluation Dashboard Configuration](/docs/user-guide/evals-sdk/how-to/agentcore_evaluation_dashboard/index.md) (2 shared tags)
+- [Memory](/docs/user-guide/concepts/memory/overview/index.md) (1 shared tag)
+- [Amazon Bedrock](/docs/user-guide/concepts/model-providers/amazon-bedrock/index.md) (2 shared tags)
+- [Deploying Strands Agents SDK Agents to Amazon EC2](/docs/user-guide/deploy/deploy_to_amazon_ec2/index.md) (1 shared tag)
+
+Source: https://strandsagents.com/docs/user-guide/concepts/memory/bedrock-knowledge-base/index.md
+
+---
+
+## Memory
+
+By default a Strands agent starts every conversation from zero: it cannot recall a user’s preferences, past decisions, or anything it learned in an earlier session. The `MemoryManager` gives an agent long-term memory that persists across sessions.
+
+It works through **memory stores**, the backends that hold the memories. A store can be a vector database, a managed service like [Amazon Bedrock Knowledge Bases](/docs/user-guide/concepts/memory/bedrock-knowledge-base/index.md), or [your own implementation](#custom-stores). The manager handles three jobs across the stores you give it:
+
+1.  **Recall** - the agent searches stored knowledge on demand through a tool.
+2.  **Injection** - the manager folds relevant knowledge into the prompt automatically, before the model runs.
+3.  **Extraction** - turning conversation messages into memories and writing them to stores.
+
+Recall and injection are enabled by default when you attach a store. Extraction and fact storage through tools is opt-in.
+
+## Getting Started
+
+Attach a memory manager to an agent through the `memory_manager` `memoryManager`  parameter. The examples below use a `store`, a `MemoryStore` you provide; see [Bedrock Knowledge Base](/docs/user-guide/concepts/memory/bedrock-knowledge-base/index.md) for a managed backend or [Custom Stores](#custom-stores) to create your own.
+
+(( tab "Python" ))
+```python
+from strands import Agent
+from strands.memory import MemoryManager
+
+agent = Agent(memory_manager=MemoryManager(stores=[store]))
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import { Agent, BedrockModel } from '@strands-agents/sdk'
+import { BedrockKnowledgeBaseStore } from '@strands-agents/sdk/vended-memory-stores/bedrock-knowledge-base'
+
+const store = new BedrockKnowledgeBaseStore({
+  name: 'preferences',
+  description: 'User preferences and stable facts about the user.',
+  writable: true,
+  config: { knowledgeBaseId: 'KB123', dataSourceType: 'CUSTOM', dataSourceId: 'DS456' },
+})
+
+const agent = new Agent({
+  model: new BedrockModel(),
+  memoryManager: { stores: [store] },
+})
+```
+(( /tab "TypeScript" ))
+
+With no further configuration, reading through recall and injection is enabled. Writing is opt-in, and comes in two modes:
+
+-   **The `add_memory` tool** lets the agent decide what to save. Enable it on the manager with `add_tool_config=True` `addToolConfig: true`  .
+-   **Automatic extraction** captures memories from the conversation without tool call. Enable it on a writable store, where it runs every 5 turns by default using your agent’s model.
+
+(( tab "Python" ))
+```python
+from strands import Agent
+from strands.memory import MemoryManager
+from strands.vended_memory_stores import BedrockKnowledgeBaseStore
+
+store = BedrockKnowledgeBaseStore(
+    name="preferences",
+    writable=True,
+    extraction=True,  # capture memories from the conversation, every 5 turns
+    config={"knowledge_base_id": "KB123", "data_source_type": "CUSTOM", "data_source_id": "DS456"},
+)
+
+agent = Agent(
+    memory_manager=MemoryManager(
+        stores=[store],
+        add_tool_config=True,  # let the agent save memories itself
+    ),
+)
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import { Agent, BedrockModel } from '@strands-agents/sdk'
+import { BedrockKnowledgeBaseStore } from '@strands-agents/sdk/vended-memory-stores/bedrock-knowledge-base'
+
+const store = new BedrockKnowledgeBaseStore({
+  name: 'preferences',
+  writable: true,
+  extraction: true, // capture memories from the conversation, every 5 turns
+  config: { knowledgeBaseId: 'KB123', dataSourceType: 'CUSTOM', dataSourceId: 'DS456' },
+})
+
+const agent = new Agent({
+  model: new BedrockModel(),
+  memoryManager: {
+    stores: [store],
+    addToolConfig: true, // let the agent save memories itself
+  },
+})
+```
+(( /tab "TypeScript" ))
+
+## Stores
+
+A manager can own several stores at once, which keeps multi-tenancy out of your application code. A single agent can query personal, team, and organization knowledge together, with each store scoped to its own tenant:
+
+(( tab "Python" ))
+```python
+from strands import Agent
+from strands.memory import MemoryManager
+
+# personal and team are two MemoryStore instances, each scoped to its own tenant.
+agent = Agent(memory_manager=MemoryManager(stores=[personal, team]))
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import { Agent, BedrockModel } from '@strands-agents/sdk'
+import {
+  BedrockKnowledgeBaseStore,
+  type BedrockKnowledgeBaseConfig,
+} from '@strands-agents/sdk/vended-memory-stores/bedrock-knowledge-base'
+
+// Build the connection once, vary only name and scope per store.
+const connection: BedrockKnowledgeBaseConfig = {
+  knowledgeBaseId: 'KB123',
+  dataSourceType: 'CUSTOM',
+  dataSourceId: 'DS456',
+}
+
+const personal = new BedrockKnowledgeBaseStore({
+  name: 'personal',
+  description: 'Knowledge specific to this user.',
+  writable: true,
+  scope: 'user-abc',
+  config: connection,
+})
+
+const team = new BedrockKnowledgeBaseStore({
+  name: 'team',
+  description: 'Shared team knowledge.',
+  scope: 'team-xyz',
+  config: connection,
+})
+
+const agent = new Agent({
+  model: new BedrockModel(),
+  memoryManager: { stores: [personal, team] },
+})
+```
+(( /tab "TypeScript" ))
+
+Each store carries its own identity and behavior:
+
+| Field | Purpose |
+| --- | --- |
+| `name` | Unique identifier, used to target the store from tools and the programmatic API. |
+| `description` | Human-readable summary, surfaced in the memory tool descriptions so the model knows what each store holds. |
+| `max_search_results` `maxSearchResults`  | Default result cap per search when a caller does not pass one. The manager falls back to `3` if neither is set. |
+| `writable` | Whether the store accepts writes. |
+
+The manager attaches each store’s `name` to its results, so the model and your code can tell which store produced each entry and target follow-up queries.
+
+## Memory Tools
+
+The manager can register two tools the agent can call during the loop, both configurable. `search_memory` is registered for you; `add_memory` is opt-in:
+
+(( tab "Python" ))
+```python
+from strands import Agent
+from strands.memory import MemoryManager
+from strands.memory.types import MemoryAddToolConfig, MemoryToolConfig
+
+agent = Agent(
+    memory_manager=MemoryManager(
+        stores=[store],
+        search_tool_config=MemoryToolConfig(
+            name="recall",
+            description="Look up what you remember about the user.",
+        ),
+        # opt in, and return as soon as writes dispatch instead of awaiting them
+        add_tool_config=MemoryAddToolConfig(wait_for_writes=False),
+    ),
+)
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import { Agent, BedrockModel } from '@strands-agents/sdk'
+import { BedrockKnowledgeBaseStore } from '@strands-agents/sdk/vended-memory-stores/bedrock-knowledge-base'
+
+const store = new BedrockKnowledgeBaseStore({
+  name: 'preferences',
+  config: { knowledgeBaseId: 'KB123' },
+})
+
+const agent = new Agent({
+  model: new BedrockModel(),
+  memoryManager: {
+    stores: [store],
+    searchToolConfig: {
+      name: 'recall',
+      description: 'Look up what you remember about the user.',
+    },
+    // add_memory: opt in, and return as soon as writes dispatch instead of awaiting them
+    addToolConfig: { waitForWrites: false },
+  },
+})
+```
+(( /tab "TypeScript" ))
+
+`search_memory` lets the agent recall knowledge on demand. Rename or re-describe it through its config, or turn it off. When the manager owns multiple stores, their names and descriptions are folded into the tool description so the model can target a specific store by name or search them all.
+
+`add_memory` lets the agent write new memories. Enable it to allow writes to your writable stores, or pass a config to scope it to specific ones. By default it waits for writes so it can report failures back to the model. The fire-and-forget option returns as soon as writes are dispatched, so a slow backend never blocks the agent loop. This tool can only targets stores implementing `add` `add`  .
+
+## Context Injection
+
+Injection searches memory before a model call and folds the top results into the prompt, so relevant knowledge is present on every turn. It is **on by default**: the manager injects on a fresh user turn, retrieves up to 5 entries, derives the query adaptively from the latest user message, and renders the results as a `<memory>` block. Turn it off by disabling the injection config.
+
+The injected text is **ephemeral by design**: it augments the model input for a single call and never persists into the durable conversation or session.
+
+Customize retrieval, timing, and formatting with a config object:
+
+(( tab "Python" ))
+```python
+from strands import Agent
+from strands.memory import MemoryManager
+from strands.memory.types import MemoryInjectionConfig
+
+agent = Agent(
+    memory_manager=MemoryManager(
+        stores=[store],
+        injection=MemoryInjectionConfig(
+            trigger="everyTurn",  # inject before every model call
+            max_entries=3,
+            format=lambda context: "\n".join(f"- {entry.content}" for entry in context.entries),
+        ),
+    ),
+)
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import { Agent, BedrockModel, type MessageData } from '@strands-agents/sdk'
+import { BedrockKnowledgeBaseStore } from '@strands-agents/sdk/vended-memory-stores/bedrock-knowledge-base'
+
+const store = new BedrockKnowledgeBaseStore({
+  name: 'preferences',
+  config: { knowledgeBaseId: 'KB123' },
+})
+
+const agent = new Agent({
+  model: new BedrockModel(),
+  memoryManager: {
+    stores: [store],
+    injection: {
+      // 'userTurn' (default), 'everyTurn', or a predicate over the conversation
+      trigger: ({ messages }) => messages.length >= 4,
+      maxEntries: 3,
+      query: ({ messages }: { messages: MessageData[] }) => {
+        const block = messages.at(-1)?.content[0]
+        return block && 'text' in block ? block.text : undefined
+      },
+      format: ({ entries }) => entries.map((entry) => `- ${entry.content}`).join('\n'),
+    },
+  },
+})
+```
+(( /tab "TypeScript" ))
+
+-   `trigger` accepts `'userTurn'` (the default, inject only on a fresh user ask), `'everyTurn'` (inject before every model call, for autonomous agents), or a predicate: a function that receives the injection context and returns whether to inject this call.
+-   `max_entries` `maxEntries`  caps how many entries are retrieved and injected.
+-   `query` overrides the adaptive default with your own query logic. Return an empty value to skip injection for this call.
+-   `format` renders the retrieved entries. The default emits an escaped `<memory>` block; a custom formatter that emits markup owns its own escaping.
+
+Injection fails open: if the search fails or a callback throws, the manager logs it and proceeds with the model call uninjected. The agent runs without the memory context rather than erroring, so a backend outage degrades silently.
+
+### The injection engine is generic
+
+Memory injection is built on a reusable engine. For non-memory context (a clock, a sandbox descriptor, a fixed reminder), the same mechanism is exposed as the [`ContextInjector`](/docs/user-guide/concepts/plugins/context-injector/index.md) vended plugin: supply a render callback and it folds the result into the model input the same way.
+
+## Automatic Extraction
+
+Extraction captures memories from the conversation automatically, instead of relying on the agent to call the `add_memory` tool. Enable it on a writable store:
+
+(( tab "Python" ))
+```python
+from strands.vended_memory_stores import BedrockKnowledgeBaseStore
+
+# Set extraction on the store at construction; True uses the defaults.
+store = BedrockKnowledgeBaseStore(
+    name="preferences",
+    writable=True,
+    extraction=True,
+    config={"knowledge_base_id": "KB123", "data_source_type": "CUSTOM", "data_source_id": "DS456"},
+)
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import { BedrockKnowledgeBaseStore } from '@strands-agents/sdk/vended-memory-stores/bedrock-knowledge-base'
+
+const store = new BedrockKnowledgeBaseStore({
+  name: 'preferences',
+  writable: true,
+  extraction: true, // extract every 5 turns with a ModelExtractor
+  config: { knowledgeBaseId: 'KB123', dataSourceType: 'CUSTOM', dataSourceId: 'DS456' },
+})
+```
+(( /tab "TypeScript" ))
+
+With defaults, extraction runs every 5 turns. For a store that implements only `add` `add`  (like Bedrock Knowledge Bases), it uses a `ModelExtractor` to distill facts from the conversation; a store that implements `add_messages` `addMessages`  extracts server-side instead, covered under [Custom Stores](#custom-stores).
+
+### Triggers and extractors
+
+An extraction config has two parts. A **trigger** decides *when* extraction runs; an **extractor** decides *how* messages become entries:
+
+(( tab "Python" ))
+```python
+from strands.models import BedrockModel
+from strands.memory.extraction.triggers import InvocationTrigger
+from strands.memory.extraction.types import ExtractionConfig
+from strands.memory.extraction.model_extractor import ModelExtractor
+from strands.vended_memory_stores import BedrockKnowledgeBaseStore
+
+store = BedrockKnowledgeBaseStore(
+    name="preferences",
+    writable=True,
+    extraction=ExtractionConfig(
+        trigger=InvocationTrigger(),  # after every turn, not every 5
+        extractor=ModelExtractor(
+            model=BedrockModel(model_id="us.anthropic.claude-haiku-4-5-20251001-v1:0"),  # cheaper than the agent's
+            system_prompt="Extract durable user preferences as discrete facts.",
+        ),
+    ),
+    config={"knowledge_base_id": "KB123", "data_source_type": "CUSTOM", "data_source_id": "DS456"},
+)
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import { InvocationTrigger, ModelExtractor, BedrockModel } from '@strands-agents/sdk'
+import { BedrockKnowledgeBaseStore } from '@strands-agents/sdk/vended-memory-stores/bedrock-knowledge-base'
+
+const store = new BedrockKnowledgeBaseStore({
+  name: 'preferences',
+  writable: true,
+  extraction: {
+    trigger: new InvocationTrigger(), // after every turn, not every 5
+    extractor: new ModelExtractor({
+      model: new BedrockModel(), // a cheaper model than the agent's to cut cost
+      systemPrompt: 'Extract durable user preferences as discrete facts.',
+    }),
+  },
+  config: { knowledgeBaseId: 'KB123', dataSourceType: 'CUSTOM', dataSourceId: 'DS456' },
+})
+```
+(( /tab "TypeScript" ))
+
+The `ModelExtractor` distills messages into discrete facts with a model call. It uses the agent’s own model by default. Pass a cheaper model to cut cost, or a system prompt to steer what information you want to save as memories. Some backends extract server-side instead: a store that implements the `add_messages` `addMessages`  sink receives the raw message batch with no model call, so for those you omit the extractor.
+
+Two triggers ship with the SDK. `InvocationTrigger` runs after every turn, `IntervalTrigger` runs every N turns. For a custom trigger, extend `ExtractionTrigger`. A trigger registers a hook on the agent and calls `fire()` when extraction should run. Tying it to agent state can let a tool decide the moment, rather than extracting on a turn cadence:
+
+(( tab "Python" ))
+```python
+from strands.memory.extraction.types import ExtractionConfig, ExtractionTrigger, ExtractionTriggerContext
+from strands.hooks import AfterInvocationEvent
+from strands.vended_memory_stores import BedrockKnowledgeBaseStore
+
+
+class CustomTrigger(ExtractionTrigger):
+    name = "custom-trigger"
+
+    def attach(self, context: ExtractionTriggerContext) -> None:
+        # Extract only after a tool has flagged extraction.
+        def maybe_fire(event: AfterInvocationEvent) -> None:
+            if context.agent.state.get("extract"):
+                context.fire()
+
+        context.agent.add_hook(maybe_fire, AfterInvocationEvent)
+
+
+store = BedrockKnowledgeBaseStore(
+    name="preferences",
+    writable=True,
+    extraction=ExtractionConfig(trigger=CustomTrigger()),
+    config={"knowledge_base_id": "KB123", "data_source_type": "CUSTOM", "data_source_id": "DS456"},
+)
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import { ExtractionTrigger, AfterInvocationEvent } from '@strands-agents/sdk'
+import type { ExtractionTriggerContext } from '@strands-agents/sdk'
+
+// Extract only after a tool has flagged extraction
+class CustomTrigger extends ExtractionTrigger {
+  readonly name = 'custom-trigger'
+
+  attach(context: ExtractionTriggerContext): void {
+    context.agent.addHook(AfterInvocationEvent, () => {
+      if (context.agent.appState.get('extract')) {
+        context.fire()
+      }
+    })
+  }
+}
+```
+(( /tab "TypeScript" ))
+
+`fire()` runs the save in the background and returns immediately, so a trigger never blocks the agent loop. A trigger that never fires never extracts; for a guaranteed final write regardless of triggers, use the manager’s flush method.
+
+Extraction is at-least-once: a failed batch is retried, so the same entry may be written more than once. A store used with extraction should tolerate duplicate writes (the manager tracks a high-water mark per store, so a successful batch is never re-extracted).
+
+### Flushing pending writes
+
+Extraction writes run in the background and are not awaited by the agent loop, so the most recent turn may not be saved yet when the agent responds. The manager’s flush method closes that gap. It forces every store to save its buffered messages, even a store whose trigger has not fired this turn or one currently backed off, and awaits all of those writes (including any that start while it waits). Awaiting it as part of a graceful shutdown guarantees nothing in the buffer is lost.
+
+When to call it differs by SDK:
+
+(( tab "Python" ))
+Whether you need to flush manually depends on how you call the agent:
+
+-   **`agent(...)`** (the synchronous call) runs each invocation in its own event loop. Closing that loop would cancel in-flight background saves, so this path awaits a flush after every invocation. Writes already persist by the time the call returns, and you never flush manually.
+-   **`agent.invoke_async(...)`** and **`agent.stream_async(...)`** share your own long-lived event loop and do not flush. Extraction stays on its trigger cadence, so flush yourself at a shutdown boundary before the loop closes:
+
+```python
+# After driving the agent with invoke_async / stream_async, before the loop closes.
+await memory_manager.flush()
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+The agent loop never flushes for you, on any call path. Await `flush()` as part of a graceful shutdown and every outstanding write lands before the process exits; skip it and the last turns’ background writes are dropped:
+
+```typescript
+// At a shutdown boundary you control, before the process exits.
+process.on('beforeExit', async () => {
+  await memoryManager.flush()
+})
+```
+(( /tab "TypeScript" ))
+
+This protects a graceful shutdown. A process killed without one (crash, `SIGKILL`, hard timeout) can still lose the last unsaved turn, since the flush never runs; a more frequent trigger narrows that window. Do not call `flush()` after every turn alongside a periodic trigger, since that forces a save each time and defeats the trigger’s schedule.
+
+## Programmatic Access
+
+You can search and write directly on the memory manager, outside the agent loop. Both methods target all relevant stores by default, or a subset by name:
+
+(( tab "Python" ))
+```python
+from strands.memory.types import MemoryAddOptions, MemorySearchOptions
+
+# Search every store, or a subset by name.
+all_results = await memory_manager.search("travel plans")
+scoped = await memory_manager.search(
+    "travel plans",
+    MemorySearchOptions(stores=["personal"], max_search_results=5),
+)
+
+# Write to writable stores, with metadata.
+await memory_manager.add(
+    "Prefers aisle seats",
+    MemoryAddOptions(stores=["personal"], metadata={"category": "travel"}),
+)
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+// Search every store, or a subset by name.
+const all = await memoryManager.search('travel plans')
+const scoped = await memoryManager.search('travel plans', {
+  stores: ['personal'],
+  maxSearchResults: 5,
+})
+
+// Write to writable stores, with metadata.
+await memoryManager.add('Prefers aisle seats', {
+  stores: ['personal'],
+  metadata: { category: 'travel' },
+})
+```
+(( /tab "TypeScript" ))
+
+Partial failures are handled per method. `search` logs and skips any store that fails, returning whatever the rest produced. `add` validates the target stores first, then raises an aggregate error if any write fails, so a failed write is never silent.
+
+## Custom Stores
+
+Use the memory manager with any backend by implementing the `MemoryStore` interface. Only `search` is required; add an `add` method to make the store writable, and a tool method to expose backend-native tools alongside the manager’s:
+
+(( tab "Python" ))
+A store implements the config attributes (`name`, `writable`, and so on) plus an async `search`, and optionally `add`, `add_messages`, and `get_tools`:
+
+```python
+from strands.memory.types import MemoryEntry, SearchOptions
+
+
+class InMemoryStore:
+    name = "preferences"
+    description = "User preferences and stable facts."
+    max_search_results = None
+    writable = True
+    extraction = None
+
+    def __init__(self) -> None:
+        self._entries: list[str] = []
+
+    async def search(self, query: str, options: SearchOptions | None = None) -> list[MemoryEntry]:
+        limit = (options and options.max_search_results) or 3
+        matches = [content for content in self._entries if query in content]
+        return [MemoryEntry(content=content) for content in matches[:limit]]
+
+    async def add(self, content: str, metadata: dict | None = None) -> None:
+        self._entries.append(content)
+
+
+store = InMemoryStore()
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+A store implements `search`, and optionally `add`, `addMessages`, and `getTools`:
+
+```typescript
+import type { MemoryStore, MemoryEntry, SearchOptions } from '@strands-agents/sdk'
+
+class InMemoryStore implements MemoryStore {
+  readonly name = 'preferences'
+  readonly writable = true
+  private readonly _entries: string[] = []
+
+  async search(query: string, options?: SearchOptions): Promise<MemoryEntry[]> {
+    const limit = options?.maxSearchResults ?? 3
+    return this._entries
+      .filter((content) => content.includes(query))
+      .slice(0, limit)
+      .map((content) => ({ content }))
+  }
+
+  async add(content: string): Promise<void> {
+    this._entries.push(content)
+  }
+}
+```
+(( /tab "TypeScript" ))
+
+A store exposes two write paths, and which ones it implements decides how it can be written to:
+
+-   `add` takes a single piece of content. It backs the `add_memory` tool, the programmatic `add` method, and extraction that distills facts client-side with a `ModelExtractor`.
+-   `add_messages` `addMessages`  takes a batch of raw conversation messages. It backs **server-side extraction**: the manager hands the filtered message batch straight to this method with no client-side model call, so the backend does the distillation itself. The batch preserves the conversation’s role structure.
+
+A store can implement either path or both. The following store extracts server-side, delegating to `my_backend`, a stand-in for your managed backend’s client:
+
+(( tab "Python" ))
+```python
+from strands.memory.types import AddMessagesContext, MemoryEntry, SearchOptions
+from strands.types.content import Message
+
+
+class ServerSideStore:
+    name = "preferences"
+    description = "User preferences and stable facts."
+    max_search_results = None
+    writable = True
+    extraction = True  # extract every 5 turns; no extractor, so add_messages is used
+
+    async def search(self, query: str, options: SearchOptions | None = None) -> list[MemoryEntry]:
+        return await my_backend.retrieve(query, options and options.max_search_results)
+
+    # The manager hands the raw message batch here; the backend extracts server-side.
+    async def add_messages(
+        self, messages: list[Message], context: AddMessagesContext | None = None
+    ) -> None:
+        await my_backend.ingest_conversation(messages)
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import type {
+  MemoryStore,
+  MemoryEntry,
+  SearchOptions,
+  MessageData,
+  AddMessagesContext,
+} from '@strands-agents/sdk'
+
+class ServerSideStore implements MemoryStore {
+  readonly name = 'preferences'
+  readonly writable = true
+  // Extract every 5 turns; no extractor, so the manager calls addMessages.
+  readonly extraction = true
+
+  async search(query: string, options?: SearchOptions): Promise<MemoryEntry[]> {
+    return myBackend.retrieve(query, options?.maxSearchResults)
+  }
+
+  // The manager hands the raw message batch here; the backend extracts server-side.
+  async addMessages(
+    messages: MessageData[],
+    context?: AddMessagesContext
+  ): Promise<void> {
+    await myBackend.ingestConversation(messages)
+  }
+}
+```
+(( /tab "TypeScript" ))
+
+For a reference implementation backed by a managed service, see the [Bedrock Knowledge Base store](/docs/user-guide/concepts/memory/bedrock-knowledge-base/index.md), which extracts client-side.
+
+## Best Practices
+
+-   **Choose how the agent reads.** The `search_memory` tool lets the model pull knowledge when it judges it needs it; injection guarantees relevant context on every user turn. They compose: enable both for a guaranteed baseline plus on-demand depth.
+-   **Match extraction cadence to cost.** An every-turn trigger with a model extractor means a model call per turn. That is a token cost, not a latency cost, since extraction runs in the background; an interval trigger lowers it, and turns skipped between runs are still captured when the trigger next fires.
+-   **Scope stores for multi-tenancy.** Give each tenant its own scoped store rather than mixing knowledge in one (see [Bedrock Knowledge Base](/docs/user-guide/concepts/memory/bedrock-knowledge-base/index.md)).
+-   **Give the agent context.** Add a meaningful description to each store, so the agent knows what type of knowledge each store contains.
+-   **Tolerate duplicate writes** in custom stores used with extraction, since failed batches are retried.
+
+## How Memory Relates to Other Strands Constructs
+
+Three SDK features manage different kinds of state; memory is the one that crosses sessions:
+
+-   [Session management](/docs/user-guide/concepts/agents/session-management/index.md) persists the full conversation so an agent can resume where it left off.
+-   [Conversation management](/docs/user-guide/concepts/agents/conversation-management/index.md) keeps the conversation within the model’s context window during a session.
+-   **Memory** carries durable knowledge *across* sessions, without replaying past conversations.
+
+## Related
+
+-   [Bedrock Knowledge Base store](/docs/user-guide/concepts/memory/bedrock-knowledge-base/index.md) - the vended `MemoryStore` backed by Amazon Bedrock Knowledge Bases.
+-   [Context Injector](/docs/user-guide/concepts/plugins/context-injector/index.md) - the generic injection plugin that memory injection builds on.
+-   [Session management](/docs/user-guide/concepts/agents/session-management/index.md) - persist the conversation itself across restarts.
+-   [Conversation management](/docs/user-guide/concepts/agents/conversation-management/index.md) - keep a session within the model’s context window.
+
+## Related pages
+
+- [Bedrock Knowledge Base Store](/docs/user-guide/concepts/memory/bedrock-knowledge-base/index.md) (1 shared tag)
+
+Source: https://strandsagents.com/docs/user-guide/concepts/memory/overview/index.md
 
 ---
 
@@ -20418,13 +21416,13 @@ Strands uses a default Claude 4 Sonnet inference model from the region of your c
 - [Amazon Nova](/docs/user-guide/concepts/model-providers/amazon-nova/index.md) (3 shared tags)
 - [Guardrails](/docs/user-guide/safety-security/guardrails/index.md) (3 shared tags)
 - [Nova Sonic](/docs/user-guide/concepts/bidirectional-streaming/models/nova_sonic/index.md) (2 shared tags)
+- [Bedrock Knowledge Base Store](/docs/user-guide/concepts/memory/bedrock-knowledge-base/index.md) (2 shared tags)
 - [Deploying Strands Agents to Amazon Bedrock AgentCore Runtime](/docs/user-guide/deploy/deploy_to_bedrock_agentcore/index.md) (2 shared tags)
 - [Python Deployment to Amazon Bedrock AgentCore Runtime](/docs/user-guide/deploy/deploy_to_bedrock_agentcore/python/index.md) (2 shared tags)
 - [TypeScript Deployment to Amazon Bedrock AgentCore Runtime](/docs/user-guide/deploy/deploy_to_bedrock_agentcore/typescript/index.md) (2 shared tags)
 - [AgentCore Evaluation Dashboard Configuration](/docs/user-guide/evals-sdk/how-to/agentcore_evaluation_dashboard/index.md) (2 shared tags)
 - [PII Redaction](/docs/user-guide/safety-security/pii-redaction/index.md) (2 shared tags)
 - [Result Caching](/docs/user-guide/evals-sdk/how-to/result_caching/index.md) (1 shared tag)
-- [Google](/docs/user-guide/concepts/model-providers/google/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/model-providers/amazon-bedrock/index.md
 
@@ -20515,13 +21513,13 @@ model = NovaAPIModel(
 - [Amazon Bedrock](/docs/user-guide/concepts/model-providers/amazon-bedrock/index.md) (3 shared tags)
 - [Guardrails](/docs/user-guide/safety-security/guardrails/index.md) (2 shared tags)
 - [Nova Sonic](/docs/user-guide/concepts/bidirectional-streaming/models/nova_sonic/index.md) (2 shared tags)
+- [Bedrock Knowledge Base Store](/docs/user-guide/concepts/memory/bedrock-knowledge-base/index.md) (2 shared tags)
 - [Deploying Strands Agents to Amazon Bedrock AgentCore Runtime](/docs/user-guide/deploy/deploy_to_bedrock_agentcore/index.md) (2 shared tags)
 - [Python Deployment to Amazon Bedrock AgentCore Runtime](/docs/user-guide/deploy/deploy_to_bedrock_agentcore/python/index.md) (2 shared tags)
 - [TypeScript Deployment to Amazon Bedrock AgentCore Runtime](/docs/user-guide/deploy/deploy_to_bedrock_agentcore/typescript/index.md) (2 shared tags)
 - [AgentCore Evaluation Dashboard Configuration](/docs/user-guide/evals-sdk/how-to/agentcore_evaluation_dashboard/index.md) (2 shared tags)
 - [Google](/docs/user-guide/concepts/model-providers/google/index.md) (1 shared tag)
 - [Vercel](/docs/user-guide/concepts/model-providers/vercel/index.md) (1 shared tag)
-- [Multimodal Correctness Evaluator](/docs/user-guide/evals-sdk/evaluators/multimodal_correctness_evaluator/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/model-providers/amazon-nova/index.md
 
@@ -27831,6 +28829,7 @@ The Strands SDK provides built-in plugins that you can use out of the box:
 -   **[Skills](/docs/user-guide/concepts/plugins/skills/index.md)** - On-demand, modular instructions that agents discover and activate at runtime following the [Agent Skills specification](https://agentskills.io/specification)
 -   **[Steering](/docs/user-guide/concepts/plugins/steering/index.md)** - Modular prompting for complex agent tasks through context-aware guidance
 -   **[Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md)** - Proactively offloads oversized tool results to storage, replacing them with previews and providing a built-in retrieval tool
+-   **[Context Injector](/docs/user-guide/concepts/plugins/context-injector/index.md)** - Folds real-time text (a clock, environment facts, a lookup) into the model input before each call, without persisting it to history
 
 You can also build and distribute your own plugins to extend agent functionality. See [Get Featured](/docs/community/get-featured/index.md) to share your plugins with the community.
 
@@ -28225,6 +29224,7 @@ class AsyncConfigPlugin implements Plugin {
 -   [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) - Learn about the underlying hook system
 -   [Steering](/docs/user-guide/concepts/plugins/steering/index.md) - Explore the built-in steering plugin
 -   [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) - Manage large tool results proactively
+-   [Context Injector](/docs/user-guide/concepts/plugins/context-injector/index.md) - Inject real-time context into the model input
 -   [Get Featured](/docs/community/get-featured/index.md) - Share your plugins with the community
 
 ## Related pages
@@ -28241,6 +29241,138 @@ class AsyncConfigPlugin implements Plugin {
 - [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/plugins/index.md
+
+---
+
+## Context Injector
+
+The `ContextInjector` plugin folds real-time text into the model input before each call. The text is added to that single call’s input only: it is never written to the conversation history, so it is not persisted or replayed on later turns. Use it for context the agent should always have but that does not belong in the stored history: the current time, a sandbox descriptor, environment facts, or a retrieval lookup.
+
+## How It Works
+
+A `ContextInjector` has two parts. The callback function decides **what** text to fold into the next model call’s input. The trigger decides **when** the callback is called. The injected text is **ephemeral by design**: it augments the model input for that one call and never persists into the durable conversation or session.
+
+This is the same injection mechanism that powers [memory context injection](/docs/user-guide/concepts/memory/overview/index.md#context-injection). `ContextInjector` is the generic surface for any consumer.
+
+## Getting Started
+
+Pass a `ContextInjector` to your agent’s `plugins` list with a callback that renders the text to inject. By default it injects only on a fresh user turn, the common case for chat agents:
+
+(( tab "Python" ))
+```python
+from datetime import datetime, timezone
+
+from strands import Agent
+from strands.vended_plugins.context_injector import ContextInjector
+
+agent = Agent(
+    plugins=[
+        ContextInjector(lambda context: f"<now>{datetime.now(timezone.utc).isoformat()}</now>"),
+    ],
+)
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import { Agent } from '@strands-agents/sdk'
+import { ContextInjector } from '@strands-agents/sdk/vended-plugins/context-injector'
+
+const agent = new Agent({
+  plugins: [
+    new ContextInjector({
+      renderContent: async () => `<now>${new Date().toISOString()}</now>`,
+    }),
+  ],
+})
+```
+(( /tab "TypeScript" ))
+
+## When to Inject
+
+The trigger controls when the callback runs:
+
+-   `'userTurn'` (the default) injects only when the latest message is a fresh user ask, a user message carrying no tool result. This is the common case for chat agents.
+-   `'everyTurn'` injects before every model call, including mid-task tool-result turns. Use it for autonomous agents that should consult the injected context at each step.
+
+(( tab "Python" ))
+```python
+from datetime import datetime, timezone
+
+from strands.vended_plugins.context_injector import ContextInjector
+
+clock = ContextInjector(
+    lambda context: f"<now>{datetime.now(timezone.utc).isoformat()}</now>",
+    name="clock",
+    trigger="everyTurn",  # inject before every model call, not just fresh user asks
+)
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import { ContextInjector } from '@strands-agents/sdk/vended-plugins/context-injector'
+
+const clock = new ContextInjector({
+  name: 'clock',
+  trigger: 'everyTurn', // inject before every model call, not just fresh user asks
+  renderContent: async () => `<now>${new Date().toISOString()}</now>`,
+})
+```
+(( /tab "TypeScript" ))
+
+For finer control, pass a predicate: a function that receives the injection context and returns whether to inject this call. The context carries the current messages, durable state shared across calls via `context.state` `context.appState`  , and the agent. A predicate that throws fails open, so the model call still proceeds:
+
+(( tab "Python" ))
+```python
+from strands.vended_plugins.context_injector import ContextInjector
+
+injector = ContextInjector(
+    lambda context: f"<context>{len(context.messages)} turns so far</context>",
+    # Inject only when a tool stashed a flag in agent state last turn.
+    trigger=lambda context: context.state.get("recall_enabled") is True,
+)
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import { ContextInjector } from '@strands-agents/sdk/vended-plugins/context-injector'
+import type { InjectionContext } from '@strands-agents/sdk/vended-plugins/context-injector'
+
+const injector = new ContextInjector({
+  // Inject only when a tool stashed a flag in app state last turn.
+  trigger: ({ appState }: InjectionContext) => appState.get('recallEnabled') === true,
+  renderContent: async ({ messages }) =>
+    `<context>${messages.length} turns so far</context>`,
+})
+```
+(( /tab "TypeScript" ))
+
+## Configuration
+
+| Field | Purpose |
+| --- | --- |
+| `render_content` `renderContent`  | Returns the text to inject for this call, or `None / empty string` `undefined / empty string`  to skip. Required, and the only positional argument. |
+| `trigger` | `'userTurn'` (default), `'everyTurn'`, or a predicate over the injection context. |
+| `name` | Plugin name for logging and duplicate detection. Defaults to `'strands:context-injector'`. Set a distinct name when registering more than one. |
+
+Injected text reaches the model verbatim
+
+The rendered text is a prompt-injection surface. If it interpolates attacker-influenced data (tool output, user-derived state), escape it yourself before returning. A callback that throws fails open: injection is skipped and the model call proceeds.
+
+## Related
+
+-   [Memory](/docs/user-guide/concepts/memory/overview/index.md#context-injection) builds on this engine to inject retrieved knowledge before a model call.
+
+## Related pages
+
+- [Context Management](/docs/user-guide/concepts/context-management/index.md) (1 shared tag)
+- [Skills](/docs/user-guide/concepts/plugins/skills/index.md) (1 shared tag)
+- [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) (1 shared tag)
+- [Conversation Management](/docs/user-guide/concepts/agents/conversation-management/index.md) (1 shared tag)
+
+Source: https://strandsagents.com/docs/user-guide/concepts/plugins/context-injector/index.md
 
 ---
 
@@ -28684,13 +29816,13 @@ const agent = new Agent({
 - [Context Management](/docs/user-guide/concepts/context-management/index.md) (2 shared tags)
 - [Conversation Management](/docs/user-guide/concepts/agents/conversation-management/index.md) (2 shared tags)
 - [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (2 shared tags)
+- [Context Injector](/docs/user-guide/concepts/plugins/context-injector/index.md) (1 shared tag)
 - [Coherence Evaluator](/docs/user-guide/evals-sdk/evaluators/coherence_evaluator/index.md) (1 shared tag)
 - [Conciseness Evaluator](/docs/user-guide/evals-sdk/evaluators/conciseness_evaluator/index.md) (1 shared tag)
 - [Goal Success Rate Evaluator](/docs/user-guide/evals-sdk/evaluators/goal_success_rate_evaluator/index.md) (1 shared tag)
 - [Helpfulness Evaluator](/docs/user-guide/evals-sdk/evaluators/helpfulness_evaluator/index.md) (1 shared tag)
 - [Interactions Evaluator](/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md) (1 shared tag)
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
-- [Skills](/docs/user-guide/concepts/plugins/skills/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/plugins/context-offloader/index.md
 
@@ -29526,6 +30658,7 @@ Use skills when you want a single agent that can handle a wide range of tasks by
 
 ## Related pages
 
+- [Context Injector](/docs/user-guide/concepts/plugins/context-injector/index.md) (1 shared tag)
 - [Context Management](/docs/user-guide/concepts/context-management/index.md) (1 shared tag)
 - [Instruction Following Evaluator](/docs/user-guide/evals-sdk/evaluators/instruction_following_evaluator/index.md) (1 shared tag)
 - [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) (1 shared tag)
@@ -47664,10 +48797,10 @@ This will output detailed ADOT logs to help identify configuration problems.
 - [Amazon Nova](/docs/user-guide/concepts/model-providers/amazon-nova/index.md) (2 shared tags)
 - [Guardrails](/docs/user-guide/safety-security/guardrails/index.md) (2 shared tags)
 - [Nova Sonic](/docs/user-guide/concepts/bidirectional-streaming/models/nova_sonic/index.md) (2 shared tags)
+- [Bedrock Knowledge Base Store](/docs/user-guide/concepts/memory/bedrock-knowledge-base/index.md) (2 shared tags)
 - [PII Redaction](/docs/user-guide/safety-security/pii-redaction/index.md) (2 shared tags)
 - [Amazon Bedrock](/docs/user-guide/concepts/model-providers/amazon-bedrock/index.md) (2 shared tags)
 - [Evaluating Remote Traces](/docs/user-guide/evals-sdk/how-to/trace_providers/index.md) (1 shared tag)
-- [Metrics](/docs/user-guide/observability-evaluation/metrics/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/evals-sdk/how-to/agentcore_evaluation_dashboard/index.md
 
@@ -49218,6 +50351,7 @@ Ready to dive deeper? Explore these resources:
 
 - [Get started](/docs/user-guide/quickstart/overview/index.md) (1 shared tag)
 - [Python Quickstart](/docs/user-guide/quickstart/python/index.md) (1 shared tag)
+- [Strands Shell Quickstart](/docs/user-guide/shell-sdk/quickstart/index.md) (1 shared tag)
 - [TypeScript Quickstart](/docs/user-guide/quickstart/typescript/index.md) (1 shared tag)
 - [Quickstart](/docs/user-guide/concepts/bidirectional-streaming/quickstart/index.md) (1 shared tag)
 
@@ -52169,6 +53303,7 @@ The table below compares feature availability between the Python and TypeScript 
 
 - [Python Quickstart](/docs/user-guide/quickstart/python/index.md) (1 shared tag)
 - [Strands Evaluation Quickstart](/docs/user-guide/evals-sdk/quickstart/index.md) (1 shared tag)
+- [Strands Shell Quickstart](/docs/user-guide/shell-sdk/quickstart/index.md) (1 shared tag)
 - [TypeScript Quickstart](/docs/user-guide/quickstart/typescript/index.md) (1 shared tag)
 - [Quickstart](/docs/user-guide/concepts/bidirectional-streaming/quickstart/index.md) (1 shared tag)
 
@@ -52733,6 +53868,7 @@ Ready to learn more? Check out these resources:
 
 - [Get started](/docs/user-guide/quickstart/overview/index.md) (1 shared tag)
 - [Strands Evaluation Quickstart](/docs/user-guide/evals-sdk/quickstart/index.md) (1 shared tag)
+- [Strands Shell Quickstart](/docs/user-guide/shell-sdk/quickstart/index.md) (1 shared tag)
 - [TypeScript Quickstart](/docs/user-guide/quickstart/typescript/index.md) (1 shared tag)
 - [Quickstart](/docs/user-guide/concepts/bidirectional-streaming/quickstart/index.md) (1 shared tag)
 
@@ -52999,6 +54135,7 @@ Ready to learn more? Check out these resources:
 - [Get started](/docs/user-guide/quickstart/overview/index.md) (1 shared tag)
 - [Python Quickstart](/docs/user-guide/quickstart/python/index.md) (1 shared tag)
 - [Strands Evaluation Quickstart](/docs/user-guide/evals-sdk/quickstart/index.md) (1 shared tag)
+- [Strands Shell Quickstart](/docs/user-guide/shell-sdk/quickstart/index.md) (1 shared tag)
 - [Quickstart](/docs/user-guide/concepts/bidirectional-streaming/quickstart/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/quickstart/typescript/index.md
@@ -53164,13 +54301,13 @@ Ollama doesn’t currently provide native guardrail capabilities like Bedrock. I
 - [Amazon Bedrock](/docs/user-guide/concepts/model-providers/amazon-bedrock/index.md) (3 shared tags)
 - [Amazon Nova](/docs/user-guide/concepts/model-providers/amazon-nova/index.md) (2 shared tags)
 - [Nova Sonic](/docs/user-guide/concepts/bidirectional-streaming/models/nova_sonic/index.md) (2 shared tags)
+- [Bedrock Knowledge Base Store](/docs/user-guide/concepts/memory/bedrock-knowledge-base/index.md) (2 shared tags)
 - [Deploying Strands Agents to Amazon Bedrock AgentCore Runtime](/docs/user-guide/deploy/deploy_to_bedrock_agentcore/index.md) (2 shared tags)
 - [Python Deployment to Amazon Bedrock AgentCore Runtime](/docs/user-guide/deploy/deploy_to_bedrock_agentcore/python/index.md) (2 shared tags)
 - [TypeScript Deployment to Amazon Bedrock AgentCore Runtime](/docs/user-guide/deploy/deploy_to_bedrock_agentcore/typescript/index.md) (2 shared tags)
 - [AgentCore Evaluation Dashboard Configuration](/docs/user-guide/evals-sdk/how-to/agentcore_evaluation_dashboard/index.md) (2 shared tags)
 - [PII Redaction](/docs/user-guide/safety-security/pii-redaction/index.md) (2 shared tags)
 - [Harmfulness Evaluator](/docs/user-guide/evals-sdk/evaluators/harmfulness_evaluator/index.md) (1 shared tag)
-- [Refusal Evaluator](/docs/user-guide/evals-sdk/evaluators/refusal_evaluator/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/safety-security/guardrails/index.md
 
@@ -53685,6 +54822,738 @@ def profanity_scanner(query: str) -> str:
 - [Amazon Bedrock](/docs/user-guide/concepts/model-providers/amazon-bedrock/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/safety-security/responsible-ai/index.md
+
+---
+
+## Strands Shell
+
+Agents run shell commands in tight loops: install dependencies, run tests, grep for errors, iterate. Those loops need to be fast, and they need to be contained. An agent that can run `curl` can also read your cloud credentials, reach your internal network, and overwrite files you never meant to expose.
+
+Strands Shell is a Bourne-compatible shell that runs inside your own process. It ships `grep`, `sed`, `jq`, `curl`, `find`, and dozens of other commands without ever calling `fork`, `exec`, or a raw syscall. You declare what the agent can reach (files, URLs, credentials) up front, and everything else does not exist as far as the agent is concerned.
+
+## Why a virtual shell
+
+Most agent setups reach for a container or a cloud sandbox to isolate command execution. Both work, and both cost you something on every command: a Docker container adds a cold start and a daemon to manage, a cloud sandbox adds a network round trip and a platform to depend on. When an agent runs hundreds of commands per task, that overhead compounds.
+
+Strands Shell takes a different position. The isolation boundary is an in-process virtual filesystem and a mediation layer, not an operating-system primitive. There is no container to start and no VM to provision, so constructing a shell and running a command costs under a millisecond.
+
+|  | Docker | Cloud sandbox | Strands Shell |
+| --- | --- | --- | --- |
+| Cold start | ~200ms | ~1s (network) | under 1ms |
+| Isolation | Container namespace | MicroVM | In-process VFS |
+| Network | iptables or sidecar | Platform policy | URL allowlist plus SSRF guard |
+| Secrets | Environment variables the agent can read | Platform-specific | Injected per request, agent never sees them |
+| Setup | Docker daemon | API key plus network | `pip install strands-shell` |
+| Platforms | Linux | Cloud only | macOS, Linux, WASM |
+
+This is a different tradeoff, not a strictly better one. A container isolates at the kernel; Strands Shell isolates at the process. The [security model](#what-strands-shell-is-not) section below draws that line precisely, because picking the wrong tool for an adversarial workload is a real risk.
+
+## How it works
+
+Your code talks to the shell through one of three surfaces: an MCP server, the Python API, or the Node.js API. Every command, file read, and network request flows through the Kernel, which is the single mediation boundary.
+
+```mermaid
+flowchart TB
+    agent["Your agent code"]
+    agent -->|"MCP, Python, or Node.js"| shell
+
+    subgraph shell ["Strands Shell"]
+        direction TB
+        subgraph kernel ["Kernel (mediation boundary)"]
+            vfs["VFS: isolated filesystem"]
+            net["Network: SSRF guard plus allowlist"]
+            creds["Credentials: injected per URL"]
+            limits["Limits: timeout, output, fds"]
+        end
+        engine["Shell engine: parser, builtins, commands, Lua"]
+    end
+```
+
+The engine parses and runs shell syntax: pipelines, loops, functions, subshells. When a command needs to touch the outside world, it asks the Kernel, and the Kernel decides. The filesystem is an in-memory VFS with explicit bind mounts. Network access goes through an SSRF guard that blocks private address ranges by default. Credentials are injected per request and stripped before the agent can read them.
+
+State persists across `run` calls. Environment variables, the working directory, and shell functions set in one command are visible in the next, so an agent can `cd` into a directory and keep working there across turns.
+
+Strands Shell is written in Rust and compiles from one source to native bindings for Python (via PyO3) and Node.js (via napi-rs), plus a WASM target. The three language surfaces are intentionally parallel: the same config shape, the same command set, the same mediation guarantees.
+
+## What you control
+
+A fresh shell is an empty sandbox: no files, no network, no credentials. You grant access explicitly through three mechanisms.
+
+**Binds** map a host directory into the shell’s filesystem. A `copy` bind snapshots the directory at construction time, isolating the agent from your live files. A `direct` bind passes reads and writes through to the host in real time. Prefer `copy` for source code and reserve `direct` for output directories.
+
+**Credentials** attach a secret to a URL prefix. When a command makes a request to a matching URL, the Kernel injects the credential at request time. The agent never holds the secret, and the Kernel never re-injects it on a redirect, even back to the same host.
+
+**Allowed URLs** widen the network policy. By default the SSRF guard blocks private ranges (RFC1918, link-local, loopback, and cloud metadata endpoints) while letting public URLs through. Add a prefix to the allowlist to permit a specific internal host.
+
+The [Configuration](/docs/user-guide/shell-sdk/configuration/index.md) guide covers each of these in depth, including the TOML format that lets you declare the whole policy in a file.
+
+## What Strands Shell is not
+
+Strands Shell is a mediation layer, not a hardened sandbox. The Kernel enforces what the agent *should* reach through deny-by-default policy, and it runs in the same process as your code. It does not protect against memory-safety exploits in the shell engine itself, timing side channels, or an attacker who already controls the host process.
+
+The distinction matters for your threat model:
+
+-   For “my agent should not touch anything I have not explicitly allowed,” the Kernel handles it. This is the common case: a coding agent, a research agent, a CI assistant.
+-   For “an untrusted tenant is running arbitrary adversarial code,” you need OS-level isolation. Run each Strands Shell instance inside a container or microVM, and let the Kernel handle the in-process mediation on top.
+
+Resource limits (timeouts, output caps, file-descriptor and inode limits) are best-effort. They stop a runaway agent from filling memory or hanging forever; they do not stop someone actively trying to break out. For hard guarantees, use OS-level cgroups.
+
+A Strands Shell instance is single-owner. If you serve multiple agents, create one shell per session. Construction is cheap (no containers, no VMs, just an in-memory VFS), so spinning one up per request is the intended pattern, not a workaround.
+
+## Next steps
+
+-   [Quickstart](/docs/user-guide/shell-sdk/quickstart/index.md): install the shell and run your first sandboxed command through MCP, Python, or Node.js.
+-   [Configuration](/docs/user-guide/shell-sdk/configuration/index.md): bind directories, inject credentials, set the network allowlist, and load it all from TOML.
+-   [Commands](/docs/user-guide/shell-sdk/commands/index.md): the full command inventory, supported flags, and known gaps versus GNU coreutils.
+-   [MCP Server](/docs/user-guide/shell-sdk/mcp-server/index.md): expose the shell to any MCP-compatible agent framework over stdio.
+-   [Security Model](/docs/user-guide/shell-sdk/security/index.md): the Kernel boundary, the SSRF guard, credential handling, and how to layer OS isolation for adversarial workloads.
+
+Source: https://strandsagents.com/docs/user-guide/shell-sdk/index.md
+
+---
+
+## Strands Shell Commands
+
+Strands Shell reimplements a curated subset of POSIX and coreutils in Rust, targeting the operations agents reach for most rather than a complete toolset. This page is the reference for what is supported and where behavior diverges from GNU or BSD: missing flags, unsupported features, and known gaps.
+
+The shell is Bourne-compatible, with pipes, loops, functions, and subshells. The commands group into text processing, file contents, file management, path and system utilities, networking, JSON, search, and scripting.
+
+## General callouts
+
+These notes apply across commands:
+
+-   Regex uses the Rust `regex` crate. Backreferences and lookaround are unavailable, so `grep -P` is unsupported and GNU BRE escapes are not translated.
+-   `jq` is backed by [`jaq`](https://github.com/01mf02/jaq), a jq subset.
+-   Unsupported flags are rejected, not ignored. Idioms such as `cp -p`, `set -o pipefail`, or `ln -sf` produce an error rather than silently doing the wrong thing.
+-   Multiple file arguments are not uniformly supported. `cut` and `uniq` read only the first file; `head` and `tail` return a hard error; `cat`, `sort`, and `wc` handle multiple files correctly.
+-   Malformed numeric input passes silently. `test`, `[`, and arithmetic `$(( ))` treat non-numeric or empty operands as `0` without an error.
+-   Stdin under `strands-shell -c` is not connected to commands (`bad fd 0`). Use an in-shell pipe instead.
+
+## Text processing
+
+| Command | Notable gaps |
+| --- | --- |
+| `grep` | No `-P`, backreferences, lookaround, or `-f`. `-o` on empty-matching patterns emits blank lines. |
+| `sed` | No branching (`b`, `t`, `:label`) or multiline (`N`, `D`, `P`); no `-f`. `s///N` replaces the wrong match; range `c` emits per line. |
+| `tr` | Missing `[:punct:]`, `[:cntrl:]`, and `[c*n]` repeats. `-c` two-set translate uses the wrong replacement character. |
+| `cut` | No `-b` or `--complement`. Reads only the first file when given several. |
+| `sort` | No `-c`, `-o`, `-V`, or `-h` (`-h` prints help instead). Keyed-tie order is non-deterministic. Loads all input into memory. |
+| `uniq` | No `-w` or `-D`. Reads only the first file when given several. |
+| `wc` | No `-m` (char count) or `-L`. Counts are correct; column padding differs from coreutils. |
+
+## File contents
+
+| Command | Notable gaps |
+| --- | --- |
+| `cat` | No `-b`, `-s`, `-A`, `-e`, or `-t`; no `-` stdin operand. |
+| `head` | No `-c`, negative `-n`, or `head -5` shorthand. Multiple files produce a hard error (no `==>` headers). |
+| `tail` | No `-c`, `-f` or `-F` follow, or shorthand. Multiple files produce a hard error. |
+| `tee` | No `-i`. Standard usage (stdout plus files, `-a`) is supported. |
+
+## File management
+
+| Command | Notable gaps |
+| --- | --- |
+| `cp` | `-r` works, including nested directories; no `-p`, `-a`, `-f`, or `-i`. `cp f f` silently succeeds. |
+| `mv` | Rename, move, and cross-mount operations work; no `-f`, `-i`, `-n`, or `-v`. |
+| `rm` | `-r`, `-f`, and symlink non-follow behave correctly; no `-d` or `-i`. |
+| `mkdir` | No `-m`. An invalid-option path returns exit 0. |
+| `rmdir` | No `-p`. |
+| `touch` | File creation and timestamp update only; no `-t`, `-d`, `-c`, or `-r` (cannot set a specific time). |
+| `ln` | `-s` only; hard links are refused by design; no `-f`, so `ln -sf` fails. |
+| `chmod` | Full support. Octal and symbolic modes; no `-R`. |
+
+## Path and system
+
+| Command | Notable gaps |
+| --- | --- |
+| `ls` | `-l` omits owner, group, and link count; `-a` omits `.` and `..`. No `-t`, `-S`, `-d`, `-F`, or `-h`. Output is always single-column. |
+| `basename` | No `-a` or `-s`. `basename /` and `""` diverge from coreutils. |
+| `dirname` | Single operand only. A trailing slash is mishandled (`/usr/lib/` becomes `/usr/lib`). |
+| `readlink` | Plain read only; no `-f`, `-e`, or `-m` canonicalization. |
+| `mktemp` | No `-u` or `-t`. |
+| `date` | `%s` is not expanded; unknown specifiers pass through literally; no `-d` or `-r`. UTC only. |
+| `env` | Print-only. `env VAR=v cmd`, `-i`, and `-u` are unsupported; use the shell-prefix form instead. |
+| `echo` | Expands escapes by default; `-e` and `-E` are printed literally (escape expansion cannot be disabled). |
+| `pwd` | Full support, including `-L` and `-P`. |
+| `sleep` | No unit suffixes (`0.1s`). Respects the shell timeout. |
+| `true`, `false` | Full support. |
+
+## Networking
+
+| Command | Notable gaps |
+| --- | --- |
+| `curl` | GET, POST, JSON, headers, auth, redirects, and `-w` are supported. No `--max-time`, `--connect-timeout`, or `--retry` (risk of an indefinite hang); no `-I`, `-F`, `-A`, `-G`, or cookie jar. SSRF and credential controls are enforced. |
+
+The SSRF guard and credential injection on `curl` are security features, covered in the [security model](/docs/user-guide/shell-sdk/security/index.md). They are not optional and cannot be disabled per command.
+
+## JSON
+
+| Command | Notable gaps |
+| --- | --- |
+| `jq` (jaq) | Broad filter coverage. A missing nested key throws an error, which breaks the `.a.b // default` pattern; no `--arg`, `--argjson`, or `-S`; `inputs` and `setpath` are absent. |
+
+## Search
+
+| Command | Notable gaps |
+| --- | --- |
+| `find` | `-name`, `-type`, `-maxdepth`, `-exec`, and `-print0` are supported. No `-delete`, `-size`, `-mtime`, `-prune`, or `-regex`. Children are sorted alphabetically, not in readdir order. |
+| `xargs` | Space-separated `-n`, `-I`, `-0`, and `-d` are supported; attached forms (`-n1`, `-I{}`) and `-t`, `-r`, `-L`, `-P` are not. Implicitly behaves as `-r`. |
+
+## Scripting
+
+| Command | Notable gaps |
+| --- | --- |
+| `lua` | Full support. Sandboxed Lua 5.4 with VFS-backed `io` and `os`. Metatables are disabled (`setmetatable` removed); no `os.date` or `debug`. No wall-clock timeout under a bare `-c`. |
+
+Reach for `lua` when shell syntax gets awkward: multi-step transforms, structured data manipulation, or logic that would otherwise sprawl across a chain of pipes.
+
+## Shell builtins
+
+| Builtin | Notable gaps |
+| --- | --- |
+| `test`, `[` | No `[[ ]]`. Non-numeric or empty operands are treated as `0` (succeeds rather than erroring). |
+| `printf` | No floating-point (`%f`, `%e`, `%g` print literally); `%d` does not parse `0x` or octal prefixes. |
+| `read` | No `-a`, `-n`, or `-d`; a prefix `IFS=` is ignored; `-r` is effectively always on. |
+| `set` | No `-o`, so `set -o pipefail` fails; only `e`, `u`, and `x` are supported. |
+| `trap` | `EXIT` works; numeric signals (`trap ... 0`) are ignored; `-p` and `-l` are no-ops. |
+| `alias` | Can be defined and listed, but aliases are never expanded during execution. |
+| `readonly` | Enforced, but a violation returns exit 0; no `-p`. |
+| `local` | Works within functions; silently succeeds when used outside a function. |
+| `type` | No `-t` or `-a`. |
+| `cd` | No `CDPATH`; `-P` and `-L` are not parsed. |
+| `getopts`, `export`, `unset`, `shift`, `umask`, `hash`, `wait`, `:` | Full support. |
+
+Arithmetic `$(( ))` handles precedence, bitwise operators, the ternary, hex, and octal correctly. Malformed input returns a wrong result with exit 0 (`$((2 3))` yields `2`, `$((1/0))` yields `0`). Post-increment `x++` and `x--` return the value without updating the variable.
+
+## Shell language
+
+| Feature | Supported |
+| --- | --- |
+| Pipelines and lists | `|`, `&&`, `||`, `;` |
+| Redirections | `>`, `>>`, `<`, `2>`, `&>`, here-docs `<<` |
+| Conditionals | `if`, `elif`, `else`, `case` |
+| Loops | `for`, `while`, `until` |
+| Functions | definitions, `local` variables, `return` |
+| Grouping | command groups `{ }`, subshells `( )` |
+| Expansion | variables (`${VAR:-default}`, `${VAR%pat}`, `${#VAR}`), command substitution (`` `cmd` ``, `$(cmd)`), arithmetic `$(( ))`, globs |
+| Quoting | single, double |
+| Jobs | background `&` |
+| Scripts | `. script.sh`, `source` |
+
+Source: https://strandsagents.com/docs/user-guide/shell-sdk/commands/index.md
+
+---
+
+## Configuring Strands Shell
+
+A fresh shell can reach nothing. You open it up by declaring three things: which directories the agent sees, which credentials get injected on which requests, and which URLs the agent may reach. This guide covers each, plus resource limits and the TOML format that captures the whole policy in one file.
+
+Every option is available both as a constructor argument and as a TOML key. Use the constructor when the policy is dynamic (per session, computed at runtime); use TOML when the policy is static and you want it under version control or shared with the [MCP server](/docs/user-guide/shell-sdk/mcp-server/index.md).
+
+The examples below use the Python API. The Node.js API takes the same options as a config object with camelCase keys (`allowedUrls`, `configFile`, `maxOutput`), and the TOML format is identical across both.
+
+## Binds
+
+A bind maps a host directory into the shell’s virtual filesystem. The agent sees the destination path; everything outside a bound path does not exist.
+
+Each bind has a mode that decides how host and sandbox relate:
+
+-   `copy` snapshots the host directory into the VFS at construction time. The agent’s reads and writes stay inside the sandbox and never touch your host files. Use this for source code.
+-   `direct` passes reads and writes through to the host in real time. The agent can modify your live files, and host-side changes after construction are visible to the agent. Use this only for designated output directories.
+
+```python
+import strands_shell
+
+shell = strands_shell.Shell(
+    binds=[
+        strands_shell.Bind("/host/project", "/workspace", mode="copy"),
+        strands_shell.Bind("/tmp/output", "/output", mode="direct"),
+    ],
+)
+```
+
+Add `readonly=True` to reject writes through a mount even in `direct` mode, which lets you expose a live host directory for reading without risking modification.
+
+```python
+strands_shell.Bind("/host/reference", "/ref", mode="direct", readonly=True)
+```
+
+Caution
+
+A `direct` bind is live. The agent can read and modify host files in real time, including deleting them. Never `direct`\-bind a directory that holds secrets, credentials, or configuration you do not want the agent to change. When in doubt, use `copy`.
+
+## Credentials
+
+A credential rule attaches a secret to a URL prefix. When a command makes a request to a matching URL, the Kernel injects the secret as a bearer token at request time. The agent never holds the value: it does not appear in the environment, in command output, or in the Lua scripting context.
+
+Provide the secret one of two ways, and exactly one: an inline `token`, or an `env_var` resolved against the process environment when the shell is constructed.
+
+```python
+shell = strands_shell.Shell(
+    credentials=[
+        strands_shell.Cred("https://api.example.com/", env_var="API_TOKEN"),
+    ],
+    allowed_urls=["https://api.example.com/"],
+)
+
+# The bearer token from $API_TOKEN is injected automatically.
+result = shell.run("curl https://api.example.com/v1/status")
+```
+
+The Kernel matches on URL prefix with a path-boundary check, and it injects only on the original request. It never re-injects on a redirect, even a redirect back to the same host, which closes the credential-exfiltration path where an agent follows a redirect to a logging endpoint.
+
+## Network access
+
+By default `curl` blocks private address ranges (RFC1918, link-local, loopback, and cloud metadata endpoints such as IMDS) while letting public URLs through. The block happens at DNS-resolution time, so a public hostname that resolves to a private address is still blocked.
+
+To permit a specific internal host, add its URL prefix to `allowed_urls`.
+
+```python
+shell = strands_shell.Shell(
+    allowed_urls=["https://internal-api.corp.example.com/"],
+)
+```
+
+Caution
+
+Do not allowlist a bare scheme like `https://`. A prefix that broad permits every host and disables the SSRF guard entirely. List the specific endpoints the agent needs.
+
+## Behavioral settings
+
+Three top-level settings tune how commands run:
+
+-   `env` seeds environment variables into the shell.
+-   `timeout` sets a per-command wall-clock limit in seconds. It defaults to 30, which bounds runaway commands out of the box; raise it for long-running work. It must be a positive, finite number.
+-   `umask` sets the file-creation mask. The default is `0o022`.
+
+```python
+shell = strands_shell.Shell(
+    env={"PROJECT": "demo"},
+    timeout=30.0,
+)
+```
+
+## Resource limits
+
+Resource caps go in a single `Limits` bundle, separate from behavioral settings, so protective caps stay visually distinct from runtime behavior. Override only the caps you care about; the rest keep their defaults.
+
+```python
+shell = strands_shell.Shell(
+    limits=strands_shell.Limits(
+        max_output=1 << 20,
+        max_file_size=10 << 20,
+    ),
+)
+```
+
+| Limit | Default | Caps |
+| --- | --- | --- |
+| `max_output` | 1 MiB | Bytes of output captured from a single command |
+| `max_file_size` | 10 MiB | Bytes a single file may reach on write or read |
+| `max_fds` | 128 | Open file descriptors at once |
+| `max_bg_jobs` | 8 | Concurrent background jobs |
+| `max_pipeline` | 16 | Stages in a single pipeline |
+| `max_input` | 1 MiB | Bytes of a single input |
+| `max_inodes` | 10,000 | Total files and directories in the VFS |
+| `max_depth` | 64 | Directory nesting depth |
+
+These caps are best-effort. They stop a runaway agent from exhausting memory or hanging; they are not a defense against an adversary actively trying to break out. For hard guarantees, see the [security model](/docs/user-guide/shell-sdk/security/index.md).
+
+## TOML configuration
+
+When the policy is static, declare it in a TOML file. The Python and Node.js constructors accept a config file path, and the [MCP server](/docs/user-guide/shell-sdk/mcp-server/index.md) reads the same format through its `--config` flag. Pass a file and explicit constructor arguments together, and the explicit arguments win.
+
+```toml
+umask = "022"
+
+[[bind]]
+mode = "copy"
+source = "/host/project"
+destination = "/workspace"
+
+[[bind]]
+mode = "direct"
+source = "/tmp/output"
+destination = "/output"
+
+[[cred]]
+url = "https://api.openai.com/v1/"
+methods = ["POST"]
+kind = "bearer"
+api_key_env = "OPENAI_API_KEY"
+
+allowed_urls = ["https://api.openai.com/"]
+
+[env]
+PROJECT = "demo"
+
+[limits]
+timeout = 30
+max_output = 1048576
+```
+
+Load it in code:
+
+```python
+shell = strands_shell.Shell(config_file="sandbox.toml")
+```
+
+A few rules the parser enforces:
+
+-   Unknown keys are rejected, so a typo like `timeout_seconds` fails loudly instead of being silently ignored.
+-   `bind` mode defaults to `copy` when omitted, which is the safe choice.
+-   A `cred` entry needs a `kind` (`bearer` or `query`) and exactly one of `api_key` or `api_key_env`. A `query` credential also needs a `param` naming the query parameter.
+-   `timeout` is in whole seconds and defaults to 30 when the key is absent. A value of `0` is rejected, because it would expire every command immediately.
+
+## Next steps
+
+-   [Commands](/docs/user-guide/shell-sdk/commands/index.md): the full command inventory and supported flags.
+-   [MCP Server](/docs/user-guide/shell-sdk/mcp-server/index.md): serve this configuration to any MCP-compatible agent.
+-   [Security Model](/docs/user-guide/shell-sdk/security/index.md): how binds, credential injection, and the SSRF guard hold up, and where they stop.
+
+Source: https://strandsagents.com/docs/user-guide/shell-sdk/configuration/index.md
+
+---
+
+## Strands Shell MCP Server
+
+The built-in MCP server exposes a sandboxed shell over JSON-RPC on stdio, so any framework that speaks the [Model Context Protocol](https://modelcontextprotocol.io/) can use it without a line of binding code. This is the integration path when you are not embedding the Python or Node.js API directly.
+
+## Start the server
+
+Run the server with the `--mcp` flag. With no config, it starts a bare in-memory sandbox: no host files, no network, no credentials.
+
+```bash
+uvx strands-shell --mcp
+```
+
+To grant access, pass a [TOML config file](/docs/user-guide/shell-sdk/configuration/index.md#toml-configuration) before the flag. The server applies the same binds, credentials, allowlist, and limits you would set in code.
+
+```bash
+uvx strands-shell --config sandbox.toml --mcp
+```
+
+To register the server with an MCP client, point the client’s configuration at the same command:
+
+```json
+{
+  "mcpServers": {
+    "shell": {
+      "command": "uvx",
+      "args": ["strands-shell", "--config", "sandbox.toml", "--mcp"]
+    }
+  }
+}
+```
+
+## The four tools
+
+The server exposes four tools. All filesystem paths are absolute paths inside the sandbox VFS.
+
+### `shell`
+
+Runs a command in the virtual shell. The response carries two text blocks: the first is stdout, the second is stderr (both always present, empty when a stream produced nothing). The exit code is in the response metadata.
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `command` | string | yes | The shell command string to execute. |
+| `timeout_ms` | number | no | Timeout in milliseconds. Default 30000. |
+
+State persists across calls on the same connection. A `cd`, an `export`, or a function defined in one `shell` call is visible in the next.
+
+### `read_file`
+
+Reads a file from the VFS. Text files return as line-numbered text, 1-indexed, honoring `offset` and `limit`. Images return as image content; other binary files return as embedded resource blobs.
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `file_path` | string | yes | Absolute path to the file. |
+| `offset` | number | no | 1-indexed line to start from. Default 1. |
+| `limit` | number | no | Maximum lines to return. Default 2000. |
+
+### `write_file`
+
+Creates or overwrites a file in the VFS.
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `file_path` | string | yes | Absolute path to the file. |
+| `content` | string | yes | The content to write. |
+
+### `list_dir`
+
+Lists the entries in a directory in the VFS.
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `dir_path` | string | yes | Absolute path to the directory. |
+
+## Nested MCP servers as Lua modules
+
+A shell config can declare other MCP servers under `[[mcp]]` entries. Each one becomes a Lua module inside the shell, callable from the `lua` command with `require`. This lets an agent reach your existing MCP tools through the same sandboxed shell, with the tool’s responses available as ordinary Lua tables.
+
+```toml
+[[mcp]]
+name = "my_tools"
+command = "/path/to/mcp-server"
+args = ["--stdio"]
+```
+
+Inside the shell, the server’s tools arrive as a table:
+
+```lua
+local tools = require("my_tools")
+local result = tools.search({ query = "deny by default" })
+print(result)
+```
+
+Nested MCP servers are a native-target feature. They are not available under the WASM build, which has no MCP server or client and no `--config` flag.
+
+## When to use the MCP server
+
+Reach for the MCP server when your agent already speaks MCP and you want isolation without writing binding code: the agent gets a shell plus file tools, all mediated by the Kernel, configured from one TOML file. When you are writing the agent host yourself in Python or Node.js, embed the [Python](/docs/user-guide/shell-sdk/quickstart/index.md#python) or [Node.js](/docs/user-guide/shell-sdk/quickstart/index.md#nodejs) API directly instead, which gives you the typed `Output`, file operations, and per-session control without a subprocess.
+
+## Next steps
+
+-   [Configuration](/docs/user-guide/shell-sdk/configuration/index.md): the full TOML schema for binds, credentials, the allowlist, and limits.
+-   [Security Model](/docs/user-guide/shell-sdk/security/index.md): what the sandbox guarantees per session and why one shell per session is the contract.
+
+Source: https://strandsagents.com/docs/user-guide/shell-sdk/mcp-server/index.md
+
+---
+
+## Strands Shell Quickstart
+
+This guide gets you from zero to a running sandboxed command. You will install Strands Shell, create a shell with a single bound directory, and run a command against it. By the end you will have a working sandbox you can hand to an agent.
+
+Strands Shell offers three surfaces. Pick the one that matches how you build:
+
+-   **MCP server** works with any agent framework that speaks the Model Context Protocol. Nothing to write in your own language.
+-   **Python API** embeds the shell directly in a Python program.
+-   **Node.js API** embeds the shell directly in a JavaScript or TypeScript program.
+
+## MCP server
+
+The fastest way to give an existing agent a sandboxed shell is the built-in MCP server. It needs no code: point your MCP client at the `strands-shell` command and the agent gets four tools (`shell`, `read_file`, `write_file`, `list_dir`).
+
+Add this to your MCP client configuration:
+
+```json
+{
+  "mcpServers": {
+    "shell": {
+      "command": "uvx",
+      "args": ["strands-shell", "--mcp"]
+    }
+  }
+}
+```
+
+This starts a bare in-memory sandbox: no host files, no network, no credentials. To grant access, write a [TOML config file](/docs/user-guide/shell-sdk/configuration/index.md#toml-configuration) and pass it before the `--mcp` flag:
+
+```json
+{
+  "mcpServers": {
+    "shell": {
+      "command": "uvx",
+      "args": ["strands-shell", "--config", "sandbox.toml", "--mcp"]
+    }
+  }
+}
+```
+
+The [MCP Server](/docs/user-guide/shell-sdk/mcp-server/index.md) page documents the four tools, their parameters, and how to expose other MCP servers as Lua modules inside the shell.
+
+## Python
+
+Install the shell. You need Python 3.10 or later.
+
+```bash
+pip install strands-shell
+```
+
+Create a shell, bind a directory into it, and run a command. The bind is the grant: `/my/project` on your host becomes `/workspace` inside the sandbox, and nothing else on your filesystem is visible.
+
+```python
+import strands_shell
+
+shell = strands_shell.Shell(
+    binds=[strands_shell.Bind("/my/project", "/workspace", mode="copy")],
+)
+
+result = shell.run("grep -rn TODO /workspace")
+print(result.stdout)
+```
+
+`run` returns an `Output` with three fields: `stdout`, `stderr`, and `status` (the exit code). It does not raise when a command fails, so check `status` to branch on success.
+
+```python
+result = shell.run("test -f /workspace/pyproject.toml")
+if result.status == 0:
+    print("found pyproject.toml")
+```
+
+State carries across calls. Export a variable or change directory in one `run`, and the next `run` sees it.
+
+```python
+shell.run("cd /workspace && export PROJECT=demo")
+result = shell.run("echo $PROJECT in $(pwd)")
+print(result.stdout)
+
+# Typical output:
+# demo in /workspace
+```
+
+### Reading and writing files
+
+You can touch the sandbox filesystem directly, without going through a shell command. This is the path to use when your own code needs to seed an input file or collect a result.
+
+```python
+shell.write_file("/workspace/note.txt", b"hello")
+data = shell.read_file("/workspace/note.txt")
+print(data.decode())
+
+entries = shell.list_files("/workspace")
+for entry in entries:
+    print(entry.name)
+```
+
+`read_file` and `write_file` work in bytes. A missing path raises `strands_shell.FileNotFoundError`, which also subclasses the built-in `FileNotFoundError`, so existing error-handling code catches it without a translation shim.
+
+## Node.js
+
+Install the shell. You need Node.js 18 or later.
+
+```bash
+npm install @strands-agents/shell
+```
+
+Create a shell with `Shell.create`, which returns a promise. Bind a directory, then run a command.
+
+```javascript
+import { Shell } from '@strands-agents/shell'
+
+const shell = await Shell.create({
+  binds: [{ source: '/my/project', destination: '/workspace', mode: 'copy' }],
+})
+
+const result = await shell.run('grep -rn TODO /workspace')
+console.log(result.stdout)
+```
+
+Every method returns a promise. `run` resolves to an `Output` with `stdout`, `stderr`, and `status`, and it resolves even when the command exits non-zero, so check `status` rather than catching an error.
+
+```javascript
+const result = await shell.run('test -f /workspace/package.json')
+if (result.status === 0) {
+  console.log('found package.json')
+}
+```
+
+### Reading and writing files
+
+File operations take and return `Uint8Array`. A missing path rejects with `NotFoundError`, which carries a `.code` of `'ENOENT'` and the offending `.path`.
+
+```javascript
+const enc = new TextEncoder()
+const dec = new TextDecoder()
+
+await shell.writeFile('/workspace/note.txt', enc.encode('hello'))
+const data = await shell.readFile('/workspace/note.txt')
+console.log(dec.decode(data))
+
+const entries = await shell.listFiles('/workspace')
+for (const entry of entries) {
+  console.log(entry.name)
+}
+```
+
+## What you built
+
+You created a sandbox with exactly one directory visible to it and ran a command that could not reach anything else: not your home directory, not your credentials, not the network. That is the whole model. You add capability by adding binds, credentials, and allowed URLs, and the agent gets nothing you did not grant.
+
+## Next steps
+
+-   [Configuration](/docs/user-guide/shell-sdk/configuration/index.md): the difference between `copy` and `direct` binds, credential injection, the network allowlist, and the TOML format.
+-   [Commands](/docs/user-guide/shell-sdk/commands/index.md): which commands and flags are supported, and where they diverge from GNU coreutils.
+-   [Security Model](/docs/user-guide/shell-sdk/security/index.md): what the sandbox guarantees, what it does not, and when to add OS-level isolation.
+
+## Related pages
+
+- [Get started](/docs/user-guide/quickstart/overview/index.md) (1 shared tag)
+- [Python Quickstart](/docs/user-guide/quickstart/python/index.md) (1 shared tag)
+- [Strands Evaluation Quickstart](/docs/user-guide/evals-sdk/quickstart/index.md) (1 shared tag)
+- [TypeScript Quickstart](/docs/user-guide/quickstart/typescript/index.md) (1 shared tag)
+- [Quickstart](/docs/user-guide/concepts/bidirectional-streaming/quickstart/index.md) (1 shared tag)
+
+Source: https://strandsagents.com/docs/user-guide/shell-sdk/quickstart/index.md
+
+---
+
+## Strands Shell Security Model
+
+Strands Shell exists to answer one question: what should this agent be allowed to touch? The answer is enforced by the Kernel, a single mediation boundary that every filesystem, network, and credential operation flows through. This page explains where that boundary sits, what it guarantees, and the threat models it does and does not cover.
+
+The framing that matters most: **Strands Shell is a mediation layer, not a hardened sandbox.** It enforces what an agent *should* reach through deny-by-default policy. It runs in the same process as your code, not in a VM. Getting this distinction right is the difference between an appropriate deployment and a false sense of safety.
+
+## The Kernel boundary
+
+All effects flow through the Kernel. There is no path around it: the shell makes no `fork`, no `exec`, and no raw syscalls, because the engine runs entirely in userspace. A command that wants to read a file, reach a URL, or use a credential asks the Kernel, and the Kernel applies policy.
+
+The default Kernel is backed by an in-memory virtual filesystem and enforces four guarantees:
+
+1.  **Filesystem isolation.** The VFS exposes only explicitly bound paths. No path can escape its declared mounts, and `..` components, symlinks, and bind-path tricks are checked against the mount boundary.
+2.  **Network SSRF guard.** A two-layer check filters network access: a URL-level parse plus IP filtering at DNS-resolution time. It blocks RFC1918, link-local, loopback, IMDS, IPv4-mapped IPv6, 6to4, and Teredo addresses by default.
+3.  **Credential injection.** Secrets are matched per URL prefix with a path-boundary check and injected only on the original request, then stripped on redirects.
+4.  **No syscalls.** There is no `fork`, `exec`, or raw syscall path for a command to reach the host environment.
+
+A custom Kernel (for embedding the shell in another runtime) carries its own security properties. The guarantees above describe the bundled implementation.
+
+## Deny by default
+
+Out of the box a shell is empty: no files, no network, no credentials. You add capability explicitly, and the safe choice is the default at every turn. The principle is least privilege, and the practices that follow from it:
+
+-   **Prefer `copy` over `direct` binds for source code.** A `copy` bind snapshots files into the VFS, isolating the agent from your live filesystem. Reserve `direct` for output directories where the agent must persist results.
+-   **Scope binds narrowly.** Bind `/my/project/src`, not `/my/project` or `/`. The agent does not need your `.git`, your `.env`, or your `node_modules`.
+-   **Allowlist URLs explicitly.** Never allowlist a bare `https://`; that disables the SSRF guard. List the specific endpoints the agent needs.
+-   **Keep a timeout set.** The config-driven API defaults to a 30-second per-command timeout, which bounds runaway commands. Raise it for long-running work rather than removing it.
+-   **Set `max_output`.** Cap the output an agent can generate so a single command cannot fill memory. 1 MiB is a reasonable default.
+
+The [configuration guide](/docs/user-guide/shell-sdk/configuration/index.md) shows how to apply each of these.
+
+## How credentials stay out of reach
+
+The credential design solves a specific problem: an agent that can make HTTP requests should be able to *use* a secret without being able to *read* it. A secret in an environment variable fails this, because any command can print the environment.
+
+Strands Shell injects credentials at request time, keyed to a URL prefix. The value never enters the agent’s reach: it is absent from the environment, from command output, from error messages, and from the Lua scripting context. The Kernel injects only on the original request and never re-injects on a redirect, even one that points back to the same host. That closes the exfiltration path where an agent follows a crafted redirect to a logging endpoint and reads the forwarded header.
+
+## What is out of scope
+
+Some properties are explicitly not part of the security boundary. Treating them as guarantees is a mistake:
+
+-   **Resource exhaustion within configured limits.** Limits are best-effort. They catch runaway agents; they do not stop deliberate attempts to exhaust CPU or memory. Use OS-level cgroups for hard caps.
+-   **Speculative execution and side channels.** The same-process architecture does not defend against timing attacks. Use VM isolation for that threat model.
+-   **Multi-tenancy within one process.** A shell instance is single-owner. Sharing one instance across mutually distrusting agents is a documented non-goal.
+-   **Memory-safety exploits in the engine itself.** The Kernel mediates policy; it is not a defense against an attacker who compromises the host process.
+-   **Reading files the agent was granted.** A bind is a grant. An agent reading a directory you bound is the system working as designed.
+
+## Choosing the right isolation
+
+Match the tool to the threat model:
+
+-   **“My agent should not touch anything I have not allowed.”** The Kernel handles this directly. This covers the common cases: a coding agent on a repository, a research agent with a scoped API key, a CI assistant. No container required.
+-   **“An untrusted tenant is running arbitrary adversarial code.”** Add OS-level isolation. Run each shell instance inside a container or microVM, and let the Kernel handle in-process mediation on top. Construction is cheap, so one shell per session is the intended pattern, not a workaround.
+
+The two layers compose. The Kernel gives you fine-grained, fast, deny-by-default mediation; the container gives you a hard kernel boundary. For adversarial workloads, use both.
+
+## Reporting a security issue
+
+A bypass of filesystem mediation, the SSRF guard, or credential injection is a security issue, not a normal bug. Reaching a path outside a bound mount, defeating the metadata-service block, exfiltrating an injected credential, or causing one MCP session to read another session’s state all qualify.
+
+Do not open a public GitHub issue. Report through the [AWS Vulnerability Disclosure Program on HackerOne](https://hackerone.com/aws_vdp) or by email to `aws-security@amazon.com`. The repository’s [SECURITY.md](https://github.com/strands-agents/shell/blob/main/SECURITY.md) has the full policy and the complete in-scope and out-of-scope lists.
+
+Source: https://strandsagents.com/docs/user-guide/shell-sdk/security/index.md
 
 ---
 

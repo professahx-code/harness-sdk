@@ -1,4 +1,4 @@
-Defined in: [src/types/messages.ts:35](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/types/messages.ts#L35)
+Defined in: [src/types/messages.ts:35](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/types/messages.ts#L35)
 
 Data for a message.
 
@@ -10,7 +10,7 @@ Data for a message.
 role: Role;
 ```
 
-Defined in: [src/types/messages.ts:39](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/types/messages.ts#L39)
+Defined in: [src/types/messages.ts:39](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/types/messages.ts#L39)
 
 The role of the message sender.
 
@@ -22,7 +22,7 @@ The role of the message sender.
 content: ContentBlockData[];
 ```
 
-Defined in: [src/types/messages.ts:44](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/types/messages.ts#L44)
+Defined in: [src/types/messages.ts:44](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/types/messages.ts#L44)
 
 Array of content blocks that make up this message.
 
@@ -34,6 +34,6 @@ Array of content blocks that make up this message.
 optional metadata?: MessageMetadata;
 ```
 
-Defined in: [src/types/messages.ts:49](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/types/messages.ts#L49)
+Defined in: [src/types/messages.ts:49](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/types/messages.ts#L49)
 
 Optional metadata, not sent to model providers.

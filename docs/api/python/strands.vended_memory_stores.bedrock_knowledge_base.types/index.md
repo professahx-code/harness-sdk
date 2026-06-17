@@ -6,7 +6,7 @@ Configuration and result types for the Bedrock Knowledge Base memory store.
 class BedrockKnowledgeBaseS3Config(TypedDict)
 ```
 
-Defined in: [src/strands/vended\_memory\_stores/bedrock\_knowledge\_base/types.py:17](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_memory_stores/bedrock_knowledge_base/types.py#L17)
+Defined in: [src/strands/vended\_memory\_stores/bedrock\_knowledge\_base/types.py:18](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_memory_stores/bedrock_knowledge_base/types.py#L18)
 
 S3 ingestion settings for :class:`BedrockKnowledgeBaseStore`, required when `data_source_type` is `'S3'`.
 
@@ -29,7 +29,7 @@ Direct ingestion indexes whatever object you point it at, so `add` works with an
 class BedrockKnowledgeBaseConfig(TypedDict)
 ```
 
-Defined in: [src/strands/vended\_memory\_stores/bedrock\_knowledge\_base/types.py:53](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_memory_stores/bedrock_knowledge_base/types.py#L53)
+Defined in: [src/strands/vended\_memory\_stores/bedrock\_knowledge\_base/types.py:54](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_memory_stores/bedrock_knowledge_base/types.py#L54)
 
 Connection to a Bedrock Knowledge Base: the knowledge base, the data source, and its clients.
 
@@ -51,7 +51,7 @@ This is the reusable half of a store’s config: build one and pass it (as the `
 class BedrockKnowledgeBaseStoreConfig(MemoryStoreConfig)
 ```
 
-Defined in: [src/strands/vended\_memory\_stores/bedrock\_knowledge\_base/types.py:92](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_memory_stores/bedrock_knowledge_base/types.py#L92)
+Defined in: [src/strands/vended\_memory\_stores/bedrock\_knowledge\_base/types.py:93](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_memory_stores/bedrock_knowledge_base/types.py#L93)
 
 Full configuration for a :class:`BedrockKnowledgeBaseStore`, passed as its constructor kwargs.
 
@@ -68,7 +68,7 @@ Full configuration for a :class:`BedrockKnowledgeBaseStore`, passed as its const
 class BedrockKnowledgeBaseAddResult()
 ```
 
-Defined in: [src/strands/vended\_memory\_stores/bedrock\_knowledge\_base/types.py:109](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_memory_stores/bedrock_knowledge_base/types.py#L109)
+Defined in: [src/strands/vended\_memory\_stores/bedrock\_knowledge\_base/types.py:110](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_memory_stores/bedrock_knowledge_base/types.py#L110)
 
 Result returned by :meth:`BedrockKnowledgeBaseStore.add`.
 

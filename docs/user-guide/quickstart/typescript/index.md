@@ -255,4 +255,5 @@ Ready to learn more? Check out these resources:
 - [Get started](/docs/user-guide/quickstart/overview/index.md) (1 shared tag)
 - [Python Quickstart](/docs/user-guide/quickstart/python/index.md) (1 shared tag)
 - [Strands Evaluation Quickstart](/docs/user-guide/evals-sdk/quickstart/index.md) (1 shared tag)
+- [Strands Shell Quickstart](/docs/user-guide/shell-sdk/quickstart/index.md) (1 shared tag)
 - [Quickstart](/docs/user-guide/concepts/bidirectional-streaming/quickstart/index.md) (1 shared tag)

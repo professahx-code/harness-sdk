@@ -1,4 +1,4 @@
-Defined in: [src/memory/types.ts:32](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/memory/types.ts#L32)
+Defined in: [src/memory/types.ts:32](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/memory/types.ts#L32)
 
 Options passed to [MemoryStore.search](/docs/api/typescript/MemoryStore/index.md#search).
 
@@ -16,6 +16,6 @@ Store implementations may extend this with backend-specific fields (e.g. a metad
 optional maxSearchResults?: number;
 ```
 
-Defined in: [src/memory/types.ts:34](https://github.com/strands-agents/harness-sdk/blob/49d797ae86485bd24e3e86744b6b959ccc8b9a12/strands-ts/src/memory/types.ts#L34)
+Defined in: [src/memory/types.ts:34](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/memory/types.ts#L34)
 
 Maximum number of results to return from this store.

@@ -140,6 +140,7 @@ As a reminder, Nova Sonic is only available in us-east-1, eu-north-1, and ap-nor
 
 - [Amazon Nova](/docs/user-guide/concepts/model-providers/amazon-nova/index.md) (2 shared tags)
 - [Guardrails](/docs/user-guide/safety-security/guardrails/index.md) (2 shared tags)
+- [Bedrock Knowledge Base Store](/docs/user-guide/concepts/memory/bedrock-knowledge-base/index.md) (2 shared tags)
 - [Deploying Strands Agents to Amazon Bedrock AgentCore Runtime](/docs/user-guide/deploy/deploy_to_bedrock_agentcore/index.md) (2 shared tags)
 - [Python Deployment to Amazon Bedrock AgentCore Runtime](/docs/user-guide/deploy/deploy_to_bedrock_agentcore/python/index.md) (2 shared tags)
 - [TypeScript Deployment to Amazon Bedrock AgentCore Runtime](/docs/user-guide/deploy/deploy_to_bedrock_agentcore/typescript/index.md) (2 shared tags)
@@ -147,4 +148,3 @@ As a reminder, Nova Sonic is only available in us-east-1, eu-north-1, and ap-nor
 - [BidiAgent](/docs/user-guide/concepts/bidirectional-streaming/agent/index.md) (1 shared tag)
 - [Events](/docs/user-guide/concepts/bidirectional-streaming/events/index.md) (1 shared tag)
 - [Gemini Live](/docs/user-guide/concepts/bidirectional-streaming/models/gemini_live/index.md) (1 shared tag)
-- [I/O Channels](/docs/user-guide/concepts/bidirectional-streaming/io/index.md) (1 shared tag)

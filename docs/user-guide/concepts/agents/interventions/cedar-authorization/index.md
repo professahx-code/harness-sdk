@@ -668,4 +668,4 @@ For the full policy language grammar, operators, and built-in functions, see the
 - [Stereotyping Evaluator](/docs/user-guide/evals-sdk/evaluators/stereotyping_evaluator/index.md) (1 shared tag)
 - [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
 - [Instruction Following Evaluator](/docs/user-guide/evals-sdk/evaluators/instruction_following_evaluator/index.md) (1 shared tag)
-- [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
+- [Guardrails](/docs/user-guide/safety-security/guardrails/index.md) (1 shared tag)
