@@ -144,6 +144,8 @@ simulator = ActorSimulator(
 ### With Trace-Based Evaluators
 
 ```python
+import asyncio
+
 from strands import Agent
 from strands_evals import Case, Experiment, ActorSimulator
 from strands_evals.evaluators import HelpfulnessEvaluator
@@ -203,8 +205,12 @@ test_cases = [
 # Run evaluation
 evaluators = [HelpfulnessEvaluator()]
 experiment = Experiment(cases=test_cases, evaluators=evaluators)
-report = experiment.run_evaluations(task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Conversation Control
@@ -433,11 +439,15 @@ evaluators = [
 ]
 
 experiment = Experiment(cases=test_cases, evaluators=evaluators)
-report = experiment.run_evaluations(customer_service_task)
 
-# The experiment returns a single combined report — each row in `report.cases`
-# carries an `evaluator` key naming the producing evaluator.
-report.run_display()
+async def main():
+    report = await experiment.run_evaluations_async(customer_service_task)
+
+    # The experiment returns a single combined report — each row in `report.cases`
+    # carries an `evaluator` key naming the producing evaluator.
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Best Practices
@@ -561,7 +571,11 @@ evaluators = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=evaluators)
-report = experiment.run_evaluations(comprehensive_evaluation)
+
+async def main():
+    report = await experiment.run_evaluations_async(comprehensive_evaluation)
+
+asyncio.run(main())
 ```
 
 ### Pattern 3: Conversation Analysis

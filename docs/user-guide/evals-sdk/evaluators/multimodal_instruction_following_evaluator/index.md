@@ -64,6 +64,8 @@ A response passes only if the score is `1.0`.
 ## Basic Usage
 
 ```python
+import asyncio
+
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import MultimodalInstructionFollowingEvaluator
 from strands_evals.types import MultimodalInput
@@ -89,8 +91,12 @@ experiment = Experiment(
     cases=cases,
     evaluators=[MultimodalInstructionFollowingEvaluator()],
 )
-report = experiment.run_evaluations(task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Combining with Other Evaluators
@@ -113,8 +119,12 @@ evaluators = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=evaluators)
-report = experiment.run_evaluations(task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Related Evaluators

@@ -6,7 +6,7 @@ type ToolList = (
   | ToolList)[];
 ```
 
-Defined in: [src/agent/agent.ts:137](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/agent/agent.ts#L137)
+Defined in: [src/agent/agent.ts:137](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/agent/agent.ts#L137)
 
 Recursive type definition for nested tool arrays. Allows tools to be organized in nested arrays of any depth.
 

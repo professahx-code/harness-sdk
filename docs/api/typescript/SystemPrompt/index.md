@@ -2,7 +2,7 @@
 type SystemPrompt = string | SystemContentBlock[];
 ```
 
-Defined in: [src/types/messages.ts:711](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/types/messages.ts#L711)
+Defined in: [src/types/messages.ts:711](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/types/messages.ts#L711)
 
 System prompt for guiding model behavior. Can be a simple string or an array of content blocks for advanced caching.
 

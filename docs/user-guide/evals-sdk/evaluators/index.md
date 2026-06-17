@@ -241,6 +241,8 @@ Required: Session ID Trace Attributes
 When using `StrandsInMemorySessionMapper`, you **must** include session ID trace attributes in your agent configuration. This prevents spans from different test cases from being mixed together in the memory exporter.
 
 ```python
+import asyncio
+
 from strands import Agent
 from strands_evals import Case, Experiment, ActorSimulator
 from strands_evals.evaluators import HelpfulnessEvaluator, GoalSuccessRateEvaluator
@@ -284,7 +286,11 @@ evaluators = [
 ]
 
 experiment = Experiment(cases=test_cases, evaluators=evaluators)
-report = experiment.run_evaluations(task_function)
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+
+asyncio.run(main())
 ```
 
 ## Best Practices

@@ -1,4 +1,4 @@
-Defined in: [src/retry/backoff-strategy.ts:28](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/retry/backoff-strategy.ts#L28)
+Defined in: [src/retry/backoff-strategy.ts:28](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/retry/backoff-strategy.ts#L28)
 
 Computes the delay before the next retry attempt.
 
@@ -10,7 +10,7 @@ Computes the delay before the next retry attempt.
 nextDelay(ctx): number;
 ```
 
-Defined in: [src/retry/backoff-strategy.ts:35](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/retry/backoff-strategy.ts#L35)
+Defined in: [src/retry/backoff-strategy.ts:35](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/retry/backoff-strategy.ts#L35)
 
 Returns the delay in milliseconds before the next attempt.
 

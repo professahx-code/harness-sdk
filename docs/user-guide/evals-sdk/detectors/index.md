@@ -98,6 +98,8 @@ for rec in result.recommendations:
 Detectors integrate directly into the evaluation pipeline. Pass a `DiagnosisConfig` to `Experiment` to automatically diagnose failing cases:
 
 ```python
+import asyncio
+
 from strands_evals import Experiment, Case, DiagnosisConfig
 from strands_evals.evaluators import GoalSuccessRateEvaluator
 from strands_evals.detectors import DiagnosisTrigger
@@ -108,10 +110,13 @@ experiment = Experiment(
     diagnosis_config=DiagnosisConfig(trigger=DiagnosisTrigger.ON_FAILURE),
 )
 
-report = experiment.run_evaluations(my_task)
+async def main():
+    report = await experiment.run_evaluations_async(my_task)
 
-# View recommendations for failing cases
-report.display(include_recommendations=True)
+    # View recommendations for failing cases
+    report.display(include_recommendations=True)
+
+asyncio.run(main())
 ```
 
 See the [Session Diagnosis guide](/docs/user-guide/evals-sdk/detectors/diagnosis/index.md) for the full integration walkthrough.

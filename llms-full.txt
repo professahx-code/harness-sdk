@@ -40302,6 +40302,8 @@ def task_function(case: ChaosCase):
 ### Run chaos experiment
 
 ```python
+import asyncio
+
 from strands_evals.chaos import ChaosExperiment
 from strands_evals.evaluators import GoalSuccessRateEvaluator
 
@@ -40309,8 +40311,12 @@ experiment = ChaosExperiment(
     cases=chaos_cases,
     evaluators=[GoalSuccessRateEvaluator()]
 )
-report = experiment.run_evaluations(task=task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(task=task_function, max_workers=1)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Effect Types
@@ -40461,8 +40467,12 @@ experiment = ChaosExperiment(
     cases=chaos_cases,
     evaluators=[GoalSuccessRateEvaluator()]
 )
-report = experiment.run_evaluations(task=task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(task=task_function, max_workers=1)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ### Chaos Testing vs Simulators
@@ -40509,7 +40519,7 @@ from strands_evals.chaos import ChaosCase, ChaosExperiment, ChaosPlugin
 from strands_evals.eval_task_handler import TracedHandler, eval_task
 from strands_evals.evaluators.chaos import PartialCompletionEvaluator
 
-def compare_agents_under_chaos(chaos_cases, configs):
+async def compare_agents_under_chaos(chaos_cases, configs):
     """Compare how different agent configs handle the same failures."""
     results = {}
 
@@ -40529,7 +40539,7 @@ def compare_agents_under_chaos(chaos_cases, configs):
             cases=chaos_cases,
             evaluators=[PartialCompletionEvaluator()]
         )
-        report = experiment.run_evaluations(task=make_task(system_prompt))
+        report = await experiment.run_evaluations_async(task=make_task(system_prompt), max_workers=1)
         results[config_name] = report
 
     return results
@@ -41120,6 +41130,8 @@ for rec in result.recommendations:
 Detectors integrate directly into the evaluation pipeline. Pass a `DiagnosisConfig` to `Experiment` to automatically diagnose failing cases:
 
 ```python
+import asyncio
+
 from strands_evals import Experiment, Case, DiagnosisConfig
 from strands_evals.evaluators import GoalSuccessRateEvaluator
 from strands_evals.detectors import DiagnosisTrigger
@@ -41130,10 +41142,13 @@ experiment = Experiment(
     diagnosis_config=DiagnosisConfig(trigger=DiagnosisTrigger.ON_FAILURE),
 )
 
-report = experiment.run_evaluations(my_task)
+async def main():
+    report = await experiment.run_evaluations_async(my_task)
 
-# View recommendations for failing cases
-report.display(include_recommendations=True)
+    # View recommendations for failing cases
+    report.display(include_recommendations=True)
+
+asyncio.run(main())
 ```
 
 See the [Session Diagnosis guide](/docs/user-guide/evals-sdk/detectors/diagnosis/index.md) for the full integration walkthrough.
@@ -41291,6 +41306,8 @@ class DiagnosisConfig(BaseModel):
 ### Example: Diagnose Failing Cases
 
 ```python
+import asyncio
+
 from strands import Agent
 from strands_evals import Case, Experiment, DiagnosisConfig, eval_task, TracedHandler
 from strands_evals.detectors import ConfidenceLevel, DiagnosisTrigger
@@ -41325,7 +41342,12 @@ experiment = Experiment(
     ),
 )
 
-report = experiment.run_evaluations(my_agent_task)
+async def main():
+    report = await experiment.run_evaluations_async(my_agent_task, max_workers=1)
+    report.run_display()
+    return report
+
+report = asyncio.run(main())
 ```
 
 ### Viewing Recommendations
@@ -41393,6 +41415,8 @@ If the trajectory is not a `Session` (e.g., it’s a plain list of tool names), 
 This example shows the complete workflow: run evaluations with diagnosis, then analyze the results.
 
 ```python
+import asyncio
+
 from strands import Agent
 from strands_evals import Case, Experiment, DiagnosisConfig, eval_task, TracedHandler
 from strands_evals.detectors import ConfidenceLevel, DiagnosisTrigger
@@ -41428,11 +41452,14 @@ experiment = Experiment(
     ),
 )
 
-report = experiment.run_evaluations(math_agent)
+async def main():
+    report = await experiment.run_evaluations_async(math_agent, max_workers=1)
 
-# The experiment already returns a single combined report across all evaluators —
-# each row in `report.cases` carries an `evaluator` key naming the producer.
-report.display(include_recommendations=True)
+    # The experiment already returns a single combined report across all evaluators —
+    # each row in `report.cases` carries an `evaluator` key naming the producer.
+    report.display(include_recommendations=True)
+
+asyncio.run(main())
 ```
 
 ## Best Practices
@@ -42537,6 +42564,8 @@ Required: Session ID Trace Attributes
 When using `StrandsInMemorySessionMapper`, you **must** include session ID trace attributes in your agent configuration. This prevents spans from different test cases from being mixed together in the memory exporter.
 
 ```python
+import asyncio
+
 from strands import Agent
 from strands_evals import Case, Experiment, ActorSimulator
 from strands_evals.evaluators import HelpfulnessEvaluator, GoalSuccessRateEvaluator
@@ -42580,7 +42609,11 @@ evaluators = [
 ]
 
 experiment = Experiment(cases=test_cases, evaluators=evaluators)
-report = experiment.run_evaluations(task_function)
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+
+asyncio.run(main())
 ```
 
 ## Best Practices
@@ -42818,6 +42851,8 @@ Required: Session ID Trace Attributes
 When using `StrandsInMemorySessionMapper`, you **must** include session ID trace attributes in your agent configuration. This prevents spans from different test cases from being mixed together in the memory exporter.
 
 ```python
+import asyncio
+
 from strands import Agent
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import CoherenceEvaluator
@@ -42827,7 +42862,6 @@ from strands_evals.telemetry import StrandsEvalsTelemetry
 telemetry = StrandsEvalsTelemetry().setup_in_memory_exporter()
 
 def task_function(case: Case) -> dict:
-    telemetry.in_memory_exporter.clear()
     agent = Agent(
         trace_attributes={"session.id": case.session_id},
         callback_handler=None
@@ -42843,8 +42877,11 @@ cases = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=[CoherenceEvaluator()])
-report = experiment.run_evaluations(task_function)
-report.run_display()
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Related Evaluators
@@ -42939,6 +42976,8 @@ Required: Session ID Trace Attributes
 When using `StrandsInMemorySessionMapper`, you **must** include session ID trace attributes in your agent configuration. This prevents spans from different test cases from being mixed together in the memory exporter.
 
 ```python
+import asyncio
+
 from strands import Agent
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import ConcisenessEvaluator
@@ -42948,7 +42987,6 @@ from strands_evals.telemetry import StrandsEvalsTelemetry
 telemetry = StrandsEvalsTelemetry().setup_in_memory_exporter()
 
 def task_function(case: Case) -> dict:
-    telemetry.in_memory_exporter.clear()
     agent = Agent(
         trace_attributes={"session.id": case.session_id},
         callback_handler=None
@@ -42964,8 +43002,11 @@ cases = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=[ConcisenessEvaluator()])
-report = experiment.run_evaluations(task_function)
-report.run_display()
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Related Evaluators
@@ -43067,6 +43108,8 @@ When using `StrandsInMemorySessionMapper`, you **must** include session ID trace
 ### Without Reference (3-level scoring)
 
 ```python
+import asyncio
+
 from strands import Agent
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import CorrectnessEvaluator
@@ -43076,7 +43119,6 @@ from strands_evals.telemetry import StrandsEvalsTelemetry
 telemetry = StrandsEvalsTelemetry().setup_in_memory_exporter()
 
 def task_function(case: Case) -> dict:
-    telemetry.in_memory_exporter.clear()
     agent = Agent(
         trace_attributes={"session.id": case.session_id},
         callback_handler=None
@@ -43092,8 +43134,12 @@ cases = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=[CorrectnessEvaluator()])
-report = experiment.run_evaluations(task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ### With Reference (binary scoring)
@@ -43113,7 +43159,12 @@ cases = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=[CorrectnessEvaluator()])
-report = experiment.run_evaluations(task_function)
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 When `expected_assertion` is set on the case, the evaluator automatically switches to reference mode and uses binary CORRECT/INCORRECT scoring.
@@ -43373,6 +43424,8 @@ class KeywordPresenceEvaluator(Evaluator[InputT, OutputT]):
 ## Using Custom Evaluators
 
 ```python
+import asyncio
+
 from strands_evals import Case, Experiment
 
 # Create test cases
@@ -43389,8 +43442,12 @@ evaluator = ToneEvaluator(expected_tone="professional")
 
 # Run evaluation
 experiment = Experiment[str, str](cases=test_cases, evaluators=[evaluator])
-report = experiment.run_evaluations(task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Best Practices
@@ -43546,6 +43603,8 @@ evaluator = StateEquals(name="temperature")
 ## Usage Example
 
 ```python
+import asyncio
+
 from strands import Agent
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import Equals, Contains, ToolCalled
@@ -43569,8 +43628,12 @@ def get_response(case: Case) -> str:
     return str(agent(case.input))
 
 experiment = Experiment(cases=cases, evaluators=evaluators)
-report = experiment.run_evaluations(get_response)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(get_response)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Combining with LLM Evaluators
@@ -43930,6 +43993,8 @@ Required: Session ID Trace Attributes
 When using `StrandsInMemorySessionMapper`, you **must** include session ID trace attributes in your agent configuration. This prevents spans from different test cases from being mixed together in the memory exporter.
 
 ```python
+import asyncio
+
 from strands import Agent
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import FaithfulnessEvaluator
@@ -43942,8 +44007,6 @@ memory_exporter = telemetry.in_memory_exporter
 
 # Define task function
 def user_task_function(case: Case) -> dict:
-    memory_exporter.clear()
-
     agent = Agent(
         trace_attributes={
             "gen_ai.conversation.id": case.session_id,
@@ -43979,8 +44042,12 @@ evaluator = FaithfulnessEvaluator()
 
 # Run evaluation
 experiment = Experiment[str, str](cases=test_cases, evaluators=[evaluator])
-report = experiment.run_evaluations(user_task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(user_task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Evaluation Output
@@ -44171,6 +44238,8 @@ Required: Session ID Trace Attributes
 When using `StrandsInMemorySessionMapper`, you **must** include session ID trace attributes in your agent configuration. This prevents spans from different test cases from being mixed together in the memory exporter.
 
 ```python
+import asyncio
+
 from strands import Agent
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import GoalSuccessRateEvaluator
@@ -44183,8 +44252,6 @@ memory_exporter = telemetry.in_memory_exporter
 
 # Define task function
 def user_task_function(case: Case) -> dict:
-    memory_exporter.clear()
-
     agent = Agent(
         trace_attributes={
             "gen_ai.conversation.id": case.session_id,
@@ -44220,8 +44287,12 @@ evaluator = GoalSuccessRateEvaluator()
 
 # Run evaluation
 experiment = Experiment[str, str](cases=test_cases, evaluators=[evaluator])
-report = experiment.run_evaluations(user_task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(user_task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Evaluation Output
@@ -44427,6 +44498,8 @@ Required: Session ID Trace Attributes
 When using `StrandsInMemorySessionMapper`, you **must** include session ID trace attributes in your agent configuration. This prevents spans from different test cases from being mixed together in the memory exporter.
 
 ```python
+import asyncio
+
 from strands import Agent
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import HarmfulnessEvaluator
@@ -44436,7 +44509,6 @@ from strands_evals.telemetry import StrandsEvalsTelemetry
 telemetry = StrandsEvalsTelemetry().setup_in_memory_exporter()
 
 def task_function(case: Case) -> dict:
-    telemetry.in_memory_exporter.clear()
     agent = Agent(
         trace_attributes={"session.id": case.session_id},
         callback_handler=None
@@ -44452,8 +44524,11 @@ cases = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=[HarmfulnessEvaluator()])
-report = experiment.run_evaluations(task_function)
-report.run_display()
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Combining with Other Safety Evaluators
@@ -44562,6 +44637,8 @@ Required: Session ID Trace Attributes
 When using `StrandsInMemorySessionMapper`, you **must** include session ID trace attributes in your agent configuration. This prevents spans from different test cases from being mixed together in the memory exporter.
 
 ```python
+import asyncio
+
 from strands import Agent
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import HelpfulnessEvaluator
@@ -44574,8 +44651,6 @@ memory_exporter = telemetry.in_memory_exporter
 
 # Define task function
 def user_task_function(case: Case) -> dict:
-    memory_exporter.clear()
-
     agent = Agent(
         trace_attributes={
             "gen_ai.conversation.id": case.session_id,
@@ -44611,8 +44686,12 @@ evaluator = HelpfulnessEvaluator()
 
 # Run evaluation
 experiment = Experiment[str, str](cases=test_cases, evaluators=[evaluator])
-report = experiment.run_evaluations(user_task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(user_task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Evaluation Output
@@ -44821,6 +44900,8 @@ Required: Session ID Trace Attributes
 When using `StrandsInMemorySessionMapper`, you **must** include session ID trace attributes in your agent configuration. This prevents spans from different test cases from being mixed together in the memory exporter.
 
 ```python
+import asyncio
+
 from strands import Agent
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import InstructionFollowingEvaluator
@@ -44830,7 +44911,6 @@ from strands_evals.telemetry import StrandsEvalsTelemetry
 telemetry = StrandsEvalsTelemetry().setup_in_memory_exporter()
 
 def task_function(case: Case) -> dict:
-    telemetry.in_memory_exporter.clear()
     agent = Agent(
         trace_attributes={"session.id": case.session_id},
         callback_handler=None
@@ -44853,8 +44933,11 @@ cases = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=[InstructionFollowingEvaluator()])
-report = experiment.run_evaluations(task_function)
-report.run_display()
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Combining with Other Evaluators
@@ -44961,6 +45044,8 @@ Each interaction should contain:
 ## Basic Usage
 
 ```python
+import asyncio
+
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import InteractionsEvaluator
 
@@ -45032,8 +45117,12 @@ evaluator = InteractionsEvaluator(
 
 # Run evaluation
 experiment = Experiment[str, str](cases=test_cases, evaluators=[evaluator])
-report = experiment.run_evaluations(multi_agent_task)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(multi_agent_task)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Evaluation Output
@@ -45268,6 +45357,8 @@ A response passes only if the score is `1.0`.
 ### Reference-Free (fact-check against the image)
 
 ```python
+import asyncio
+
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import MultimodalCorrectnessEvaluator
 from strands_evals.types import MultimodalInput
@@ -45290,8 +45381,12 @@ cases = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=[MultimodalCorrectnessEvaluator()])
-report = experiment.run_evaluations(task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ### Reference-Based (compare against a known answer)
@@ -45309,7 +45404,11 @@ cases = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=[MultimodalCorrectnessEvaluator()])
-report = experiment.run_evaluations(task_function)
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+
+asyncio.run(main())
 ```
 
 When `expected_output` is set, the evaluator automatically appends the reference suffix so the judge compares the response to the reference answer.
@@ -45404,6 +45503,8 @@ A response passes only if the score is `1.0`.
 ## Basic Usage
 
 ```python
+import asyncio
+
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import MultimodalFaithfulnessEvaluator
 from strands_evals.types import MultimodalInput
@@ -45426,8 +45527,12 @@ cases = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=[MultimodalFaithfulnessEvaluator()])
-report = experiment.run_evaluations(task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Combining with Other Evaluators
@@ -45448,8 +45553,12 @@ evaluators = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=evaluators)
-report = experiment.run_evaluations(task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Related Evaluators
@@ -45543,6 +45652,8 @@ A response passes only if the score is `1.0`.
 ## Basic Usage
 
 ```python
+import asyncio
+
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import MultimodalInstructionFollowingEvaluator
 from strands_evals.types import MultimodalInput
@@ -45568,8 +45679,12 @@ experiment = Experiment(
     cases=cases,
     evaluators=[MultimodalInstructionFollowingEvaluator()],
 )
-report = experiment.run_evaluations(task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Combining with Other Evaluators
@@ -45592,8 +45707,12 @@ evaluators = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=evaluators)
-report = experiment.run_evaluations(task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Related Evaluators
@@ -45742,6 +45861,8 @@ The score is a float between `0.0` and `1.0`; the granularity is determined by t
 ### Reference-Free Evaluation
 
 ```python
+import asyncio
+
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import MultimodalOutputEvaluator
 from strands_evals.evaluators.prompt_templates.multimodal import OVERALL_QUALITY_RUBRIC_V0
@@ -45767,8 +45888,12 @@ cases = [
 
 evaluator = MultimodalOutputEvaluator(rubric=OVERALL_QUALITY_RUBRIC_V0)
 experiment = Experiment(cases=cases, evaluators=[evaluator])
-report = experiment.run_evaluations(task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ### Reference-Based Evaluation
@@ -45796,7 +45921,11 @@ cases = [
 
 evaluator = MultimodalOutputEvaluator(rubric=CORRECTNESS_RUBRIC_V0)
 experiment = Experiment(cases=cases, evaluators=[evaluator])
-report = experiment.run_evaluations(task_function)
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+
+asyncio.run(main())
 ```
 
 ### Multiple Images per Case
@@ -45929,6 +46058,8 @@ A response typically passes if the score is `>= 0.75`.
 ## Basic Usage
 
 ```python
+import asyncio
+
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import MultimodalOverallQualityEvaluator
 from strands_evals.types import MultimodalInput
@@ -45951,8 +46082,12 @@ cases = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=[MultimodalOverallQualityEvaluator()])
-report = experiment.run_evaluations(task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Related Evaluators
@@ -46037,6 +46172,8 @@ Use the `OutputEvaluator` when you need to:
 ## Basic Usage
 
 ```python
+import asyncio
+
 from strands import Agent
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import OutputEvaluator
@@ -46077,8 +46214,12 @@ evaluator = OutputEvaluator(
 
 # Create and run experiment
 experiment = Experiment[str, str](cases=test_cases, evaluators=[evaluator])
-report = experiment.run_evaluations(get_response)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(get_response)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Evaluation Output
@@ -46744,6 +46885,8 @@ Required: Session ID Trace Attributes
 When using `StrandsInMemorySessionMapper`, you **must** include session ID trace attributes in your agent configuration. This prevents spans from different test cases from being mixed together in the memory exporter.
 
 ```python
+import asyncio
+
 from strands import Agent
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import RefusalEvaluator
@@ -46753,7 +46896,6 @@ from strands_evals.telemetry import StrandsEvalsTelemetry
 telemetry = StrandsEvalsTelemetry().setup_in_memory_exporter()
 
 def task_function(case: Case) -> dict:
-    telemetry.in_memory_exporter.clear()
     agent = Agent(
         trace_attributes={"session.id": case.session_id},
         callback_handler=None
@@ -46770,8 +46912,11 @@ cases = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=[RefusalEvaluator()])
-report = experiment.run_evaluations(task_function)
-report.run_display()
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Combining with Other Safety Evaluators
@@ -46880,6 +47025,8 @@ Required: Session ID Trace Attributes
 When using `StrandsInMemorySessionMapper`, you **must** include session ID trace attributes in your agent configuration. This prevents spans from different test cases from being mixed together in the memory exporter.
 
 ```python
+import asyncio
+
 from strands import Agent
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import ResponseRelevanceEvaluator
@@ -46889,7 +47036,6 @@ from strands_evals.telemetry import StrandsEvalsTelemetry
 telemetry = StrandsEvalsTelemetry().setup_in_memory_exporter()
 
 def task_function(case: Case) -> dict:
-    telemetry.in_memory_exporter.clear()
     agent = Agent(
         trace_attributes={"session.id": case.session_id},
         callback_handler=None
@@ -46905,8 +47051,11 @@ cases = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=[ResponseRelevanceEvaluator()])
-report = experiment.run_evaluations(task_function)
-report.run_display()
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Related Evaluators
@@ -46995,6 +47144,8 @@ Required: Session ID Trace Attributes
 When using `StrandsInMemorySessionMapper`, you **must** include session ID trace attributes in your agent configuration. This prevents spans from different test cases from being mixed together in the memory exporter.
 
 ```python
+import asyncio
+
 from strands import Agent
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import StereotypingEvaluator
@@ -47004,7 +47155,6 @@ from strands_evals.telemetry import StrandsEvalsTelemetry
 telemetry = StrandsEvalsTelemetry().setup_in_memory_exporter()
 
 def task_function(case: Case) -> dict:
-    telemetry.in_memory_exporter.clear()
     agent = Agent(
         trace_attributes={"session.id": case.session_id},
         callback_handler=None
@@ -47021,8 +47171,11 @@ cases = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=[StereotypingEvaluator()])
-report = experiment.run_evaluations(task_function)
-report.run_display()
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Combining with Other Safety Evaluators
@@ -47118,6 +47271,8 @@ Required: Session ID Trace Attributes
 When using `StrandsInMemorySessionMapper`, you **must** include session ID trace attributes in your agent configuration. This prevents spans from different test cases from being mixed together in the memory exporter.
 
 ```python
+import asyncio
+
 from strands import Agent
 from strands_tools import calculator
 from strands_evals import Case, Experiment
@@ -47131,8 +47286,6 @@ memory_exporter = telemetry.in_memory_exporter
 
 # Define task function
 def user_task_function(case: Case) -> dict:
-    memory_exporter.clear()
-
     agent = Agent(
         trace_attributes={
             "gen_ai.conversation.id": case.session_id,
@@ -47164,8 +47317,12 @@ evaluator = ToolParameterAccuracyEvaluator()
 
 # Run evaluation
 experiment = Experiment[str, str](cases=test_cases, evaluators=[evaluator])
-report = experiment.run_evaluations(user_task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(user_task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Evaluation Output
@@ -47290,6 +47447,8 @@ Required: Session ID Trace Attributes
 When using `StrandsInMemorySessionMapper`, you **must** include session ID trace attributes in your agent configuration. This prevents spans from different test cases from being mixed together in the memory exporter.
 
 ```python
+import asyncio
+
 from strands import Agent, tool
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import ToolSelectionAccuracyEvaluator
@@ -47312,8 +47471,6 @@ def send_email(to: str, subject: str, body: str) -> str:
 
 # Define task function
 def user_task_function(case: Case) -> dict:
-    memory_exporter.clear()
-
     agent = Agent(
         trace_attributes={
             "gen_ai.conversation.id": case.session_id,
@@ -47350,8 +47507,12 @@ evaluator = ToolSelectionAccuracyEvaluator()
 
 # Run evaluation
 experiment = Experiment[str, str](cases=test_cases, evaluators=[evaluator])
-report = experiment.run_evaluations(user_task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(user_task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Evaluation Output
@@ -47551,6 +47712,8 @@ evaluator.update_trajectory_description(tool_descriptions)
 ## Basic Usage
 
 ```python
+import asyncio
+
 from strands import Agent, tool
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import TrajectoryEvaluator
@@ -47618,8 +47781,12 @@ evaluator = TrajectoryEvaluator(
 
 # Run evaluation
 experiment = Experiment[str, str](cases=test_cases, evaluators=[evaluator])
-report = experiment.run_evaluations(get_response)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(get_response)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Preventing Context Overflow
@@ -48492,6 +48659,8 @@ opentelemetry-instrument python evaluation_agentcore_dashboard.py
 ### Example Evaluation Script
 
 ```python
+import asyncio
+
 from strands_evals import Experiment, Case
 from strands_evals.evaluators import OutputEvaluator
 
@@ -48526,10 +48695,13 @@ def my_agent_task(case: Case) -> str:
     return f"Response to: {case.input}"
 
 # Run evaluations
-report = experiment.run_evaluations(my_agent_task)
+async def main():
+    report = await experiment.run_evaluations_async(my_agent_task)
 
-print(f"Overall Score: {report.overall_score}")
-print(f"Pass Rate: {sum(report.test_passes)}/{len(report.test_passes)}")
+    print(f"Overall Score: {report.overall_score}")
+    print(f"Pass Rate: {sum(report.test_passes)}/{len(report.test_passes)}")
+
+asyncio.run(main())
 ```
 
 ### For Containerized Environments (Docker)
@@ -49016,6 +49188,8 @@ Case(name="math-arithmetic-001", input="..."),
 ### Experiment Collections
 
 ```python
+import asyncio
+
 from strands_evals import Experiment
 
 experiments = {
@@ -49025,9 +49199,12 @@ experiments = {
 }
 
 # Run all
-for name, exp in experiments.items():
-    print(f"Running {name}...")
-    report = exp.run_evaluations(task_function)
+async def main():
+    for name, exp in experiments.items():
+        print(f"Running {name}...")
+        report = await exp.run_evaluations_async(task_function)
+
+asyncio.run(main())
 ```
 
 ### Combining Experiments
@@ -49047,12 +49224,17 @@ combined = Experiment(
 If you’ve run separate experiments and want to merge their reports into one table, use `EvaluationReport.flatten`:
 
 ```python
-report_a = experiment_a.run_evaluations(task_function)
-report_b = experiment_b.run_evaluations(task_function)
+import asyncio
 
-from strands_evals.types.evaluation_report import EvaluationReport
-combined = EvaluationReport.flatten([report_a, report_b])
-combined.run_display()  # All cases from both runs in one table
+async def main():
+    report_a = await experiment_a.run_evaluations_async(task_function)
+    report_b = await experiment_b.run_evaluations_async(task_function)
+
+    from strands_evals.types.evaluation_report import EvaluationReport
+    combined = EvaluationReport.flatten([report_a, report_b])
+    combined.run_display()  # All cases from both runs in one table
+
+asyncio.run(main())
 ```
 
 ## Modifying Experiments
@@ -49151,6 +49333,8 @@ The `EvaluationDataStore` lets you cache task execution results so you can re-ru
 ## Quick Start
 
 ```python
+import asyncio
+
 from strands_evals import Case, Experiment, LocalFileTaskResultStore
 from strands_evals.evaluators import OutputEvaluator
 
@@ -49163,11 +49347,14 @@ cases = [
 
 experiment = Experiment(cases=cases, evaluators=[OutputEvaluator(rubric="Score 1.0 if correct.")])
 
-# First run: executes the task and caches results
-report = experiment.run_evaluations(my_task, evaluation_data_store=store)
+async def main():
+    # First run: executes the task and caches results
+    report = await experiment.run_evaluations_async(my_task, evaluation_data_store=store)
 
-# Second run: loads cached results, skips task execution
-report = experiment.run_evaluations(my_task, evaluation_data_store=store)
+    # Second run: loads cached results, skips task execution
+    report = await experiment.run_evaluations_async(my_task, evaluation_data_store=store)
+
+asyncio.run(main())
 ```
 
 ## How It Works
@@ -49314,25 +49501,30 @@ experiment = Experiment.from_dict(
 `run_evaluations` returns a single `EvaluationReport`. When the experiment runs multiple evaluators, each row in `report.cases` carries an `evaluator` key naming the evaluator that produced it — use that to filter by evaluator if needed.
 
 ```python
+import asyncio
+
 # Run evaluation
-report = experiment.run_evaluations(task_function)
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
 
-# Save the full report directly (writes JSON; .json is added if missing)
-report.to_file("report")
+    # Save the full report directly (writes JSON; .json is added if missing)
+    report.to_file("report")
 
-# Or build a custom JSON payload
-import json
+    # Or build a custom JSON payload
+    import json
 
-report_data = {
-    "overall_score": report.overall_score,
-    "scores": report.scores,
-    "test_passes": report.test_passes,
-    "reasons": report.reasons,
-    "cases": report.cases,
-}
+    report_data = {
+        "overall_score": report.overall_score,
+        "scores": report.scores,
+        "test_passes": report.test_passes,
+        "reasons": report.reasons,
+        "cases": report.cases,
+    }
 
-with open("report_summary.json", "w") as f:
-    json.dump(report_data, f, indent=2)
+    with open("report_summary.json", "w") as f:
+        json.dump(report_data, f, indent=2)
+
+asyncio.run(main())
 ```
 
 ## Versioning Strategies
@@ -49389,6 +49581,7 @@ reports_dir.mkdir(exist_ok=True)
 ## Saving Experiments with Reports
 
 ```python
+import asyncio
 from pathlib import Path
 
 def save_with_report(experiment, report, base_name):
@@ -49400,8 +49593,11 @@ def save_with_report(experiment, report, base_name):
     report.to_file(str(base_path / "report.json"))
 
 # Usage
-report = experiment.run_evaluations(task_function)
-save_with_report(experiment, report, "baseline_20250115")
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    save_with_report(experiment, report, "baseline_20250115")
+
+asyncio.run(main())
 ```
 
 ## Error Handling
@@ -49627,6 +49823,8 @@ data = provider.get_evaluation_data(session_id="my-session-id")
 Pass the provider’s data into the standard `Experiment` pipeline by wrapping it in a task function:
 
 ```python
+import asyncio
+
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import CoherenceEvaluator, OutputEvaluator
 from strands_evals.providers import CloudWatchProvider
@@ -49652,9 +49850,12 @@ evaluators = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=evaluators)
-report = experiment.run_evaluations(task)
 
-print(f"{report.overall_score:.2f} - {report.reasons}")
+async def main():
+    report = await experiment.run_evaluations_async(task)
+    print(f"{report.overall_score:.2f} - {report.reasons}")
+
+asyncio.run(main())
 ```
 
 The same pattern works with `LangfuseProvider` or `OpenSearchProvider` — just swap the provider initialization.
@@ -50478,6 +50679,8 @@ Understanding when to use simulators versus evaluators:
 Simulators work seamlessly with trace-based evaluators:
 
 ```python
+import asyncio
+
 from strands import Agent
 from strands_evals import Case, Experiment, ActorSimulator
 from strands_evals.evaluators import HelpfulnessEvaluator, GoalSuccessRateEvaluator
@@ -50540,7 +50743,11 @@ test_cases = [
 ]
 
 experiment = Experiment(cases=test_cases, evaluators=evaluators)
-report = experiment.run_evaluations(task_function)
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+
+asyncio.run(main())
 ```
 
 ## Best Practices
@@ -50848,6 +51055,8 @@ def lookup_user(username: str) -> dict:
 Use ToolSimulator within an Experiment to evaluate agent tool-use behavior end-to-end:
 
 ```python
+import asyncio
+
 from pydantic import BaseModel, Field
 from strands import Agent
 from strands_evals import Case, Experiment
@@ -50901,8 +51110,12 @@ test_cases = [
 
 evaluators = [GoalSuccessRateEvaluator()]
 experiment = Experiment(cases=test_cases, evaluators=evaluators)
-report = experiment.run_evaluations(task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## API Reference
@@ -51267,6 +51480,8 @@ simulator = ActorSimulator(
 ### With Trace-Based Evaluators
 
 ```python
+import asyncio
+
 from strands import Agent
 from strands_evals import Case, Experiment, ActorSimulator
 from strands_evals.evaluators import HelpfulnessEvaluator
@@ -51326,8 +51541,12 @@ test_cases = [
 # Run evaluation
 evaluators = [HelpfulnessEvaluator()]
 experiment = Experiment(cases=test_cases, evaluators=evaluators)
-report = experiment.run_evaluations(task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Conversation Control
@@ -51556,11 +51775,15 @@ evaluators = [
 ]
 
 experiment = Experiment(cases=test_cases, evaluators=evaluators)
-report = experiment.run_evaluations(customer_service_task)
 
-# The experiment returns a single combined report — each row in `report.cases`
-# carries an `evaluator` key naming the producing evaluator.
-report.run_display()
+async def main():
+    report = await experiment.run_evaluations_async(customer_service_task)
+
+    # The experiment returns a single combined report — each row in `report.cases`
+    # carries an `evaluator` key naming the producing evaluator.
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Best Practices
@@ -51684,7 +51907,11 @@ evaluators = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=evaluators)
-report = experiment.run_evaluations(comprehensive_evaluation)
+
+async def main():
+    report = await experiment.run_evaluations_async(comprehensive_evaluation)
+
+asyncio.run(main())
 ```
 
 ### Pattern 3: Conversation Analysis

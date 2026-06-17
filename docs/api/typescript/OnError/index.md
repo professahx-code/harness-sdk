@@ -2,7 +2,7 @@
 type OnError = "throw" | "proceed" | "deny";
 ```
 
-Defined in: [src/interventions/handler.ts:19](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/interventions/handler.ts#L19)
+Defined in: [src/interventions/handler.ts:19](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/interventions/handler.ts#L19)
 
 What to do when a handler throws during evaluation.
 

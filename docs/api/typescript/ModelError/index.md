@@ -1,4 +1,4 @@
-Defined in: [src/errors.ts:19](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/errors.ts#L19)
+Defined in: [src/errors.ts:19](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/errors.ts#L19)
 
 Base exception class for all model-related errors.
 
@@ -22,7 +22,7 @@ This class serves as the common base type for errors that originate from model p
 new ModelError(message, options?): ModelError;
 ```
 
-Defined in: [src/errors.ts:26](https://github.com/strands-agents/harness-sdk/blob/ba40a091b194165d20cd9270125d792cc647c2dd/strands-ts/src/errors.ts#L26)
+Defined in: [src/errors.ts:26](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/errors.ts#L26)
 
 Creates a new ModelError.
 

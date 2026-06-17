@@ -115,6 +115,8 @@ Understanding when to use simulators versus evaluators:
 Simulators work seamlessly with trace-based evaluators:
 
 ```python
+import asyncio
+
 from strands import Agent
 from strands_evals import Case, Experiment, ActorSimulator
 from strands_evals.evaluators import HelpfulnessEvaluator, GoalSuccessRateEvaluator
@@ -177,7 +179,11 @@ test_cases = [
 ]
 
 experiment = Experiment(cases=test_cases, evaluators=evaluators)
-report = experiment.run_evaluations(task_function)
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+
+asyncio.run(main())
 ```
 
 ## Best Practices

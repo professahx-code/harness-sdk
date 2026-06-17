@@ -8,7 +8,7 @@ This module provides the base classes for all tool implementations in the SDK, i
 class InvalidToolUseNameException(Exception)
 ```
 
-Defined in: [src/strands/tools/tools.py:27](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L27)
+Defined in: [src/strands/tools/tools.py:35](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L35)
 
 Exception raised when a tool use has an invalid name.
 
@@ -18,7 +18,7 @@ Exception raised when a tool use has an invalid name.
 def validate_tool_use(tool: ToolUse) -> None
 ```
 
-Defined in: [src/strands/tools/tools.py:33](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L33)
+Defined in: [src/strands/tools/tools.py:41](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L41)
 
 Validate a tool use request.
 
@@ -32,7 +32,7 @@ Validate a tool use request.
 def validate_tool_use_name(tool: ToolUse) -> None
 ```
 
-Defined in: [src/strands/tools/tools.py:42](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L42)
+Defined in: [src/strands/tools/tools.py:50](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L50)
 
 Validate the name of a tool use.
 
@@ -47,10 +47,12 @@ Validate the name of a tool use.
 #### normalize\_schema
 
 ```python
-def normalize_schema(schema: dict[str, Any]) -> dict[str, Any]
+def normalize_schema(schema: dict[str, Any],
+                     *,
+                     _depth: int = 0) -> dict[str, Any]
 ```
 
-Defined in: [src/strands/tools/tools.py:104](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L104)
+Defined in: [src/strands/tools/tools.py:116](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L116)
 
 Normalize a JSON schema to match expectations.
 
@@ -59,10 +61,15 @@ This function recursively processes nested objects to preserve the complete sche
 **Arguments**:
 
 -   `schema` - The schema to normalize.
+-   `_depth` - Current nesting depth, used to bound recursion into nested object schemas.
 
 **Returns**:
 
 The normalized schema.
+
+**Raises**:
+
+-   `ValueError` - If the schema is nested too deeply.
 
 #### normalize\_tool\_spec
 
@@ -70,7 +77,7 @@ The normalized schema.
 def normalize_tool_spec(tool_spec: ToolSpec) -> ToolSpec
 ```
 
-Defined in: [src/strands/tools/tools.py:133](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L133)
+Defined in: [src/strands/tools/tools.py:152](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L152)
 
 Normalize a complete tool specification by transforming its inputSchema.
 
@@ -82,13 +89,17 @@ Normalize a complete tool specification by transforming its inputSchema.
 
 The normalized tool specification.
 
+**Raises**:
+
+-   `ValueError` - If the inputSchema is nested too deeply.
+
 ## PythonAgentTool
 
 ```python
 class PythonAgentTool(AgentTool)
 ```
 
-Defined in: [src/strands/tools/tools.py:157](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L157)
+Defined in: [src/strands/tools/tools.py:179](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L179)
 
 Tool implementation for Python-based tools.
 
@@ -100,7 +111,7 @@ This class handles tools implemented as Python functions, providing a simple int
 def __init__(tool_name: str, tool_spec: ToolSpec, tool_func: ToolFunc) -> None
 ```
 
-Defined in: [src/strands/tools/tools.py:168](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L168)
+Defined in: [src/strands/tools/tools.py:190](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L190)
 
 Initialize a Python-based tool.
 
@@ -117,7 +128,7 @@ Initialize a Python-based tool.
 def tool_name() -> str
 ```
 
-Defined in: [src/strands/tools/tools.py:183](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L183)
+Defined in: [src/strands/tools/tools.py:205](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L205)
 
 Get the name of the tool.
 
@@ -132,7 +143,7 @@ The name of the tool.
 def tool_spec() -> ToolSpec
 ```
 
-Defined in: [src/strands/tools/tools.py:192](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L192)
+Defined in: [src/strands/tools/tools.py:214](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L214)
 
 Get the tool specification for this Python-based tool.
 
@@ -147,7 +158,7 @@ The tool specification.
 def tool_spec(value: ToolSpec) -> None
 ```
 
-Defined in: [src/strands/tools/tools.py:201](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L201)
+Defined in: [src/strands/tools/tools.py:223](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L223)
 
 Set the tool specification.
 
@@ -168,7 +179,7 @@ This allows runtime modification of the tool’s schema, enabling dynamic tool c
 def supports_hot_reload() -> bool
 ```
 
-Defined in: [src/strands/tools/tools.py:226](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L226)
+Defined in: [src/strands/tools/tools.py:248](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L248)
 
 Check if this tool supports automatic reloading when modified.
 
@@ -183,7 +194,7 @@ Always true for function-based tools.
 def tool_type() -> str
 ```
 
-Defined in: [src/strands/tools/tools.py:235](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L235)
+Defined in: [src/strands/tools/tools.py:257](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L257)
 
 Identifies this as a Python-based tool implementation.
 
@@ -199,7 +210,7 @@ async def stream(tool_use: ToolUse, invocation_state: dict[str, Any],
                  **kwargs: Any) -> ToolGenerator
 ```
 
-Defined in: [src/strands/tools/tools.py:244](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L244)
+Defined in: [src/strands/tools/tools.py:266](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py#L266)
 
 Stream the Python function with the given tool use request.
 

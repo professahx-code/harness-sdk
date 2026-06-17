@@ -54,6 +54,8 @@ Required: Session ID Trace Attributes
 When using `StrandsInMemorySessionMapper`, you **must** include session ID trace attributes in your agent configuration. This prevents spans from different test cases from being mixed together in the memory exporter.
 
 ```python
+import asyncio
+
 from strands import Agent, tool
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import ToolSelectionAccuracyEvaluator
@@ -76,8 +78,6 @@ def send_email(to: str, subject: str, body: str) -> str:
 
 # Define task function
 def user_task_function(case: Case) -> dict:
-    memory_exporter.clear()
-
     agent = Agent(
         trace_attributes={
             "gen_ai.conversation.id": case.session_id,
@@ -114,8 +114,12 @@ evaluator = ToolSelectionAccuracyEvaluator()
 
 # Run evaluation
 experiment = Experiment[str, str](cases=test_cases, evaluators=[evaluator])
-report = experiment.run_evaluations(user_task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(user_task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Evaluation Output

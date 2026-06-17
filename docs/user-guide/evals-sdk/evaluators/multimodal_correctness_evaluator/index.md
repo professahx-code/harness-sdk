@@ -65,6 +65,8 @@ A response passes only if the score is `1.0`.
 ### Reference-Free (fact-check against the image)
 
 ```python
+import asyncio
+
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import MultimodalCorrectnessEvaluator
 from strands_evals.types import MultimodalInput
@@ -87,8 +89,12 @@ cases = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=[MultimodalCorrectnessEvaluator()])
-report = experiment.run_evaluations(task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ### Reference-Based (compare against a known answer)
@@ -106,7 +112,11 @@ cases = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=[MultimodalCorrectnessEvaluator()])
-report = experiment.run_evaluations(task_function)
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+
+asyncio.run(main())
 ```
 
 When `expected_output` is set, the evaluator automatically appends the reference suffix so the judge compares the response to the reference answer.

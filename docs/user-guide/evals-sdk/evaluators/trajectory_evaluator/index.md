@@ -114,6 +114,8 @@ evaluator.update_trajectory_description(tool_descriptions)
 ## Basic Usage
 
 ```python
+import asyncio
+
 from strands import Agent, tool
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import TrajectoryEvaluator
@@ -181,8 +183,12 @@ evaluator = TrajectoryEvaluator(
 
 # Run evaluation
 experiment = Experiment[str, str](cases=test_cases, evaluators=[evaluator])
-report = experiment.run_evaluations(get_response)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(get_response)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ## Preventing Context Overflow

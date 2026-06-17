@@ -72,6 +72,8 @@ When using `StrandsInMemorySessionMapper`, you **must** include session ID trace
 ### Without Reference (3-level scoring)
 
 ```python
+import asyncio
+
 from strands import Agent
 from strands_evals import Case, Experiment
 from strands_evals.evaluators import CorrectnessEvaluator
@@ -81,7 +83,6 @@ from strands_evals.telemetry import StrandsEvalsTelemetry
 telemetry = StrandsEvalsTelemetry().setup_in_memory_exporter()
 
 def task_function(case: Case) -> dict:
-    telemetry.in_memory_exporter.clear()
     agent = Agent(
         trace_attributes={"session.id": case.session_id},
         callback_handler=None
@@ -97,8 +98,12 @@ cases = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=[CorrectnessEvaluator()])
-report = experiment.run_evaluations(task_function)
-report.run_display()
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 ### With Reference (binary scoring)
@@ -118,7 +123,12 @@ cases = [
 ]
 
 experiment = Experiment(cases=cases, evaluators=[CorrectnessEvaluator()])
-report = experiment.run_evaluations(task_function)
+
+async def main():
+    report = await experiment.run_evaluations_async(task_function)
+    report.run_display()
+
+asyncio.run(main())
 ```
 
 When `expected_assertion` is set on the case, the evaluator automatically switches to reference mode and uses binary CORRECT/INCORRECT scoring.
