@@ -219,8 +219,8 @@ See [Hooks](/docs/user-guide/concepts/agents/hooks/index.md#model-call-retry) fo
 ## Related pages
 
 - [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (2 shared tags)
-- [Plugins](/docs/user-guide/concepts/plugins/index.md) (1 shared tag)
 - [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
+- [Plugins](/docs/user-guide/concepts/plugins/index.md) (1 shared tag)
 - [Chaos Testing](/docs/user-guide/evals-sdk/chaos_testing/index.md) (1 shared tag)
 - [Detectors](/docs/user-guide/evals-sdk/detectors/index.md) (1 shared tag)
 - [Failure Detection](/docs/user-guide/evals-sdk/detectors/failure_detection/index.md) (1 shared tag)

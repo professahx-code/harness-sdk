@@ -1,4 +1,4 @@
-Defined in: [src/types/messages.ts:330](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/types/messages.ts#L330)
+Defined in: [src/types/messages.ts:330](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/types/messages.ts#L330)
 
 Data for a tool result block.
 
@@ -10,7 +10,7 @@ Data for a tool result block.
 toolUseId: string;
 ```
 
-Defined in: [src/types/messages.ts:334](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/types/messages.ts#L334)
+Defined in: [src/types/messages.ts:334](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/types/messages.ts#L334)
 
 The ID of the tool use that this result corresponds to.
 
@@ -22,7 +22,7 @@ The ID of the tool use that this result corresponds to.
 status: "success" | "error";
 ```
 
-Defined in: [src/types/messages.ts:339](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/types/messages.ts#L339)
+Defined in: [src/types/messages.ts:339](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/types/messages.ts#L339)
 
 Status of the tool execution.
 
@@ -34,7 +34,7 @@ Status of the tool execution.
 content: ToolResultContentData[];
 ```
 
-Defined in: [src/types/messages.ts:344](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/types/messages.ts#L344)
+Defined in: [src/types/messages.ts:344](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/types/messages.ts#L344)
 
 The content returned by the tool.
 
@@ -46,6 +46,6 @@ The content returned by the tool.
 optional error?: Error;
 ```
 
-Defined in: [src/types/messages.ts:351](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/types/messages.ts#L351)
+Defined in: [src/types/messages.ts:351](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/types/messages.ts#L351)
 
 The original error object when status is ‘error’. Available for inspection by hooks, error handlers, and agent loop. Tools must wrap non-Error thrown values into Error objects.

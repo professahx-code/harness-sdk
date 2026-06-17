@@ -22,23 +22,22 @@ const agent = new Agent({
 
 | Tool | Description | Supported in |
 | --- | --- | --- |
-| [File Editor](#file-editor) | View, create, and edit files | Node.js |
-| [HTTP Request](#http-request) | Make HTTP requests to external APIs | Node.js 20+, browsers |
-| [Notebook](#notebook) | Manage persistent text notebooks | Node.js, browsers |
-| [Bash](#bash) | Execute shell commands with persistent sessions | Node.js (Unix/Linux/macOS) |
+| [File Editor](#file-editor) | View, create, and edit files | Python, TypeScript (Node.js) |
+| [HTTP Request](#http-request) | Make HTTP requests to external APIs | TypeScript (Node.js 20+, browsers) |
+| [Notebook](#notebook) | Manage persistent text notebooks | TypeScript (Node.js, browsers) |
+| [Bash](#bash) | Execute shell commands with persistent sessions | Python, TypeScript (Node.js, Unix/Linux/macOS) |
 
 ### File Editor
 
 Gives your agent the ability to read and modify files on disk — useful for coding agents, config management, or any workflow where the agent needs to inspect output and make targeted edits.
 
-*Supported in: Node.js only.*
-
 Security Warning
 
-This tool reads and writes files at arbitrary absolute paths with the full permissions of the Node.js process. Only use with trusted input and consider running in a sandboxed environment (containers, VMs) for production.
+This tool reads and writes files at arbitrary absolute paths with the full permissions of the process. Only use with trusted input and consider running in a [sandboxed environment](/docs/user-guide/concepts/sandbox/index.md) for production.
 
 **Example:**
 
+(( tab "TypeScript" ))
 ```typescript
 import { Agent } from '@strands-agents/sdk'
 import { fileEditor } from '@strands-agents/sdk/vended-tools/file-editor'
@@ -52,6 +51,17 @@ await agent.invoke('Create a file /tmp/config.json with {"debug": false}')
 await agent.invoke('Replace "debug": false with "debug": true in /tmp/config.json')
 await agent.invoke('View lines 1-10 of /tmp/config.json')
 ```
+(( /tab "TypeScript" ))
+
+(( tab "Python" ))
+```python
+from strands import Agent
+from strands.vended_tools import file_editor
+
+agent = Agent(tools=[file_editor])
+agent("Create a file at /tmp/hello.txt with the contents 'Hello, world!'")
+```
+(( /tab "Python" ))
 
 📖 [Full API Reference](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-tools/file-editor/README.md)
 
@@ -65,7 +75,7 @@ Lets your agent call external APIs and fetch web content. Supports all HTTP meth
 
 Security Warning
 
-This tool makes HTTP requests to arbitrary URLs without restrictions on destination. Only use with trusted input and consider running in a sandboxed environment (containers, VMs) for production.
+This tool makes HTTP requests to arbitrary URLs without restrictions on destination. Only use with trusted input and consider running in a [sandboxed environment](/docs/user-guide/concepts/sandbox/index.md) for production.
 
 **Example:**
 
@@ -141,14 +151,15 @@ await restoredAgent.invoke('Read the ideas notebook')
 
 Lets your agent run shell commands and act on the output. Shell state — variables, working directory, exported functions — persists across invocations within the same session, so the agent can build up context incrementally. Sessions can be restarted to clear state.
 
-*Supported in: Node.js on Unix/Linux/macOS. Not supported on Windows.*
+*Supported in: Node.js on Unix/Linux/macOS (TypeScript), all platforms (Python).*
 
 Security Warning
 
-This tool executes arbitrary bash commands without sandboxing. Commands run with the full permissions of the Node.js process. Only use with trusted input and consider running in sandboxed environments (containers, VMs) for production.
+This tool executes arbitrary bash commands. Without a [Sandbox](/docs/user-guide/concepts/sandbox/index.md), commands run with the full permissions of the process. Only use with trusted input and consider running in a [sandboxed environment](/docs/user-guide/concepts/sandbox/index.md) for production.
 
 **Example - File Operations:**
 
+(( tab "TypeScript" ))
 ```typescript
 import { Agent } from '@strands-agents/sdk'
 import { bash } from '@strands-agents/sdk/vended-tools/bash'
@@ -161,8 +172,19 @@ const agent = new Agent({
 await agent.invoke('List all files in the current directory')
 await agent.invoke('Create a new file called notes.txt with "Hello World"')
 ```
+(( /tab "TypeScript" ))
 
-**Example - Session Persistence:**
+(( tab "Python" ))
+```python
+from strands import Agent
+from strands.vended_tools import bash
+
+agent = Agent(tools=[bash])
+agent("List all Python files in the current directory and count them")
+```
+(( /tab "Python" ))
+
+**Example - Session Persistence (TypeScript):**
 
 ```typescript
 import { Agent } from '@strands-agents/sdk'
@@ -234,5 +256,5 @@ Tool names are stable and will not change. In minor versions, a tool’s descrip
 - [Build with AI](/docs/user-guide/build-with-ai/index.md) (1 shared tag)
 - [Model Context Protocol (MCP) Tools](/docs/user-guide/concepts/tools/mcp-tools/index.md) (1 shared tag)
 - [Tools Overview](/docs/user-guide/concepts/tools/index.md) (1 shared tag)
-- [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
+- [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)

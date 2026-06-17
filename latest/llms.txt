@@ -30,6 +30,10 @@
     - [Overview](https://strandsagents.com/docs/user-guide/concepts/memory/overview/index.md)
     - [bedrock-knowledge-base](https://strandsagents.com/docs/user-guide/concepts/memory/bedrock-knowledge-base/index.md)
   - [retry-strategies](https://strandsagents.com/docs/user-guide/concepts/agents/retry-strategies/index.md)
+  - Sandbox
+    - [Overview](https://strandsagents.com/docs/user-guide/concepts/sandbox/index.md)
+    - [available-sandboxes](https://strandsagents.com/docs/user-guide/concepts/sandbox/available-sandboxes/index.md)
+    - [custom-sandbox](https://strandsagents.com/docs/user-guide/concepts/sandbox/custom-sandbox/index.md)
   - [interrupts](https://strandsagents.com/docs/user-guide/concepts/interrupts/index.md)
   - Tools
     - [executors](https://strandsagents.com/docs/user-guide/concepts/tools/executors/index.md)

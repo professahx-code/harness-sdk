@@ -1,4 +1,4 @@
-Defined in: [src/memory/memory-manager.ts:85](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/memory/memory-manager.ts#L85)
+Defined in: [src/memory/memory-manager.ts:85](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/memory/memory-manager.ts#L85)
 
 Provides cross-session memory retrieval and storage for agents.
 
@@ -33,7 +33,7 @@ await memoryManager.search('user preferences')
 new MemoryManager(config): MemoryManager;
 ```
 
-Defined in: [src/memory/memory-manager.ts:101](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/memory/memory-manager.ts#L101)
+Defined in: [src/memory/memory-manager.ts:101](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/memory/memory-manager.ts#L101)
 
 #### Parameters
 
@@ -53,7 +53,7 @@ Defined in: [src/memory/memory-manager.ts:101](https://github.com/strands-agents
 readonly name: "strands:memory-manager" = 'strands:memory-manager';
 ```
 
-Defined in: [src/memory/memory-manager.ts:86](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/memory/memory-manager.ts#L86)
+Defined in: [src/memory/memory-manager.ts:86](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/memory/memory-manager.ts#L86)
 
 A stable string identifier for the plugin. Used for logging, duplicate detection, and plugin management.
 
@@ -71,7 +71,7 @@ For strands-vended plugins, names should be prefixed with `strands:`.
 initAgent(agent): void;
 ```
 
-Defined in: [src/memory/memory-manager.ts:211](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/memory/memory-manager.ts#L211)
+Defined in: [src/memory/memory-manager.ts:211](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/memory/memory-manager.ts#L211)
 
 Initializes the plugin with the agent.
 
@@ -102,7 +102,7 @@ Wires up two independent behaviors:
 flush(): Promise<void>;
 ```
 
-Defined in: [src/memory/memory-manager.ts:303](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/memory/memory-manager.ts#L303)
+Defined in: [src/memory/memory-manager.ts:303](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/memory/memory-manager.ts#L303)
 
 Saves every store’s remaining messages and waits for all saves to finish. No-op when no store has extraction configured.
 
@@ -122,7 +122,7 @@ Do not call this after every turn alongside a periodic trigger: it forces a save
 getTools(): Tool[];
 ```
 
-Defined in: [src/memory/memory-manager.ts:372](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/memory/memory-manager.ts#L372)
+Defined in: [src/memory/memory-manager.ts:372](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/memory/memory-manager.ts#L372)
 
 Returns tools registered by this plugin.
 
@@ -146,7 +146,7 @@ Array of tools to register with the agent
 search(query, options?): Promise<MemoryEntry[]>;
 ```
 
-Defined in: [src/memory/memory-manager.ts:408](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/memory/memory-manager.ts#L408)
+Defined in: [src/memory/memory-manager.ts:408](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/memory/memory-manager.ts#L408)
 
 Search stores for entries matching the query. If `stores` is provided, only searches to those named stores.
 
@@ -175,7 +175,7 @@ Array of memory entries from matching stores
 add(content, options?): Promise<void>;
 ```
 
-Defined in: [src/memory/memory-manager.ts:463](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/memory/memory-manager.ts#L463)
+Defined in: [src/memory/memory-manager.ts:463](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/memory/memory-manager.ts#L463)
 
 Add content to writable stores. If `stores` is provided, only writes to those named stores; otherwise all writable stores are targeted.
 

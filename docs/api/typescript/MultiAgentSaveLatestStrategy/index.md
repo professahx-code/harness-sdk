@@ -2,7 +2,7 @@
 type MultiAgentSaveLatestStrategy = "node" | "invocation";
 ```
 
-Defined in: [src/session/session-manager.ts:53](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/session/session-manager.ts#L53)
+Defined in: [src/session/session-manager.ts:53](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/session/session-manager.ts#L53)
 
 Controls when `snapshot_latest` is saved for multi-agent orchestrators.
 

@@ -1,4 +1,4 @@
-Defined in: [src/memory/extraction/triggers.ts:45](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/memory/extraction/triggers.ts#L45)
+Defined in: [src/memory/extraction/triggers.ts:45](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/memory/extraction/triggers.ts#L45)
 
 Runs extraction every N agent invocations.
 
@@ -22,7 +22,7 @@ extraction: { trigger: [new IntervalTrigger({ turns: 5 })] }
 new IntervalTrigger(options): IntervalTrigger;
 ```
 
-Defined in: [src/memory/extraction/triggers.ts:49](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/memory/extraction/triggers.ts#L49)
+Defined in: [src/memory/extraction/triggers.ts:49](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/memory/extraction/triggers.ts#L49)
 
 #### Parameters
 
@@ -46,7 +46,7 @@ Defined in: [src/memory/extraction/triggers.ts:49](https://github.com/strands-ag
 readonly name: "interval" = 'interval';
 ```
 
-Defined in: [src/memory/extraction/triggers.ts:46](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/memory/extraction/triggers.ts#L46)
+Defined in: [src/memory/extraction/triggers.ts:46](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/memory/extraction/triggers.ts#L46)
 
 Stable identifier for this trigger kind, used in logging.
 
@@ -62,7 +62,7 @@ Stable identifier for this trigger kind, used in logging.
 attach(context): void;
 ```
 
-Defined in: [src/memory/extraction/triggers.ts:57](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/memory/extraction/triggers.ts#L57)
+Defined in: [src/memory/extraction/triggers.ts:57](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/memory/extraction/triggers.ts#L57)
 
 Wire this trigger into the agent lifecycle.
 

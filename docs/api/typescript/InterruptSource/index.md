@@ -2,7 +2,7 @@
 type InterruptSource = "tool" | "hook" | "middleware" | "multiagent-hook";
 ```
 
-Defined in: [src/interrupt.ts:23](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/interrupt.ts#L23)
+Defined in: [src/interrupt.ts:23](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/interrupt.ts#L23)
 
 Origin of an interrupt:
 

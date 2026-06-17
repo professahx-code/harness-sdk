@@ -2,7 +2,7 @@
 type JitterKind = "none" | "full" | "equal" | "decorrelated";
 ```
 
-Defined in: [src/retry/backoff-strategy.ts:49](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/retry/backoff-strategy.ts#L49)
+Defined in: [src/retry/backoff-strategy.ts:49](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/retry/backoff-strategy.ts#L49)
 
 Supported jitter modes.
 

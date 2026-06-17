@@ -421,5 +421,5 @@ const plugin = new GoalLoop({
 - [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (2 shared tags)
 - [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (2 shared tags)
 - [Instruction Following Evaluator](/docs/user-guide/evals-sdk/evaluators/instruction_following_evaluator/index.md) (1 shared tag)
+- [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
 - [Skills](/docs/user-guide/concepts/plugins/skills/index.md) (1 shared tag)
-- [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (1 shared tag)

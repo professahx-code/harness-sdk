@@ -112,5 +112,5 @@ Custom tool executors are not currently supported but are planned for a future r
 - [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (2 shared tags)
 - [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (1 shared tag)
 - [Plugins](/docs/user-guide/concepts/plugins/index.md) (1 shared tag)
-- [Human in the Loop](/docs/user-guide/concepts/agents/interventions/human-in-the-loop/index.md) (1 shared tag)
-- [GoalLoop](/docs/user-guide/concepts/plugins/goal-loop/index.md) (1 shared tag)
+- [Available Sandboxes](/docs/user-guide/concepts/sandbox/available-sandboxes/index.md) (1 shared tag)
+- [Building a Custom Sandbox](/docs/user-guide/concepts/sandbox/custom-sandbox/index.md) (1 shared tag)

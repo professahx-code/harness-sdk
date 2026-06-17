@@ -7687,8 +7687,8 @@ The llms-full.txt file contains the entire documentation and can be large. For m
 - [Creating Custom Tools](/docs/user-guide/concepts/tools/custom-tools/index.md) (1 shared tag)
 - [Vended Tools](/docs/user-guide/concepts/tools/vended-tools/index.md) (1 shared tag)
 - [OpenAI Responses API](/docs/user-guide/concepts/model-providers/openai-responses/index.md) (1 shared tag)
-- [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
+- [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/build-with-ai/index.md
 
@@ -11484,14 +11484,14 @@ For the full policy language grammar, operators, and built-in functions, see the
 
 - [Human in the Loop](/docs/user-guide/concepts/agents/interventions/human-in-the-loop/index.md) (2 shared tags)
 - [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (2 shared tags)
-- [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
 - [Harmfulness Evaluator](/docs/user-guide/evals-sdk/evaluators/harmfulness_evaluator/index.md) (1 shared tag)
 - [Refusal Evaluator](/docs/user-guide/evals-sdk/evaluators/refusal_evaluator/index.md) (1 shared tag)
 - [Responsible AI](/docs/user-guide/safety-security/responsible-ai/index.md) (1 shared tag)
 - [Stereotyping Evaluator](/docs/user-guide/evals-sdk/evaluators/stereotyping_evaluator/index.md) (1 shared tag)
-- [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
+- [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
 - [Instruction Following Evaluator](/docs/user-guide/evals-sdk/evaluators/instruction_following_evaluator/index.md) (1 shared tag)
-- [Guardrails](/docs/user-guide/safety-security/guardrails/index.md) (1 shared tag)
+- [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
+- [Available Sandboxes](/docs/user-guide/concepts/sandbox/available-sandboxes/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/agents/interventions/cedar-authorization/index.md
 
@@ -11842,11 +11842,12 @@ Use `HumanInTheLoop` when you want tool-level approval gating with minimal code:
 - [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (2 shared tags)
 - [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
 - [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
+- [Available Sandboxes](/docs/user-guide/concepts/sandbox/available-sandboxes/index.md) (1 shared tag)
+- [Building a Custom Sandbox](/docs/user-guide/concepts/sandbox/custom-sandbox/index.md) (1 shared tag)
+- [Sandbox](/docs/user-guide/concepts/sandbox/index.md) (1 shared tag)
 - [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
 - [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (1 shared tag)
 - [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (1 shared tag)
-- [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
-- [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/agents/interventions/human-in-the-loop/index.md
 
@@ -12588,8 +12589,8 @@ See [Hooks](/docs/user-guide/concepts/agents/hooks/index.md#model-call-retry) fo
 ## Related pages
 
 - [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (2 shared tags)
-- [Plugins](/docs/user-guide/concepts/plugins/index.md) (1 shared tag)
 - [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
+- [Plugins](/docs/user-guide/concepts/plugins/index.md) (1 shared tag)
 - [Chaos Testing](/docs/user-guide/evals-sdk/chaos_testing/index.md) (1 shared tag)
 - [Detectors](/docs/user-guide/evals-sdk/detectors/index.md) (1 shared tag)
 - [Failure Detection](/docs/user-guide/evals-sdk/detectors/failure_detection/index.md) (1 shared tag)
@@ -16152,7 +16153,7 @@ For additional best practices on performance considerations, error handling, com
 - [Plugins](/docs/user-guide/concepts/plugins/index.md) (1 shared tag)
 - [Quickstart](/docs/user-guide/concepts/bidirectional-streaming/quickstart/index.md) (1 shared tag)
 - [Nova Sonic](/docs/user-guide/concepts/bidirectional-streaming/models/nova_sonic/index.md) (1 shared tag)
-- [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (1 shared tag)
+- [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md
 
@@ -18973,8 +18974,8 @@ Strands enforces the following rules for interrupts in graph:
 - [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (3 shared tags)
 - [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (3 shared tags)
 - [Plugins](/docs/user-guide/concepts/plugins/index.md) (2 shared tags)
-- [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (2 shared tags)
 - [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (2 shared tags)
+- [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (2 shared tags)
 - [GoalLoop](/docs/user-guide/concepts/plugins/goal-loop/index.md) (2 shared tags)
 - [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
 - [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)
@@ -22578,14 +22579,15 @@ The built-in `get_config` and `update_config` methods allow for the model’s co
 ## Related pages
 
 - [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
+- [Available Sandboxes](/docs/user-guide/concepts/sandbox/available-sandboxes/index.md) (1 shared tag)
+- [Building a Custom Sandbox](/docs/user-guide/concepts/sandbox/custom-sandbox/index.md) (1 shared tag)
 - [Human in the Loop](/docs/user-guide/concepts/agents/interventions/human-in-the-loop/index.md) (1 shared tag)
+- [Sandbox](/docs/user-guide/concepts/sandbox/index.md) (1 shared tag)
 - [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
 - [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (1 shared tag)
 - [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
 - [Cedar Authorization](/docs/user-guide/concepts/agents/interventions/cedar-authorization/index.md) (1 shared tag)
-- [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (1 shared tag)
-- [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/model-providers/custom_model_provider/index.md
 
@@ -29235,8 +29237,8 @@ class AsyncConfigPlugin implements Plugin {
 - [GoalLoop](/docs/user-guide/concepts/plugins/goal-loop/index.md) (2 shared tags)
 - [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (2 shared tags)
 - [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (2 shared tags)
-- [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (1 shared tag)
 - [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
+- [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (1 shared tag)
 - [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)
 - [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (1 shared tag)
 
@@ -30253,8 +30255,8 @@ const plugin = new GoalLoop({
 - [Interrupts](/docs/user-guide/concepts/interrupts/index.md) (2 shared tags)
 - [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (2 shared tags)
 - [Instruction Following Evaluator](/docs/user-guide/evals-sdk/evaluators/instruction_following_evaluator/index.md) (1 shared tag)
+- [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
 - [Skills](/docs/user-guide/concepts/plugins/skills/index.md) (1 shared tag)
-- [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/plugins/goal-loop/index.md
 
@@ -30847,6 +30849,600 @@ Traditional prompting requires front-loading all instructions into a single prom
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/plugins/steering/index.md
+
+---
+
+## Sandbox
+
+Agents are most effective when they can perform real actions rather than being constrained to text-only reasoning: executing shell commands, running code, and reading and writing files. But giving an agent unrestricted access to your host machine, especially the ability to run model-generated code, is a serious security risk.
+
+A `Sandbox` gives the agent an execution environment for these operations while keeping the agent’s core process (model calls, hooks, state) decoupled. Now, the agent can run shell commands, write and execute code, and access a filesystem without compromising the host or its own runtime.
+
+## How sandboxes work
+
+There are two ways to think about sandboxed agents: running the entire agent *inside* a sandbox (a deployment concern, not an SDK feature), or giving the agent a sandbox *to use* for execution while the agent itself stays in your trusted infrastructure.
+
+Strands implements the second pattern. The agent process runs on your host and handles model calls, tools, hooks, and state. The sandbox is a pluggable backend that receives only execution operations via a standard interface.
+
+```mermaid
+flowchart LR
+    subgraph runtime["Agent runtime (your infrastructure)"]
+        L[Agent loop]
+        M[Model]
+        T["sandbox_bash /<br/>sandbox_file_editor"]
+        L --> M --> T
+    end
+    subgraph sb["Sandbox (execution environment you provision)"]
+        E[Command / file operation]
+    end
+    T -->|"execute, read_file, write_file"| E
+    E -->|"stdout, stderr, exit code"| T
+```
+
+All Sandbox implementations share the same abstract interface:
+
+| Method | Description |
+| --- | --- |
+| `execute_streaming` `executeStreaming`  | Run a shell command, stream output |
+| `execute_code_streaming` `executeCodeStreaming`  | Run code via an interpreter, stream output |
+| `read_file` `readFile`  | Read a file as bytes |
+| `write_file` `writeFile`  | Write bytes to a file |
+| `remove_file` `removeFile`  | Delete a file |
+| `list_files` `listFiles`  | List directory contents |
+
+The execution methods accept optional parameters: `timeout` (seconds, throws `SandboxTimeoutError` when exceeded), `cwd` (working directory override), `env` (environment variables), and in TypeScript, `signal` (AbortSignal, throws `SandboxAbortError`).
+
+## Getting started
+
+Pass a sandbox to an agent through the `sandbox` parameter, and the agent’s commands and file operations will execute inside it.
+
+(( tab "TypeScript" ))
+```typescript
+import { Agent } from '@strands-agents/sdk'
+import { DockerSandbox } from '@strands-agents/sdk/sandbox/docker'
+
+const agent = new Agent({
+  sandbox: new DockerSandbox({ container: 'my-container-id' }),
+})
+
+// The agent's sandbox_bash and sandbox_file_editor tools execute inside the container
+await agent.invoke('List all files inside the current directory')
+```
+(( /tab "TypeScript" ))
+
+(( tab "Python" ))
+```python
+agent = Agent(sandbox=DockerSandbox("my-container-id"))
+
+# The agent's sandbox_bash and sandbox_file_editor tools execute inside the container
+agent("List all files inside the current directory")
+```
+(( /tab "Python" ))
+
+The default is not a sandbox
+
+Omitting the `sandbox` parameter runs the agent’s command and file tools directly on the host with the full permissions of the agent process. Treat this as convenience for trusted, local development only. For untrusted input or production runs, pass an explicit sandbox.
+
+In TypeScript, pass `sandbox: false` to opt out explicitly and keep that intent stable if the default changes:
+
+```typescript
+// Explicit opt-out: no sandbox, run on host
+const agent = new Agent({ sandbox: false })
+```
+
+See [Available Sandboxes](/docs/user-guide/concepts/sandbox/available-sandboxes/index.md) for Docker and SSH configuration options, programmatic access, and streaming output.
+
+## Using tools with sandboxes
+
+### Default tools
+
+When a sandbox is configured, the agent automatically registers two tools so the model can operate in the sandboxed environment without additional setup:
+
+-   **`sandbox_bash`** — Executes shell commands. Each call runs in a fresh shell; state such as variables and the working directory does not persist across calls.
+-   **`sandbox_file_editor`** — Views, creates, and edits files using absolute paths. Supports view (with line ranges), create, string replace, and insert operations.
+
+If a tool with the same name is already registered on the agent, the sandbox-vended version is skipped. This lets you override a vended tool with a stricter variant:
+
+(( tab "TypeScript" ))
+```typescript
+import { Agent } from '@strands-agents/sdk'
+import { DockerSandbox } from '@strands-agents/sdk/sandbox/docker'
+import { makeBash } from '@strands-agents/sdk/vended-tools/bash'
+
+const sandbox = new DockerSandbox({ container: 'agent-workspace' })
+
+const lockedBash = makeBash(sandbox, {
+  name: 'sandbox_bash',
+  description: 'Run read-only shell commands. Do not modify files.',
+})
+
+// The agent keeps lockedBash; the sandbox's own sandbox_bash is skipped
+const agent = new Agent({ sandbox, tools: [lockedBash] })
+```
+(( /tab "TypeScript" ))
+
+(( tab "Python" ))
+```python
+from strands.vended_tools import make_bash
+
+sandbox = DockerSandbox("agent-workspace")
+
+locked_bash = make_bash(
+    sandbox=sandbox,
+    name="sandbox_bash",
+    description="Run read-only shell commands. Do not modify files.",
+)
+
+# The agent keeps locked_bash; the sandbox's own sandbox_bash is skipped
+agent = Agent(sandbox=sandbox, tools=[locked_bash])
+```
+(( /tab "Python" ))
+
+Custom sandbox implementations can also override `get_tools()` `getTools()`  to vend their own tools entirely.
+
+### Custom tools
+
+You can add your own tools alongside the auto-vended ones by creating a tool that reads the sandbox from its context and passing it in the agent’s `tools` array:
+
+(( tab "TypeScript" ))
+```typescript
+import { Agent, tool } from '@strands-agents/sdk'
+import { DockerSandbox } from '@strands-agents/sdk/sandbox/docker'
+import { z } from 'zod'
+
+const lint = tool({
+  name: 'lint',
+  description: 'Lint a file and return structured errors',
+  inputSchema: z.object({
+    path: z.string().describe('File path to lint'),
+  }),
+  callback: async (input, context) => {
+    const result = await context!.agent.sandbox.execute(
+      `eslint --format json ${input.path}`
+    )
+    const issues = JSON.parse(result.stdout)
+    return issues.flatMap((f: any) => f.messages)
+  },
+})
+
+const agent = new Agent({
+  sandbox: new DockerSandbox({ container: 'my-dev-env' }),
+  tools: [lint],
+})
+// Agent now has: sandbox_bash, sandbox_file_editor (vended) + lint (yours)
+```
+(( /tab "TypeScript" ))
+
+(( tab "Python" ))
+```python
+@tool(context="tool_context")
+async def lint(path: str, tool_context: ToolContext) -> list:
+    """Lint a file and return structured errors.
+
+    Args:
+        path: File path to lint.
+        tool_context: Injected by the framework.
+    """
+    result = await tool_context.agent.sandbox.execute(f"eslint --format json {path}")
+    issues = json.loads(result.stdout)
+    return [msg for file in issues for msg in file["messages"]]
+
+
+agent = Agent(
+    sandbox=DockerSandbox("my-dev-env"),
+    tools=[lint],
+)
+# Agent now has: sandbox_bash, sandbox_file_editor (vended) + lint (yours)
+```
+(( /tab "Python" ))
+
+Your custom tools coexist with the auto-vended ones. The sandbox routes all execution to the same environment regardless of which tool initiated it.
+
+## Using plugins with sandboxes
+
+The following vended plugins route their file I/O through the agent’s sandbox when one is configured:
+
+-   **[Agent Skills](/docs/user-guide/concepts/plugins/skills/index.md)** — Skill files loaded from filesystem paths are read through the agent’s sandbox. Skills stored inside a container or on a remote host are accessible without copying them to the host. URL and inline skill sources are sandbox-independent.
+-   **[Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md)** — When using `FileStorage` as the storage backend, offloaded artifacts are written to and read from the sandbox’s filesystem rather than the host. The plugin binds to the agent’s sandbox during initialization; no explicit wiring is needed.
+
+## Next steps
+
+-   [Available Sandboxes](/docs/user-guide/concepts/sandbox/available-sandboxes/index.md) — the built-in Docker and SSH backends, programmatic access, and streaming
+-   [Building a Custom Sandbox](/docs/user-guide/concepts/sandbox/custom-sandbox/index.md) — target a backend the built-ins do not cover
+-   [Vended Tools](/docs/user-guide/concepts/tools/vended-tools/index.md) — the `sandbox_bash` and `sandbox_file_editor` tools
+
+## Related pages
+
+- [Available Sandboxes](/docs/user-guide/concepts/sandbox/available-sandboxes/index.md) (2 shared tags)
+- [Building a Custom Sandbox](/docs/user-guide/concepts/sandbox/custom-sandbox/index.md) (2 shared tags)
+- [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
+- [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
+- [Human in the Loop](/docs/user-guide/concepts/agents/interventions/human-in-the-loop/index.md) (1 shared tag)
+- [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
+- [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (1 shared tag)
+- [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (1 shared tag)
+- [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
+- [Cedar Authorization](/docs/user-guide/concepts/agents/interventions/cedar-authorization/index.md) (1 shared tag)
+
+Source: https://strandsagents.com/docs/user-guide/concepts/sandbox/index.md
+
+---
+
+## Available Sandboxes
+
+Strands provides two built-in Sandbox backends: `DockerSandbox` for containers on the local host, and `SshSandbox` for remote machines. Both automatically register `sandbox_bash` and `sandbox_file_editor` tools on the agent. This page covers their configuration, plus how to drive a sandbox directly from your own code.
+
+## DockerSandbox
+
+Executes operations inside a Docker container on the host via `docker exec`. The container must already be running; Strands does not create it.
+
+(( tab "TypeScript" ))
+```typescript
+import { Agent } from '@strands-agents/sdk'
+import { DockerSandbox } from '@strands-agents/sdk/sandbox/docker'
+
+const sandbox = new DockerSandbox({
+  container: 'agent-workspace',
+  workingDir: '/workspace',
+  user: '1000:1000',
+})
+const agent = new Agent({ sandbox })
+void agent.invoke('Run the test suite and summarize any failures')
+```
+(( /tab "TypeScript" ))
+
+(( tab "Python" ))
+```python
+from strands import Agent
+from strands.sandbox.docker import DockerSandbox
+
+sandbox = DockerSandbox(
+    "agent-workspace",
+    working_dir="/workspace",
+    user="1000:1000",
+)
+agent = Agent(sandbox=sandbox)
+agent("Run the test suite and summarize any failures")
+```
+(( /tab "Python" ))
+
+### Options
+
+| Option | Type | Default | Description |
+| --- | --- | --- | --- |
+| `container` `container`  | `str` `string`  | (required) | ID or name of a running container |
+| `working_dir` `workingDir`  | `str \| None` `string`  | `None` `container default`  | Working directory for executed commands. If omitted, runs in the container’s configured working directory. |
+| `user` `user`  | `str \| None` `string`  | `None` `container default`  | User to run commands as (`"uid"`, `"uid:gid"`, or name). If omitted, runs as the container’s configured user. |
+
+## SshSandbox
+
+Executes operations on a remote host via SSH. Each command spawns a fresh `ssh` process. There is no persistent connection. The host must be reachable with key-based authentication; `BatchMode` is enforced, so password prompts fail rather than block.
+
+(( tab "TypeScript" ))
+```typescript
+import { Agent } from '@strands-agents/sdk'
+import { SshSandbox } from '@strands-agents/sdk/sandbox/ssh'
+
+const sandbox = new SshSandbox({
+  host: 'ubuntu@10.0.1.5',
+  workingDir: '/home/ubuntu/workspace',
+  identityFile: '~/.ssh/agent_key',
+})
+const agent = new Agent({ sandbox })
+void agent.invoke('Check disk usage and list running processes')
+```
+(( /tab "TypeScript" ))
+
+(( tab "Python" ))
+```python
+from strands import Agent
+from strands.sandbox.ssh import SshSandbox
+
+sandbox = SshSandbox(
+    "ubuntu@10.0.1.5",
+    working_dir="/home/ubuntu/workspace",
+    identity_file="~/.ssh/agent_key",
+)
+agent = Agent(sandbox=sandbox)
+agent("Check disk usage and list running processes")
+```
+(( /tab "Python" ))
+
+### Options
+
+| Option | Type | Default | Description |
+| --- | --- | --- | --- |
+| `host` `host`  | `str` `string`  | (required) | SSH destination (e.g., `"user@host"`, `"192.168.1.10"`) |
+| `working_dir` `workingDir`  | `str` `string`  | (required) | Working directory on the remote host |
+| `identity_file` `identityFile`  | `str \| None` `string`  | `None` `undefined`  | Path to SSH private key file |
+| `port` `port`  | `int` `number`  | `22` | SSH port |
+| `allow_unknown_hosts` `allowUnknownHosts`  | `bool` `boolean`  | `False` `false`  | When false, uses `StrictHostKeyChecking=accept-new`. When true, disables host key verification. |
+| `ssh_options` `sshOptions`  | `list[str] \| None` `string[]`  | `None` `[]`  | Additional SSH options passed as `-o` flags |
+| `allow_unsafe_ssh_options` `allowUnsafeSshOptions`  | `bool` `boolean`  | `False` `false`  | Bypass the SSH option allowlist. When false, unknown options throw at construction time. |
+
+### SSH Option Allowlist
+
+By default, `SshSandbox` only permits known-safe SSH options (connection tuning, crypto, authentication). Unknown options throw an error at construction time. This prevents model-generated or user-provided options from executing commands on the host via directives like `ProxyCommand` or `LocalCommand`.
+
+Security Warning
+
+Setting `allowUnsafeSshOptions: true` bypasses this allowlist and lets any SSH option through, including directives that run commands on the local host. Only enable it with options you control, never with model-generated or untrusted input.
+
+Neither backend sets environment variables at construction time. Pass them per-command via the `env` option on `execute()` `execute()`  / `execute_code()` `executeCode()`  .
+
+## Working with a sandbox directly
+
+You can drive a sandbox directly from your own code. This is useful for setup and verification around an agent run: seed input files, invoke the agent, then read results back.
+
+| Method | Description |
+| --- | --- |
+| `execute` `execute`  | Run a shell command, return the result |
+| `execute_code` `executeCode`  | Run code via an interpreter, return the result |
+| `read_text` `readText`  | Read a file as a UTF-8 string |
+| `write_text` `writeText`  | Write a string as UTF-8 |
+
+(( tab "TypeScript" ))
+```typescript
+import { Agent } from '@strands-agents/sdk'
+import { DockerSandbox } from '@strands-agents/sdk/sandbox/docker'
+
+const agent = new Agent({
+  sandbox: new DockerSandbox({ container: 'my-container-id' }),
+})
+
+// Seed an input file, let the agent work, then read the result back
+await agent.sandbox.writeText('/workspace/input.csv', 'id,value\n1,42\n')
+
+await agent.invoke(
+  'Summarize /workspace/input.csv and write the summary to /workspace/out.txt'
+)
+
+const result = await agent.sandbox.execute('cat /workspace/out.txt')
+console.log(result.exitCode, result.stdout)
+```
+(( /tab "TypeScript" ))
+
+(( tab "Python" ))
+```python
+async def main():
+    agent = Agent(sandbox=DockerSandbox("my-container-id"))
+
+    # Seed an input file, let the agent work, then read the result back
+    await agent.sandbox.write_text("/workspace/input.csv", "id,value\n1,42\n")
+
+    agent("Summarize /workspace/input.csv and write the summary to /workspace/out.txt")
+
+    result = await agent.sandbox.execute("cat /workspace/out.txt")
+    print(result.exit_code, result.stdout)
+
+
+asyncio.run(main())
+```
+(( /tab "Python" ))
+
+### Streaming output
+
+`execute` waits for the command to finish. When you need output as it arrives, use the streaming form. It yields chunks as they are produced, then a final result with the exit code:
+
+(( tab "TypeScript" ))
+```typescript
+import { DockerSandbox } from '@strands-agents/sdk/sandbox/docker'
+
+const sandbox = new DockerSandbox({ container: 'my-container-id' })
+
+for await (const chunk of sandbox.executeStreaming('npm run build')) {
+  if (chunk.type === 'streamChunk') {
+    process.stdout.write(chunk.data)
+  } else {
+    console.log(`\nexit code: ${chunk.exitCode}`)
+  }
+}
+```
+(( /tab "TypeScript" ))
+
+(( tab "Python" ))
+```python
+from strands.sandbox import ExecutionResult, StreamChunk
+
+
+async def stream_example():
+    sandbox = DockerSandbox("my-container-id")
+
+    async for chunk in sandbox.execute_streaming("npm run build"):
+        if isinstance(chunk, StreamChunk):
+            print(chunk.data, end="")
+        elif isinstance(chunk, ExecutionResult):
+            print(f"\nexit code: {chunk.exit_code}")
+
+
+asyncio.run(stream_example())
+```
+(( /tab "Python" ))
+
+## Next steps
+
+For more on configuring tools and plugins that work with sandboxes, see the overview. To target an environment the built-ins don’t cover, build a custom sandbox.
+
+-   [Sandbox Overview](/docs/user-guide/concepts/sandbox/index.md) — what a sandbox is, the tools it vends, and plugin compatibility
+-   [Building a Custom Sandbox](/docs/user-guide/concepts/sandbox/custom-sandbox/index.md) — target a backend the built-ins do not cover
+
+## Related pages
+
+- [Building a Custom Sandbox](/docs/user-guide/concepts/sandbox/custom-sandbox/index.md) (2 shared tags)
+- [Sandbox](/docs/user-guide/concepts/sandbox/index.md) (2 shared tags)
+- [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
+- [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
+- [Human in the Loop](/docs/user-guide/concepts/agents/interventions/human-in-the-loop/index.md) (1 shared tag)
+- [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
+- [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (1 shared tag)
+- [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (1 shared tag)
+- [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
+- [Cedar Authorization](/docs/user-guide/concepts/agents/interventions/cedar-authorization/index.md) (1 shared tag)
+
+Source: https://strandsagents.com/docs/user-guide/concepts/sandbox/available-sandboxes/index.md
+
+---
+
+## Building a Custom Sandbox
+
+Looking for something beyond the built-in implementations? Build a custom sandbox when your execution environment is not a local Docker container or an SSH host: a microVM, a cloud code-execution API, or a managed runtime. The agent loop, model, and vended tools all stay the same; you only implement the methods that run commands and access files in your backend.
+
+## Extending PosixShellSandbox
+
+`PosixShellSandbox` is a base class that reduces the implementation burden to a single method. If you can implement `execute_streaming` `executeStreaming`  (run a shell command via your backend and stream the output), you get everything else for free:
+
+-   Code execution via base64-encoded heredoc piped to the interpreter
+-   File read/write via base64 encoding over the shell
+-   Directory listing via `ls`
+
+Both `DockerSandbox` and `SshSandbox` extend `PosixShellSandbox`.
+
+(( tab "TypeScript" ))
+```typescript
+import { spawn } from 'node:child_process'
+import { PosixShellSandbox } from '@strands-agents/sdk/sandbox'
+import type { ExecuteOptions, StreamChunk, ExecutionResult } from '@strands-agents/sdk/sandbox'
+
+class FirecrackerSandbox extends PosixShellSandbox {
+  constructor(private readonly vmId: string) {
+    super()
+  }
+
+  async *executeStreaming(
+    command: string,
+    options?: ExecuteOptions
+  ): AsyncGenerator<StreamChunk | ExecutionResult, void, undefined> {
+    const proc = spawn('fc-exec', [this.vmId, 'sh', '-c', command])
+
+    let stdout = ''
+    let stderr = ''
+    for await (const data of proc.stdout) {
+      const text = data.toString()
+      stdout += text
+      yield { type: 'streamChunk', data: text, streamType: 'stdout' }
+    }
+    for await (const data of proc.stderr) {
+      const text = data.toString()
+      stderr += text
+      yield { type: 'streamChunk', data: text, streamType: 'stderr' }
+    }
+    const exitCode: number = await new Promise((resolve) =>
+      proc.on('close', (code) => resolve(code ?? 0))
+    )
+    yield { type: 'executionResult', exitCode, stdout, stderr, outputFiles: [] }
+  }
+```
+(( /tab "TypeScript" ))
+
+(( tab "Python" ))
+```python
+import asyncio
+from collections.abc import AsyncGenerator
+from typing import Any
+
+from strands.sandbox import PosixShellSandbox
+from strands.sandbox.types import ExecutionResult, StreamChunk
+
+
+class FirecrackerSandbox(PosixShellSandbox):
+    """Run commands in a Firecracker microVM addressed by id."""
+
+    def __init__(self, vm_id: str) -> None:
+        self.vm_id = vm_id
+
+    async def execute_streaming(
+        self,
+        command: str,
+        *,
+        timeout: float | None = None,
+        cwd: str | None = None,
+        env: dict[str, str] | None = None,
+        **kwargs: Any,
+    ) -> AsyncGenerator[StreamChunk | ExecutionResult, None]:
+        proc = await asyncio.create_subprocess_exec(
+            "fc-exec", self.vm_id, "sh", "-c", command,
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE,
+        )
+        stdout, stderr = await proc.communicate()
+        if stdout:
+            yield StreamChunk(data=stdout.decode(), stream_type="stdout")
+        if stderr:
+            yield StreamChunk(data=stderr.decode(), stream_type="stderr")
+        yield ExecutionResult(
+            exit_code=proc.returncode or 0,
+            stdout=stdout.decode(),
+            stderr=stderr.decode(),
+        )
+```
+(( /tab "Python" ))
+
+## Vending tools from a custom sandbox
+
+To give your sandbox the same `sandbox_bash` and `sandbox_file_editor` tools the built-in sandboxes provide, override `getTools()` / `get_tools()` and return tools bound to it:
+
+(( tab "TypeScript" ))
+```typescript
+import type { Tool } from '@strands-agents/sdk'
+import { makeBash } from '@strands-agents/sdk/vended-tools/bash'
+import { makeFileEditor } from '@strands-agents/sdk/vended-tools/file-editor'
+
+override getTools(): Tool[] {
+  return [
+    makeFileEditor(this, { name: 'sandbox_file_editor' }),
+    makeBash(this, { name: 'sandbox_bash' }),
+  ]
+}
+```
+(( /tab "TypeScript" ))
+
+(( tab "Python" ))
+```python
+from strands.types.tools import AgentTool
+from strands.vended_tools import make_bash, make_file_editor
+
+
+# Inside your custom sandbox class:
+def get_tools(self) -> list[AgentTool]:
+    return [
+        make_file_editor(sandbox=self, name="sandbox_file_editor"),
+        make_bash(sandbox=self, name="sandbox_bash"),
+    ]
+```
+(( /tab "Python" ))
+
+## Extend the base interface directly
+
+For environments where you have native API access (no shell), extend `Sandbox` directly and implement all six abstract methods: `execute_streaming` `executeStreaming`  , `execute_code_streaming` `executeCodeStreaming`  , `read_file` `readFile`  , `write_file` `writeFile`  , `remove_file` `removeFile`  , and `list_files` `listFiles`  .
+
+Prefer the shell base whenever your backend can run `sh -c`. Reach for the raw interface only when shaping every operation as a shell command would be a worse fit than calling your backend’s native API.
+
+## Security
+
+A custom sandbox is a boundary only when the environment behind it is isolated. The interface routes operations; it does not confine them. Whatever the agent can reach through your `execute_streaming` implementation (the method that runs commands in your environment), it can reach.
+
+A container running as root with the host filesystem mounted is not a boundary, even though it uses the same `Sandbox` interface as a locked-down container. The security comes from the environment you provision, not from the interface itself. Scope the environment to the least privilege the task needs, and treat that configuration as the actual control.
+
+## Next steps
+
+-   [Sandbox Overview](/docs/user-guide/concepts/sandbox/index.md) — what a sandbox is, the tools it vends, and plugin compatibility
+-   [Available Sandboxes](/docs/user-guide/concepts/sandbox/available-sandboxes/index.md) — the built-in Docker and SSH backends
+-   [Vended Tools](/docs/user-guide/concepts/tools/vended-tools/index.md) — the `sandbox_bash` and `sandbox_file_editor` tool factories
+
+## Related pages
+
+- [Available Sandboxes](/docs/user-guide/concepts/sandbox/available-sandboxes/index.md) (2 shared tags)
+- [Sandbox](/docs/user-guide/concepts/sandbox/index.md) (2 shared tags)
+- [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
+- [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
+- [Human in the Loop](/docs/user-guide/concepts/agents/interventions/human-in-the-loop/index.md) (1 shared tag)
+- [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
+- [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (1 shared tag)
+- [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (1 shared tag)
+- [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
+- [Cedar Authorization](/docs/user-guide/concepts/agents/interventions/cedar-authorization/index.md) (1 shared tag)
+
+Source: https://strandsagents.com/docs/user-guide/concepts/sandbox/custom-sandbox/index.md
 
 ---
 
@@ -32451,8 +33047,8 @@ Notes:
 - [Creating Custom Tools](/docs/user-guide/concepts/tools/custom-tools/index.md) (1 shared tag)
 - [Vended Tools](/docs/user-guide/concepts/tools/vended-tools/index.md) (1 shared tag)
 - [OpenAI Responses API](/docs/user-guide/concepts/model-providers/openai-responses/index.md) (1 shared tag)
-- [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
+- [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/tools/index.md
 
@@ -32652,8 +33248,8 @@ This tool is designed for terminal environments as an example implementation. Fo
 - [Build with AI](/docs/user-guide/build-with-ai/index.md) (1 shared tag)
 - [Model Context Protocol (MCP) Tools](/docs/user-guide/concepts/tools/mcp-tools/index.md) (1 shared tag)
 - [Tools Overview](/docs/user-guide/concepts/tools/index.md) (1 shared tag)
-- [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
+- [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/tools/community-tools-package/index.md
 
@@ -33583,8 +34179,8 @@ async def call_api(tool, **kwargs):
 - [Build with AI](/docs/user-guide/build-with-ai/index.md) (1 shared tag)
 - [Model Context Protocol (MCP) Tools](/docs/user-guide/concepts/tools/mcp-tools/index.md) (1 shared tag)
 - [Tools Overview](/docs/user-guide/concepts/tools/index.md) (1 shared tag)
-- [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
+- [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/tools/custom-tools/index.md
 
@@ -33706,8 +34302,8 @@ Custom tool executors are not currently supported but are planned for a future r
 - [Interventions](/docs/user-guide/concepts/agents/interventions/index.md) (2 shared tags)
 - [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (1 shared tag)
 - [Plugins](/docs/user-guide/concepts/plugins/index.md) (1 shared tag)
-- [Human in the Loop](/docs/user-guide/concepts/agents/interventions/human-in-the-loop/index.md) (1 shared tag)
-- [GoalLoop](/docs/user-guide/concepts/plugins/goal-loop/index.md) (1 shared tag)
+- [Available Sandboxes](/docs/user-guide/concepts/sandbox/available-sandboxes/index.md) (1 shared tag)
+- [Building a Custom Sandbox](/docs/user-guide/concepts/sandbox/custom-sandbox/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/tools/executors/index.md
 
@@ -34364,8 +34960,8 @@ When tool execution fails:
 - [Creating Custom Tools](/docs/user-guide/concepts/tools/custom-tools/index.md) (1 shared tag)
 - [Vended Tools](/docs/user-guide/concepts/tools/vended-tools/index.md) (1 shared tag)
 - [OpenAI Responses API](/docs/user-guide/concepts/model-providers/openai-responses/index.md) (1 shared tag)
-- [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
+- [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/tools/mcp-tools/index.md
 
@@ -34397,23 +34993,22 @@ const agent = new Agent({
 
 | Tool | Description | Supported in |
 | --- | --- | --- |
-| [File Editor](#file-editor) | View, create, and edit files | Node.js |
-| [HTTP Request](#http-request) | Make HTTP requests to external APIs | Node.js 20+, browsers |
-| [Notebook](#notebook) | Manage persistent text notebooks | Node.js, browsers |
-| [Bash](#bash) | Execute shell commands with persistent sessions | Node.js (Unix/Linux/macOS) |
+| [File Editor](#file-editor) | View, create, and edit files | Python, TypeScript (Node.js) |
+| [HTTP Request](#http-request) | Make HTTP requests to external APIs | TypeScript (Node.js 20+, browsers) |
+| [Notebook](#notebook) | Manage persistent text notebooks | TypeScript (Node.js, browsers) |
+| [Bash](#bash) | Execute shell commands with persistent sessions | Python, TypeScript (Node.js, Unix/Linux/macOS) |
 
 ### File Editor
 
 Gives your agent the ability to read and modify files on disk — useful for coding agents, config management, or any workflow where the agent needs to inspect output and make targeted edits.
 
-*Supported in: Node.js only.*
-
 Security Warning
 
-This tool reads and writes files at arbitrary absolute paths with the full permissions of the Node.js process. Only use with trusted input and consider running in a sandboxed environment (containers, VMs) for production.
+This tool reads and writes files at arbitrary absolute paths with the full permissions of the process. Only use with trusted input and consider running in a [sandboxed environment](/docs/user-guide/concepts/sandbox/index.md) for production.
 
 **Example:**
 
+(( tab "TypeScript" ))
 ```typescript
 import { Agent } from '@strands-agents/sdk'
 import { fileEditor } from '@strands-agents/sdk/vended-tools/file-editor'
@@ -34427,6 +35022,17 @@ await agent.invoke('Create a file /tmp/config.json with {"debug": false}')
 await agent.invoke('Replace "debug": false with "debug": true in /tmp/config.json')
 await agent.invoke('View lines 1-10 of /tmp/config.json')
 ```
+(( /tab "TypeScript" ))
+
+(( tab "Python" ))
+```python
+from strands import Agent
+from strands.vended_tools import file_editor
+
+agent = Agent(tools=[file_editor])
+agent("Create a file at /tmp/hello.txt with the contents 'Hello, world!'")
+```
+(( /tab "Python" ))
 
 📖 [Full API Reference](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-tools/file-editor/README.md)
 
@@ -34440,7 +35046,7 @@ Lets your agent call external APIs and fetch web content. Supports all HTTP meth
 
 Security Warning
 
-This tool makes HTTP requests to arbitrary URLs without restrictions on destination. Only use with trusted input and consider running in a sandboxed environment (containers, VMs) for production.
+This tool makes HTTP requests to arbitrary URLs without restrictions on destination. Only use with trusted input and consider running in a [sandboxed environment](/docs/user-guide/concepts/sandbox/index.md) for production.
 
 **Example:**
 
@@ -34516,14 +35122,15 @@ await restoredAgent.invoke('Read the ideas notebook')
 
 Lets your agent run shell commands and act on the output. Shell state — variables, working directory, exported functions — persists across invocations within the same session, so the agent can build up context incrementally. Sessions can be restarted to clear state.
 
-*Supported in: Node.js on Unix/Linux/macOS. Not supported on Windows.*
+*Supported in: Node.js on Unix/Linux/macOS (TypeScript), all platforms (Python).*
 
 Security Warning
 
-This tool executes arbitrary bash commands without sandboxing. Commands run with the full permissions of the Node.js process. Only use with trusted input and consider running in sandboxed environments (containers, VMs) for production.
+This tool executes arbitrary bash commands. Without a [Sandbox](/docs/user-guide/concepts/sandbox/index.md), commands run with the full permissions of the process. Only use with trusted input and consider running in a [sandboxed environment](/docs/user-guide/concepts/sandbox/index.md) for production.
 
 **Example - File Operations:**
 
+(( tab "TypeScript" ))
 ```typescript
 import { Agent } from '@strands-agents/sdk'
 import { bash } from '@strands-agents/sdk/vended-tools/bash'
@@ -34536,8 +35143,19 @@ const agent = new Agent({
 await agent.invoke('List all files in the current directory')
 await agent.invoke('Create a new file called notes.txt with "Hello World"')
 ```
+(( /tab "TypeScript" ))
 
-**Example - Session Persistence:**
+(( tab "Python" ))
+```python
+from strands import Agent
+from strands.vended_tools import bash
+
+agent = Agent(tools=[bash])
+agent("List all Python files in the current directory and count them")
+```
+(( /tab "Python" ))
+
+**Example - Session Persistence (TypeScript):**
 
 ```typescript
 import { Agent } from '@strands-agents/sdk'
@@ -34609,8 +35227,8 @@ Tool names are stable and will not change. In minor versions, a tool’s descrip
 - [Build with AI](/docs/user-guide/build-with-ai/index.md) (1 shared tag)
 - [Model Context Protocol (MCP) Tools](/docs/user-guide/concepts/tools/mcp-tools/index.md) (1 shared tag)
 - [Tools Overview](/docs/user-guide/concepts/tools/index.md) (1 shared tag)
-- [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
+- [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/tools/vended-tools/index.md
 

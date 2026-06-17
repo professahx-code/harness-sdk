@@ -1,4 +1,4 @@
-Defined in: [src/agent/tool-caller.ts:25](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/agent/tool-caller.ts#L25)
+Defined in: [src/agent/tool-caller.ts:25](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/agent/tool-caller.ts#L25)
 
 Options for direct tool call execution.
 
@@ -10,6 +10,6 @@ Options for direct tool call execution.
 optional recordDirectToolCall?: boolean;
 ```
 
-Defined in: [src/agent/tool-caller.ts:31](https://github.com/strands-agents/harness-sdk/blob/d88911386ffd4b5f924c7b896ad24f288632baec/strands-ts/src/agent/tool-caller.ts#L31)
+Defined in: [src/agent/tool-caller.ts:31](https://github.com/strands-agents/harness-sdk/blob/1e560f5e65f4a9458aaf61c65b02c8cb1fe21345/strands-ts/src/agent/tool-caller.ts#L31)
 
 Whether to record this tool call in the agent’s message history. Defaults to `true`. Set to `false` to execute the tool without affecting conversation context.
