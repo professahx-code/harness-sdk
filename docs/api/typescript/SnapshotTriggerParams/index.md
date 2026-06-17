@@ -1,4 +1,4 @@
-Defined in: [src/session/types.ts:20](https://github.com/strands-agents/harness-sdk/blob/c04fdd821ea0e816a78fdf2e3f95201e3cfa84c5/strands-ts/src/session/types.ts#L20)
+Defined in: [src/session/types.ts:20](https://github.com/strands-agents/harness-sdk/blob/7ac039e427e4b488f61a6af1c827532f46dfffa1/strands-ts/src/session/types.ts#L20)
 
 Parameters passed to SnapshotTriggerCallback to determine when to create snapshots.
 
@@ -10,6 +10,6 @@ Parameters passed to SnapshotTriggerCallback to determine when to create snapsho
 agentData: LocalAgent;
 ```
 
-Defined in: [src/session/types.ts:22](https://github.com/strands-agents/harness-sdk/blob/c04fdd821ea0e816a78fdf2e3f95201e3cfa84c5/strands-ts/src/session/types.ts#L22)
+Defined in: [src/session/types.ts:22](https://github.com/strands-agents/harness-sdk/blob/7ac039e427e4b488f61a6af1c827532f46dfffa1/strands-ts/src/session/types.ts#L22)
 
 Current agent data including messages and state

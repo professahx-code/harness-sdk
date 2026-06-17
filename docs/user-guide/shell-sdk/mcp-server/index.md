@@ -1,4 +1,4 @@
-The built-in MCP server exposes a sandboxed shell over JSON-RPC on stdio, so any framework that speaks the [Model Context Protocol](https://modelcontextprotocol.io/) can use it without a line of binding code. This is the integration path when you are not embedding the Python or Node.js API directly.
+The built-in MCP server exposes a sandboxed shell over JSON-RPC on stdio, so any framework that speaks the [Model Context Protocol](https://modelcontextprotocol.io/) can use it without a line of binding code. This is the integration path when you aren’t embedding the Python or Node.js API directly.
 
 ## Start the server
 
@@ -8,7 +8,7 @@ Run the server with the `--mcp` flag. With no config, it starts a bare in-memory
 uvx strands-shell --mcp
 ```
 
-To grant access, pass a [TOML config file](/docs/user-guide/shell-sdk/configuration/index.md#toml-configuration) before the flag. The server applies the same binds, credentials, allowlist, and limits you would set in code.
+To grant access, pass a [TOML config file](/docs/user-guide/shell-sdk/configuration/index.md#toml-configuration) before the flag. The server applies the same binds, credentials, allowlist, and limits you’d set in code.
 
 ```bash
 uvx strands-shell --config sandbox.toml --mcp
@@ -88,11 +88,11 @@ local result = tools.search({ query = "deny by default" })
 print(result)
 ```
 
-Nested MCP servers are a native-target feature. They are not available under the WASM build, which has no MCP server or client and no `--config` flag.
+Nested MCP servers are a native-target feature. They aren’t available under the WASM build, which has no MCP server or client and no `--config` flag.
 
 ## When to use the MCP server
 
-Reach for the MCP server when your agent already speaks MCP and you want isolation without writing binding code: the agent gets a shell plus file tools, all mediated by the Kernel, configured from one TOML file. When you are writing the agent host yourself in Python or Node.js, embed the [Python](/docs/user-guide/shell-sdk/quickstart/index.md#python) or [Node.js](/docs/user-guide/shell-sdk/quickstart/index.md#nodejs) API directly instead, which gives you the typed `Output`, file operations, and per-session control without a subprocess.
+Reach for the MCP server when your agent already speaks MCP and you want isolation without writing binding code: the agent gets a shell plus file tools, all mediated by the Kernel, configured from one TOML file. When you’re writing the agent host yourself in Python or Node.js, embed the [Python](/docs/user-guide/shell-sdk/quickstart/index.md#python) or [Node.js](/docs/user-guide/shell-sdk/quickstart/index.md#nodejs) API directly instead, which gives you the typed `Output`, file operations, and per-session control without a subprocess.
 
 ## Next steps
 

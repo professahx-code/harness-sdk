@@ -6,11 +6,11 @@ The examples below use the Python API. The Node.js API takes the same options as
 
 ## Binds
 
-A bind maps a host directory into the shell’s virtual filesystem. The agent sees the destination path; everything outside a bound path does not exist.
+A bind maps a host directory into the shell’s virtual filesystem. The agent sees the destination path; everything outside a bound path doesn’t exist.
 
 Each bind has a mode that decides how host and sandbox relate:
 
--   `copy` snapshots the host directory into the VFS at construction time. The agent’s reads and writes stay inside the sandbox and never touch your host files. Use this for source code.
+-   `copy` snapshots the host directory into the VFS at construction time. The agent’s reads and writes stay inside the sandbox and don’t touch your host files. Use this for source code.
 -   `direct` passes reads and writes through to the host in real time. The agent can modify your live files, and host-side changes after construction are visible to the agent. Use this only for designated output directories.
 
 ```python
@@ -24,6 +24,10 @@ shell = strands_shell.Shell(
 )
 ```
 
+Caution
+
+The TOML parser defaults `mode` to `copy` when omitted, but the Python and Node.js constructors default to `direct`. Always pass `mode` explicitly when constructing a `Bind` in code to avoid accidentally granting live host access.
+
 Add `readonly=True` to reject writes through a mount even in `direct` mode, which lets you expose a live host directory for reading without risking modification.
 
 ```python
@@ -32,11 +36,11 @@ strands_shell.Bind("/host/reference", "/ref", mode="direct", readonly=True)
 
 Caution
 
-A `direct` bind is live. The agent can read and modify host files in real time, including deleting them. Never `direct`\-bind a directory that holds secrets, credentials, or configuration you do not want the agent to change. When in doubt, use `copy`.
+A `direct` bind is live. The agent can read and modify host files in real time, including deleting them. Avoid `direct`\-binding a directory that holds secrets, credentials, or configuration you don’t want the agent to change. When in doubt, use `copy`.
 
 ## Credentials
 
-A credential rule attaches a secret to a URL prefix. When a command makes a request to a matching URL, the Kernel injects the secret as a bearer token at request time. The agent never holds the value: it does not appear in the environment, in command output, or in the Lua scripting context.
+A credential rule attaches a secret to a URL prefix. When a command makes a request to a matching URL, the Kernel injects the secret as a bearer token at request time. The agent doesn’t hold the value: it doesn’t appear in the environment, in command output, or in the Lua scripting context.
 
 Provide the secret one of two ways, and exactly one: an inline `token`, or an `env_var` resolved against the process environment when the shell is constructed.
 
@@ -52,7 +56,7 @@ shell = strands_shell.Shell(
 result = shell.run("curl https://api.example.com/v1/status")
 ```
 
-The Kernel matches on URL prefix with a path-boundary check, and it injects only on the original request. It never re-injects on a redirect, even a redirect back to the same host, which closes the credential-exfiltration path where an agent follows a redirect to a logging endpoint.
+The Kernel matches on URL prefix with a path-boundary check, and it injects only on the original request. It doesn’t re-inject on a redirect, even a redirect back to the same host, which closes the credential-exfiltration path where an agent follows a redirect to a logging endpoint.
 
 ## Network access
 
@@ -68,7 +72,7 @@ shell = strands_shell.Shell(
 
 Caution
 
-Do not allowlist a bare scheme like `https://`. A prefix that broad permits every host and disables the SSRF guard entirely. List the specific endpoints the agent needs.
+Don’t allowlist a bare scheme like `https://`. A prefix that broad permits every host and disables the SSRF guard entirely. List the specific endpoints the agent needs.
 
 ## Behavioral settings
 
@@ -87,7 +91,7 @@ shell = strands_shell.Shell(
 
 ## Resource limits
 
-Resource caps go in a single `Limits` bundle, separate from behavioral settings, so protective caps stay visually distinct from runtime behavior. Override only the caps you care about; the rest keep their defaults.
+Resource caps go in a single `Limits` bundle, separate from behavioral settings so protective caps stay visually distinct from runtime behavior. Override only the caps you care about; the rest keep their defaults.
 
 ```python
 shell = strands_shell.Shell(
@@ -109,7 +113,7 @@ shell = strands_shell.Shell(
 | `max_inodes` | 10,000 | Total files and directories in the VFS |
 | `max_depth` | 64 | Directory nesting depth |
 
-These caps are best-effort. They stop a runaway agent from exhausting memory or hanging; they are not a defense against an adversary actively trying to break out. For hard guarantees, see the [security model](/docs/user-guide/shell-sdk/security/index.md).
+These caps are best-effort. They stop a runaway agent from exhausting memory or hanging; they aren’t a defense against an adversary actively trying to break out. For hard guarantees, see the [security model](/docs/user-guide/shell-sdk/security/index.md).
 
 ## TOML configuration
 
@@ -153,7 +157,7 @@ shell = strands_shell.Shell(config_file="sandbox.toml")
 A few rules the parser enforces:
 
 -   Unknown keys are rejected, so a typo like `timeout_seconds` fails loudly instead of being silently ignored.
--   `bind` mode defaults to `copy` when omitted, which is the safe choice.
+-   In TOML, `bind` mode defaults to `copy` when omitted. Note that this differs from the Python and Node.js constructors, which default to `direct`. Always specify `mode` explicitly in code.
 -   A `cred` entry needs a `kind` (`bearer` or `query`) and exactly one of `api_key` or `api_key_env`. A `query` credential also needs a `param` naming the query parameter.
 -   `timeout` is in whole seconds and defaults to 30 when the key is absent. A value of `0` is rejected, because it would expire every command immediately.
 

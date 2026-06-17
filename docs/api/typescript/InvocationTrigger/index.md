@@ -1,4 +1,4 @@
-Defined in: [src/memory/extraction/triggers.ts:17](https://github.com/strands-agents/harness-sdk/blob/c04fdd821ea0e816a78fdf2e3f95201e3cfa84c5/strands-ts/src/memory/extraction/triggers.ts#L17)
+Defined in: [src/memory/extraction/triggers.ts:17](https://github.com/strands-agents/harness-sdk/blob/7ac039e427e4b488f61a6af1c827532f46dfffa1/strands-ts/src/memory/extraction/triggers.ts#L17)
 
 Runs extraction after every agent invocation.
 
@@ -38,7 +38,7 @@ new InvocationTrigger(): InvocationTrigger;
 readonly name: "invocation" = 'invocation';
 ```
 
-Defined in: [src/memory/extraction/triggers.ts:18](https://github.com/strands-agents/harness-sdk/blob/c04fdd821ea0e816a78fdf2e3f95201e3cfa84c5/strands-ts/src/memory/extraction/triggers.ts#L18)
+Defined in: [src/memory/extraction/triggers.ts:18](https://github.com/strands-agents/harness-sdk/blob/7ac039e427e4b488f61a6af1c827532f46dfffa1/strands-ts/src/memory/extraction/triggers.ts#L18)
 
 Stable identifier for this trigger kind, used in logging.
 
@@ -54,7 +54,7 @@ Stable identifier for this trigger kind, used in logging.
 attach(context): void;
 ```
 
-Defined in: [src/memory/extraction/triggers.ts:20](https://github.com/strands-agents/harness-sdk/blob/c04fdd821ea0e816a78fdf2e3f95201e3cfa84c5/strands-ts/src/memory/extraction/triggers.ts#L20)
+Defined in: [src/memory/extraction/triggers.ts:20](https://github.com/strands-agents/harness-sdk/blob/7ac039e427e4b488f61a6af1c827532f46dfffa1/strands-ts/src/memory/extraction/triggers.ts#L20)
 
 Wire this trigger into the agent lifecycle.
 
