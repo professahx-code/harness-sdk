@@ -233,3 +233,10 @@ When disabled (or if the call fails), falls back to estimation with a character-
 
 - [Llama API](/docs/user-guide/concepts/model-providers/llamaapi/index.md) (1 shared tag)
 - [Ollama](/docs/user-guide/concepts/model-providers/ollama/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/models/llamacpp.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/llamacpp.py)

@@ -1302,3 +1302,14 @@ Strands uses a default Claude 4 Sonnet inference model from the region of your c
 - [AgentCore Evaluation Dashboard Configuration](/docs/user-guide/evals-sdk/how-to/agentcore_evaluation_dashboard/index.md) (2 shared tags)
 - [PII Redaction](/docs/user-guide/safety-security/pii-redaction/index.md) (2 shared tags)
 - [Result Caching](/docs/user-guide/evals-sdk/how-to/result_caching/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/models/bedrock.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/bedrock.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/models/bedrock.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/models/bedrock.ts)

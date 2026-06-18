@@ -922,3 +922,17 @@ async def call_api(tool, **kwargs):
 - [Tools Overview](/docs/user-guide/concepts/tools/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
 - [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/tools/decorator.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/decorator.py)
+- [harness-sdk/strands-py/src/strands/tools/tools.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py)
+- [harness-sdk/strands-py/src/strands/tools/loader.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/loader.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/tools/function-tool.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/tools/function-tool.ts)
+- [harness-sdk/strands-ts/src/tools/tool-factory.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/tools/tool-factory.ts)

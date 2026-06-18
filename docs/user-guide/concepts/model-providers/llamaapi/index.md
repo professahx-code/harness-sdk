@@ -109,3 +109,10 @@ print(f"Rating: {result.rating}")
 
 - [llama.cpp](/docs/user-guide/concepts/model-providers/llamacpp/index.md) (1 shared tag)
 - [Ollama](/docs/user-guide/concepts/model-providers/ollama/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/models/llamaapi.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/llamaapi.py)

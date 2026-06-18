@@ -228,3 +228,15 @@ See [Hooks](/docs/user-guide/concepts/agents/hooks/index.md#model-call-retry) fo
 - [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (1 shared tag)
 - [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
 - [Operating Agents in Production](/docs/user-guide/deploy/operating-agents-in-production/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/event_loop/_retry.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/event_loop/_retry.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/retry/model-retry-strategy.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/retry/model-retry-strategy.ts)
+- [harness-sdk/strands-ts/src/retry/default-model-retry-strategy.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/retry/default-model-retry-strategy.ts)

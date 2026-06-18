@@ -148,3 +148,10 @@ As a reminder, Nova Sonic is only available in us-east-1, eu-north-1, and ap-nor
 - [BidiAgent](/docs/user-guide/concepts/bidirectional-streaming/agent/index.md) (1 shared tag)
 - [Events](/docs/user-guide/concepts/bidirectional-streaming/events/index.md) (1 shared tag)
 - [Gemini Live](/docs/user-guide/concepts/bidirectional-streaming/models/gemini_live/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/experimental/bidi/models/nova_sonic.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/bidi/models/nova_sonic.py)

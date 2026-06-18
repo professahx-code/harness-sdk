@@ -258,3 +258,13 @@ Tool names are stable and will not change. In minor versions, a tool’s descrip
 - [Tools Overview](/docs/user-guide/concepts/tools/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
 - [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
+
+
+## Implementation
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/vended-tools/file-editor/file-editor.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-tools/file-editor/file-editor.ts)
+- [harness-sdk/strands-ts/src/vended-tools/bash/bash.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-tools/bash/bash.ts)
+- [harness-sdk/strands-ts/src/vended-tools/http-request/http-request.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-tools/http-request/http-request.ts)
+- [harness-sdk/strands-ts/src/vended-tools/notebook/notebook.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-tools/notebook/notebook.ts)

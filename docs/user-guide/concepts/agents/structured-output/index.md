@@ -590,3 +590,14 @@ console.log(`Size: ${company.employees}`) // 500
 - [OpenAI](/docs/user-guide/concepts/model-providers/openai/index.md) (1 shared tag)
 - [Writer](/docs/user-guide/concepts/model-providers/writer/index.md) (1 shared tag)
 - [Anthropic](/docs/user-guide/concepts/model-providers/anthropic/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/agent/agent.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/agent.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/tools/structured-output-tool.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/tools/structured-output-tool.ts)

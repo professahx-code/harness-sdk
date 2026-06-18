@@ -352,3 +352,13 @@ const casualSnapshot = agent.takeSnapshot({ preset: 'session' })
 -   [State Management](/docs/user-guide/concepts/agents/state/index.md) — Conversation history, agent state, and request state
 -   [Session Management](/docs/user-guide/concepts/agents/session-management/index.md) — Automatic persistence with file or S3 storage
 -   [Conversation Management](/docs/user-guide/concepts/agents/conversation-management/index.md) — Managing conversation history and context window
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/types/_snapshot.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/_snapshot.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/agent/snapshot.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/agent/snapshot.ts)

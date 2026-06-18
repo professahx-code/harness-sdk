@@ -270,3 +270,10 @@ Authentication is handled by the underlying Vercel provider package. Refer to th
 - [Writer](/docs/user-guide/concepts/model-providers/writer/index.md) (1 shared tag)
 - [Amazon Nova](/docs/user-guide/concepts/model-providers/amazon-nova/index.md) (1 shared tag)
 - [Amazon Bedrock](/docs/user-guide/concepts/model-providers/amazon-bedrock/index.md) (1 shared tag)
+
+
+## Implementation
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/models/vercel.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/models/vercel.ts)

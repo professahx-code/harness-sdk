@@ -182,3 +182,10 @@ print(f"Rating: {result.rating}")
 - [OpenAI](/docs/user-guide/concepts/model-providers/openai/index.md) (1 shared tag)
 - [Writer](/docs/user-guide/concepts/model-providers/writer/index.md) (1 shared tag)
 - [Anthropic](/docs/user-guide/concepts/model-providers/anthropic/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/models/litellm.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/litellm.py)

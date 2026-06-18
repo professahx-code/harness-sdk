@@ -347,3 +347,14 @@ Use `HumanInTheLoop` when you want tool-level approval gating with minimal code:
 - [Hooks](/docs/user-guide/concepts/agents/hooks/index.md) (1 shared tag)
 - [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (1 shared tag)
 - [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/vended_interventions/hitl/hitl.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_interventions/hitl/hitl.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/vended-interventions/hitl/hitl.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-interventions/hitl/hitl.ts)

@@ -289,3 +289,10 @@ response = agent("What's the square root of 144 plus the current time?")
 
 - [Llama API](/docs/user-guide/concepts/model-providers/llamaapi/index.md) (1 shared tag)
 - [llama.cpp](/docs/user-guide/concepts/model-providers/llamacpp/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/models/ollama.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/ollama.py)

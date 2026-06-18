@@ -534,3 +534,18 @@ Interventions return typed actions that the framework interprets. This enables:
 - [Cedar Authorization](/docs/user-guide/concepts/agents/interventions/cedar-authorization/index.md) (2 shared tags)
 - [GoalLoop](/docs/user-guide/concepts/plugins/goal-loop/index.md) (2 shared tags)
 - [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/interventions/handler.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/interventions/handler.py)
+- [harness-sdk/strands-py/src/strands/interventions/actions.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/interventions/actions.py)
+- [harness-sdk/strands-py/src/strands/interventions/registry.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/interventions/registry.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/interventions/handler.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/interventions/handler.ts)
+- [harness-sdk/strands-ts/src/interventions/actions.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/interventions/actions.ts)
+- [harness-sdk/strands-ts/src/interventions/registry.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/interventions/registry.ts)

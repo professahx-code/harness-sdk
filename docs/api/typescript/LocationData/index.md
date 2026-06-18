@@ -1,4 +1,4 @@
-Defined in: [src/types/media.ts:71](https://github.com/strands-agents/harness-sdk/blob/278805cd559e63475a4c6f52f52614fffa99e401/strands-ts/src/types/media.ts#L71)
+Defined in: [src/types/media.ts:71](https://github.com/strands-agents/harness-sdk/blob/d77b68e333e3afa20815a6cd85c867acc8273d92/strands-ts/src/types/media.ts#L71)
 
 Base interface for a document/media source location.
 
@@ -14,6 +14,6 @@ Base interface for a document/media source location.
 type: string;
 ```
 
-Defined in: [src/types/media.ts:75](https://github.com/strands-agents/harness-sdk/blob/278805cd559e63475a4c6f52f52614fffa99e401/strands-ts/src/types/media.ts#L75)
+Defined in: [src/types/media.ts:75](https://github.com/strands-agents/harness-sdk/blob/d77b68e333e3afa20815a6cd85c867acc8273d92/strands-ts/src/types/media.ts#L75)
 
 Location type discriminator.

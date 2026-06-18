@@ -656,3 +656,16 @@ Notes:
 - [OpenAI Responses API](/docs/user-guide/concepts/model-providers/openai-responses/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
 - [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/tools/decorator.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/decorator.py)
+- [harness-sdk/strands-py/src/strands/tools/registry.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/registry.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/tools/tool.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/tools/tool.ts)
+- [harness-sdk/strands-ts/src/tools/tool-factory.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/tools/tool-factory.ts)

@@ -114,3 +114,15 @@ Custom tool executors are not currently supported but are planned for a future r
 - [Plugins](/docs/user-guide/concepts/plugins/index.md) (1 shared tag)
 - [Available Sandboxes](/docs/user-guide/concepts/sandbox/available-sandboxes/index.md) (1 shared tag)
 - [Building a Custom Sandbox](/docs/user-guide/concepts/sandbox/custom-sandbox/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/tools/executors/concurrent.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/executors/concurrent.py)
+- [harness-sdk/strands-py/src/strands/tools/executors/sequential.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/executors/sequential.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/agent/agent.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/agent/agent.ts)

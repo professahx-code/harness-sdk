@@ -669,3 +669,14 @@ For the full policy language grammar, operators, and built-in functions, see the
 - [Refusal Evaluator](/docs/user-guide/evals-sdk/evaluators/refusal_evaluator/index.md) (1 shared tag)
 - [Responsible AI](/docs/user-guide/safety-security/responsible-ai/index.md) (1 shared tag)
 - [Scoring Attacks](/docs/user-guide/evals-sdk/red-teaming/evaluators/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/vended_interventions/cedar/cedar_authorization.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_interventions/cedar/cedar_authorization.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/vended-interventions/cedar/cedar.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-interventions/cedar/cedar.ts)

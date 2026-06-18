@@ -144,3 +144,16 @@ Both modes compose an offloader that uses in-memory storage, which does not pers
 - [Interactions Evaluator](/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md) (1 shared tag)
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
 - [Skills](/docs/user-guide/concepts/plugins/skills/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/_context_manager/modes/agentic/agentic_context.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/_context_manager/modes/agentic/agentic_context.py)
+- [harness-sdk/strands-py/src/strands/agent/conversation_manager/conversation_manager.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/context-manager/modes/agentic/agentic-context.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/context-manager/modes/agentic/agentic-context.ts)
+- [harness-sdk/strands-ts/src/conversation-manager/conversation-manager.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/conversation-manager/conversation-manager.ts)

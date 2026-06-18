@@ -421,3 +421,14 @@ The OpenAI Responses provider does not currently implement native token counting
 - [Tools Overview](/docs/user-guide/concepts/tools/index.md) (1 shared tag)
 - [Session Management](/docs/user-guide/concepts/agents/session-management/index.md) (1 shared tag)
 - [State Management](/docs/user-guide/concepts/agents/state/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/models/openai_responses.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/openai_responses.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/models/openai/responses-adapter.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/models/openai/responses-adapter.ts)

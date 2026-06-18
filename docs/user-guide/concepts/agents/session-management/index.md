@@ -737,3 +737,18 @@ When implementing session persistence in your applications, consider these best 
 - [Serialization](/docs/user-guide/evals-sdk/how-to/serialization/index.md) (1 shared tag)
 - [OpenAI Responses API](/docs/user-guide/concepts/model-providers/openai-responses/index.md) (1 shared tag)
 - [Conversation Management](/docs/user-guide/concepts/agents/conversation-management/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/session/session_manager.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/session_manager.py)
+- [harness-sdk/strands-py/src/strands/session/file_session_manager.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/file_session_manager.py)
+- [harness-sdk/strands-py/src/strands/session/s3_session_manager.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/session/session-manager.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/session/session-manager.ts)
+- [harness-sdk/strands-ts/src/session/file-storage.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/session/file-storage.ts)
+- [harness-sdk/strands-ts/src/session/s3-storage.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/session/s3-storage.ts)

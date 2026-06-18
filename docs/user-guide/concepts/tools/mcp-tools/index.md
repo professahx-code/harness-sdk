@@ -649,3 +649,15 @@ When tool execution fails:
 - [OpenAI Responses API](/docs/user-guide/concepts/model-providers/openai-responses/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
 - [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/tools/mcp/mcp_client.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py)
+- [harness-sdk/strands-py/src/strands/tools/mcp/mcp_agent_tool.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_agent_tool.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/tools/mcp-tool.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/tools/mcp-tool.ts)

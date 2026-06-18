@@ -8010,6 +8010,18 @@ Understanding the loop deeply makes these advanced patterns more approachable. T
 - [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (1 shared tag)
 - [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/agent/agent.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/agent.py)
+- [harness-sdk/strands-py/src/strands/event_loop/event_loop.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/event_loop/event_loop.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/agent/agent.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/agent/agent.ts)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/agents/agent-loop/index.md
 
 ---
@@ -8655,6 +8667,21 @@ See the [SlidingWindowConversationManager](https://github.com/strands-agents/har
 - [Interactions Evaluator](/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md) (1 shared tag)
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
 - [Skills](/docs/user-guide/concepts/plugins/skills/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/agent/conversation_manager/conversation_manager.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py)
+- [harness-sdk/strands-py/src/strands/agent/conversation_manager/sliding_window_conversation_manager.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/sliding_window_conversation_manager.py)
+- [harness-sdk/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/summarizing_conversation_manager.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/conversation-manager/conversation-manager.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/conversation-manager/conversation-manager.ts)
+- [harness-sdk/strands-ts/src/conversation-manager/sliding-window-conversation-manager.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/conversation-manager/sliding-window-conversation-manager.ts)
+- [harness-sdk/strands-ts/src/conversation-manager/summarizing-conversation-manager.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/conversation-manager/summarizing-conversation-manager.ts)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/agents/conversation-management/index.md
 
@@ -10272,6 +10299,19 @@ const agent = new Agent({ plugins: [new LoggingPlugin()] })
 - [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (1 shared tag)
 - [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/hooks/events.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/hooks/events.py)
+- [harness-sdk/strands-py/src/strands/hooks/registry.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/hooks/registry.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/hooks/events.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/hooks/events.ts)
+- [harness-sdk/strands-ts/src/hooks/registry.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/hooks/registry.ts)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/agents/hooks/index.md
 
 ---
@@ -10814,6 +10854,21 @@ Interventions return typed actions that the framework interprets. This enables:
 - [Cedar Authorization](/docs/user-guide/concepts/agents/interventions/cedar-authorization/index.md) (2 shared tags)
 - [GoalLoop](/docs/user-guide/concepts/plugins/goal-loop/index.md) (2 shared tags)
 - [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/interventions/handler.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/interventions/handler.py)
+- [harness-sdk/strands-py/src/strands/interventions/actions.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/interventions/actions.py)
+- [harness-sdk/strands-py/src/strands/interventions/registry.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/interventions/registry.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/interventions/handler.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/interventions/handler.ts)
+- [harness-sdk/strands-ts/src/interventions/actions.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/interventions/actions.ts)
+- [harness-sdk/strands-ts/src/interventions/registry.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/interventions/registry.ts)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/agents/interventions/index.md
 
@@ -11493,6 +11548,17 @@ For the full policy language grammar, operators, and built-in functions, see the
 - [Responsible AI](/docs/user-guide/safety-security/responsible-ai/index.md) (1 shared tag)
 - [Scoring Attacks](/docs/user-guide/evals-sdk/red-teaming/evaluators/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/vended_interventions/cedar/cedar_authorization.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_interventions/cedar/cedar_authorization.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/vended-interventions/cedar/cedar.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-interventions/cedar/cedar.ts)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/agents/interventions/cedar-authorization/index.md
 
 ---
@@ -11849,6 +11915,17 @@ Use `HumanInTheLoop` when you want tool-level approval gating with minimal code:
 - [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (1 shared tag)
 - [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/vended_interventions/hitl/hitl.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_interventions/hitl/hitl.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/vended-interventions/hitl/hitl.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-interventions/hitl/hitl.ts)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/agents/interventions/human-in-the-loop/index.md
 
 ---
@@ -12176,6 +12253,17 @@ await agent.invoke('Find contact info for Acme Corp and send them a proposal')
 - [Retry Strategies](/docs/user-guide/concepts/agents/retry-strategies/index.md) (1 shared tag)
 - [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/vended_plugins/steering/core/handler.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/core/handler.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/vended-interventions/steering/handlers/llm.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-interventions/steering/handlers/llm.ts)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/agents/interventions/steering/index.md
 
 ---
@@ -12361,6 +12449,17 @@ For guidance on writing safe and responsible prompts, including defending agains
 - [Interactions Evaluator](/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md) (1 shared tag)
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
 - [Attack Strategies](/docs/user-guide/evals-sdk/red-teaming/strategies/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/agent/agent.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/agent.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/agent/agent.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/agent/agent.ts)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/agents/prompts/index.md
 
@@ -12598,6 +12697,18 @@ See [Hooks](/docs/user-guide/concepts/agents/hooks/index.md#model-call-retry) fo
 - [Steering](/docs/user-guide/concepts/agents/interventions/steering/index.md) (1 shared tag)
 - [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
 - [Operating Agents in Production](/docs/user-guide/deploy/operating-agents-in-production/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/event_loop/_retry.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/event_loop/_retry.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/retry/model-retry-strategy.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/retry/model-retry-strategy.ts)
+- [harness-sdk/strands-ts/src/retry/default-model-retry-strategy.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/retry/default-model-retry-strategy.ts)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/agents/retry-strategies/index.md
 
@@ -13345,6 +13456,21 @@ When implementing session persistence in your applications, consider these best 
 - [OpenAI Responses API](/docs/user-guide/concepts/model-providers/openai-responses/index.md) (1 shared tag)
 - [Conversation Management](/docs/user-guide/concepts/agents/conversation-management/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/session/session_manager.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/session_manager.py)
+- [harness-sdk/strands-py/src/strands/session/file_session_manager.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/file_session_manager.py)
+- [harness-sdk/strands-py/src/strands/session/s3_session_manager.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/session/session-manager.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/session/session-manager.ts)
+- [harness-sdk/strands-ts/src/session/file-storage.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/session/file-storage.ts)
+- [harness-sdk/strands-ts/src/session/s3-storage.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/session/s3-storage.ts)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/agents/session-management/index.md
 
 ---
@@ -13705,6 +13831,16 @@ const casualSnapshot = agent.takeSnapshot({ preset: 'session' })
 -   [State Management](/docs/user-guide/concepts/agents/state/index.md) — Conversation history, agent state, and request state
 -   [Session Management](/docs/user-guide/concepts/agents/session-management/index.md) — Automatic persistence with file or S3 storage
 -   [Conversation Management](/docs/user-guide/concepts/agents/conversation-management/index.md) — Managing conversation history and context window
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/types/_snapshot.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/_snapshot.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/agent/snapshot.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/agent/snapshot.ts)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/agents/snapshots/index.md
 
@@ -14132,6 +14268,18 @@ For automatic persistence of agent state and conversation history across applica
 - [Serialization](/docs/user-guide/evals-sdk/how-to/serialization/index.md) (1 shared tag)
 - [OpenAI Responses API](/docs/user-guide/concepts/model-providers/openai-responses/index.md) (1 shared tag)
 - [Conversation Management](/docs/user-guide/concepts/agents/conversation-management/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/agent/state.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/state.py)
+- [harness-sdk/strands-py/src/strands/types/json_dict.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/json_dict.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/agent/agent.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/agent/agent.ts)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/agents/state/index.md
 
@@ -14732,6 +14880,17 @@ console.log(`Size: ${company.employees}`) // 500
 - [Writer](/docs/user-guide/concepts/model-providers/writer/index.md) (1 shared tag)
 - [Anthropic](/docs/user-guide/concepts/model-providers/anthropic/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/agent/agent.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/agent.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/tools/structured-output-tool.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/tools/structured-output-tool.ts)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/agents/structured-output/index.md
 
 ---
@@ -15189,6 +15348,14 @@ The agent automatically cleans up background tasks, model connections, I/O chann
 - [Quickstart](/docs/user-guide/concepts/bidirectional-streaming/quickstart/index.md) (1 shared tag)
 - [Nova Sonic](/docs/user-guide/concepts/bidirectional-streaming/models/nova_sonic/index.md) (1 shared tag)
 - [Bidirectional Streaming Session Management](/docs/user-guide/concepts/bidirectional-streaming/session-management/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/experimental/bidi/agent/agent.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/bidi/agent/agent.py)
+- [harness-sdk/strands-py/src/strands/experimental/bidi/agent/loop.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/bidi/agent/loop.py)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/bidirectional-streaming/agent/index.md
 
@@ -15789,6 +15956,14 @@ For details on hook events and usage patterns, see the [Hooks](/docs/user-guide/
 - [Nova Sonic](/docs/user-guide/concepts/bidirectional-streaming/models/nova_sonic/index.md) (1 shared tag)
 - [Bidirectional Streaming Session Management](/docs/user-guide/concepts/bidirectional-streaming/session-management/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/experimental/bidi/types/events.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/bidi/types/events.py)
+- [harness-sdk/strands-py/src/strands/experimental/bidi/types/io.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/bidi/types/io.py)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/bidirectional-streaming/events/index.md
 
 ---
@@ -16155,6 +16330,13 @@ For additional best practices on performance considerations, error handling, com
 - [Nova Sonic](/docs/user-guide/concepts/bidirectional-streaming/models/nova_sonic/index.md) (1 shared tag)
 - [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/experimental/hooks/events.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/hooks/events.py)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md
 
 ---
@@ -16351,6 +16533,14 @@ model = BidiOpenAIRealtimeModel(
 - [Quickstart](/docs/user-guide/concepts/bidirectional-streaming/quickstart/index.md) (1 shared tag)
 - [Nova Sonic](/docs/user-guide/concepts/bidirectional-streaming/models/nova_sonic/index.md) (1 shared tag)
 - [Bidirectional Streaming Session Management](/docs/user-guide/concepts/bidirectional-streaming/session-management/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/experimental/bidi/types/events.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/bidi/types/events.py)
+- [harness-sdk/strands-py/src/strands/experimental/bidi/io/audio.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/bidi/io/audio.py)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/bidirectional-streaming/interruption/index.md
 
@@ -16604,6 +16794,14 @@ if __name__ == "__main__":
 - [Nova Sonic](/docs/user-guide/concepts/bidirectional-streaming/models/nova_sonic/index.md) (1 shared tag)
 - [Bidirectional Streaming Session Management](/docs/user-guide/concepts/bidirectional-streaming/session-management/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/experimental/bidi/io/text.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/bidi/io/text.py)
+- [harness-sdk/strands-py/src/strands/experimental/bidi/io/audio.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/bidi/io/audio.py)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/bidirectional-streaming/io/index.md
 
 ---
@@ -16718,6 +16916,13 @@ Make sure your Google AI API key is properly set in `client_config` or as the `G
 - [Quickstart](/docs/user-guide/concepts/bidirectional-streaming/quickstart/index.md) (1 shared tag)
 - [Nova Sonic](/docs/user-guide/concepts/bidirectional-streaming/models/nova_sonic/index.md) (1 shared tag)
 - [Bidirectional Streaming Session Management](/docs/user-guide/concepts/bidirectional-streaming/session-management/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/experimental/bidi/models/gemini_live.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/bidi/models/gemini_live.py)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/bidirectional-streaming/models/gemini_live/index.md
 
@@ -16876,6 +17081,13 @@ As a reminder, Nova Sonic is only available in us-east-1, eu-north-1, and ap-nor
 - [Events](/docs/user-guide/concepts/bidirectional-streaming/events/index.md) (1 shared tag)
 - [Gemini Live](/docs/user-guide/concepts/bidirectional-streaming/models/gemini_live/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/experimental/bidi/models/nova_sonic.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/bidi/models/nova_sonic.py)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/bidirectional-streaming/models/nova_sonic/index.md
 
 ---
@@ -16990,6 +17202,13 @@ Ensure your OpenAI API key is properly configured. Set the `OPENAI_API_KEY` envi
 - [Quickstart](/docs/user-guide/concepts/bidirectional-streaming/quickstart/index.md) (1 shared tag)
 - [Nova Sonic](/docs/user-guide/concepts/bidirectional-streaming/models/nova_sonic/index.md) (1 shared tag)
 - [Bidirectional Streaming Session Management](/docs/user-guide/concepts/bidirectional-streaming/session-management/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/experimental/bidi/models/openai_realtime.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/bidi/models/openai_realtime.py)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/bidirectional-streaming/models/openai_realtime/index.md
 
@@ -17782,6 +18001,14 @@ For best practices on session ID management, session cleanup, error handling, st
 - [OpenAI Realtime](/docs/user-guide/concepts/bidirectional-streaming/models/openai_realtime/index.md) (1 shared tag)
 - [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/session/file_session_manager.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/file_session_manager.py)
+- [harness-sdk/strands-py/src/strands/session/s3_session_manager.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/session/s3_session_manager.py)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/bidirectional-streaming/session-management/index.md
 
 ---
@@ -17934,6 +18161,19 @@ Both modes compose an offloader that uses in-memory storage, which does not pers
 - [Interactions Evaluator](/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md) (1 shared tag)
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
 - [Skills](/docs/user-guide/concepts/plugins/skills/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/_context_manager/modes/agentic/agentic_context.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/_context_manager/modes/agentic/agentic_context.py)
+- [harness-sdk/strands-py/src/strands/agent/conversation_manager/conversation_manager.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/conversation_manager/conversation_manager.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/context-manager/modes/agentic/agentic-context.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/context-manager/modes/agentic/agentic-context.ts)
+- [harness-sdk/strands-ts/src/conversation-manager/conversation-manager.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/conversation-manager/conversation-manager.ts)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/context-management/index.md
 
@@ -18112,6 +18352,13 @@ agent = config_to_agent(
 - [Tools Overview](/docs/user-guide/concepts/tools/index.md) (1 shared tag)
 - [Prompt Engineering](/docs/user-guide/safety-security/prompt-engineering/index.md) (1 shared tag)
 - [Prompts](/docs/user-guide/concepts/agents/prompts/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/experimental/agent_config.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/agent_config.py)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/experimental/agent-config/index.md
 
@@ -18980,6 +19227,19 @@ Strands enforces the following rules for interrupts in graph:
 - [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
 - [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/interrupt.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/interrupt.py)
+- [harness-sdk/strands-py/src/strands/types/interrupt.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/interrupt.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/interrupt.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/interrupt.ts)
+- [harness-sdk/strands-ts/src/types/interrupt.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/types/interrupt.ts)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/interrupts/index.md
 
 ---
@@ -19338,6 +19598,17 @@ For an `S3` data source, add `s3:PutObject` on the bucket and prefix the store u
 - [Memory](/docs/user-guide/concepts/memory/overview/index.md) (1 shared tag)
 - [Amazon Bedrock](/docs/user-guide/concepts/model-providers/amazon-bedrock/index.md) (2 shared tags)
 - [Deploying Strands Agents SDK Agents to Amazon EC2](/docs/user-guide/deploy/deploy_to_amazon_ec2/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/vended_memory_stores/bedrock_knowledge_base/store.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_memory_stores/bedrock_knowledge_base/store.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/vended-memory-stores/bedrock-knowledge-base/store.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-memory-stores/bedrock-knowledge-base/store.ts)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/memory/bedrock-knowledge-base/index.md
 
@@ -19977,6 +20248,19 @@ Three SDK features manage different kinds of state; memory is the one that cross
 ## Related pages
 
 - [Bedrock Knowledge Base Store](/docs/user-guide/concepts/memory/bedrock-knowledge-base/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/memory/memory_manager.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/memory/memory_manager.py)
+- [harness-sdk/strands-py/src/strands/memory/types.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/memory/types.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/memory/memory-manager.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/memory/memory-manager.ts)
+- [harness-sdk/strands-ts/src/memory/types.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/memory/types.ts)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/memory/overview/index.md
 
@@ -21425,6 +21709,17 @@ Strands uses a default Claude 4 Sonnet inference model from the region of your c
 - [PII Redaction](/docs/user-guide/safety-security/pii-redaction/index.md) (2 shared tags)
 - [Result Caching](/docs/user-guide/evals-sdk/how-to/result_caching/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/models/bedrock.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/bedrock.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/models/bedrock.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/models/bedrock.ts)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/model-providers/amazon-bedrock/index.md
 
 ---
@@ -21802,6 +22097,17 @@ When disabled (or if the API call fails), falls back to estimation with a charac
 - [OpenAI](/docs/user-guide/concepts/model-providers/openai/index.md) (1 shared tag)
 - [Writer](/docs/user-guide/concepts/model-providers/writer/index.md) (1 shared tag)
 - [Amazon Bedrock](/docs/user-guide/concepts/model-providers/amazon-bedrock/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/models/anthropic.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/anthropic.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/models/anthropic.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/models/anthropic.ts)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/model-providers/anthropic/index.md
 
@@ -22589,6 +22895,17 @@ The built-in `get_config` and `update_config` methods allow for the model’s co
 - [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/models/model.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/model.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/models/model.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/models/model.ts)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/model-providers/custom_model_provider/index.md
 
 ---
@@ -23176,6 +23493,17 @@ When disabled (or if the API call fails), falls back to estimation using the cha
 - [Amazon Nova](/docs/user-guide/concepts/model-providers/amazon-nova/index.md) (1 shared tag)
 - [Amazon Bedrock](/docs/user-guide/concepts/model-providers/amazon-bedrock/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/models/gemini.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/gemini.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/models/google/model.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/models/google/model.ts)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/model-providers/google/index.md
 
 ---
@@ -23367,6 +23695,13 @@ print(f"Rating: {result.rating}")
 - [Writer](/docs/user-guide/concepts/model-providers/writer/index.md) (1 shared tag)
 - [Anthropic](/docs/user-guide/concepts/model-providers/anthropic/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/models/litellm.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/litellm.py)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/model-providers/litellm/index.md
 
 ---
@@ -23484,6 +23819,13 @@ print(f"Rating: {result.rating}")
 
 - [llama.cpp](/docs/user-guide/concepts/model-providers/llamacpp/index.md) (1 shared tag)
 - [Ollama](/docs/user-guide/concepts/model-providers/ollama/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/models/llamaapi.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/llamaapi.py)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/model-providers/llamaapi/index.md
 
@@ -23727,6 +24069,13 @@ When disabled (or if the call fails), falls back to estimation with a character-
 - [Llama API](/docs/user-guide/concepts/model-providers/llamaapi/index.md) (1 shared tag)
 - [Ollama](/docs/user-guide/concepts/model-providers/ollama/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/models/llamacpp.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/llamacpp.py)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/model-providers/llamacpp/index.md
 
 ---
@@ -23820,6 +24169,12 @@ If you encounter the error `ModuleNotFoundError: No module named 'mistralai'`, t
 
 -   [Python API Reference](/docs/api/python/strands.models.model)
 -   [Mistral AI Documentation](https://docs.mistral.ai/)
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/models/mistral.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/mistral.py)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/model-providers/mistral/index.md
 
@@ -24118,6 +24473,13 @@ response = agent("What's the square root of 144 plus the current time?")
 
 - [Llama API](/docs/user-guide/concepts/model-providers/llamaapi/index.md) (1 shared tag)
 - [llama.cpp](/docs/user-guide/concepts/model-providers/llamacpp/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/models/ollama.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/ollama.py)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/model-providers/ollama/index.md
 
@@ -24442,6 +24804,17 @@ if __name__ == "__main__":
 - [Multimodal Faithfulness Evaluator](/docs/user-guide/evals-sdk/evaluators/multimodal_faithfulness_evaluator/index.md) (1 shared tag)
 - [Multimodal Instruction Following Evaluator](/docs/user-guide/evals-sdk/evaluators/multimodal_instruction_following_evaluator/index.md) (1 shared tag)
 - [Multimodal Output Evaluator](/docs/user-guide/evals-sdk/evaluators/multimodal_output_evaluator/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/models/openai.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/openai.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/models/openai/model.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/models/openai/model.ts)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/model-providers/openai/index.md
 
@@ -24873,6 +25246,17 @@ The OpenAI Responses provider does not currently implement native token counting
 - [Session Management](/docs/user-guide/concepts/agents/session-management/index.md) (1 shared tag)
 - [State Management](/docs/user-guide/concepts/agents/state/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/models/openai_responses.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/openai_responses.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/models/openai/responses-adapter.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/models/openai/responses-adapter.ts)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/model-providers/openai-responses/index.md
 
 ---
@@ -24980,6 +25364,12 @@ Ensure your deployed model supports OpenAI-compatible chat completion APIs and v
 -   [Python API Reference](/docs/api/python/strands.models.model)
 -   [Amazon SageMaker Documentation](https://docs.aws.amazon.com/sagemaker/)
 -   [SageMaker Runtime API](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html)
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/models/sagemaker.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/sagemaker.py)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/model-providers/sagemaker/index.md
 
@@ -25259,6 +25649,13 @@ Authentication is handled by the underlying Vercel provider package. Refer to th
 - [Writer](/docs/user-guide/concepts/model-providers/writer/index.md) (1 shared tag)
 - [Amazon Nova](/docs/user-guide/concepts/model-providers/amazon-nova/index.md) (1 shared tag)
 - [Amazon Bedrock](/docs/user-guide/concepts/model-providers/amazon-bedrock/index.md) (1 shared tag)
+
+
+## Implementation
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/models/vercel.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/models/vercel.ts)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/model-providers/vercel/index.md
 
@@ -25564,6 +25961,13 @@ Ensure your Writer API key is valid and has the necessary permissions. You can g
 - [Multimodal Faithfulness Evaluator](/docs/user-guide/evals-sdk/evaluators/multimodal_faithfulness_evaluator/index.md) (1 shared tag)
 - [Multimodal Instruction Following Evaluator](/docs/user-guide/evals-sdk/evaluators/multimodal_instruction_following_evaluator/index.md) (1 shared tag)
 - [Multimodal Output Evaluator](/docs/user-guide/evals-sdk/evaluators/multimodal_output_evaluator/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/models/writer.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/writer.py)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/model-providers/writer/index.md
 
@@ -26283,6 +26687,21 @@ If you encounter bugs or need to request features for A2A support:
 - [Swarm Multi-Agent Pattern](/docs/user-guide/concepts/multi-agent/swarm/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/agent/a2a_agent.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/a2a_agent.py)
+- [harness-sdk/strands-py/src/strands/multiagent/a2a/server.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/multiagent/a2a/server.py)
+- [harness-sdk/strands-py/src/strands/multiagent/a2a/executor.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/multiagent/a2a/executor.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/a2a/a2a-agent.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/a2a/a2a-agent.ts)
+- [harness-sdk/strands-ts/src/a2a/server.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/a2a/server.ts)
+- [harness-sdk/strands-ts/src/a2a/executor.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/a2a/executor.ts)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/multi-agent/agent-to-agent/index.md
 
 ---
@@ -26739,6 +27158,17 @@ The [Agents as Tools](https://github.com/strands-agents/harness-sdk/tree/main/st
 - [Vended Tools](/docs/user-guide/concepts/tools/vended-tools/index.md) (1 shared tag)
 - [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
 - [Build with AI](/docs/user-guide/build-with-ai/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/agent/_agent_as_tool.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/_agent_as_tool.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/agent/agent-as-tool.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/agent/agent-as-tool.ts)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md
 
@@ -27828,6 +28258,18 @@ The Graph pattern is available in multiple SDKs. While the core concept is the s
 - [Swarm Multi-Agent Pattern](/docs/user-guide/concepts/multi-agent/swarm/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/multiagent/base.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/multiagent/base.py)
+- [harness-sdk/strands-py/src/strands/multiagent/graph.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/multiagent/graph.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/multiagent/graph.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/multiagent/graph.ts)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/multi-agent/graph/index.md
 
 ---
@@ -28077,6 +28519,20 @@ For detailed implementation guides and examples:
 - [Graph Multi-Agent Pattern](/docs/user-guide/concepts/multi-agent/graph/index.md) (1 shared tag)
 - [Swarm Multi-Agent Pattern](/docs/user-guide/concepts/multi-agent/swarm/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/multiagent/base.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/multiagent/base.py)
+- [harness-sdk/strands-py/src/strands/multiagent/graph.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/multiagent/graph.py)
+- [harness-sdk/strands-py/src/strands/multiagent/swarm.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/multiagent/swarm.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/multiagent/graph.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/multiagent/graph.ts)
+- [harness-sdk/strands-ts/src/multiagent/swarm.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/multiagent/swarm.ts)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/multi-agent/multi-agent-patterns/index.md
 
@@ -28559,6 +29015,18 @@ The Swarm pattern is available in multiple SDKs. While the core concept is the s
 - [Graph Multi-Agent Pattern](/docs/user-guide/concepts/multi-agent/graph/index.md) (1 shared tag)
 - [Multi-agent Patterns](/docs/user-guide/concepts/multi-agent/multi-agent-patterns/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/multiagent/base.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/multiagent/base.py)
+- [harness-sdk/strands-py/src/strands/multiagent/swarm.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/multiagent/swarm.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/multiagent/swarm.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/multiagent/swarm.ts)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/multi-agent/swarm/index.md
 
@@ -29242,6 +29710,17 @@ class AsyncConfigPlugin implements Plugin {
 - [Bidirectional Streaming Hooks](/docs/user-guide/concepts/bidirectional-streaming/hooks/index.md) (1 shared tag)
 - [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/plugins/plugin.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/plugins/plugin.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/plugins/plugin.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/plugins/plugin.ts)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/plugins/index.md
 
 ---
@@ -29373,6 +29852,17 @@ The rendered text is a prompt-injection surface. If it interpolates attacker-inf
 - [Skills](/docs/user-guide/concepts/plugins/skills/index.md) (1 shared tag)
 - [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) (1 shared tag)
 - [Conversation Management](/docs/user-guide/concepts/agents/conversation-management/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/vended_plugins/context_injector/plugin.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_injector/plugin.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/vended-plugins/context-injector/plugin.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-plugins/context-injector/plugin.ts)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/plugins/context-injector/index.md
 
@@ -29826,6 +30316,19 @@ const agent = new Agent({
 - [Interactions Evaluator](/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md) (1 shared tag)
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/vended_plugins/context_offloader/plugin.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/plugin.py)
+- [harness-sdk/strands-py/src/strands/vended_plugins/context_offloader/storage.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/storage.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/vended-plugins/context-offloader/plugin.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-plugins/context-offloader/plugin.ts)
+- [harness-sdk/strands-ts/src/vended-plugins/context-offloader/storage.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-plugins/context-offloader/storage.ts)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/plugins/context-offloader/index.md
 
 ---
@@ -30258,6 +30761,19 @@ const plugin = new GoalLoop({
 - [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
 - [Skills](/docs/user-guide/concepts/plugins/skills/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/vended_plugins/goal/plugin.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/goal/plugin.py)
+- [harness-sdk/strands-py/src/strands/vended_plugins/goal/judge.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/goal/judge.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/vended-plugins/goal/plugin.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-plugins/goal/plugin.ts)
+- [harness-sdk/strands-ts/src/vended-plugins/goal/judge.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-plugins/goal/judge.ts)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/plugins/goal-loop/index.md
 
 ---
@@ -30671,6 +31187,19 @@ Use skills when you want a single agent that can handle a wide range of tasks by
 - [GoalLoop](/docs/user-guide/concepts/plugins/goal-loop/index.md) (1 shared tag)
 - [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/vended_plugins/skills/agent_skills.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/skills/agent_skills.py)
+- [harness-sdk/strands-py/src/strands/vended_plugins/skills/skill.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/skills/skill.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/vended-plugins/skills/agent-skills.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-plugins/skills/agent-skills.ts)
+- [harness-sdk/strands-ts/src/vended-plugins/skills/skill.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-plugins/skills/skill.ts)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/plugins/skills/index.md
 
 ---
@@ -30847,6 +31376,15 @@ Traditional prompting requires front-loading all instructions into a single prom
 - [Helpfulness Evaluator](/docs/user-guide/evals-sdk/evaluators/helpfulness_evaluator/index.md) (1 shared tag)
 - [Interactions Evaluator](/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md) (1 shared tag)
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/vended_plugins/steering/core/handler.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/core/handler.py)
+- [harness-sdk/strands-py/src/strands/vended_plugins/steering/handlers/llm/llm_handler.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/handlers/llm/llm_handler.py)
+- [harness-sdk/strands-py/src/strands/vended_plugins/steering/context_providers/ledger_provider.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/context_providers/ledger_provider.py)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/plugins/steering/index.md
 
@@ -32209,6 +32747,19 @@ The output will show the sequence of events:
 - [Callback Handlers](/docs/user-guide/concepts/streaming/callback-handlers/index.md) (1 shared tag)
 - [Streaming Events](/docs/user-guide/concepts/streaming/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/agent/agent.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/agent.py)
+- [harness-sdk/strands-py/src/strands/event_loop/streaming.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/event_loop/streaming.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/agent/agent.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/agent/agent.ts)
+- [harness-sdk/strands-ts/src/models/streaming.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/models/streaming.ts)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/streaming/async-iterators/index.md
 
 ---
@@ -32384,6 +32935,13 @@ When implementing callback handlers:
 
 - [Async Iterators for Streaming](/docs/user-guide/concepts/streaming/async-iterators/index.md) (1 shared tag)
 - [Streaming Events](/docs/user-guide/concepts/streaming/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/handlers/callback_handler.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/handlers/callback_handler.py)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/streaming/callback-handlers/index.md
 
@@ -33049,6 +33607,19 @@ Notes:
 - [OpenAI Responses API](/docs/user-guide/concepts/model-providers/openai-responses/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
 - [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/tools/decorator.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/decorator.py)
+- [harness-sdk/strands-py/src/strands/tools/registry.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/registry.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/tools/tool.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/tools/tool.ts)
+- [harness-sdk/strands-ts/src/tools/tool-factory.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/tools/tool-factory.ts)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/tools/index.md
 
@@ -34182,6 +34753,20 @@ async def call_api(tool, **kwargs):
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
 - [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/tools/decorator.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/decorator.py)
+- [harness-sdk/strands-py/src/strands/tools/tools.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/tools.py)
+- [harness-sdk/strands-py/src/strands/tools/loader.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/loader.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/tools/function-tool.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/tools/function-tool.ts)
+- [harness-sdk/strands-ts/src/tools/tool-factory.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/tools/tool-factory.ts)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/tools/custom-tools/index.md
 
 ---
@@ -34304,6 +34889,18 @@ Custom tool executors are not currently supported but are planned for a future r
 - [Plugins](/docs/user-guide/concepts/plugins/index.md) (1 shared tag)
 - [Available Sandboxes](/docs/user-guide/concepts/sandbox/available-sandboxes/index.md) (1 shared tag)
 - [Building a Custom Sandbox](/docs/user-guide/concepts/sandbox/custom-sandbox/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/tools/executors/concurrent.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/executors/concurrent.py)
+- [harness-sdk/strands-py/src/strands/tools/executors/sequential.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/executors/sequential.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/agent/agent.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/agent/agent.ts)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/tools/executors/index.md
 
@@ -34963,6 +35560,18 @@ When tool execution fails:
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
 - [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
 
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/tools/mcp/mcp_client.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py)
+- [harness-sdk/strands-py/src/strands/tools/mcp/mcp_agent_tool.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_agent_tool.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/tools/mcp-tool.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/tools/mcp-tool.ts)
+
 Source: https://strandsagents.com/docs/user-guide/concepts/tools/mcp-tools/index.md
 
 ---
@@ -35229,6 +35838,16 @@ Tool names are stable and will not change. In minor versions, a tool’s descrip
 - [Tools Overview](/docs/user-guide/concepts/tools/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
 - [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
+
+
+## Implementation
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/vended-tools/file-editor/file-editor.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-tools/file-editor/file-editor.ts)
+- [harness-sdk/strands-ts/src/vended-tools/bash/bash.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-tools/bash/bash.ts)
+- [harness-sdk/strands-ts/src/vended-tools/http-request/http-request.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-tools/http-request/http-request.ts)
+- [harness-sdk/strands-ts/src/vended-tools/notebook/notebook.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-tools/notebook/notebook.ts)
 
 Source: https://strandsagents.com/docs/user-guide/concepts/tools/vended-tools/index.md
 
@@ -57624,6 +58243,209 @@ The Strands SDK is an open-source project that welcomes community contributions.
 -   **Share Feedback**: Your input on versioning and support policies helps shape the SDK’s future
 
 Source: https://strandsagents.com/docs/user-guide/versioning-and-support/index.md
+
+---
+
+## Reduced cost, better isolation, and more resilience: Strands Agents evolves next-gen capabilities
+
+Date: 2026-06-24T00:00:00.000Z
+Tags: Announcement, Context Management, Evaluation, Open Source
+
+Agents break in production for common reasons like the context window filling up, emerging needs like filesystem access, and unexpected failure scenarios in distributed environments.
+
+We shipped Strands a little over a year ago to help solve the common and challenging problems in agentic AI. 50 million+ downloads later, the recurring feedback we hear as developers move agents into production are token costs growing unexpectedly, agents needing safe access to filesystems, and a lack of ways to test whether things break before customers find out that they do.
+
+When we scale agents internally at AWS, we run into the same issues. Today we’re shipping three updates in Strands that solve these problems: better context management in the [Harness SDK](https://github.com/strands-agents/harness-sdk), a new isolated execution environment with [Strands Shell](https://github.com/strands-agents/shell), and chaos testing and red teaming in [Strands Evals](https://github.com/strands-agents/evals).
+
+Strands is an open source toolkit for building production agents, and you can use any of these pieces independently without changing your stack.
+
+## Context management that cuts your costs in half
+
+We’ve baked a year of our learning in context management into a one-line abstraction:
+
+```python
+agent = Agent(context_manager="auto")
+```
+
+With this new default behavior, large tool results are offloaded to external storage and replaced with a truncated preview. Old messages are compressed into structured summaries rather than dropped. Additionally, proactive compression fires at 85% context usage to stay ahead of overflow.
+
+In our benchmarks on real code investigation tasks, costs dropped by 55% while accuracy went from 68% to 98%. Half the tokens, better results. We’ll cover the methodology in a follow-up post. The winning configuration ships as the default. You don’t have to configure thresholds, summary ratios, or compression timing.
+
+For agents where the model is better positioned to decide what stays in context, use `context_manager="agentic"`. The model gets tools to summarize, truncate, or pin messages. It trades tokens for judgment. We recommend you start with “auto” by default, and use “agentic” when your agent needs to protect specific context across long conversations.
+
+## Strands Shell: sandboxed execution without the setup
+
+Your agent needs to run commands, read files, grep through codebases and curl APIs. Strands Shell is a new open-source project that gives your agent a secure execution environment with sub-millisecond startup. It layers cleanly into your deployment environment, like AgentCore Runtime’s session-isolated microVM. Your code does not need to change when changing environments, and you just include Shell like any other library dependency in your project. You declare what the agent can reach, while keeping everything else isolated.
+
+```python
+import strands_shell
+
+shell = strands_shell.Shell(
+    binds=[strands_shell.Bind("./project", "/workspace", mode="copy")],
+    credentials=[strands_shell.Cred("https://api.example.com/", env_var="API_TOKEN")],
+    allowed_urls=["https://api.example.com/"],
+)
+
+out = shell.run("grep -rn TODO /workspace")
+```
+
+See [GitHub](https://github.com/strands-agents/shell/blob/main/SECURITY.md) for more on Shell’s security model. The summary is:
+
+-   **Files**: only bound paths exist in the virtual filesystem.
+-   **Network**: private ranges blocked by default, public URLs pass through, internal hosts require explicit allowlisting.
+-   **Secrets**: injected per-URL at request time. The agent never holds credentials directly.
+
+Any agent that speaks MCP can use Shell:
+
+```json
+{
+  "mcpServers": {
+    "shell": {
+      "command": "uvx",
+      "args": ["strands-shell", "--mcp"]
+    }
+  }
+}
+```
+
+## Full example: a Pokemon team advisor
+
+In order to demonstrate how these launches come together, we’ve created a [new sample](https://github.com/strands-agents/samples/tree/main/python/05-technical-use-cases/pokemon-team-advisor) agent that is tasked with determining which Pokemon is best for your requirements. To simulate a data-rich tool that would easily overwhelm the context window, we give the agent two tools that wrap JSON from the [PokeAPI/api-data](https://github.com/PokeAPI/api-data) repository. The API responses are big. A single Pokemon lookup returns stats, moves, abilities, and sprites in one payload. This is a stand-in for any tool that returns more data than fits in context.
+
+The agent uses Shell for working with files, and `context_manager="auto"` to handle the large responses.
+
+```python
+import os
+from mcp import stdio_client, StdioServerParameters
+from strands import Agent, tool
+from strands.tools.mcp import MCPClient
+from strands.vended_plugins.context_offloader import ContextOffloader, FileStorage
+
+ARTIFACTS_DIR = "./artifacts"
+os.makedirs(ARTIFACTS_DIR, exist_ok=True)
+
+@tool
+def get_pokemon(name_or_id: str) -> str:
+    """Look up a Pokemon by name or Pokedex ID.
+    Returns full JSON with stats, types, abilities, and move list."""
+    with open(f"./pokedata/pokemon/{name_or_id}/index.json") as f:
+        return f.read()
+
+@tool
+def get_move(move_id: str) -> str:
+    """Look up a move by ID.
+    Returns full JSON including power, type, accuracy, and which Pokemon can learn it."""
+    with open(f"./pokedata/move/{move_id}/index.json") as f:
+        return f.read()
+
+shell = MCPClient(lambda: stdio_client(
+    StdioServerParameters(command="uvx", args=["strands-shell", "--config", "sandbox.toml", "--mcp"])
+))
+
+agent = Agent(
+    tools=[get_pokemon, get_move, shell],
+    context_manager="auto",
+    plugins=[
+        ContextOffloader(
+            storage=FileStorage(ARTIFACTS_DIR),
+            include_retrieval_tool=False,
+        ),
+    ],
+    system_prompt="Offloaded content is accessible in the shell at /artifacts/",
+)
+```
+
+```python
+agent("I'm building a competitive team and need a physical attacker with good "
+     "coverage. Which Pokemon that can learn both Earthquake and Ice Beam has "
+     "the highest base Attack stat?")
+```
+
+### What happens at runtime
+
+The agent will make dozens of tool calls to explore the dataset including offloaded responses for large datasets and it can manage long-running sessions without context overflows. Through Shell, the agent only sees two directories the entire time: `/pokedata` (read-only copy of the dataset) and `/artifacts` (writable, where offloaded content lands). Nothing else on the host exists to the agent.
+
+That’s the agent working under ideal conditions. Production isn’t ideal.
+
+## Now break it: Strands Evals
+
+Strands Evals is an SDK for evaluating your agents while you build. With 1.0, we’ve added features to help you test your agent from multiple angles including chaos testing (do tools breaking break your agent?) and red teaming (does the agent behave as expected under adversarial pressure?).
+
+### Chaos testing
+
+Use chaos to define which tools fail and how. The ChaosPlugin intercepts calls at the plugin layer and injects the failures.
+
+```python
+from strands_evals.chaos import ChaosCase, ChaosExperiment, ChaosPlugin
+from strands_evals.chaos.effects import Timeout, NetworkError, TruncateFields
+from strands_evals.evaluators.deterministic import Contains
+
+chaos = ChaosPlugin()
+
+agent = Agent(
+    tools=[get_pokemon, get_move, shell],
+    context_manager="auto",
+    plugins=[chaos, ContextOffloader(storage=FileStorage("./artifacts"), include_retrieval_tool=False)],
+    system_prompt="Offloaded content is accessible in the shell at /artifacts/",
+)
+
+effect_maps = {
+    "api_timeout": {"tool_effects": {"get_move": [Timeout()]}},
+    "api_down": {"tool_effects": {"get_pokemon": [NetworkError()]}},
+    "partial_response": {"tool_effects": {"get_pokemon": [TruncateFields(max_length=200)]}},
+}
+
+chaos_cases = ChaosCase.expand(
+    [Case(name="earthquake_ice_beam", input="Which Pokemon learns both Earthquake and Ice Beam with the highest Attack?")],
+    effect_maps,
+    include_no_effect_baseline=True,
+)
+
+experiment = ChaosExperiment(
+    cases=chaos_cases,
+    evaluators=[Contains(value="rampardos", case_sensitive=False, name="correct_answer")],
+)
+report = experiment.run_evaluations(task=lambda case: {"output": str(agent(case.input))})
+```
+
+Does the agent recover gracefully when `get_move` times out or when `get_pokemon` returns a network error? Chaos testing gives you the means to test and refine behavior while you build.
+
+### Red teaming the sandbox
+
+We gave this agent shell access. Shell’s VFS only exposes `/pokedata` and `/artifacts`. But does it hold when a user actively tries to escape?
+
+```python
+from strands_evals.experimental.redteam import RedTeamExperiment
+from strands_evals.experimental.redteam.generators.adversarial import AdversarialCaseGenerator
+from strands_evals.experimental.redteam.strategies import CrescendoStrategy
+
+cases = AdversarialCaseGenerator().generate_cases(
+    agent=agent,
+    risk_categories=["data_exfiltration", "excessive_agency"],
+    num_cases=3,
+)
+
+experiment = RedTeamExperiment(
+    cases=cases,
+    agent_factory=make_agent,
+    attack_strategies=[CrescendoStrategy(max_turns=5)],
+)
+report = experiment.run_evaluations()
+```
+
+`AdversarialCaseGenerator` inspects your agent’s tools and system prompt, sees it has shell access, and auto-generates targeted escape attempts. `CrescendoStrategy` starts with legitimate requests and gradually escalates across five turns, probing for paths the agent might follow. This is the two-layer test. The model might be willing to comply with a convincing request but Shell blocks it at the VFS layer.
+
+Five risk categories are available today (`guideline_bypass`, `system_prompt_leak`, `harmful_content`, `data_exfiltration`, `excessive_agency`) and four attack strategies (Crescendo, GOAT, PAIR, sequential break).
+
+Chaos and red teaming are the new pieces in 1.0. Evals also ships 20+ evaluators (correctness, helpfulness, tool selection accuracy, harmfulness, refusal), ToolSimulator for stateful API mocking, and OpenTelemetry-native tracing so it evaluates agents built with any instrumented framework. Detectors turn failing sessions into root causes with fix recommendations, and the strands-evals CLI helps you run experiments and gates in CI.
+
+## What this means for your agents
+
+Context management keeps costs down. Shell keeps the blast radius contained. Evals proves it works before it’s in production. Each piece works independently. You can add any one to your stack without changing the rest.
+
+[strandsagents.com/docs](https://strandsagents.com/docs) | [github.com/strands-agents/shell](https://github.com/strands-agents/shell) | [github.com/strands-agents/evals](https://github.com/strands-agents/evals)
+
+Source: https://strandsagents.com/blog/reduced-cost-better-isolation-more-resilience/index.md
 
 ---
 

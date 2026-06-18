@@ -123,3 +123,14 @@ The rendered text is a prompt-injection surface. If it interpolates attacker-inf
 - [Skills](/docs/user-guide/concepts/plugins/skills/index.md) (1 shared tag)
 - [Context Offloader](/docs/user-guide/concepts/plugins/context-offloader/index.md) (1 shared tag)
 - [Conversation Management](/docs/user-guide/concepts/agents/conversation-management/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/vended_plugins/context_injector/plugin.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_injector/plugin.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/vended-plugins/context-injector/plugin.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-plugins/context-injector/plugin.ts)

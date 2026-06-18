@@ -167,3 +167,10 @@ When implementing callback handlers:
 
 - [Async Iterators for Streaming](/docs/user-guide/concepts/streaming/async-iterators/index.md) (1 shared tag)
 - [Streaming Events](/docs/user-guide/concepts/streaming/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/handlers/callback_handler.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/handlers/callback_handler.py)

@@ -404,3 +404,16 @@ Use skills when you want a single agent that can handle a wide range of tasks by
 - [Steering](/docs/user-guide/concepts/plugins/steering/index.md) (1 shared tag)
 - [GoalLoop](/docs/user-guide/concepts/plugins/goal-loop/index.md) (1 shared tag)
 - [Agent Configuration](/docs/user-guide/concepts/experimental/agent-config/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/vended_plugins/skills/agent_skills.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/skills/agent_skills.py)
+- [harness-sdk/strands-py/src/strands/vended_plugins/skills/skill.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/skills/skill.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/vended-plugins/skills/agent-skills.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-plugins/skills/agent-skills.ts)
+- [harness-sdk/strands-ts/src/vended-plugins/skills/skill.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-plugins/skills/skill.ts)

@@ -272,3 +272,14 @@ When disabled (or if the API call fails), falls back to estimation with a charac
 - [OpenAI](/docs/user-guide/concepts/model-providers/openai/index.md) (1 shared tag)
 - [Writer](/docs/user-guide/concepts/model-providers/writer/index.md) (1 shared tag)
 - [Amazon Bedrock](/docs/user-guide/concepts/model-providers/amazon-bedrock/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/models/anthropic.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/anthropic.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/models/anthropic.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/models/anthropic.ts)

@@ -448,3 +448,14 @@ The [Agents as Tools](https://github.com/strands-agents/harness-sdk/tree/main/st
 - [Vended Tools](/docs/user-guide/concepts/tools/vended-tools/index.md) (1 shared tag)
 - [Creating a Custom Model Provider](/docs/user-guide/concepts/model-providers/custom_model_provider/index.md) (1 shared tag)
 - [Build with AI](/docs/user-guide/build-with-ai/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/agent/_agent_as_tool.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/_agent_as_tool.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/agent/agent-as-tool.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/agent/agent-as-tool.ts)

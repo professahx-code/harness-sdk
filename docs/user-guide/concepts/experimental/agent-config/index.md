@@ -169,3 +169,10 @@ agent = config_to_agent(
 - [Tools Overview](/docs/user-guide/concepts/tools/index.md) (1 shared tag)
 - [Prompt Engineering](/docs/user-guide/safety-security/prompt-engineering/index.md) (1 shared tag)
 - [Prompts](/docs/user-guide/concepts/agents/prompts/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/experimental/agent_config.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/agent_config.py)

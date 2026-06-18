@@ -315,3 +315,14 @@ if __name__ == "__main__":
 - [Multimodal Faithfulness Evaluator](/docs/user-guide/evals-sdk/evaluators/multimodal_faithfulness_evaluator/index.md) (1 shared tag)
 - [Multimodal Instruction Following Evaluator](/docs/user-guide/evals-sdk/evaluators/multimodal_instruction_following_evaluator/index.md) (1 shared tag)
 - [Multimodal Output Evaluator](/docs/user-guide/evals-sdk/evaluators/multimodal_output_evaluator/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/models/openai.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/openai.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/models/openai/model.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/models/openai/model.ts)

@@ -168,3 +168,12 @@ Traditional prompting requires front-loading all instructions into a single prom
 - [Helpfulness Evaluator](/docs/user-guide/evals-sdk/evaluators/helpfulness_evaluator/index.md) (1 shared tag)
 - [Interactions Evaluator](/docs/user-guide/evals-sdk/evaluators/interactions_evaluator/index.md) (1 shared tag)
 - [Output Evaluator](/docs/user-guide/evals-sdk/evaluators/output_evaluator/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/vended_plugins/steering/core/handler.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/core/handler.py)
+- [harness-sdk/strands-py/src/strands/vended_plugins/steering/handlers/llm/llm_handler.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/handlers/llm/llm_handler.py)
+- [harness-sdk/strands-py/src/strands/vended_plugins/steering/context_providers/ledger_provider.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/steering/context_providers/ledger_provider.py)

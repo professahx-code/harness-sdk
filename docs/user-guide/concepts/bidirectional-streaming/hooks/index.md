@@ -357,3 +357,10 @@ For additional best practices on performance considerations, error handling, com
 - [Quickstart](/docs/user-guide/concepts/bidirectional-streaming/quickstart/index.md) (1 shared tag)
 - [Nova Sonic](/docs/user-guide/concepts/bidirectional-streaming/models/nova_sonic/index.md) (1 shared tag)
 - [Agent Loop](/docs/user-guide/concepts/agents/agent-loop/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/experimental/hooks/events.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/experimental/hooks/events.py)

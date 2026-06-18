@@ -1,4 +1,4 @@
-Defined in: [src/models/streaming.ts:296](https://github.com/strands-agents/harness-sdk/blob/278805cd559e63475a4c6f52f52614fffa99e401/strands-ts/src/models/streaming.ts#L296)
+Defined in: [src/models/streaming.ts:296](https://github.com/strands-agents/harness-sdk/blob/d77b68e333e3afa20815a6cd85c867acc8273d92/strands-ts/src/models/streaming.ts#L296)
 
 Information about input content redaction. Does not include redactedContent since the original input is already available in the messages array from BeforeModelCallEvent.
 
@@ -10,6 +10,6 @@ Information about input content redaction. Does not include redactedContent sinc
 replaceContent: string;
 ```
 
-Defined in: [src/models/streaming.ts:300](https://github.com/strands-agents/harness-sdk/blob/278805cd559e63475a4c6f52f52614fffa99e401/strands-ts/src/models/streaming.ts#L300)
+Defined in: [src/models/streaming.ts:300](https://github.com/strands-agents/harness-sdk/blob/d77b68e333e3afa20815a6cd85c867acc8273d92/strands-ts/src/models/streaming.ts#L300)
 
 The content to replace the redacted input with.

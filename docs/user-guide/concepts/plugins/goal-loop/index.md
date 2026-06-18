@@ -423,3 +423,16 @@ const plugin = new GoalLoop({
 - [Instruction Following Evaluator](/docs/user-guide/evals-sdk/evaluators/instruction_following_evaluator/index.md) (1 shared tag)
 - [Tool Executors](/docs/user-guide/concepts/tools/executors/index.md) (1 shared tag)
 - [Skills](/docs/user-guide/concepts/plugins/skills/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/vended_plugins/goal/plugin.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/goal/plugin.py)
+- [harness-sdk/strands-py/src/strands/vended_plugins/goal/judge.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/goal/judge.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/vended-plugins/goal/plugin.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-plugins/goal/plugin.ts)
+- [harness-sdk/strands-ts/src/vended-plugins/goal/judge.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-plugins/goal/judge.ts)

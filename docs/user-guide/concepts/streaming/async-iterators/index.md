@@ -251,3 +251,16 @@ The output will show the sequence of events:
 
 - [Callback Handlers](/docs/user-guide/concepts/streaming/callback-handlers/index.md) (1 shared tag)
 - [Streaming Events](/docs/user-guide/concepts/streaming/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/agent/agent.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/agent.py)
+- [harness-sdk/strands-py/src/strands/event_loop/streaming.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/event_loop/streaming.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/agent/agent.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/agent/agent.ts)
+- [harness-sdk/strands-ts/src/models/streaming.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/models/streaming.ts)

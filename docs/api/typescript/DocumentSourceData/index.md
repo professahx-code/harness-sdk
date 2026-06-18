@@ -14,6 +14,6 @@ type DocumentSourceData =
 };
 ```
 
-Defined in: [src/types/media.ts:380](https://github.com/strands-agents/harness-sdk/blob/278805cd559e63475a4c6f52f52614fffa99e401/strands-ts/src/types/media.ts#L380)
+Defined in: [src/types/media.ts:380](https://github.com/strands-agents/harness-sdk/blob/d77b68e333e3afa20815a6cd85c867acc8273d92/strands-ts/src/types/media.ts#L380)
 
 Source for a document (Data version). Supports multiple formats including structured content.

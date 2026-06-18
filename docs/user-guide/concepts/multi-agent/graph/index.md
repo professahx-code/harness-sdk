@@ -1079,3 +1079,15 @@ The Graph pattern is available in multiple SDKs. While the core concept is the s
 - [Multi-agent Patterns](/docs/user-guide/concepts/multi-agent/multi-agent-patterns/index.md) (1 shared tag)
 - [Swarm Multi-Agent Pattern](/docs/user-guide/concepts/multi-agent/swarm/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/multiagent/base.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/multiagent/base.py)
+- [harness-sdk/strands-py/src/strands/multiagent/graph.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/multiagent/graph.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/multiagent/graph.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/multiagent/graph.ts)

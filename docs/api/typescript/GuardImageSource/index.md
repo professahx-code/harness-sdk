@@ -4,7 +4,7 @@ type GuardImageSource = {
 };
 ```
 
-Defined in: [src/types/messages.ts:803](https://github.com/strands-agents/harness-sdk/blob/278805cd559e63475a4c6f52f52614fffa99e401/strands-ts/src/types/messages.ts#L803)
+Defined in: [src/types/messages.ts:803](https://github.com/strands-agents/harness-sdk/blob/d77b68e333e3afa20815a6cd85c867acc8273d92/strands-ts/src/types/messages.ts#L803)
 
 Source for guard content image. Only supports raw bytes.
 
@@ -16,4 +16,4 @@ Source for guard content image. Only supports raw bytes.
 bytes: Uint8Array;
 ```
 
-Defined in: [src/types/messages.ts:803](https://github.com/strands-agents/harness-sdk/blob/278805cd559e63475a4c6f52f52614fffa99e401/strands-ts/src/types/messages.ts#L803)
+Defined in: [src/types/messages.ts:803](https://github.com/strands-agents/harness-sdk/blob/d77b68e333e3afa20815a6cd85c867acc8273d92/strands-ts/src/types/messages.ts#L803)

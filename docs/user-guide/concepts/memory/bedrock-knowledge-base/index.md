@@ -350,3 +350,14 @@ For an `S3` data source, add `s3:PutObject` on the bucket and prefix the store u
 - [Memory](/docs/user-guide/concepts/memory/overview/index.md) (1 shared tag)
 - [Amazon Bedrock](/docs/user-guide/concepts/model-providers/amazon-bedrock/index.md) (2 shared tags)
 - [Deploying Strands Agents SDK Agents to Amazon EC2](/docs/user-guide/deploy/deploy_to_amazon_ec2/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/vended_memory_stores/bedrock_knowledge_base/store.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_memory_stores/bedrock_knowledge_base/store.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/vended-memory-stores/bedrock-knowledge-base/store.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/vended-memory-stores/bedrock-knowledge-base/store.ts)

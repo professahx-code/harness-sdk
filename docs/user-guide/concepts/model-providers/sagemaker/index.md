@@ -99,3 +99,9 @@ Ensure your deployed model supports OpenAI-compatible chat completion APIs and v
 -   [Python API Reference](/docs/api/python/strands.models.model)
 -   [Amazon SageMaker Documentation](https://docs.aws.amazon.com/sagemaker/)
 -   [SageMaker Runtime API](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html)
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/models/sagemaker.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/sagemaker.py)

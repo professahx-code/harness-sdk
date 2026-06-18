@@ -709,3 +709,18 @@ If you encounter bugs or need to request features for A2A support:
 - [Multi-agent Patterns](/docs/user-guide/concepts/multi-agent/multi-agent-patterns/index.md) (1 shared tag)
 - [Swarm Multi-Agent Pattern](/docs/user-guide/concepts/multi-agent/swarm/index.md) (1 shared tag)
 - [Agents as Tools with Strands Agents SDK](/docs/user-guide/concepts/multi-agent/agents-as-tools/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/agent/a2a_agent.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/a2a_agent.py)
+- [harness-sdk/strands-py/src/strands/multiagent/a2a/server.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/multiagent/a2a/server.py)
+- [harness-sdk/strands-py/src/strands/multiagent/a2a/executor.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/multiagent/a2a/executor.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/a2a/a2a-agent.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/a2a/a2a-agent.ts)
+- [harness-sdk/strands-ts/src/a2a/server.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/a2a/server.ts)
+- [harness-sdk/strands-ts/src/a2a/executor.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/a2a/executor.ts)

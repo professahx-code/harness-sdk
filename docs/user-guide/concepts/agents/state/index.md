@@ -418,3 +418,15 @@ For automatic persistence of agent state and conversation history across applica
 - [Serialization](/docs/user-guide/evals-sdk/how-to/serialization/index.md) (1 shared tag)
 - [OpenAI Responses API](/docs/user-guide/concepts/model-providers/openai-responses/index.md) (1 shared tag)
 - [Conversation Management](/docs/user-guide/concepts/agents/conversation-management/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/agent/state.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/agent/state.py)
+- [harness-sdk/strands-py/src/strands/types/json_dict.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/json_dict.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/agent/agent.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/agent/agent.ts)

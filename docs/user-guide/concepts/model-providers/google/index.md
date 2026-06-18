@@ -578,3 +578,14 @@ When disabled (or if the API call fails), falls back to estimation using the cha
 - [Writer](/docs/user-guide/concepts/model-providers/writer/index.md) (1 shared tag)
 - [Amazon Nova](/docs/user-guide/concepts/model-providers/amazon-nova/index.md) (1 shared tag)
 - [Amazon Bedrock](/docs/user-guide/concepts/model-providers/amazon-bedrock/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/models/gemini.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/gemini.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/models/google/model.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/models/google/model.ts)

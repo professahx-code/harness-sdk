@@ -9,7 +9,7 @@ type InvokeArgs =
   | InterruptResponseContentData[];
 ```
 
-Defined in: [src/types/agent.ts:53](https://github.com/strands-agents/harness-sdk/blob/278805cd559e63475a4c6f52f52614fffa99e401/strands-ts/src/types/agent.ts#L53)
+Defined in: [src/types/agent.ts:53](https://github.com/strands-agents/harness-sdk/blob/d77b68e333e3afa20815a6cd85c867acc8273d92/strands-ts/src/types/agent.ts#L53)
 
 Arguments for invoking an agent.
 

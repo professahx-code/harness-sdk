@@ -630,3 +630,16 @@ Three SDK features manage different kinds of state; memory is the one that cross
 ## Related pages
 
 - [Bedrock Knowledge Base Store](/docs/user-guide/concepts/memory/bedrock-knowledge-base/index.md) (1 shared tag)
+
+
+## Implementation
+
+### Python
+
+- [harness-sdk/strands-py/src/strands/memory/memory_manager.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/memory/memory_manager.py)
+- [harness-sdk/strands-py/src/strands/memory/types.py](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/memory/types.py)
+
+### TypeScript
+
+- [harness-sdk/strands-ts/src/memory/memory-manager.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/memory/memory-manager.ts)
+- [harness-sdk/strands-ts/src/memory/types.ts](https://github.com/strands-agents/harness-sdk/blob/main/strands-ts/src/memory/types.ts)
