@@ -1,4 +1,4 @@
-Defined in: [src/memory/types.ts:221](https://github.com/strands-agents/harness-sdk/blob/d77b68e333e3afa20815a6cd85c867acc8273d92/strands-ts/src/memory/types.ts#L221)
+Defined in: [src/memory/types.ts:221](https://github.com/strands-agents/harness-sdk/blob/ef0ed3b3df5c6383d9c6082895aa87e52b2adc1a/strands-ts/src/memory/types.ts#L221)
 
 Configuration for memory context injection.
 
@@ -20,7 +20,7 @@ optional trigger?:
   | ((context) => boolean);
 ```
 
-Defined in: [src/injection/types.ts:43](https://github.com/strands-agents/harness-sdk/blob/d77b68e333e3afa20815a6cd85c867acc8273d92/strands-ts/src/injection/types.ts#L43)
+Defined in: [src/injection/types.ts:43](https://github.com/strands-agents/harness-sdk/blob/ef0ed3b3df5c6383d9c6082895aa87e52b2adc1a/strands-ts/src/injection/types.ts#L43)
 
 When injection runs. An [InjectionTrigger](/docs/api/typescript/InjectionTrigger/index.md) name selects a built-in policy; a predicate is the escape hatch — it receives the [InjectionContext](/docs/api/typescript/InjectionContext/index.md) and returns whether to inject this call. A predicate that throws fails open (injection is skipped, the model call proceeds).
 
@@ -42,7 +42,7 @@ When injection runs. An [InjectionTrigger](/docs/api/typescript/InjectionTrigger
 optional maxEntries?: number;
 ```
 
-Defined in: [src/memory/types.ts:234](https://github.com/strands-agents/harness-sdk/blob/d77b68e333e3afa20815a6cd85c867acc8273d92/strands-ts/src/memory/types.ts#L234)
+Defined in: [src/memory/types.ts:234](https://github.com/strands-agents/harness-sdk/blob/ef0ed3b3df5c6383d9c6082895aa87e52b2adc1a/strands-ts/src/memory/types.ts#L234)
 
 Maximum number of entries to retrieve and inject per model call.
 
@@ -64,7 +64,7 @@ With multiple stores, results are concatenated in store-registration order with 
 optional query?: (context) => string;
 ```
 
-Defined in: [src/memory/types.ts:242](https://github.com/strands-agents/harness-sdk/blob/d77b68e333e3afa20815a6cd85c867acc8273d92/strands-ts/src/memory/types.ts#L242)
+Defined in: [src/memory/types.ts:242](https://github.com/strands-agents/harness-sdk/blob/ef0ed3b3df5c6383d9c6082895aa87e52b2adc1a/strands-ts/src/memory/types.ts#L242)
 
 Derives the search query from the current conversation. Return `undefined` or an empty string to skip injection for this call. A callback that throws fails open (injection is skipped).
 
@@ -89,7 +89,7 @@ Defaults to an adaptive query: the latest user message’s text on a user turn, 
 optional format?: (context) => string;
 ```
 
-Defined in: [src/memory/types.ts:252](https://github.com/strands-agents/harness-sdk/blob/d77b68e333e3afa20815a6cd85c867acc8273d92/strands-ts/src/memory/types.ts#L252)
+Defined in: [src/memory/types.ts:252](https://github.com/strands-agents/harness-sdk/blob/ef0ed3b3df5c6383d9c6082895aa87e52b2adc1a/strands-ts/src/memory/types.ts#L252)
 
 Renders retrieved entries into the injected text. A callback that throws fails open (injection is skipped).
 

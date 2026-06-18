@@ -1,4 +1,4 @@
-Defined in: [src/hooks/events.ts:106](https://github.com/strands-agents/harness-sdk/blob/d77b68e333e3afa20815a6cd85c867acc8273d92/strands-ts/src/hooks/events.ts#L106)
+Defined in: [src/hooks/events.ts:106](https://github.com/strands-agents/harness-sdk/blob/ef0ed3b3df5c6383d9c6082895aa87e52b2adc1a/strands-ts/src/hooks/events.ts#L106)
 
 Mutable tool-use descriptor carried on tool-call hook events. Matches the shape of the tool use block the model emitted; hooks on [BeforeToolCallEvent](/docs/api/typescript/BeforeToolCallEvent/index.md) may mutate its fields (or reassign the object) to rewrite the input, id, or tool name before the tool executes.
 
@@ -10,7 +10,7 @@ Mutable tool-use descriptor carried on tool-call hook events. Matches the shape 
 name: string;
 ```
 
-Defined in: [src/hooks/events.ts:107](https://github.com/strands-agents/harness-sdk/blob/d77b68e333e3afa20815a6cd85c867acc8273d92/strands-ts/src/hooks/events.ts#L107)
+Defined in: [src/hooks/events.ts:107](https://github.com/strands-agents/harness-sdk/blob/ef0ed3b3df5c6383d9c6082895aa87e52b2adc1a/strands-ts/src/hooks/events.ts#L107)
 
 ---
 
@@ -20,7 +20,7 @@ Defined in: [src/hooks/events.ts:107](https://github.com/strands-agents/harness-
 toolUseId: string;
 ```
 
-Defined in: [src/hooks/events.ts:108](https://github.com/strands-agents/harness-sdk/blob/d77b68e333e3afa20815a6cd85c867acc8273d92/strands-ts/src/hooks/events.ts#L108)
+Defined in: [src/hooks/events.ts:108](https://github.com/strands-agents/harness-sdk/blob/ef0ed3b3df5c6383d9c6082895aa87e52b2adc1a/strands-ts/src/hooks/events.ts#L108)
 
 ---
 
@@ -30,4 +30,4 @@ Defined in: [src/hooks/events.ts:108](https://github.com/strands-agents/harness-
 input: JSONValue;
 ```
 
-Defined in: [src/hooks/events.ts:109](https://github.com/strands-agents/harness-sdk/blob/d77b68e333e3afa20815a6cd85c867acc8273d92/strands-ts/src/hooks/events.ts#L109)
+Defined in: [src/hooks/events.ts:109](https://github.com/strands-agents/harness-sdk/blob/ef0ed3b3df5c6383d9c6082895aa87e52b2adc1a/strands-ts/src/hooks/events.ts#L109)

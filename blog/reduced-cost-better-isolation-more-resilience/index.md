@@ -1,6 +1,6 @@
 ---
 title: "Reduced cost, better isolation, and more resilience: Strands Agents evolves next-gen capabilities"
-date: 2026-06-24T00:00:00.000Z
+date: 2026-06-18T00:00:00.000Z
 description: "Strands Agents ships context management that cuts costs in half, Strands Shell for sandboxed agent execution, and chaos testing and red teaming in Strands Evals 1.0."
 tags: ["Announcement", "Context Management", "Evaluation", "Open Source"]
 ---

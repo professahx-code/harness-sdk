@@ -58248,7 +58248,7 @@ Source: https://strandsagents.com/docs/user-guide/versioning-and-support/index.m
 
 ## Reduced cost, better isolation, and more resilience: Strands Agents evolves next-gen capabilities
 
-Date: 2026-06-24T00:00:00.000Z
+Date: 2026-06-18T00:00:00.000Z
 Tags: Announcement, Context Management, Evaluation, Open Source
 
 Agents break in production for common reasons like the context window filling up, emerging needs like filesystem access, and unexpected failure scenarios in distributed environments.

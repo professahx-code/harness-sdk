@@ -1,4 +1,4 @@
-Defined in: [src/models/model.ts:69](https://github.com/strands-agents/harness-sdk/blob/d77b68e333e3afa20815a6cd85c867acc8273d92/strands-ts/src/models/model.ts#L69)
+Defined in: [src/models/model.ts:69](https://github.com/strands-agents/harness-sdk/blob/ef0ed3b3df5c6383d9c6082895aa87e52b2adc1a/strands-ts/src/models/model.ts#L69)
 
 Configuration for prompt caching.
 
@@ -14,7 +14,7 @@ Configuration for prompt caching.
 strategy: "auto" | "anthropic";
 ```
 
-Defined in: [src/models/model.ts:76](https://github.com/strands-agents/harness-sdk/blob/d77b68e333e3afa20815a6cd85c867acc8273d92/strands-ts/src/models/model.ts#L76)
+Defined in: [src/models/model.ts:76](https://github.com/strands-agents/harness-sdk/blob/ef0ed3b3df5c6383d9c6082895aa87e52b2adc1a/strands-ts/src/models/model.ts#L76)
 
 Caching strategy to use.
 
