@@ -35,7 +35,9 @@ Defined in: [src/strands/types/exceptions.py:21](https://github.com/strands-agen
 
 Exception raised when the model reaches its maximum token generation limit.
 
-This exception is raised when the model stops generating tokens because it has reached the maximum number of tokens allowed for output generation. This can occur when the model’s max\_tokens parameter is set too low for the complexity of the response, or when the model naturally reaches its configured output limit during generation.
+This exception is raised when the model stops generating tokens because it has reached the maximum number of tokens allowed for output generation. The partial message is automatically added to agent.messages and you can continue the conversation by calling the agent again.
+
+This can occur when the model’s max\_tokens parameter is set too low for the complexity of the response, or when the model naturally reaches its configured output limit during generation.
 
 #### \_\_init\_\_
 
@@ -43,9 +45,9 @@ This exception is raised when the model stops generating tokens because it has r
 def __init__(message: str)
 ```
 
-Defined in: [src/strands/types/exceptions.py:29](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L29)
+Defined in: [src/strands/types/exceptions.py:32](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L32)
 
-Initialize the exception with an error message and the incomplete message object.
+Initialize the exception with an error message.
 
 **Arguments**:
 
@@ -57,7 +59,7 @@ Initialize the exception with an error message and the incomplete message object
 class ContextWindowOverflowException(Exception)
 ```
 
-Defined in: [src/strands/types/exceptions.py:38](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L38)
+Defined in: [src/strands/types/exceptions.py:41](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L41)
 
 Exception raised when the context window is exceeded.
 
@@ -69,7 +71,7 @@ This exception is raised when the input to a model exceeds the maximum context w
 class MCPClientInitializationError(Exception)
 ```
 
-Defined in: [src/strands/types/exceptions.py:49](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L49)
+Defined in: [src/strands/types/exceptions.py:52](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L52)
 
 Raised when the MCP server fails to initialize properly.
 
@@ -79,7 +81,7 @@ Raised when the MCP server fails to initialize properly.
 class ModelThrottledException(Exception)
 ```
 
-Defined in: [src/strands/types/exceptions.py:55](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L55)
+Defined in: [src/strands/types/exceptions.py:58](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L58)
 
 Exception raised when the model is throttled.
 
@@ -91,7 +93,7 @@ This exception is raised when the model is throttled by the service. This typica
 def __init__(message: str) -> None
 ```
 
-Defined in: [src/strands/types/exceptions.py:62](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L62)
+Defined in: [src/strands/types/exceptions.py:65](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L65)
 
 Initialize exception.
 
@@ -105,7 +107,7 @@ Initialize exception.
 class SessionException(Exception)
 ```
 
-Defined in: [src/strands/types/exceptions.py:74](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L74)
+Defined in: [src/strands/types/exceptions.py:77](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L77)
 
 Exception raised when session operations fail.
 
@@ -115,7 +117,7 @@ Exception raised when session operations fail.
 class SnapshotException(Exception)
 ```
 
-Defined in: [src/strands/types/exceptions.py:80](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L80)
+Defined in: [src/strands/types/exceptions.py:83](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L83)
 
 Exception raised when snapshot operations fail (e.g., unsupported schema version).
 
@@ -125,7 +127,7 @@ Exception raised when snapshot operations fail (e.g., unsupported schema version
 class ProviderTokenCountError(Exception)
 ```
 
-Defined in: [src/strands/types/exceptions.py:86](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L86)
+Defined in: [src/strands/types/exceptions.py:89](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L89)
 
 Thrown when a model provider’s native token counting API fails.
 
@@ -137,7 +139,7 @@ This error is used as internal control flow within provider `count_tokens()` ove
 class ToolProviderException(Exception)
 ```
 
-Defined in: [src/strands/types/exceptions.py:96](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L96)
+Defined in: [src/strands/types/exceptions.py:99](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L99)
 
 Exception raised when a tool provider fails to load or cleanup tools.
 
@@ -147,7 +149,7 @@ Exception raised when a tool provider fails to load or cleanup tools.
 class StructuredOutputException(Exception)
 ```
 
-Defined in: [src/strands/types/exceptions.py:102](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L102)
+Defined in: [src/strands/types/exceptions.py:105](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L105)
 
 Exception raised when structured output validation fails after maximum retry attempts.
 
@@ -157,7 +159,7 @@ Exception raised when structured output validation fails after maximum retry att
 def __init__(message: str)
 ```
 
-Defined in: [src/strands/types/exceptions.py:105](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L105)
+Defined in: [src/strands/types/exceptions.py:108](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L108)
 
 Initialize the exception with details about the failure.
 
@@ -171,11 +173,23 @@ Initialize the exception with details about the failure.
 class ConcurrencyException(Exception)
 ```
 
-Defined in: [src/strands/types/exceptions.py:115](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L115)
+Defined in: [src/strands/types/exceptions.py:118](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L118)
 
 Exception raised when concurrent invocations are attempted on an agent instance.
 
 Agent instances maintain internal state that cannot be safely accessed concurrently. This exception is raised when an invocation is attempted while another invocation is already in progress on the same agent instance.
+
+## IdempotencyAbortedError
+
+```python
+class IdempotencyAbortedError(Exception)
+```
+
+Defined in: [src/strands/types/exceptions.py:129](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L129)
+
+Exception raised to duplicate invocations when the primary invocation was aborted.
+
+When a caller provides an idempotency\_token and another invocation with the same token is already in-flight, the duplicate waits for the primary to complete. If the primary is aborted before producing a result (e.g. it lost a lock race or was cancelled), this exception is raised to all waiting duplicates.
 
 ## CheckpointException
 
@@ -183,7 +197,7 @@ Agent instances maintain internal state that cannot be safely accessed concurren
 class CheckpointException(Exception)
 ```
 
-Defined in: [src/strands/types/exceptions.py:126](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L126)
+Defined in: [src/strands/types/exceptions.py:139](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L139)
 
 Exception raised when checkpoint operations fail (e.g., incompatible schema version).
 
@@ -193,7 +207,7 @@ Exception raised when checkpoint operations fail (e.g., incompatible schema vers
 class AggregateMemoryError(Exception)
 ```
 
-Defined in: [src/strands/types/exceptions.py:132](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L132)
+Defined in: [src/strands/types/exceptions.py:145](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L145)
 
 Raised when one or more memory store operations fail.
 
@@ -207,7 +221,7 @@ Raised when one or more memory store operations fail.
 def __init__(message: str, errors: list[BaseException]) -> None
 ```
 
-Defined in: [src/strands/types/exceptions.py:139](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L139)
+Defined in: [src/strands/types/exceptions.py:152](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/types/exceptions.py#L152)
 
 Initialize the aggregate error.
 

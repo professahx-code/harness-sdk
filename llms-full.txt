@@ -1705,7 +1705,7 @@ from strands_xai import xAIModel
 
 model = xAIModel(
     client_args={"api_key": "xai-key"},  # or set XAI_API_KEY env var
-    model_id="grok-4-1-fast-non-reasoning-latest",
+    model_id="grok-4.3",
 )
 
 agent = Agent(model=model)
@@ -1737,7 +1737,7 @@ def get_weather(city: str) -> str:
 
 model = xAIModel(
     client_args={"api_key": "xai-key"},
-    model_id="grok-4-1-fast-non-reasoning-latest",
+    model_id="grok-4.3",
 )
 
 agent = Agent(model=model, tools=[calculate, get_weather])
@@ -1758,31 +1758,39 @@ The supported configurations are:
 
 | Parameter | Description | Example | Default |
 | --- | --- | --- | --- |
-| `model_id` | Grok model identifier | `grok-4-1-fast-reasoning-latest` | `grok-4-1-fast-non-reasoning-latest` |
+| `model_id` | Grok model identifier (required) | `"grok-4.3"` | *required* |
 | `client_args` | xAI client arguments | `{"api_key": "xai-key"}` | `{}` |
 | `params` | Model parameters dict | `{"temperature": 0.7}` | `{}` |
 | `xai_tools` | Server-side tools list | `[web_search(), x_search()]` | `[]` |
-| `reasoning_effort` | Reasoning level (grok-3-mini only) | `"high"` | `None` |
-| `use_encrypted_content` | Enable encrypted reasoning | `True` | `False` |
-| `include` | Optional features | `["inline_citations"]` | `[]` |
+| `reasoning_effort` | Reasoning level (**grok-4.3 only**): `"none"`, `"low"`, `"medium"`, `"high"` | `"high"` | `"low"` |
+| `use_encrypted_content` | Preserve reasoning / sub-agent state across turns (auto-enabled when `xai_tools` is set) | `True` | `False` |
+| `include` | Optional xAI features | `["inline_citations"]` | `[]` |
+| `agent_count` | Number of agents (4 or 16) for `grok-4.20-multi-agent` | `4` | `None` |
+
+reasoning\_effort is grok-4.3 only
+
+Only `grok-4.3` accepts `reasoning_effort`. Passing it to `grok-build-0.1` or the pinned `grok-4.20-0309-*` snapshots returns `INVALID_ARGUMENT` — those snapshots have their reasoning behavior baked in. On `grok-4.20-multi-agent`, use `agent_count` instead. Reasoning models also reject `presence_penalty`, `frequency_penalty`, and `stop` in `params`.
 
 **Model Parameters (in `params` dict):**
 
--   `temperature` - Sampling temperature (0.0-2.0), default: varies by model
--   `max_tokens` - Maximum tokens in response, default: 2048
--   `top_p` - Nucleus sampling parameter (0.0-1.0), default: varies by model
--   `frequency_penalty` - Frequency penalty (-2.0 to 2.0), default: 0
--   `presence_penalty` - Presence penalty (-2.0 to 2.0), default: 0
+-   `temperature` - Sampling temperature (0.0-2.0)
+-   `max_tokens` - Maximum tokens in response
+-   `top_p` - Nucleus sampling parameter (0.0-1.0)
+-   `frequency_penalty` - Frequency penalty (-2.0 to 2.0)
+-   `presence_penalty` - Presence penalty (-2.0 to 2.0)
 
 **Available Models:**
 
--   `grok-4-1-fast-reasoning` - Fast reasoning with encrypted thinking
--   `grok-4-1-fast-non-reasoning` - Fast model without reasoning
--   `grok-3-mini` - Compact model with visible reasoning
--   `grok-3-mini-non-reasoning` - Compact model without reasoning
--   `grok-4-1-reasoning` - Full reasoning capabilities
--   `grok-4-1-non-reasoning` - Full model without reasoning
--   `grok-code-fast-1` - Code-optimized model
+| Model | Context | Vision | Best for |
+| --- | --- | --- | --- |
+| `grok-4.3` | 1M | ✅ | Flagship — agentic tool calling, configurable reasoning |
+| `grok-build-0.1` | 256K | ✅ | Agentic coding, early access |
+| `grok-4.20-multi-agent` | 1M | ✅ | Multi-agent research — rolling alias |
+| `grok-4.20-multi-agent-0309` | 1M | ✅ | Multi-agent research — pinned snapshot |
+| `grok-4.20-0309-reasoning` | 1M | ✅ | Pinned 4.20 reasoning snapshot |
+| `grok-4.20-0309-non-reasoning` | 1M | ✅ | Pinned 4.20 inference snapshot |
+
+xAI uses a consistent alias convention: `<model>` resolves to the latest stable version, `<model>-latest` to the bleeding edge, and `<model>-<date>` to a pinned snapshot. Retired aliases (e.g. `grok-4*`, `grok-3*`, `grok-3-mini*`, `grok-code-fast-1`) now silently redirect to `grok-4.3` or `grok-build-0.1`. See the [xAI models documentation](https://docs.x.ai/docs/models) for the authoritative list and pricing.
 
 ## Advanced Features
 
@@ -1795,10 +1803,10 @@ from strands_xai import xAIModel
 from strands import Agent
 from xai_sdk.tools import web_search, x_search, code_execution
 
-# Server-side tools are automatically available
+# Server-side tools are executed on xAI's servers
 model = xAIModel(
     client_args={"api_key": "xai-key"},
-    model_id="grok-4-1-fast-reasoning-latest",
+    model_id="grok-4.3",
     xai_tools=[web_search(), x_search(), code_execution()],
 )
 
@@ -1809,21 +1817,10 @@ response = agent("Search X for recent AI developments and analyze the sentiment"
 
 **Built-in Server-Side Tools:**
 
--   **X Search**: Real-time access to X platform posts, trends, and conversations
--   **Web Search**: Live web search capabilities across diverse data sources
--   **Code Execution**: Python code execution for data analysis and computation
-
-### Real-Time X Platform Access
-
-Grok has exclusive real-time access to X platform data:
-
-```python
-# Access real-time X data and trends
-response = agent("What are people saying about the latest tech announcements on X?")
-
-# Analyze trending topics
-response = agent("Find trending hashtags related to AI and summarize the discussions")
-```
+-   **`web_search()`** - Live web search across diverse data sources
+-   **`x_search()`** - Real-time access to X platform posts, trends, and conversations
+-   **`code_execution()`** - Python code execution for data analysis and computation
+-   **`collections_search()`** - Search uploaded document collections (RAG)
 
 ### Hybrid Tool Usage
 
@@ -1835,53 +1832,141 @@ from strands_xai import xAIModel
 from xai_sdk.tools import x_search
 
 @tool
-def calculate(expression: str) -> str:
-    """Evaluate a mathematical expression."""
-    try:
-        result = eval(expression)
-        return f"Result: {result}"
-    except Exception as e:
-        return f"Error: {e}"
-
-@tool
 def get_weather(city: str) -> str:
     """Get the current weather for a city."""
     return f"Weather in {city}: Sunny, 22°C"
 
 model = xAIModel(
     client_args={"api_key": "xai-key"},
-    model_id="grok-4-1-fast-reasoning-latest",
+    model_id="grok-4.3",
     xai_tools=[x_search()],  # Server-side X search
 )
 
 # Combine server-side and client-side tools
-agent = Agent(model=model, tools=[calculate, get_weather])
-response = agent("Search X for AI news, calculate 15*7, and tell me the weather in Tokyo")
+agent = Agent(model=model, tools=[get_weather])
+response = agent("Search X for AI news and tell me the weather in Tokyo")
 ```
 
-This powerful combination allows the agent to:
+### Reasoning
 
--   Search X platform in real-time (server-side)
--   Perform calculations (client-side)
--   Get weather information (client-side)
--   All in a single conversation!
-
-### Reasoning Models
-
-Access models with visible reasoning capabilities:
+`grok-4.3` supports configurable reasoning depth via `reasoning_effort` (`"none"`, `"low"` (default), `"medium"`, `"high"`):
 
 ```python
-# Use reasoning model to see the thinking process
 model = xAIModel(
     client_args={"api_key": "xai-key"},
-    model_id="grok-3-mini",  # Shows reasoning steps
+    model_id="grok-4.3",
     reasoning_effort="high",
-    params={"temperature": 0.3}
 )
 
 agent = Agent(model=model)
-response = agent("Analyze the current AI market trends based on X discussions")
+response = agent("Find all prime numbers p such that p^2 + 2 is also prime. Prove your answer.")
 ```
+
+Reasoning-capable models stream a **summarized** trace of the model’s thinking (surfaced as Strands `reasoningContent.reasoningText` blocks) and report `reasoning_tokens` in usage metadata. The full chain-of-thought is not exposed — current Grok models return only this summary.
+
+### Encrypted Reasoning (Multi-Turn Context)
+
+To preserve reasoning and server-side tool state across turns, enable `use_encrypted_content`. This lets follow-up turns reference earlier encrypted context (for example, asking the model to list the source URLs it used in a previous answer):
+
+```python
+model = xAIModel(
+    client_args={"api_key": "xai-key"},
+    model_id="grok-4.3",
+    reasoning_effort="medium",
+    use_encrypted_content=True,  # Preserves reasoning across turns
+)
+
+agent = Agent(model=model)
+agent("Think through this problem: 2+2")
+agent("Now multiply that by 3")  # reasoning context preserved
+```
+
+Auto-enabled with server-side tools
+
+`use_encrypted_content` is automatically enabled whenever `xai_tools` is set, so server-side tool state is preserved across turns without extra configuration.
+
+### Multi-Agent Research
+
+`grok-4.20-multi-agent` orchestrates multiple collaborating agents on research tasks. Set `agent_count` to 4 (focused) or 16 (comprehensive):
+
+```python
+from strands_xai import xAIModel
+from strands import Agent
+from xai_sdk.tools import web_search, x_search
+
+model = xAIModel(
+    client_args={"api_key": "xai-key"},
+    model_id="grok-4.20-multi-agent",
+    xai_tools=[web_search(), x_search()],
+    agent_count=4,  # or 16 for deeper research
+)
+
+agent = Agent(model=model)
+response = agent("Research the latest breakthroughs in quantum computing")
+```
+
+Beta
+
+The multi-agent API is in beta on xAI and may change. The multi-agent model does **not** support client-side tools or `max_tokens`, only the leader agent’s output is returned (sub-agent state is preserved via the auto-enabled `use_encrypted_content`), and tokens for the leader **and** all sub-agents are billed — expect usage to scale with `agent_count`.
+
+### Inline Citations
+
+Enable inline source citations in responses with `include=["inline_citations"]`:
+
+```python
+from strands_xai import xAIModel
+from strands import Agent
+from xai_sdk.tools import web_search
+
+model = xAIModel(
+    client_args={"api_key": "xai-key"},
+    model_id="grok-4.3",
+    xai_tools=[web_search()],
+    include=["inline_citations"],
+)
+
+agent = Agent(model=model, system_prompt="Always cite your sources.")
+response = agent("What are the latest developments in AI?")
+# Output includes inline citations like [1], [2] with source URLs
+```
+
+### Vision (Image Understanding)
+
+Vision-capable models analyze images sent as content blocks:
+
+```python
+from strands_xai import xAIModel
+from strands import Agent
+
+model = xAIModel(
+    client_args={"api_key": "xai-key"},
+    model_id="grok-4.3",  # vision-capable
+)
+
+agent = Agent(model=model)
+
+with open("image.png", "rb") as f:
+    image_bytes = f.read()
+
+message = [
+    {"text": "What's in this image?"},
+    {"image": {"format": "png", "source": {"bytes": image_bytes}}},
+]
+
+response = agent(message)
+```
+
+## Observability / OpenTelemetry
+
+Strands instruments each model call and emits spans with correct token usage. The underlying `xai_sdk` also ships its own OpenTelemetry instrumentation, which emits a duplicate `chat.stream` span for the same call. That extra span reports token usage in xAI’s raw form (output excludes reasoning, total includes it), which can make trace-level totals inconsistent in observability backends.
+
+When running `strands-xai` with any OpenTelemetry backend, disable `xai_sdk`’s own tracing so only Strands’ spans are exported:
+
+```bash
+export XAI_SDK_DISABLE_TRACING=1
+```
+
+Set it in your environment **before** starting the process — `xai_sdk` binds its tracer at import time, so setting it from Python after import has no effect. With this set, traces contain a single clean span tree and token totals reconcile (`input + output == total`, with reasoning folded into output).
 
 ## References
 
@@ -7957,6 +8042,71 @@ Limits apply to the current invocation only. A reused agent starts each call wit
 
 When multiple caps trip simultaneously, the reported stop reason follows priority order: turns, then total tokens, then output tokens.
 
+## Concurrent Invocations
+
+Sometimes more than one request targets the same agent instance at once: a retried API call, a double-submitted form, two web requests that happen to share an agent.
+
+(( tab "Python" ))
+An agent mutates its conversation history as each invocation runs, so by default it processes one invocation at a time and rejects overlap. Invoking an agent that is already running raises `ConcurrencyException`:
+
+```python
+from strands import Agent
+from strands.types.exceptions import ConcurrencyException
+
+agent = Agent()
+
+try:
+    result = agent("Summarize this report")
+except ConcurrencyException:
+    # Another invocation is already running on this agent instance
+    ...
+```
+
+For most applications this is the behavior you want. One agent instance maps to one conversation, and letting invocations overlap would interleave their messages and corrupt the history.
+
+#### Deduplicating retried requests
+
+When a retry arrives for a request that is still running, returning the original’s result beats both erroring and starting the work twice. Pass an idempotency token that identifies the logical request, for example `agent("Process order 1234", idempotency_token="order-1234")`.
+
+If a call with the same token is already in flight, this call waits for the original and returns the same `AgentResult`. Tokens are compared by equality, so any stable identifier works: an order ID, a request UUID, or the prompt string itself.
+
+A deduplicated call gets the final result only, not the original’s streamed events. Its `callback_handler` still fires once with that result, so output consumers are not left empty-handed.
+
+If the original ends without producing a result, for instance when it is cancelled mid-flight, the waiting calls raise `IdempotencyAbortedError` so they can decide whether to retry:
+
+```python
+from strands import Agent
+from strands.types.exceptions import IdempotencyAbortedError
+
+agent = Agent()
+
+try:
+    result = agent("Process order 1234", idempotency_token="order-1234")
+except IdempotencyAbortedError:
+    # The original was aborted before producing a result
+    ...
+```
+
+The idempotency token works the same way on `invoke_async` and `stream_async`.
+
+#### Allowing concurrent invocations
+
+To run multiple invocations on one agent at the same time, set the concurrency mode when you construct it:
+
+```python
+from strands import Agent
+from strands.types.agent import ConcurrentInvocationMode
+
+agent = Agent(concurrent_invocation_mode=ConcurrentInvocationMode.UNSAFE_REENTRANT)
+```
+
+This removes the single-invocation guard entirely: overlapping calls neither raise nor deduplicate, and an idempotency token is ignored. Nothing protects the conversation history from concurrent mutation, so interleaved invocations can corrupt it. Reach for this only when each invocation works on isolated state, or when you handle synchronization yourself. To run independent work in parallel, a separate agent per task is safer than sharing one.
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+TypeScript rejects overlapping invocations: invoking an agent that is already running throws `ConcurrentInvocationError`. It does not offer a configurable concurrency mode or idempotency-token deduplication of retries; both are available only in the Python SDK.
+(( /tab "TypeScript" ))
+
 ## Common Problems
 
 ### Context Window Exhaustion
@@ -8189,7 +8339,7 @@ The [`SummarizingConversationManager`](/docs/api/python/strands.agent.conversati
 (( tab "Python" ))
 Configuration parameters:
 
--   **`summary_ratio`** (float, default: 0.3): Percentage of messages to summarize when reducing context (clamped between 0.1 and 0.8)
+-   **`summary_ratio`** (float, default: 0.3): Ratio of the oldest messages to summarize and replace when reducing context (clamped between 0.1 and 0.8)
 -   **`preserve_recent_messages`** (int, default: 10): Minimum number of recent messages to always keep
 -   **`summarization_agent`** (Agent, optional): Custom agent for generating summaries. If not provided, uses the main agent instance. Cannot be used together with `summarization_system_prompt`.
 -   **`summarization_system_prompt`** (str, optional): Custom system prompt for summarization. If not provided, uses a default prompt that creates structured bullet-point summaries focusing on key topics, tools used, and technical information in third-person format. Cannot be used together with `summarization_agent`.
@@ -8199,7 +8349,7 @@ Configuration parameters:
 Configuration parameters:
 
 -   **`model`** (Model, optional): Override model to use for generating summaries. When not provided, uses the agent’s own model.
--   **`summaryRatio`** (number, default: 0.3): Ratio of messages to summarize when reducing context (clamped between 0.1 and 0.8)
+-   **`summaryRatio`** (number, default: 0.3): Ratio of the oldest messages to summarize and replace when reducing context (clamped between 0.1 and 0.8)
 -   **`preserveRecentMessages`** (number, default: 10): Minimum number of recent messages to always keep
 -   **`summarizationSystemPrompt`** (string, optional): Custom system prompt for summarization. If not provided, uses a default prompt that creates structured bullet-point summaries focusing on key topics, tools used, and technical information in third-person format.
 -   **`proactiveCompression`** (`boolean | { compressionThreshold: number }`, optional): Enable proactive context compression before the model call. Pass `true` for the default 0.7 threshold, or an object with a custom threshold. See [Proactive Context Compression](#proactive-context-compression).
@@ -8241,7 +8391,7 @@ from strands.agent.conversation_manager import SummarizingConversationManager
 
 # Create the summarizing conversation manager with default settings
 conversation_manager = SummarizingConversationManager(
-    summary_ratio=0.3,  # Summarize 30% of messages when context reduction is needed
+    summary_ratio=0.3,  # Summarize and replace the oldest 30% of messages when context reduction is needed
     preserve_recent_messages=10,  # Always keep 10 most recent messages
 )
 
@@ -8262,7 +8412,7 @@ const summarizationModel = new BedrockModel({
 
 const conversationManager = new SummarizingConversationManager({
   model: summarizationModel, // Override the agent's model for summarization
-  summaryRatio: 0.3, // Summarize 30% of messages when context reduction is needed
+  summaryRatio: 0.3, // Summarize and replace the oldest 30% of messages
   preserveRecentMessages: 10, // Always keep 10 most recent messages
 })
 
@@ -19250,6 +19400,8 @@ Source: https://strandsagents.com/docs/user-guide/concepts/interrupts/index.md
 
 Connect the store to a knowledge base you have already set up. Configure your store with its knowledge base ID and data source (see [Data Source Types and Writability](#data-source-types-and-writability)). A store with only a knowledge base ID is read-only. The store reaches Bedrock with the standard AWS credential chain, the same as the [Amazon Bedrock model provider](/docs/user-guide/concepts/model-providers/amazon-bedrock/index.md).
 
+Both managed and vector knowledge bases are supported. The store detects which type it is connected to and shapes its Retrieve request to match, so the same configuration works for either (see [Required IAM Permissions](#required-iam-permissions) for the permission this detection needs). Managed knowledge bases can have ACL-aware data sources; see [Access control lists](#access-control-lists) to configure per-document access.
+
 (( tab "Python" ))
 ```python
 from strands import Agent
@@ -19335,6 +19487,7 @@ The outer `BedrockKnowledgeBaseStoreConfig` carries the per-store identity and b
 | `config` | The knowledge base connection (see below). Reuse one across stores that differ only by `scope`. |
 | `scope` | Logical namespace isolating documents. Applied as a metadata filter on search and stamped on writes. |
 | `filter` | Explicit retrieval filter; overrides the auto-generated scope filter on search. |
+| `access_control_list` `accessControlList`  | Document-level ACL entries stamped on every write. Required when the data source has ACL awareness enabled. See [Access control lists](#access-control-lists). |
 
 ### Connection config
 
@@ -19343,6 +19496,7 @@ The inner `BedrockKnowledgeBaseConfig` is the reusable connection: which knowled
 | Field | Purpose |
 | --- | --- |
 | `knowledge_base_id` `knowledgeBaseId`  | The Bedrock Knowledge Base to query and ingest into. Required. |
+| `knowledge_base_type` `knowledgeBaseType`  | The knowledge base type (`'MANAGED'`, `'VECTOR'`, `'KENDRA'`, or `'SQL'`). When provided, skips the `GetKnowledgeBase` call during initialization. When omitted, detected automatically. |
 | `data_source_type` `dataSourceType`  | `'CUSTOM'`, `'S3'`, or `'OTHER'`. Governs whether and how the store can be written to. |
 | `data_source_id` `dataSourceId`  | The data source to ingest into. Required for writes. |
 | `s3` | S3 ingestion settings (`bucket`, `prefix`). Required when the data source type is `'S3'`. |
@@ -19550,6 +19704,7 @@ To change the cadence, swap the extractor, or extract server-side, see [Automati
 The credentials the store uses must allow the Bedrock operations it calls, plus S3 writes when using an S3 data source:
 
 -   `bedrock:Retrieve` - for search.
+-   `bedrock:GetKnowledgeBase` - called once at initialization to detect the knowledge base type, then memoized. Not required if you provide `knowledge_base_type` `knowledgeBaseType`  in the config.
 -   `bedrock:IngestKnowledgeBaseDocuments` - for writes (`CUSTOM` and `S3`).
 -   `s3:PutObject` - for writes to an `S3` data source, on the configured bucket and prefix.
 
@@ -19563,6 +19718,7 @@ Here is a sample IAM policy for a writable store backed by a `CUSTOM` data sourc
             "Effect": "Allow",
             "Action": [
                 "bedrock:Retrieve",
+                "bedrock:GetKnowledgeBase",
                 "bedrock:IngestKnowledgeBaseDocuments"
             ],
             "Resource": "arn:aws:bedrock:*:*:knowledge-base/KB123"
@@ -19580,6 +19736,52 @@ For an `S3` data source, add `s3:PutObject` on the bucket and prefix the store u
     "Resource": "arn:aws:s3:::my-agent-memories/memories/*"
 }
 ```
+
+## Access Control Lists
+
+Managed knowledge base data sources can have [ACL awareness](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-acl.html) enabled, which requires every ingested document to carry an access control list specifying who can retrieve it. Set `access_control_list` `accessControlList`  on the store to supply entries for every write:
+
+(( tab "Python" ))
+```python
+from strands.vended_memory_stores import BedrockKnowledgeBaseStore
+
+store = BedrockKnowledgeBaseStore(
+    name="policies",
+    writable=True,
+    scope="hr",
+    access_control_list=[
+        {"access": "ALLOW", "name": "alice@example.com", "type": "USER"},
+    ],
+    config={
+        "knowledge_base_id": "KB123",
+        "data_source_type": "CUSTOM",
+        "data_source_id": "DS456",
+    },
+)
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import { BedrockKnowledgeBaseStore } from '@strands-agents/sdk/vended-memory-stores/bedrock-knowledge-base'
+
+const store = new BedrockKnowledgeBaseStore({
+  name: 'policies',
+  writable: true,
+  scope: 'hr',
+  accessControlList: [{ access: 'ALLOW', name: 'alice@example.com', type: 'USER' }],
+  config: {
+    knowledgeBaseId: 'KB123',
+    dataSourceType: 'CUSTOM',
+    dataSourceId: 'DS456',
+  },
+})
+```
+(( /tab "TypeScript" ))
+
+Each entry specifies `access` (`'ALLOW'` or `'DENY'`), `name` (the user’s email), and `type` (`'USER'`). Deny overrides allow. The entries apply to both `CUSTOM` and `S3` writes. For the `CUSTOM` path, an inline ACL requires at least one metadata attribute (a `scope` satisfies this); if none is present the store raises with guidance.
+
+If the data source has ACL awareness enabled and no `access_control_list` `accessControlList`  is set, the store surfaces a clear error pointing at the field.
 
 ## Related
 
@@ -21689,6 +21891,44 @@ const agent = new Agent({
 Default Inference Model
 
 Strands uses a default Claude 4 Sonnet inference model from the region of your credentials when no model is provided. So if you did not pass in any model id and are getting the above error, it’s very likely due to the `region` from the credentials not supporting inference profiles.
+
+### CacheConfig with ARN-based inference profiles
+
+If you’re using an ARN-based application inference profile as your `model_id` (e.g., `arn:aws:bedrock:us-east-1:123456789012:application-inference-profile/abc123`), `CacheConfig(strategy="auto")` will not automatically enable prompt caching.
+
+The `strategy="auto"` detection checks the model ID string for `"claude"` or `"anthropic"` substrings. Cross-region inference profile IDs like `us.anthropic.claude-sonnet-4-20250514-v1:0` contain `"anthropic"` and are detected correctly, but application inference profiles use opaque resource IDs (`application-inference-profile/abc123`) that carry no model name information, so detection returns `None`, caching is skipped, and Strands logs a warning: `model_id=<your-arn> | cache_config is enabled but this model does not support automatic caching`.
+
+Use `strategy="anthropic"` explicitly to fix this:
+
+(( tab "Python" ))
+```python
+from strands import Agent
+from strands.models import BedrockModel, CacheConfig
+
+bedrock_model = BedrockModel(
+    model_id="arn:aws:bedrock:us-east-1:123456789012:application-inference-profile/abc123",
+    cache_config=CacheConfig(strategy="anthropic")
+)
+
+agent = Agent(model=bedrock_model)
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import { Agent } from '@strands-agents/sdk'
+import { BedrockModel } from '@strands-agents/sdk/models/bedrock'
+
+const bedrockModel = new BedrockModel({
+  modelId: 'arn:aws:bedrock:us-east-1:123456789012:application-inference-profile/abc123',
+  cacheConfig: { strategy: 'anthropic' },
+})
+
+const agent = new Agent({ model: bedrockModel })
+```
+(( /tab "TypeScript" ))
+
+`strategy="anthropic"` has identical performance to `strategy="auto"` and requires no additional API calls or IAM permissions.
 
 ## Related Resources
 
@@ -27211,7 +27451,7 @@ graph TD
 ## Graph Components
 
 (( tab "Python" ))
-### 1\. GraphNode
+**1\. GraphNode**
 
 A [`GraphNode`](/docs/api/python/strands.multiagent.graph#GraphNode) represents a node in the graph with:
 
@@ -27222,7 +27462,7 @@ A [`GraphNode`](/docs/api/python/strands.multiagent.graph#GraphNode) represents 
 -   **result**: The NodeResult after execution
 -   **execution\_time**: Time taken to execute the node in milliseconds
 
-### 2\. GraphEdge
+**2\. GraphEdge**
 
 A [`GraphEdge`](/docs/api/python/strands.multiagent.graph#GraphEdge) represents a connection between nodes with:
 
@@ -27230,7 +27470,7 @@ A [`GraphEdge`](/docs/api/python/strands.multiagent.graph#GraphEdge) represents 
 -   **to\_node**: Target node
 -   **condition**: Optional function that determines if the edge should be traversed
 
-### 3\. GraphBuilder
+**3\. GraphBuilder**
 
 The [`GraphBuilder`](/docs/api/python/strands.multiagent.graph#GraphBuilder) provides a simple interface for constructing graphs:
 
@@ -27245,21 +27485,21 @@ The [`GraphBuilder`](/docs/api/python/strands.multiagent.graph#GraphBuilder) pro
 (( /tab "Python" ))
 
 (( tab "TypeScript" ))
-### Nodes
+**Nodes**
 
 Nodes wrap agents or other orchestrators for execution within the graph. The SDK provides two built-in node types:
 
 -   **AgentNode**: Wraps an `AgentBase` instance. Created automatically when you pass an agent to the `nodes` array. Uses the agent’s `id` as the node identifier.
 -   **MultiAgentNode**: Wraps a `MultiAgentBase` instance (e.g. another `Graph` or `Swarm`). Created automatically when you pass an orchestrator to the `nodes` array. Uses the orchestrator’s `id` as the node identifier.
 
-### Edges
+**Edges**
 
 Edges define directed connections between nodes. They can be specified as simple tuples or with an optional handler for conditional traversal:
 
 -   **`[source, target]`**: Tuple of node IDs for unconditional edges
 -   **`{ source, target, handler }`**: Object with an optional `EdgeHandler` function for conditional traversal
 
-### Graph Constructor
+**Graph Constructor**
 
 The `Graph` constructor accepts:
 
@@ -28360,7 +28600,7 @@ Some Examples:
 (( tab "Python" ))
 Both Graph and Swarm patterns support passing shared state to all agents through the `invocation_state` parameter. This enables sharing context and configuration across agents without exposing it to the LLM.
 
-### How Shared State Works
+**How Shared State Works**
 
 The `invocation_state` is automatically propagated to:
 
@@ -28368,7 +28608,7 @@ The `invocation_state` is automatically propagated to:
 -   Tools via `ToolContext` when using `@tool(context=True)` - see [Python Tools](/docs/user-guide/concepts/tools/custom-tools/index.md#accessing-state-in-tools)
 -   Tool-related hooks (BeforeToolCallEvent, AfterToolCallEvent) - see [Hooks](/docs/user-guide/concepts/agents/hooks/index.md#accessing-invocation-state-in-hooks)
 
-### Example Usage
+**Example Usage**
 
 ```python
 # Same invocation_state works for both patterns
@@ -28392,7 +28632,7 @@ result = swarm(
 )
 ```
 
-### Accessing Shared State in Tools
+**Accessing Shared State in Tools**
 
 ```python
 from strands import tool, ToolContext
@@ -28408,7 +28648,7 @@ def query_data(query: str, tool_context: ToolContext) -> str:
 (( tab "TypeScript" ))
 Both Graph and Swarm support passing per-invocation state to all nodes through the `invocationState` option. This is a mutable `Record<string, unknown>` shared by reference — one node’s hooks/tools can read state written by a previous node.
 
-### How Invocation State Works
+**How Invocation State Works**
 
 Pass `invocationState` as the second argument to `invoke()` or `stream()`:
 
@@ -28443,7 +28683,7 @@ The `invocationState` is automatically forwarded to:
 -   Tools via `context.invocationState` in the tool callback
 -   All hook events on both the orchestrator and individual agents
 
-### Accessing Invocation State in Tools
+**Accessing Invocation State in Tools**
 
 ```typescript
 const queryDataTool = tool({
@@ -28461,7 +28701,7 @@ const queryDataTool = tool({
 })
 ```
 
-### MultiAgentState
+**MultiAgentState**
 
 In addition to `invocationState`, the orchestrator’s `MultiAgentState` is shared across all nodes and provides access to execution progress, node results, and custom application state:
 
@@ -30147,21 +30387,27 @@ const agent = new Agent({
 
 The plugin includes a `retrieve_offloaded_content` tool that lets the agent fetch offloaded content by reference, returning it in its native format — text as a string, JSON as a JSON block, images as image blocks, and documents as document blocks. This tool is registered by default.
 
-(( tab "Python" ))
-The inline guidance in offloaded results tells the agent to use its available tools to selectively access the data it needs, and mentions `retrieve_offloaded_content` as a fallback.
-(( /tab "Python" ))
-
-(( tab "TypeScript" ))
-In the TypeScript SDK, the retrieval tool supports targeted retrieval through optional parameters, so the agent can search and filter offloaded content without loading it entirely back into context.
+The retrieval tool supports targeted retrieval through optional parameters, so the agent can search and filter offloaded content without loading it entirely back into context.
 
 **Parameters:**
 
+(( tab "Python" ))
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `reference` | `str` | *(required)* Storage reference from the offloaded result |
+| `pattern` | `str` | Regex or keyword to grep for |
+| `line_range` | `dict` with `start` and `end` keys | 1-indexed inclusive line span to retrieve |
+| `context_lines` | `int` | Lines of context around pattern matches (default: 5) |
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
 | Parameter | Type | Description |
 | --- | --- | --- |
 | `reference` | `string` | *(required)* Storage reference from the offloaded result |
 | `pattern` | `string` | Regex or keyword to grep for |
 | `line_range` | `{ start: number; end: number }` | 1-indexed inclusive line span to retrieve |
 | `context_lines` | `number` | Lines of context around pattern matches (default: 5) |
+(( /tab "TypeScript" ))
 
 **Retrieval modes:**
 
@@ -30172,47 +30418,19 @@ In the TypeScript SDK, the retrieval tool supports targeted retrieval through op
 -   **Full retrieval** — Omit all optional parameters to retrieve everything (discouraged for large content)
 
 Results include line numbers to enable follow-up queries. Large result sets are truncated with guidance to narrow the search. Binary content cannot be searched — pattern and line range parameters return an error for binary references.
-(( /tab "TypeScript" ))
 
 ### Retrieval examples
 
-(( tab "Python" ))
 **1\. Tool result gets offloaded (replaces original result inline)**
 
 ```plaintext
 [Offloaded: 1 blocks, ~10,000 tokens]
 Tool result was offloaded to external storage due to size.
-Use the preview below to answer if possible.
-Use retrieve_offloaded_content to fetch the full content by reference.
-
-{"users":[{"id":1,"name":"Alice","role":"admin"},{"id":2,"name":"Bob","role":"user"},{"id":3,"name":"Charlie","rol
-
-[Stored references:]
-  mem_1_tool-123_0 (json, 42,000 bytes)
-```
-
-**2\. Agent retrieves full content**
-
-Input: `{ reference: "mem_1_tool-123_0" }`
-
-The tool returns the full offloaded content in its native format.
-
-```plaintext
-{"users":[{"id":1,"name":"Alice","role":"admin"},{"id":2,"name":"Bob","role":"user"},{"id":3,"name":"Charlie","role":"user"}, ...]}
-```
-(( /tab "Python" ))
-
-(( tab "TypeScript" ))
-**1\. Tool result gets offloaded (replaces original result inline)**
-
-```plaintext
-[Offloaded: 1 blocks, ~10,000 tokens]
-Tool result was offloaded to external storage due to size.
-Use the preview below to answer if possible.
-Use retrieve_offloaded_content with a reference and either:
+Use the preview below if it answers your question.
+If you need more detail, use retrieve_offloaded_content with a reference and:
   - pattern: regex or keyword to find matching lines with context
   - line_range: { start, end } to read a specific span of lines
-Only retrieve the full content (omit pattern/line_range) as a last resort.
+Retrieve full content (omit pattern/line_range) as a last resort.
 
 {"users":[{"id":1,"name":"Alice","role":"admin"},{"id":2,"name":"Bob","role":"user"},{"id":3,"name":"Charlie","rol
 
@@ -30238,7 +30456,26 @@ Input: `{ reference: "mem_1_tool-123_0", pattern: "admin", context_lines: 2 }`
   50|     { "id": 17, "name": "Frank", "role": "user" }
   51|   ]
 ```
-(( /tab "TypeScript" ))
+
+**3\. Agent retrieves a line range**
+
+Input: `{ reference: "mem_1_tool-123_0", line_range: { start: 45, end: 55 } }`
+
+```plaintext
+[Lines 45-55 of 120]
+
+  45|     { "id": 14, "name": "Carol", "role": "user" },
+  46|     { "id": 15, "name": "Dana", "role": "user" },
+  47|     { "id": 16, "name": "Eve", "role": "admin" },
+  48|     { "id": 17, "name": "Frank", "role": "user" },
+  49|     { "id": 18, "name": "Grace", "role": "user" },
+  50|     { "id": 19, "name": "Hank", "role": "member" },
+  51|     { "id": 20, "name": "Ivy", "role": "user" },
+  52|     { "id": 21, "name": "Jack", "role": "user" },
+  53|     { "id": 22, "name": "Kate", "role": "user" },
+  54|     { "id": 23, "name": "Leo", "role": "user" },
+  55|     { "id": 24, "name": "Mia", "role": "user" },
+```
 
 ### Using other tools for retrieval
 
@@ -35500,6 +35737,57 @@ await agent.invoke("Delete 'a/b/c.txt' and share the name of the approver")
 (( /tab "TypeScript" ))
 
 For more information on elicitation, see the [MCP specification](https://modelcontextprotocol.io/specification/draft/client/elicitation).
+
+### Progress Notifications
+
+MCP servers can report incremental progress during long-running tool calls. Configure a `progress_callback` on the client to receive these updates:
+
+(( tab "Python" ))
+```python
+from mcp import stdio_client, StdioServerParameters
+from strands import Agent
+from strands.tools.mcp import MCPClient
+
+async def progress_callback(progress, total, message):
+    pct = f"{progress}/{total}" if total is not None else str(progress)
+    label = f" — {message}" if message else ""
+    print(f"Progress: {pct}{label}")
+
+client = MCPClient(
+    lambda: stdio_client(
+        StdioServerParameters(command="python", args=["/path/to/server.py"])
+    ),
+    progress_callback=progress_callback,
+)
+
+with client:
+    agent = Agent(tools=client.list_tools_sync())
+    agent("Run the long-running task")
+```
+
+The callback receives three arguments:
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `progress` | `float` | Current progress value reported by the server |
+| `total` | `float | None` | Total value (may be `None` if the server doesn’t report it) |
+| `message` | `str | None` | Optional human-readable status message from the server |
+
+You can also pass a `progress_callback` directly to `call_tool_sync` or `call_tool_async` to override the instance-level callback for a single call:
+
+```python
+result = client.call_tool_sync(
+    tool_use_id="tool-123",
+    name="long_running_tool",
+    arguments={"input": "data"},
+    progress_callback=my_one_off_callback,
+)
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+Progress notifications are not yet supported in the TypeScript SDK.
+(( /tab "TypeScript" ))
 
 ## Best Practices
 
@@ -54407,7 +54695,7 @@ result = agent("What is 125 * 37?")
 
 When running this code with logging enabled, you’ll see logs from different components of the SDK as the agent processes the request, calls the calculator tool, and generates a response.
 
-### Tool Registry and Execution
+**Tool Registry and Execution**
 
 Logs related to tool discovery, registration, and execution:
 
@@ -54436,7 +54724,7 @@ DEBUG | strands.tools.registry | tool_name=<calculator> | reloading tool
 DEBUG | strands.tools.registry | tool_name=<calculator> | successfully reloaded tool
 ```
 
-### Event Loop
+**Event Loop**
 
 Logs related to the event loop processing:
 
@@ -54445,7 +54733,7 @@ ERROR | strands.event_loop.error_handler | an exception occurred in event_loop_c
 DEBUG | strands.event_loop.error_handler | message_index=<5> | found message with tool results at index
 ```
 
-### Model Interactions
+**Model Interactions**
 
 Logs related to interactions with foundation models:
 
@@ -54486,7 +54774,7 @@ Future versions will include more detailed logging for tool operations and event
 ## Advanced Configuration
 
 (( tab "Python" ))
-### Filtering Specific Modules
+**Filtering Specific Modules**
 
 You can configure logging for specific modules within the SDK:
 
@@ -54500,7 +54788,7 @@ logging.getLogger("strands.tools.registry").setLevel(logging.DEBUG)
 logging.getLogger("strands.models").setLevel(logging.WARNING)
 ```
 
-### Custom Handlers
+**Custom Handlers**
 
 You can add custom handlers to process logs in different ways:
 
@@ -54528,7 +54816,7 @@ logging.getLogger("strands").addHandler(file_handler)
 (( /tab "Python" ))
 
 (( tab "TypeScript" ))
-### Custom Logger Implementation
+**Custom Logger Implementation**
 
 You can implement your own logger to integrate with your application’s logging system:
 
@@ -54688,7 +54976,7 @@ Key metrics include:
 -   **Accumulated metrics**: Latency measurements in milliseconds for all model requests
 -   **Execution traces**: Detailed trace information for performance analysis
 
-### Agent Invocations
+**Agent Invocations**
 
 The `agent_invocations` property is a list of [`AgentInvocation`](/docs/api/python/strands.telemetry.metrics#AgentInvocation) objects that track metrics for each agent invocation (request). Each `AgentInvocation` contains:
 
@@ -54738,7 +55026,7 @@ Key metrics include:
 -   **Accumulated usage**: Aggregated token counts (input, output, total, and cache metrics) across all agent invocations
 -   **Accumulated metrics**: Latency measurements in milliseconds for all model requests
 
-### Agent Invocations
+**Agent Invocations**
 
 The `agentInvocations` property is a list of `InvocationMetricsData` objects that track metrics for each agent invocation (request). Each invocation contains:
 

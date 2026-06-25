@@ -1,6 +1,6 @@
 A :class:`~strands.memory.types.MemoryStore` backed by Amazon Bedrock Knowledge Bases.
 
-Supports semantic search via `Retrieve` and document ingestion via `IngestKnowledgeBaseDocuments` for `CUSTOM` and `S3` data sources.
+Supports semantic search via `Retrieve` and document ingestion via `IngestKnowledgeBaseDocuments` for `CUSTOM` and `S3` data sources. Works with both managed and self-managed (vector) knowledge bases; the type is detected automatically via `GetKnowledgeBase` during :meth:`~BedrockKnowledgeBaseStore.initialize` and the query is shaped to match.
 
 ## BedrockKnowledgeBaseStore
 
@@ -8,11 +8,11 @@ Supports semantic search via `Retrieve` and document ingestion via `IngestKnowle
 class BedrockKnowledgeBaseStore(MemoryStore)
 ```
 
-Defined in: [src/strands/vended\_memory\_stores/bedrock\_knowledge\_base/store.py:65](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_memory_stores/bedrock_knowledge_base/store.py#L65)
+Defined in: [src/strands/vended\_memory\_stores/bedrock\_knowledge\_base/store.py:69](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_memory_stores/bedrock_knowledge_base/store.py#L69)
 
 A :class:`~strands.memory.types.MemoryStore` backed by Amazon Bedrock Knowledge Bases.
 
-Supports semantic search via `Retrieve` and document ingestion via `IngestKnowledgeBaseDocuments` for `CUSTOM` and `S3` data sources.
+Supports semantic search via `Retrieve` and document ingestion via `IngestKnowledgeBaseDocuments` for `CUSTOM` and `S3` data sources. Works with all knowledge base types (MANAGED, VECTOR, KENDRA, SQL); the type is detected via `GetKnowledgeBase` during :meth:`initialize` and determines whether `Retrieve` uses `managedSearchConfiguration` or `vectorSearchConfiguration`. Detection requires the `bedrock:GetKnowledgeBase` permission; a failure raises at agent construction (via `MemoryManager`) or on first `search()` standalone. To skip detection, provide `knowledge_base_type` in the config.
 
 **Example**:
 
@@ -40,7 +40,7 @@ result = await store.add("User prefers dark mode")
 def __init__(**store_config: Unpack[BedrockKnowledgeBaseStoreConfig]) -> None
 ```
 
-Defined in: [src/strands/vended\_memory\_stores/bedrock\_knowledge\_base/store.py:91](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_memory_stores/bedrock_knowledge_base/store.py#L91)
+Defined in: [src/strands/vended\_memory\_stores/bedrock\_knowledge\_base/store.py:100](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_memory_stores/bedrock_knowledge_base/store.py#L100)
 
 Initialize the store.
 
@@ -52,6 +52,18 @@ Initialize the store.
 
 -   `ValueError` - If `max_search_results` is less than 1, or (when `writable`) if the write configuration is invalid.
 
+#### initialize
+
+```python
+async def initialize() -> None
+```
+
+Defined in: [src/strands/vended\_memory\_stores/bedrock\_knowledge\_base/store.py:160](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_memory_stores/bedrock_knowledge_base/store.py#L160)
+
+Resolve the knowledge base type via `GetKnowledgeBase` and cache the result.
+
+Idempotent: no-op when the type is already known (either from config or a prior call). When the store is registered with a `MemoryManager`, this runs at agent construction so permission or connectivity issues surface early. Standalone callers get the same check on first `search()`.
+
 #### search
 
 ```python
@@ -59,7 +71,7 @@ async def search(query: str,
                  options: SearchOptions | None = None) -> list[MemoryEntry]
 ```
 
-Defined in: [src/strands/vended\_memory\_stores/bedrock\_knowledge\_base/store.py:145](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_memory_stores/bedrock_knowledge_base/store.py#L145)
+Defined in: [src/strands/vended\_memory\_stores/bedrock\_knowledge\_base/store.py:183](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_memory_stores/bedrock_knowledge_base/store.py#L183)
 
 Search the knowledge base for entries matching the query.
 
@@ -84,7 +96,7 @@ async def add(
         metadata: Metadata | None = None) -> BedrockKnowledgeBaseAddResult
 ```
 
-Defined in: [src/strands/vended\_memory\_stores/bedrock\_knowledge\_base/store.py:205](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_memory_stores/bedrock_knowledge_base/store.py#L205)
+Defined in: [src/strands/vended\_memory\_stores/bedrock\_knowledge\_base/store.py:246](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_memory_stores/bedrock_knowledge_base/store.py#L246)
 
 Ingest `content` (with optional `metadata`) into the knowledge base.
 

@@ -99,7 +99,7 @@ async def count_tokens(
         system_prompt_content: list[SystemContentBlock] | None = None) -> int
 ```
 
-Defined in: [src/strands/models/gemini.py:453](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/gemini.py#L453)
+Defined in: [src/strands/models/gemini.py:455](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/gemini.py#L455)
 
 Count tokens using Gemini’s native count\_tokens API.
 
@@ -126,7 +126,7 @@ async def stream(messages: Messages,
                  **kwargs: Any) -> AsyncGenerator[StreamEvent, None]
 ```
 
-Defined in: [src/strands/models/gemini.py:514](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/gemini.py#L514)
+Defined in: [src/strands/models/gemini.py:516](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/gemini.py#L516)
 
 Stream conversation with the Gemini model.
 
@@ -158,7 +158,7 @@ async def structured_output(
         **kwargs: Any) -> AsyncGenerator[dict[str, T | Any], None]
 ```
 
-Defined in: [src/strands/models/gemini.py:612](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/gemini.py#L612)
+Defined in: [src/strands/models/gemini.py:614](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/gemini.py#L614)
 
 Get structured output from the model using Gemini’s native structured output.
 

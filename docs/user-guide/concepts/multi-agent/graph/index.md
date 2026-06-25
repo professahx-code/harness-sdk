@@ -33,7 +33,7 @@ graph TD
 ## Graph Components
 
 (( tab "Python" ))
-### 1\. GraphNode
+**1\. GraphNode**
 
 A [`GraphNode`](/docs/api/python/strands.multiagent.graph#GraphNode) represents a node in the graph with:
 
@@ -44,7 +44,7 @@ A [`GraphNode`](/docs/api/python/strands.multiagent.graph#GraphNode) represents 
 -   **result**: The NodeResult after execution
 -   **execution\_time**: Time taken to execute the node in milliseconds
 
-### 2\. GraphEdge
+**2\. GraphEdge**
 
 A [`GraphEdge`](/docs/api/python/strands.multiagent.graph#GraphEdge) represents a connection between nodes with:
 
@@ -52,7 +52,7 @@ A [`GraphEdge`](/docs/api/python/strands.multiagent.graph#GraphEdge) represents 
 -   **to\_node**: Target node
 -   **condition**: Optional function that determines if the edge should be traversed
 
-### 3\. GraphBuilder
+**3\. GraphBuilder**
 
 The [`GraphBuilder`](/docs/api/python/strands.multiagent.graph#GraphBuilder) provides a simple interface for constructing graphs:
 
@@ -67,21 +67,21 @@ The [`GraphBuilder`](/docs/api/python/strands.multiagent.graph#GraphBuilder) pro
 (( /tab "Python" ))
 
 (( tab "TypeScript" ))
-### Nodes
+**Nodes**
 
 Nodes wrap agents or other orchestrators for execution within the graph. The SDK provides two built-in node types:
 
 -   **AgentNode**: Wraps an `AgentBase` instance. Created automatically when you pass an agent to the `nodes` array. Uses the agent’s `id` as the node identifier.
 -   **MultiAgentNode**: Wraps a `MultiAgentBase` instance (e.g. another `Graph` or `Swarm`). Created automatically when you pass an orchestrator to the `nodes` array. Uses the orchestrator’s `id` as the node identifier.
 
-### Edges
+**Edges**
 
 Edges define directed connections between nodes. They can be specified as simple tuples or with an optional handler for conditional traversal:
 
 -   **`[source, target]`**: Tuple of node IDs for unconditional edges
 -   **`{ source, target, handler }`**: Object with an optional `EdgeHandler` function for conditional traversal
 
-### Graph Constructor
+**Graph Constructor**
 
 The `Graph` constructor accepts:
 

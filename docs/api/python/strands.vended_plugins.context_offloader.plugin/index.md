@@ -28,13 +28,23 @@ agent = Agent(plugins=[
 ])
 ```
 
+## LineRange
+
+```python
+class LineRange(TypedDict)
+```
+
+Defined in: [src/strands/vended\_plugins/context\_offloader/plugin.py:56](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/plugin.py#L56)
+
+A span of lines to retrieve (1-indexed, inclusive).
+
 ## ContextOffloader
 
 ```python
 class ContextOffloader(Plugin)
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/plugin.py:62](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/plugin.py#L62)
+Defined in: [src/strands/vended\_plugins/context\_offloader/plugin.py:73](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/plugin.py#L73)
 
 Plugin that offloads oversized tool results to reduce context consumption.
 
@@ -80,7 +90,7 @@ def __init__(storage: Storage,
              include_retrieval_tool: bool = True) -> None
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/plugin.py:106](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/plugin.py#L106)
+Defined in: [src/strands/vended\_plugins/context\_offloader/plugin.py:117](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/plugin.py#L117)
 
 Initialize the ContextOffloader plugin.
 
@@ -101,7 +111,7 @@ Initialize the ContextOffloader plugin.
 def init_agent(agent: Agent) -> None
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/plugin.py:167](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/plugin.py#L167)
+Defined in: [src/strands/vended\_plugins/context\_offloader/plugin.py:178](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/plugin.py#L178)
 
 Conditionally register the retrieval tool and bind storage.
 
@@ -109,17 +119,42 @@ Conditionally register the retrieval tool and bind storage.
 
 ```python
 @tool(context=True)
-async def retrieve_offloaded_content(reference: str,
-                                     tool_context: ToolContext) -> dict | str
+async def retrieve_offloaded_content(
+        reference: str,
+        tool_context: ToolContext,
+        pattern: str | None = None,
+        line_range: LineRange | None = None,
+        context_lines: int | None = None) -> dict | str
 ```
 
-Defined in: [src/strands/vended\_plugins/context\_offloader/plugin.py:184](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/plugin.py#L184)
+Defined in: [src/strands/vended\_plugins/context\_offloader/plugin.py:195](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/vended_plugins/context_offloader/plugin.py#L195)
 
 Retrieve offloaded content by reference.
 
-Use this tool when you see a placeholder with a reference (ref: …) and need the full content. Only use this as a fallback if the data cannot be accessed using your existing tools.
+When a tool result was too large to keep in context, it was stored externally and replaced with a preview and a reference. Use this tool with that reference to access the stored content.
+
+**Returns**:
+
+-   With pattern: matching lines with line numbers and surrounding context
+-   With line\_range: the specified span of lines with line numbers
+-   Without pattern/line\_range: the full original content (use sparingly — re-injects all tokens)
+
+Constraints:
+
+-   pattern/line\_range/context\_lines only work on text content. For binary content, omit them.
+-   Line numbers in results are 1-indexed and can be used in follow-up line\_range calls.
+
+**Examples**:
+
+-   `\{"reference"` - “ref\_1”, “pattern”: “error”} -> lines containing “error” with 5 lines context
+-   `\{"reference"` - “ref\_1”, “pattern”: “error|warning”, “context\_lines”: 3} -> regex, 3 lines context
+-   `\{"reference"` - “ref\_1”, “line\_range”: {“start”: 10, “end”: 25}} -> lines 10-25
+-   `\{"reference"` - “ref\_1”, “pattern”: “TODO”, “line\_range”: {“start”: 1, “end”: 50}} -> search within range
 
 **Arguments**:
 
--   `reference` - The reference string from the offload placeholder.
+-   `reference` - The reference string from the offload placeholder (e.g. “mem\_1\_tool-123\_0”).
+-   `pattern` - Regex or keyword to grep for. Returns only matching lines with context — not the full content.
+-   `line_range` - Return only this span of lines. A dict with ‘start’ and ‘end’ keys (1-indexed). Combine with pattern to search within the range.
+-   `context_lines` - Lines before AND after each match (like grep -C). Default: 5. Without pattern/line\_range, returns first N lines.
 -   `tool_context` - Injected by the framework. Not user-facing.

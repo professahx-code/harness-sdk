@@ -91,7 +91,7 @@ Key metrics include:
 -   **Accumulated metrics**: Latency measurements in milliseconds for all model requests
 -   **Execution traces**: Detailed trace information for performance analysis
 
-### Agent Invocations
+**Agent Invocations**
 
 The `agent_invocations` property is a list of [`AgentInvocation`](/docs/api/python/strands.telemetry.metrics#AgentInvocation) objects that track metrics for each agent invocation (request). Each `AgentInvocation` contains:
 
@@ -141,7 +141,7 @@ Key metrics include:
 -   **Accumulated usage**: Aggregated token counts (input, output, total, and cache metrics) across all agent invocations
 -   **Accumulated metrics**: Latency measurements in milliseconds for all model requests
 
-### Agent Invocations
+**Agent Invocations**
 
 The `agentInvocations` property is a list of `InvocationMetricsData` objects that track metrics for each agent invocation (request). Each invocation contains:
 

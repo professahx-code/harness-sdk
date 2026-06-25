@@ -277,12 +277,24 @@ Ingest a batch of conversation messages, preserving role structure.
 
 The sink for extraction without a client-side extractor: the manager hands the filtered batch straight here. The resolved value is store-specific.
 
+#### initialize
+
+```python
+async def initialize() -> None
+```
+
+Defined in: [src/strands/memory/types.py:286](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/memory/types.py#L286)
+
+Perform async setup that must succeed before the agent runs.
+
+Called by the `MemoryManager` during `init_agent`. Stores that require remote resources (e.g. resolving a knowledge base type) implement this; the default is a no-op.
+
 #### get\_tools
 
 ```python
 def get_tools() -> list[AgentTool]
 ```
 
-Defined in: [src/strands/memory/types.py:286](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/memory/types.py#L286)
+Defined in: [src/strands/memory/types.py:294](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/memory/types.py#L294)
 
 Return store-specific tools to register alongside the manager’s tools.

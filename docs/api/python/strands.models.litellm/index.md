@@ -8,7 +8,7 @@ LiteLLM model provider.
 class LiteLLMModel(OpenAIModel)
 ```
 
-Defined in: [src/strands/models/litellm.py:36](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/litellm.py#L36)
+Defined in: [src/strands/models/litellm.py:37](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/litellm.py#L37)
 
 LiteLLM model provider implementation.
 
@@ -18,7 +18,7 @@ LiteLLM model provider implementation.
 class LiteLLMConfig(BaseModelConfig)
 ```
 
-Defined in: [src/strands/models/litellm.py:39](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/litellm.py#L39)
+Defined in: [src/strands/models/litellm.py:40](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/litellm.py#L40)
 
 Configuration options for LiteLLM models.
 
@@ -26,6 +26,7 @@ Configuration options for LiteLLM models.
 
 -   `model_id` - Model ID (e.g., “openai/gpt-4o”, “anthropic/claude-3-sonnet”). For a complete list of supported models, see [https://docs.litellm.ai/docs/providers](https://docs.litellm.ai/docs/providers).
 -   `params` - Model parameters (e.g., max\_tokens). For a complete list of supported parameters, see [https://docs.litellm.ai/docs/completion/input#input-params-1](https://docs.litellm.ai/docs/completion/input#input-params-1).
+-   `stream` - Whether to use streaming. Defaults to True.
 
 #### \_\_init\_\_
 
@@ -34,7 +35,7 @@ def __init__(client_args: dict[str, Any] | None = None,
              **model_config: Unpack[LiteLLMConfig]) -> None
 ```
 
-Defined in: [src/strands/models/litellm.py:53](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/litellm.py#L53)
+Defined in: [src/strands/models/litellm.py:56](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/litellm.py#L56)
 
 Initialize provider instance.
 
@@ -50,7 +51,7 @@ Initialize provider instance.
 def update_config(**model_config: Unpack[LiteLLMConfig]) -> None
 ```
 
-Defined in: [src/strands/models/litellm.py:70](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/litellm.py#L70)
+Defined in: [src/strands/models/litellm.py:73](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/litellm.py#L73)
 
 Update the LiteLLM model configuration with the provided arguments.
 
@@ -65,7 +66,7 @@ Update the LiteLLM model configuration with the provided arguments.
 def get_config() -> LiteLLMConfig
 ```
 
-Defined in: [src/strands/models/litellm.py:81](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/litellm.py#L81)
+Defined in: [src/strands/models/litellm.py:84](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/litellm.py#L84)
 
 Get the LiteLLM model configuration.
 
@@ -82,7 +83,7 @@ def format_request_message_content(cls, content: ContentBlock,
                                    **kwargs: Any) -> dict[str, Any]
 ```
 
-Defined in: [src/strands/models/litellm.py:91](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/litellm.py#L91)
+Defined in: [src/strands/models/litellm.py:94](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/litellm.py#L94)
 
 Format a LiteLLM content block.
 
@@ -108,7 +109,7 @@ def format_request_message_tool_call(cls, tool_use: ToolUse,
                                      **kwargs: Any) -> dict[str, Any]
 ```
 
-Defined in: [src/strands/models/litellm.py:124](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/litellm.py#L124)
+Defined in: [src/strands/models/litellm.py:127](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/litellm.py#L127)
 
 Format a LiteLLM compatible tool call, encoding thought signatures into the tool call ID.
 
@@ -137,7 +138,7 @@ def format_request_messages(cls,
                             **kwargs: Any) -> list[dict[str, Any]]
 ```
 
-Defined in: [src/strands/models/litellm.py:238](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/litellm.py#L238)
+Defined in: [src/strands/models/litellm.py:241](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/litellm.py#L241)
 
 Format a LiteLLM compatible messages array with cache point support.
 
@@ -159,7 +160,7 @@ A LiteLLM compatible messages array.
 def format_chunk(event: dict[str, Any], **kwargs: Any) -> StreamEvent
 ```
 
-Defined in: [src/strands/models/litellm.py:263](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/litellm.py#L263)
+Defined in: [src/strands/models/litellm.py:266](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/litellm.py#L266)
 
 Format a LiteLLM response event into a standardized message chunk.
 
@@ -194,7 +195,7 @@ async def stream(messages: Messages,
                  **kwargs: Any) -> AsyncGenerator[StreamEvent, None]
 ```
 
-Defined in: [src/strands/models/litellm.py:319](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/litellm.py#L319)
+Defined in: [src/strands/models/litellm.py:322](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/litellm.py#L322)
 
 Stream conversation with the LiteLLM model.
 

@@ -105,7 +105,7 @@ result = agent("What is 125 * 37?")
 
 When running this code with logging enabled, you’ll see logs from different components of the SDK as the agent processes the request, calls the calculator tool, and generates a response.
 
-### Tool Registry and Execution
+**Tool Registry and Execution**
 
 Logs related to tool discovery, registration, and execution:
 
@@ -134,7 +134,7 @@ DEBUG | strands.tools.registry | tool_name=<calculator> | reloading tool
 DEBUG | strands.tools.registry | tool_name=<calculator> | successfully reloaded tool
 ```
 
-### Event Loop
+**Event Loop**
 
 Logs related to the event loop processing:
 
@@ -143,7 +143,7 @@ ERROR | strands.event_loop.error_handler | an exception occurred in event_loop_c
 DEBUG | strands.event_loop.error_handler | message_index=<5> | found message with tool results at index
 ```
 
-### Model Interactions
+**Model Interactions**
 
 Logs related to interactions with foundation models:
 
@@ -184,7 +184,7 @@ Future versions will include more detailed logging for tool operations and event
 ## Advanced Configuration
 
 (( tab "Python" ))
-### Filtering Specific Modules
+**Filtering Specific Modules**
 
 You can configure logging for specific modules within the SDK:
 
@@ -198,7 +198,7 @@ logging.getLogger("strands.tools.registry").setLevel(logging.DEBUG)
 logging.getLogger("strands.models").setLevel(logging.WARNING)
 ```
 
-### Custom Handlers
+**Custom Handlers**
 
 You can add custom handlers to process logs in different ways:
 
@@ -226,7 +226,7 @@ logging.getLogger("strands").addHandler(file_handler)
 (( /tab "Python" ))
 
 (( tab "TypeScript" ))
-### Custom Logger Implementation
+**Custom Logger Implementation**
 
 You can implement your own logger to integrate with your application’s logging system:
 

@@ -2,6 +2,8 @@
 
 Connect the store to a knowledge base you have already set up. Configure your store with its knowledge base ID and data source (see [Data Source Types and Writability](#data-source-types-and-writability)). A store with only a knowledge base ID is read-only. The store reaches Bedrock with the standard AWS credential chain, the same as the [Amazon Bedrock model provider](/docs/user-guide/concepts/model-providers/amazon-bedrock/index.md).
 
+Both managed and vector knowledge bases are supported. The store detects which type it is connected to and shapes its Retrieve request to match, so the same configuration works for either (see [Required IAM Permissions](#required-iam-permissions) for the permission this detection needs). Managed knowledge bases can have ACL-aware data sources; see [Access control lists](#access-control-lists) to configure per-document access.
+
 (( tab "Python" ))
 ```python
 from strands import Agent
@@ -87,6 +89,7 @@ The outer `BedrockKnowledgeBaseStoreConfig` carries the per-store identity and b
 | `config` | The knowledge base connection (see below). Reuse one across stores that differ only by `scope`. |
 | `scope` | Logical namespace isolating documents. Applied as a metadata filter on search and stamped on writes. |
 | `filter` | Explicit retrieval filter; overrides the auto-generated scope filter on search. |
+| `access_control_list` `accessControlList`  | Document-level ACL entries stamped on every write. Required when the data source has ACL awareness enabled. See [Access control lists](#access-control-lists). |
 
 ### Connection config
 
@@ -95,6 +98,7 @@ The inner `BedrockKnowledgeBaseConfig` is the reusable connection: which knowled
 | Field | Purpose |
 | --- | --- |
 | `knowledge_base_id` `knowledgeBaseId`  | The Bedrock Knowledge Base to query and ingest into. Required. |
+| `knowledge_base_type` `knowledgeBaseType`  | The knowledge base type (`'MANAGED'`, `'VECTOR'`, `'KENDRA'`, or `'SQL'`). When provided, skips the `GetKnowledgeBase` call during initialization. When omitted, detected automatically. |
 | `data_source_type` `dataSourceType`  | `'CUSTOM'`, `'S3'`, or `'OTHER'`. Governs whether and how the store can be written to. |
 | `data_source_id` `dataSourceId`  | The data source to ingest into. Required for writes. |
 | `s3` | S3 ingestion settings (`bucket`, `prefix`). Required when the data source type is `'S3'`. |
@@ -302,6 +306,7 @@ To change the cadence, swap the extractor, or extract server-side, see [Automati
 The credentials the store uses must allow the Bedrock operations it calls, plus S3 writes when using an S3 data source:
 
 -   `bedrock:Retrieve` - for search.
+-   `bedrock:GetKnowledgeBase` - called once at initialization to detect the knowledge base type, then memoized. Not required if you provide `knowledge_base_type` `knowledgeBaseType`  in the config.
 -   `bedrock:IngestKnowledgeBaseDocuments` - for writes (`CUSTOM` and `S3`).
 -   `s3:PutObject` - for writes to an `S3` data source, on the configured bucket and prefix.
 
@@ -315,6 +320,7 @@ Here is a sample IAM policy for a writable store backed by a `CUSTOM` data sourc
             "Effect": "Allow",
             "Action": [
                 "bedrock:Retrieve",
+                "bedrock:GetKnowledgeBase",
                 "bedrock:IngestKnowledgeBaseDocuments"
             ],
             "Resource": "arn:aws:bedrock:*:*:knowledge-base/KB123"
@@ -332,6 +338,52 @@ For an `S3` data source, add `s3:PutObject` on the bucket and prefix the store u
     "Resource": "arn:aws:s3:::my-agent-memories/memories/*"
 }
 ```
+
+## Access Control Lists
+
+Managed knowledge base data sources can have [ACL awareness](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-acl.html) enabled, which requires every ingested document to carry an access control list specifying who can retrieve it. Set `access_control_list` `accessControlList`  on the store to supply entries for every write:
+
+(( tab "Python" ))
+```python
+from strands.vended_memory_stores import BedrockKnowledgeBaseStore
+
+store = BedrockKnowledgeBaseStore(
+    name="policies",
+    writable=True,
+    scope="hr",
+    access_control_list=[
+        {"access": "ALLOW", "name": "alice@example.com", "type": "USER"},
+    ],
+    config={
+        "knowledge_base_id": "KB123",
+        "data_source_type": "CUSTOM",
+        "data_source_id": "DS456",
+    },
+)
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+```typescript
+import { BedrockKnowledgeBaseStore } from '@strands-agents/sdk/vended-memory-stores/bedrock-knowledge-base'
+
+const store = new BedrockKnowledgeBaseStore({
+  name: 'policies',
+  writable: true,
+  scope: 'hr',
+  accessControlList: [{ access: 'ALLOW', name: 'alice@example.com', type: 'USER' }],
+  config: {
+    knowledgeBaseId: 'KB123',
+    dataSourceType: 'CUSTOM',
+    dataSourceId: 'DS456',
+  },
+})
+```
+(( /tab "TypeScript" ))
+
+Each entry specifies `access` (`'ALLOW'` or `'DENY'`), `name` (the user’s email), and `type` (`'USER'`). Deny overrides allow. The entries apply to both `CUSTOM` and `S3` writes. For the `CUSTOM` path, an inline ACL requires at least one metadata attribute (a `scope` satisfies this); if none is present the store raises with guidance.
+
+If the data source has ACL awareness enabled and no `access_control_list` `accessControlList`  is set, the store surfaces a clear error pointing at the field.
 
 ## Related
 

@@ -8,7 +8,7 @@ This module provides the MCPClient class which handles connections to MCP server
 class ToolFilters(TypedDict)
 ```
 
-Defined in: [src/strands/tools/mcp/mcp\_client.py:69](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L69)
+Defined in: [src/strands/tools/mcp/mcp\_client.py:70](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L70)
 
 Filters for controlling which MCP tools are loaded and available.
 
@@ -23,7 +23,7 @@ Tools are filtered in this order:
 class MCPClient(ToolProvider)
 ```
 
-Defined in: [src/strands/tools/mcp/mcp\_client.py:104](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L104)
+Defined in: [src/strands/tools/mcp/mcp\_client.py:105](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L105)
 
 Represents a connection to a Model Context Protocol (MCP) server.
 
@@ -40,10 +40,11 @@ def __init__(transport_callable: Callable[[], MCPTransport],
              tool_filters: ToolFilters | None = None,
              prefix: str | None = None,
              elicitation_callback: ElicitationFnT | None = None,
+             progress_callback: ProgressFnT | None = None,
              tasks_config: TasksConfig | None = None) -> None
 ```
 
-Defined in: [src/strands/tools/mcp/mcp\_client.py:116](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L116)
+Defined in: [src/strands/tools/mcp/mcp\_client.py:117](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L117)
 
 Initialize a new MCP Server connection.
 
@@ -54,6 +55,7 @@ Initialize a new MCP Server connection.
 -   `tool_filters` - Optional filters to apply to tools.
 -   `prefix` - Optional prefix for tool names.
 -   `elicitation_callback` - Optional callback function to handle elicitation requests from the MCP server.
+-   `progress_callback` - Optional callback to receive progress notifications during tool execution. Called with `(progress, total, message)` as the server reports progress. The `total` and `message` parameters may be `None` if the server does not provide them.
 -   `tasks_config` - Configuration for MCP task-augmented execution for long-running tools. If provided (not None), enables task-augmented execution for tools that support it. See TasksConfig for details. This feature is experimental and subject to change.
 
 #### \_\_enter\_\_
@@ -62,7 +64,7 @@ Initialize a new MCP Server connection.
 def __enter__() -> "MCPClient"
 ```
 
-Defined in: [src/strands/tools/mcp/mcp\_client.py:173](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L173)
+Defined in: [src/strands/tools/mcp/mcp\_client.py:179](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L179)
 
 Context manager entry point which initializes the MCP server connection.
 
@@ -76,7 +78,7 @@ def __exit__(exc_type: type[BaseException] | None,
              exc_tb: TracebackType | None) -> None
 ```
 
-Defined in: [src/strands/tools/mcp/mcp\_client.py:181](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L181)
+Defined in: [src/strands/tools/mcp/mcp\_client.py:187](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L187)
 
 Context manager exit point that cleans up resources.
 
@@ -86,7 +88,7 @@ Context manager exit point that cleans up resources.
 def start() -> "MCPClient"
 ```
 
-Defined in: [src/strands/tools/mcp/mcp\_client.py:190](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L190)
+Defined in: [src/strands/tools/mcp/mcp\_client.py:196](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L196)
 
 Starts the background thread and waits for initialization.
 
@@ -106,7 +108,7 @@ This method starts the background thread that manages the MCP connection and blo
 async def load_tools(**kwargs: Any) -> Sequence[AgentTool]
 ```
 
-Defined in: [src/strands/tools/mcp/mcp\_client.py:232](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L232)
+Defined in: [src/strands/tools/mcp/mcp\_client.py:238](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L238)
 
 Load and return tools from the MCP server.
 
@@ -126,7 +128,7 @@ List of AgentTool instances from the MCP server.
 def add_consumer(consumer_id: Any, **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/tools/mcp/mcp\_client.py:294](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L294)
+Defined in: [src/strands/tools/mcp/mcp\_client.py:300](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L300)
 
 Add a consumer to this tool provider.
 
@@ -138,7 +140,7 @@ Synchronous to prevent GC deadlocks when called from Agent finalizers.
 def remove_consumer(consumer_id: Any, **kwargs: Any) -> None
 ```
 
-Defined in: [src/strands/tools/mcp/mcp\_client.py:302](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L302)
+Defined in: [src/strands/tools/mcp/mcp\_client.py:308](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L308)
 
 Remove a consumer from this tool provider.
 
@@ -153,7 +155,7 @@ def stop(exc_type: type[BaseException] | None, exc_val: BaseException | None,
          exc_tb: TracebackType | None) -> None
 ```
 
-Defined in: [src/strands/tools/mcp/mcp\_client.py:326](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L326)
+Defined in: [src/strands/tools/mcp/mcp\_client.py:332](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L332)
 
 Signals the background thread to stop and waits for it to complete, ensuring proper cleanup of all resources.
 
@@ -190,7 +192,7 @@ def list_tools_sync(
 ) -> PaginatedList[MCPAgentTool]
 ```
 
-Defined in: [src/strands/tools/mcp/mcp\_client.py:404](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L404)
+Defined in: [src/strands/tools/mcp/mcp\_client.py:410](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L410)
 
 Synchronously retrieves the list of available tools from the MCP server.
 
@@ -213,7 +215,7 @@ def list_prompts_sync(
         pagination_token: str | None = None) -> ListPromptsResult
 ```
 
-Defined in: [src/strands/tools/mcp/mcp\_client.py:462](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L462)
+Defined in: [src/strands/tools/mcp/mcp\_client.py:468](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L468)
 
 Synchronously retrieves the list of available prompts from the MCP server.
 
@@ -233,7 +235,7 @@ This method calls the asynchronous list\_prompts method on the MCP session and r
 def get_prompt_sync(prompt_id: str, args: dict[str, Any]) -> GetPromptResult
 ```
 
-Defined in: [src/strands/tools/mcp/mcp\_client.py:488](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L488)
+Defined in: [src/strands/tools/mcp/mcp\_client.py:494](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L494)
 
 Synchronously retrieves a prompt from the MCP server.
 
@@ -253,7 +255,7 @@ def list_resources_sync(
         pagination_token: str | None = None) -> ListResourcesResult
 ```
 
-Defined in: [src/strands/tools/mcp/mcp\_client.py:510](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L510)
+Defined in: [src/strands/tools/mcp/mcp\_client.py:516](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L516)
 
 Synchronously retrieves the list of available resources from the MCP server.
 
@@ -273,7 +275,7 @@ This method calls the asynchronous list\_resources method on the MCP session and
 def read_resource_sync(uri: AnyUrl | str) -> ReadResourceResult
 ```
 
-Defined in: [src/strands/tools/mcp/mcp\_client.py:534](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L534)
+Defined in: [src/strands/tools/mcp/mcp\_client.py:540](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L540)
 
 Synchronously reads a resource from the MCP server.
 
@@ -292,7 +294,7 @@ def list_resource_templates_sync(
         pagination_token: str | None = None) -> ListResourceTemplatesResult
 ```
 
-Defined in: [src/strands/tools/mcp/mcp\_client.py:557](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L557)
+Defined in: [src/strands/tools/mcp/mcp\_client.py:563](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L563)
 
 Synchronously retrieves the list of available resource templates from the MCP server.
 
@@ -309,14 +311,16 @@ Resource templates define URI patterns that can be used to access resources dyna
 #### call\_tool\_sync
 
 ```python
-def call_tool_sync(tool_use_id: str,
-                   name: str,
-                   arguments: dict[str, Any] | None = None,
-                   read_timeout_seconds: timedelta | None = None,
-                   meta: dict[str, Any] | None = None) -> MCPToolResult
+def call_tool_sync(
+        tool_use_id: str,
+        name: str,
+        arguments: dict[str, Any] | None = None,
+        read_timeout_seconds: timedelta | None = None,
+        meta: dict[str, Any] | None = None,
+        progress_callback: ProgressFnT | None = None) -> MCPToolResult
 ```
 
-Defined in: [src/strands/tools/mcp/mcp\_client.py:630](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L630)
+Defined in: [src/strands/tools/mcp/mcp\_client.py:645](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L645)
 
 Synchronously calls a tool on the MCP server.
 
@@ -329,6 +333,7 @@ This method automatically uses task-augmented execution when appropriate, based 
 -   `arguments` - Optional arguments to pass to the tool
 -   `read_timeout_seconds` - Optional timeout for the tool call
 -   `meta` - Optional metadata to pass to the tool call per MCP spec (\_meta)
+-   `progress_callback` - Optional callback to receive progress notifications for this call. Overrides the instance-level callback set at construction time.
 
 **Returns**:
 
@@ -337,14 +342,16 @@ This method automatically uses task-augmented execution when appropriate, based 
 #### call\_tool\_async
 
 ```python
-async def call_tool_async(tool_use_id: str,
-                          name: str,
-                          arguments: dict[str, Any] | None = None,
-                          read_timeout_seconds: timedelta | None = None,
-                          meta: dict[str, Any] | None = None) -> MCPToolResult
+async def call_tool_async(
+        tool_use_id: str,
+        name: str,
+        arguments: dict[str, Any] | None = None,
+        read_timeout_seconds: timedelta | None = None,
+        meta: dict[str, Any] | None = None,
+        progress_callback: ProgressFnT | None = None) -> MCPToolResult
 ```
 
-Defined in: [src/strands/tools/mcp/mcp\_client.py:665](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L665)
+Defined in: [src/strands/tools/mcp/mcp\_client.py:685](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L685)
 
 Asynchronously calls a tool on the MCP server.
 
@@ -357,6 +364,7 @@ This method automatically uses task-augmented execution when appropriate, based 
 -   `arguments` - Optional arguments to pass to the tool
 -   `read_timeout_seconds` - Optional timeout for the tool call
 -   `meta` - Optional metadata to pass to the tool call per MCP spec (\_meta)
+-   `progress_callback` - Optional callback to receive progress notifications for this call. Overrides the instance-level callback set at construction time.
 
 **Returns**:
 
@@ -370,7 +378,7 @@ def map_mcp_content_to_tool_result_content(
 ) -> ToolResultContent | None
 ```
 
-Defined in: [src/strands/tools/mcp/mcp\_client.py:867](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L867)
+Defined in: [src/strands/tools/mcp/mcp\_client.py:892](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py#L892)
 
 Maps MCP content types to tool result content types.
 

@@ -175,7 +175,7 @@ async def structured_output(
         **kwargs: Any) -> AsyncGenerator[dict[str, T | Any], None]
 ```
 
-Defined in: [src/strands/models/ollama.py:348](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/ollama.py#L348)
+Defined in: [src/strands/models/ollama.py:350](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/ollama.py#L350)
 
 Get structured output from the model.
 

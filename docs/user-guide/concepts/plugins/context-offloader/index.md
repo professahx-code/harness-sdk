@@ -275,21 +275,27 @@ const agent = new Agent({
 
 The plugin includes a `retrieve_offloaded_content` tool that lets the agent fetch offloaded content by reference, returning it in its native format — text as a string, JSON as a JSON block, images as image blocks, and documents as document blocks. This tool is registered by default.
 
-(( tab "Python" ))
-The inline guidance in offloaded results tells the agent to use its available tools to selectively access the data it needs, and mentions `retrieve_offloaded_content` as a fallback.
-(( /tab "Python" ))
-
-(( tab "TypeScript" ))
-In the TypeScript SDK, the retrieval tool supports targeted retrieval through optional parameters, so the agent can search and filter offloaded content without loading it entirely back into context.
+The retrieval tool supports targeted retrieval through optional parameters, so the agent can search and filter offloaded content without loading it entirely back into context.
 
 **Parameters:**
 
+(( tab "Python" ))
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `reference` | `str` | *(required)* Storage reference from the offloaded result |
+| `pattern` | `str` | Regex or keyword to grep for |
+| `line_range` | `dict` with `start` and `end` keys | 1-indexed inclusive line span to retrieve |
+| `context_lines` | `int` | Lines of context around pattern matches (default: 5) |
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
 | Parameter | Type | Description |
 | --- | --- | --- |
 | `reference` | `string` | *(required)* Storage reference from the offloaded result |
 | `pattern` | `string` | Regex or keyword to grep for |
 | `line_range` | `{ start: number; end: number }` | 1-indexed inclusive line span to retrieve |
 | `context_lines` | `number` | Lines of context around pattern matches (default: 5) |
+(( /tab "TypeScript" ))
 
 **Retrieval modes:**
 
@@ -300,47 +306,19 @@ In the TypeScript SDK, the retrieval tool supports targeted retrieval through op
 -   **Full retrieval** — Omit all optional parameters to retrieve everything (discouraged for large content)
 
 Results include line numbers to enable follow-up queries. Large result sets are truncated with guidance to narrow the search. Binary content cannot be searched — pattern and line range parameters return an error for binary references.
-(( /tab "TypeScript" ))
 
 ### Retrieval examples
 
-(( tab "Python" ))
 **1\. Tool result gets offloaded (replaces original result inline)**
 
 ```plaintext
 [Offloaded: 1 blocks, ~10,000 tokens]
 Tool result was offloaded to external storage due to size.
-Use the preview below to answer if possible.
-Use retrieve_offloaded_content to fetch the full content by reference.
-
-{"users":[{"id":1,"name":"Alice","role":"admin"},{"id":2,"name":"Bob","role":"user"},{"id":3,"name":"Charlie","rol
-
-[Stored references:]
-  mem_1_tool-123_0 (json, 42,000 bytes)
-```
-
-**2\. Agent retrieves full content**
-
-Input: `{ reference: "mem_1_tool-123_0" }`
-
-The tool returns the full offloaded content in its native format.
-
-```plaintext
-{"users":[{"id":1,"name":"Alice","role":"admin"},{"id":2,"name":"Bob","role":"user"},{"id":3,"name":"Charlie","role":"user"}, ...]}
-```
-(( /tab "Python" ))
-
-(( tab "TypeScript" ))
-**1\. Tool result gets offloaded (replaces original result inline)**
-
-```plaintext
-[Offloaded: 1 blocks, ~10,000 tokens]
-Tool result was offloaded to external storage due to size.
-Use the preview below to answer if possible.
-Use retrieve_offloaded_content with a reference and either:
+Use the preview below if it answers your question.
+If you need more detail, use retrieve_offloaded_content with a reference and:
   - pattern: regex or keyword to find matching lines with context
   - line_range: { start, end } to read a specific span of lines
-Only retrieve the full content (omit pattern/line_range) as a last resort.
+Retrieve full content (omit pattern/line_range) as a last resort.
 
 {"users":[{"id":1,"name":"Alice","role":"admin"},{"id":2,"name":"Bob","role":"user"},{"id":3,"name":"Charlie","rol
 
@@ -366,7 +344,26 @@ Input: `{ reference: "mem_1_tool-123_0", pattern: "admin", context_lines: 2 }`
   50|     { "id": 17, "name": "Frank", "role": "user" }
   51|   ]
 ```
-(( /tab "TypeScript" ))
+
+**3\. Agent retrieves a line range**
+
+Input: `{ reference: "mem_1_tool-123_0", line_range: { start: 45, end: 55 } }`
+
+```plaintext
+[Lines 45-55 of 120]
+
+  45|     { "id": 14, "name": "Carol", "role": "user" },
+  46|     { "id": 15, "name": "Dana", "role": "user" },
+  47|     { "id": 16, "name": "Eve", "role": "admin" },
+  48|     { "id": 17, "name": "Frank", "role": "user" },
+  49|     { "id": 18, "name": "Grace", "role": "user" },
+  50|     { "id": 19, "name": "Hank", "role": "member" },
+  51|     { "id": 20, "name": "Ivy", "role": "user" },
+  52|     { "id": 21, "name": "Jack", "role": "user" },
+  53|     { "id": 22, "name": "Kate", "role": "user" },
+  54|     { "id": 23, "name": "Leo", "role": "user" },
+  55|     { "id": 24, "name": "Mia", "role": "user" },
+```
 
 ### Using other tools for retrieval
 

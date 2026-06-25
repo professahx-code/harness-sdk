@@ -8,7 +8,7 @@ AWS Bedrock model provider.
 class BedrockModel(Model)
 ```
 
-Defined in: [src/strands/models/bedrock.py:72](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/bedrock.py#L72)
+Defined in: [src/strands/models/bedrock.py:78](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/bedrock.py#L78)
 
 AWS Bedrock model provider implementation.
 
@@ -26,7 +26,7 @@ The implementation handles Bedrock-specific features such as:
 class BedrockConfig(BaseModelConfig)
 ```
 
-Defined in: [src/strands/models/bedrock.py:84](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/bedrock.py#L84)
+Defined in: [src/strands/models/bedrock.py:90](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/bedrock.py#L90)
 
 Configuration options for Bedrock models.
 
@@ -70,7 +70,7 @@ def __init__(*,
              **model_config: Unpack[BedrockConfig])
 ```
 
-Defined in: [src/strands/models/bedrock.py:152](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/bedrock.py#L152)
+Defined in: [src/strands/models/bedrock.py:158](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/bedrock.py#L158)
 
 Initialize provider instance.
 
@@ -89,7 +89,7 @@ Initialize provider instance.
 def update_config(**model_config: Unpack[BedrockConfig]) -> None
 ```
 
-Defined in: [src/strands/models/bedrock.py:219](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/bedrock.py#L219)
+Defined in: [src/strands/models/bedrock.py:225](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/bedrock.py#L225)
 
 Update the Bedrock Model configuration with the provided arguments.
 
@@ -104,13 +104,40 @@ Update the Bedrock Model configuration with the provided arguments.
 def get_config() -> BedrockConfig
 ```
 
-Defined in: [src/strands/models/bedrock.py:229](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/bedrock.py#L229)
+Defined in: [src/strands/models/bedrock.py:235](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/bedrock.py#L235)
 
 Get the current Bedrock Model configuration.
 
 **Returns**:
 
 The Bedrock model configuration.
+
+#### format\_request
+
+```python
+def format_request(messages: Messages,
+                   tool_specs: list[ToolSpec] | None = None,
+                   system_prompt_content: list[SystemContentBlock]
+                   | None = None,
+                   tool_choice: ToolChoice | None = None,
+                   **kwargs: Any) -> dict[str, Any]
+```
+
+Defined in: [src/strands/models/bedrock.py:243](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/bedrock.py#L243)
+
+Format a Bedrock converse stream request.
+
+**Arguments**:
+
+-   `messages` - List of message objects to be processed by the model.
+-   `tool_specs` - List of tool specifications to make available to the model.
+-   `tool_choice` - Selection strategy for tool invocation.
+-   `system_prompt_content` - System prompt content blocks to provide context to the model.
+-   `**kwargs` - Additional keyword arguments for future extensibility.
+
+**Returns**:
+
+A Bedrock converse stream request.
 
 #### count\_tokens
 
@@ -123,7 +150,7 @@ async def count_tokens(
         system_prompt_content: list[SystemContentBlock] | None = None) -> int
 ```
 
-Defined in: [src/strands/models/bedrock.py:800](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/bedrock.py#L800)
+Defined in: [src/strands/models/bedrock.py:809](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/bedrock.py#L809)
 
 Count tokens using Bedrock’s native CountTokens API.
 
@@ -153,7 +180,7 @@ async def stream(messages: Messages,
                  **kwargs: Any) -> AsyncGenerator[StreamEvent, None]
 ```
 
-Defined in: [src/strands/models/bedrock.py:882](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/bedrock.py#L882)
+Defined in: [src/strands/models/bedrock.py:891](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/bedrock.py#L891)
 
 Stream conversation with the Bedrock model.
 
@@ -177,6 +204,26 @@ Model events.
 -   `ContextWindowOverflowException` - If the input exceeds the model’s context window.
 -   `ModelThrottledException` - If the model service is throttling requests.
 
+#### convert\_non\_streaming\_to\_streaming
+
+```python
+def convert_non_streaming_to_streaming(response: dict[str, Any],
+                                       **kwargs: Any) -> Iterable[StreamEvent]
+```
+
+Defined in: [src/strands/models/bedrock.py:1055](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/bedrock.py#L1055)
+
+Convert a non-streaming response to the streaming format.
+
+**Arguments**:
+
+-   `response` - The non-streaming response from the Bedrock model.
+-   `**kwargs` - Additional keyword arguments for future extensibility.
+
+**Returns**:
+
+An iterable of response events in the streaming format.
+
 #### structured\_output
 
 ```python
@@ -188,7 +235,7 @@ async def structured_output(
         **kwargs: Any) -> AsyncGenerator[dict[str, T | Any], None]
 ```
 
-Defined in: [src/strands/models/bedrock.py:1168](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/bedrock.py#L1168)
+Defined in: [src/strands/models/bedrock.py:1181](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/models/bedrock.py#L1181)
 
 Get structured output from the model.
 

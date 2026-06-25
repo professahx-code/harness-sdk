@@ -6,7 +6,7 @@ Cross-session memory retrieval and storage for agents.
 class MemoryManager(Plugin)
 ```
 
-Defined in: [src/strands/memory/memory\_manager.py:69](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/memory/memory_manager.py#L69)
+Defined in: [src/strands/memory/memory\_manager.py:72](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/memory/memory_manager.py#L72)
 
 Provides cross-session memory retrieval and storage for agents.
 
@@ -32,7 +32,7 @@ def __init__(stores: list[MemoryStore],
              injection: MemoryInjectionConfig | bool = True) -> None
 ```
 
-Defined in: [src/strands/memory/memory\_manager.py:87](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/memory/memory_manager.py#L87)
+Defined in: [src/strands/memory/memory\_manager.py:90](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/memory/memory_manager.py#L90)
 
 Initialize the memory manager.
 
@@ -54,7 +54,7 @@ Initialize the memory manager.
 def tools() -> list[AgentTool]
 ```
 
-Defined in: [src/strands/memory/memory\_manager.py:256](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/memory/memory_manager.py#L256)
+Defined in: [src/strands/memory/memory\_manager.py:259](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/memory/memory_manager.py#L259)
 
 Tools registered by this plugin: search/add plus any store-provided tools.
 
@@ -68,7 +68,7 @@ async def search(
         options: MemorySearchOptions | None = None) -> list[MemoryEntry]
 ```
 
-Defined in: [src/strands/memory/memory\_manager.py:265](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/memory/memory_manager.py#L265)
+Defined in: [src/strands/memory/memory\_manager.py:296](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/memory/memory_manager.py#L296)
 
 Search stores for entries matching the query.
 
@@ -81,14 +81,23 @@ Unscoped: searches all configured stores when `options.stores` is omitted. Resul
 #### add
 
 ```python
-async def add(content: str, options: MemoryAddOptions | None = None) -> None
+async def add(content: str,
+              options: MemoryAddOptions | None = None,
+              *,
+              _detached: bool = False) -> None
 ```
 
-Defined in: [src/strands/memory/memory\_manager.py:329](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/memory/memory_manager.py#L329)
+Defined in: [src/strands/memory/memory\_manager.py:364](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/memory/memory_manager.py#L364)
 
 Add content to writable stores.
 
 Unscoped: targets all configured writable stores. Target stores are validated first, then writes are awaited concurrently; per-store failures are logged and surfaced as an :class:`~strands.types.exceptions.AggregateMemoryError`.
+
+**Arguments**:
+
+-   `content` - The content to write.
+-   `options` - Optional add options (target stores, metadata).
+-   `_detached` - Internal. When the write runs detached from the call that scheduled it (the fire-and-forget add tool path), start the span as a trace root rather than parenting to a possibly-ended span.
 
 **Raises**:
 
@@ -98,15 +107,16 @@ Unscoped: targets all configured writable stores. Target stores are validated fi
 #### init\_agent
 
 ```python
-def init_agent(agent: Agent) -> None
+async def init_agent(agent: Agent) -> None
 ```
 
-Defined in: [src/strands/memory/memory\_manager.py:539](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/memory/memory_manager.py#L539)
+Defined in: [src/strands/memory/memory\_manager.py:585](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/memory/memory_manager.py#L585)
 
 Initialize the plugin with the agent.
 
-Wires up two independent behaviors:
+Wires up three behaviors:
 
+-   **Store initialization**: calls each store’s `initialize()` (if present) so stores can resolve remote resources or validate configuration eagerly. A failure here aborts agent construction with a clear error.
 -   **Extraction**: for any store configured with an `ExtractionConfig`, buffers conversation messages and attaches each store’s triggers. A no-op when no store uses extraction. Extraction runs in the background; the synchronous `Agent(...)` entry point awaits :meth:`flush` after each invocation so writes persist, and callers driving the agent through their own event loop should await :meth:`flush` at a shutdown boundary.
 -   **Injection**: when enabled, registers an `InvokeModelStage` middleware that folds retrieved memory into the model input for each call without touching durable history. A no-op when injection is disabled.
 
@@ -116,7 +126,7 @@ Wires up two independent behaviors:
 async def flush() -> None
 ```
 
-Defined in: [src/strands/memory/memory\_manager.py:690](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/memory/memory_manager.py#L690)
+Defined in: [src/strands/memory/memory\_manager.py:767](https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/memory/memory_manager.py#L767)
 
 Save every store’s remaining messages and wait for all saves to finish.
 

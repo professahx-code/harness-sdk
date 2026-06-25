@@ -2,7 +2,7 @@
 type MiddlewareNextOf<S> = S extends MiddlewareStage<infer C, infer R, infer E> ? MiddlewareNext<C, R, E> : never;
 ```
 
-Defined in: [src/middleware/types.ts:103](https://github.com/strands-agents/harness-sdk/blob/ef0ed3b3df5c6383d9c6082895aa87e52b2adc1a/strands-ts/src/middleware/types.ts#L103)
+Defined in: [src/middleware/types.ts:103](https://github.com/strands-agents/harness-sdk/blob/d9b9061486aa20414699f47b5b1caddccb3e0dff/strands-ts/src/middleware/types.ts#L103)
 
 Extracts the `MiddlewareNext` type from a stage token. Use this to type the `next` parameter in standalone middleware methods.
 

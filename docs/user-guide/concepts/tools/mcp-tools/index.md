@@ -591,6 +591,57 @@ await agent.invoke("Delete 'a/b/c.txt' and share the name of the approver")
 
 For more information on elicitation, see the [MCP specification](https://modelcontextprotocol.io/specification/draft/client/elicitation).
 
+### Progress Notifications
+
+MCP servers can report incremental progress during long-running tool calls. Configure a `progress_callback` on the client to receive these updates:
+
+(( tab "Python" ))
+```python
+from mcp import stdio_client, StdioServerParameters
+from strands import Agent
+from strands.tools.mcp import MCPClient
+
+async def progress_callback(progress, total, message):
+    pct = f"{progress}/{total}" if total is not None else str(progress)
+    label = f" — {message}" if message else ""
+    print(f"Progress: {pct}{label}")
+
+client = MCPClient(
+    lambda: stdio_client(
+        StdioServerParameters(command="python", args=["/path/to/server.py"])
+    ),
+    progress_callback=progress_callback,
+)
+
+with client:
+    agent = Agent(tools=client.list_tools_sync())
+    agent("Run the long-running task")
+```
+
+The callback receives three arguments:
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| `progress` | `float` | Current progress value reported by the server |
+| `total` | `float | None` | Total value (may be `None` if the server doesn’t report it) |
+| `message` | `str | None` | Optional human-readable status message from the server |
+
+You can also pass a `progress_callback` directly to `call_tool_sync` or `call_tool_async` to override the instance-level callback for a single call:
+
+```python
+result = client.call_tool_sync(
+    tool_use_id="tool-123",
+    name="long_running_tool",
+    arguments={"input": "data"},
+    progress_callback=my_one_off_callback,
+)
+```
+(( /tab "Python" ))
+
+(( tab "TypeScript" ))
+Progress notifications are not yet supported in the TypeScript SDK.
+(( /tab "TypeScript" ))
+
 ## Best Practices
 
 -   **Tool Descriptions**: Provide clear descriptions for tools to help the agent understand when and how to use them

@@ -1,4 +1,4 @@
-Defined in: [src/plugins/plugin.ts:51](https://github.com/strands-agents/harness-sdk/blob/ef0ed3b3df5c6383d9c6082895aa87e52b2adc1a/strands-ts/src/plugins/plugin.ts#L51)
+Defined in: [src/plugins/plugin.ts:51](https://github.com/strands-agents/harness-sdk/blob/d9b9061486aa20414699f47b5b1caddccb3e0dff/strands-ts/src/plugins/plugin.ts#L51)
 
 Interface for objects that extend agent functionality.
 
@@ -25,6 +25,8 @@ const agent = new Agent({
 })
 ```
 
+**With tools**
+
 ```typescript
 class MyToolPlugin implements Plugin {
   get name(): string {
@@ -45,7 +47,7 @@ class MyToolPlugin implements Plugin {
 readonly name: string;
 ```
 
-Defined in: [src/plugins/plugin.ts:58](https://github.com/strands-agents/harness-sdk/blob/ef0ed3b3df5c6383d9c6082895aa87e52b2adc1a/strands-ts/src/plugins/plugin.ts#L58)
+Defined in: [src/plugins/plugin.ts:58](https://github.com/strands-agents/harness-sdk/blob/d9b9061486aa20414699f47b5b1caddccb3e0dff/strands-ts/src/plugins/plugin.ts#L58)
 
 A stable string identifier for the plugin. Used for logging, duplicate detection, and plugin management.
 
@@ -59,7 +61,7 @@ For strands-vended plugins, names should be prefixed with `strands:`.
 initAgent(agent): void | Promise<void>;
 ```
 
-Defined in: [src/plugins/plugin.ts:68](https://github.com/strands-agents/harness-sdk/blob/ef0ed3b3df5c6383d9c6082895aa87e52b2adc1a/strands-ts/src/plugins/plugin.ts#L68)
+Defined in: [src/plugins/plugin.ts:68](https://github.com/strands-agents/harness-sdk/blob/d9b9061486aa20414699f47b5b1caddccb3e0dff/strands-ts/src/plugins/plugin.ts#L68)
 
 Initialize the plugin with the agent instance.
 
@@ -83,7 +85,7 @@ Implement this method to register hooks and perform custom initialization. Tool 
 optional getTools(): Tool[];
 ```
 
-Defined in: [src/plugins/plugin.ts:76](https://github.com/strands-agents/harness-sdk/blob/ef0ed3b3df5c6383d9c6082895aa87e52b2adc1a/strands-ts/src/plugins/plugin.ts#L76)
+Defined in: [src/plugins/plugin.ts:76](https://github.com/strands-agents/harness-sdk/blob/d9b9061486aa20414699f47b5b1caddccb3e0dff/strands-ts/src/plugins/plugin.ts#L76)
 
 Returns tools provided by this plugin for auto-registration. Implement to provide plugin-specific tools.
 

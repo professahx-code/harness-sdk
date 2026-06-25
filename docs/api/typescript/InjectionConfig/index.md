@@ -1,4 +1,4 @@
-Defined in: [src/injection/types.ts:35](https://github.com/strands-agents/harness-sdk/blob/ef0ed3b3df5c6383d9c6082895aa87e52b2adc1a/strands-ts/src/injection/types.ts#L35)
+Defined in: [src/injection/types.ts:35](https://github.com/strands-agents/harness-sdk/blob/d9b9061486aa20414699f47b5b1caddccb3e0dff/strands-ts/src/injection/types.ts#L35)
 
 Configuration common to every injection consumer: when to inject. What text to inject is a consumer concern, added by the interfaces that extend this one (e.g. [MemoryInjectionConfig](/docs/api/typescript/MemoryInjectionConfig/index.md)).
 
@@ -16,7 +16,7 @@ optional trigger?:
   | ((context) => boolean);
 ```
 
-Defined in: [src/injection/types.ts:43](https://github.com/strands-agents/harness-sdk/blob/ef0ed3b3df5c6383d9c6082895aa87e52b2adc1a/strands-ts/src/injection/types.ts#L43)
+Defined in: [src/injection/types.ts:43](https://github.com/strands-agents/harness-sdk/blob/d9b9061486aa20414699f47b5b1caddccb3e0dff/strands-ts/src/injection/types.ts#L43)
 
 When injection runs. An [InjectionTrigger](/docs/api/typescript/InjectionTrigger/index.md) name selects a built-in policy; a predicate is the escape hatch — it receives the [InjectionContext](/docs/api/typescript/InjectionContext/index.md) and returns whether to inject this call. A predicate that throws fails open (injection is skipped, the model call proceeds).
 
